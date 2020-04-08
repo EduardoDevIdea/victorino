@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Sobre;
 
 class SobreController extends Controller
 {
@@ -13,7 +14,20 @@ class SobreController extends Controller
      */
     public function index()
     {
-        return view('sobre.index');
+        $sobre = Sobre::all()->first(); //Consulta todos os registros da tabela e retorna apenas um
+
+        //dd($sobre);
+
+        /* 
+         * Se nao retornar nenhum registro, retorna para view que permite inserir novo registro
+         * Senao, retorna para view com registro encontrado e permissao para edita-lo
+        */
+        if(blank($sobre)){
+            return view('sobre.index');
+        }
+        else{ 
+            return view('sobre.edit', compact('sobre'));
+        }
     }
 
     /**
@@ -34,7 +48,16 @@ class SobreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sobre = new Sobre;
+
+        $sobre->filosofia = $request->filosofia;
+        $sobre->funcionamento = $request->funcionamento;
+        $sobre->img = $request->img;
+        $sobre->legenda = $request->legenda;
+
+        $sobre->save();
+
+        return view('home');
     }
 
     /**
@@ -68,7 +91,16 @@ class SobreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sobre = Sobre::find($id);
+
+        $sobre->filosofia = $request->filosofia;
+        $sobre->funcionamento = $request->funcionamento;
+        $sobre->img = $request->img;
+        $sobre->legenda = $request->legenda;
+
+        $sobre->save();
+
+        return view('home');
     }
 
     /**
