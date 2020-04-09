@@ -12,9 +12,9 @@
 */
 
 //Acesso ao site
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //Acesso ao painel administrativo atraves do /admin
 Route::get('/admin', function () {
@@ -29,3 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/sobre', 'SobreController', ['except' => ['destroy']]);
 
 //--------------------------------------------------------------------------------------------
+// Rotas do Site
+Route::get('/' , function() {
+    return view('Site.SiteSPA');
+});
