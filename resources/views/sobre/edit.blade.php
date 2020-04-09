@@ -2,23 +2,25 @@
 
 @section('content')
 
-<form action="{{ route('sobre.update', ['sobre' => $sobre->id]) }}" method="POST"> 
+    <h1>Sobre nós</h1><br>
+
+    <form action="{{ route('sobre.update', ['sobre' => $sobre->id]) }}" method="POST"> 
         @csrf
         @method('PUT')
 
-        <input type="hidden" name="id" value="{{ old('sobre', $sobre->id) }}">
+        <input type="hidden" name="id" value="{{ $sobre->id }}" required>
 
         <p>
-            Filosofia<br><textarea name="filosofia" cols="80" rows="5">{{ $sobre->filosofia }}</textarea>
+            <strong>Filosofia</strong><br><textarea name="filosofia" cols="80" rows="5">{{ $sobre->filosofia }}</textarea>
         </p>
         <p>
-            Funcionamento<br><textarea name="funcionamento" cols="80" rows="5">{{ $sobre->funcionamento }}</textarea>
+            <strong>Funcionamento</strong><br><textarea name="funcionamento" cols="80" rows="5">{{ $sobre->funcionamento }}</textarea>
         </p>
         <p>
-            Imagem<br><input type="file" name="img" value="Escolher Imagem">
+            <strong>Imagem</strong><br><input type="file" name="img" value="Escolher Imagem">
         </p>
         <p>    
-            Legenda da imagem<br><input type="text" name="legenda" value="{{ $sobre->legenda }}">
+            <strong>Legenda da imagem</strong><br><input type="text" name="legenda" value="{{ $sobre->legenda }}">
         </p>
 
         <p><input type="submit" value="Atualizar"></p>

@@ -25,7 +25,12 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Rotas Sobre
+//-----SOBRE
 Route::resource('/sobre', 'SobreController', ['except' => ['destroy']]);
+
+//--------------------------------------------------------------------------------------------
+
+//-----ESPECIALIDADES
+Route::resource('/especialidade', 'EspecialidadeController', ['except' => ['destroy']]);
 
 //--------------------------------------------------------------------------------------------

@@ -2,23 +2,25 @@
 
 @section('content')
 
-<form action="{{ route('sobre.store') }}" method="POST"> 
-        @csrf  
-        <p>
-           Filosofia<br><textarea name="filosofia"  cols="80" rows="5"></textarea>
-        </p>
-        <p>
-           <strong>Funcionamento</strong><br><textarea name="funcionamento" cols="80" rows="5"></textarea>
-        </p>
-        <p>
-           Imagem<br><input type="file" name="img" value="Escolher Imagem">
-        </p>
-        <p>    
-            Legenda da imagem<br><input type="text" name="legenda" value="">
-        </p>
+   <h1>Sobre nós</h1><br><br>
 
-        <p><input type="submit" value="Inserir"></p>
+   <form action="{{ route('sobre.store') }}" method="POST"> 
+      @csrf  
+      <p>
+         Filosofia<br><textarea name="filosofia"  cols="80" rows="5"></textarea>
+      </p>
+      <p>
+         Funcionamento><br><textarea name="funcionamento" cols="80" rows="5"></textarea>
+      </p>
+      <p>
+         Imagem<br><input type="file" name="img" value="Escolher Imagem">
+      </p>
+      <p>    
+         Legenda da imagem<br><input type="text" name="legenda" value="">
+      </p>
 
-    </form>
+      <p><input type="submit" value="Inserir"></p>
+
+   </form>
 
 @endsection

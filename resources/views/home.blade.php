@@ -646,7 +646,7 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{ route('especialidade.index') }}">
                             <i class="fas fa-check"></i>
                             <span>Especialidades</span>
                             </a>
