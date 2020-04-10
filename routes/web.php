@@ -12,9 +12,9 @@
 */
 
 //Acesso ao site
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //Acesso ao painel administrativo atraves do /admin
 Route::get('/admin', function () {
@@ -37,3 +37,7 @@ Route::resource('/especialidade', 'EspecialidadeController', ['except' => ['dest
 Route::get('/especialidade/{especialidade}/delete', 'EspecialidadeController@destroy')->name('especialidade.destroy');
 
 //--------------------------------------------------------------------------------------------
+// Rotas do Site
+Route::get('/' , function() {
+    return view('Site.SiteSPA');
+});
