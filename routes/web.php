@@ -33,4 +33,7 @@ Route::resource('/sobre', 'SobreController', ['except' => ['destroy']]);
 //-----ESPECIALIDADES
 Route::resource('/especialidade', 'EspecialidadeController', ['except' => ['destroy']]);
 
+// Exlcuir
+Route::get('/especialidade/{especialidade}/delete', 'EspecialidadeController@destroy')->name('especialidade.destroy');
+
 //--------------------------------------------------------------------------------------------

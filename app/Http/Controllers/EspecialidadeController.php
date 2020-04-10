@@ -117,6 +117,13 @@ class EspecialidadeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $especialidade = Especialidade::find($id);
+
+        $especialidade->delete();
+
+        /*
+         * Retorna para metodo index do controlador que vai buscar registtros e exibir numa view
+        */
+        return redirect()->action('EspecialidadeController@index');
     }
 }

@@ -14,7 +14,7 @@
             <strong>Descrição da especialidade</strong> <br><textarea name="description" cols="70" rows="10"></textarea>
        </p>
 
-        <input type="submit" value="Cadastrar">
+        <input type="submit" value="Cadastrar" class="btn btn-success">
     
     </form>
 

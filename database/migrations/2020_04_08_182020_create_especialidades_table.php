@@ -18,7 +18,6 @@ class CreateEspecialidadesTable extends Migration
             $table->timestamps();
             $table->string('nome');
             $table->text('description')->nullable();
-            $table->string('img')->nullable();
         });
     }
 

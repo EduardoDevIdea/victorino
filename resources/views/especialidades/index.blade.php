@@ -26,12 +26,12 @@
 
                     <td>
                         <a href="{{ route('especialidade.edit', ['especialidade' => $especialidade->id]) }}">
-                            <i class="fas fa-edit" style="color: black"></i>
+                            <i class="fas fa-edit" style="color: black"></i> <!-- icone -->
                         </a>
                     </td>
                     <td>    
-                        <a href="">
-                            <i class="fas fa-times" style="color: red"></i>
+                        <a href="{{ route('especialidade.destroy', ['especialidade' => $especialidade->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');">
+                            <i class="fas fa-times" style="color: red"></i> <!-- icone -->
                         </a>
                     </td>
                 </tr>
