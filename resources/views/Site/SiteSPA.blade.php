@@ -1,23 +1,20 @@
 @include('Site.Banner.BannerHome')
 @extends('layouts.base')
 @section('content')
+
 <style>
-  .paralax {
-    background-image: url('/images/image.png');
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 500px;
-  }
+    .content-site {
+       
+    }
 </style>
-<div class="container">
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit facilis provident adipisci vero consequuntur deserunt cumque minima laudantium? In adipisci tempore, consequuntur eligendi maxime quaerat iure laboriosam possimus mollitia sunt.</p>
-    <div class="paralax" >
-        {{-- <img src="{{asset('images/foto2.jpg')}}" alt=""> --}}
+
+<div class="content-site">
+    <div class="container">
+      @include('Site.sobre.sobre')
     </div>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus amet fuga ad, officia in facere vel ea. Ipsum, voluptatem labore. Cupiditate voluptate maiores id distinctio reprehenderit doloremque earum, provident autem!</p>
 </div>
-   
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{{asset('js/parallax.min.js')}}"></script>
 
 @endsection
