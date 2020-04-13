@@ -4,7 +4,9 @@
 
     <h1>Especialidades</h1><br>
 
-    <a href="{{ route('especialidade.create') }}"><button class="btn btn-primary">Cadastrar Especialidade</button></a>
+    <a href="{{ route('especialidade.create') }}">
+        <button class="btn btn-primary">Cadastrar Especialidade</button>
+    </a>
     <br><br>
 
     <table class="table w-50">
@@ -31,7 +33,7 @@
                     </td>
                     <td>    
                         <a href="{{ route('especialidade.destroy', ['especialidade' => $especialidade->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');">
-                            <i class="fas fa-times" style="color: red"></i> <!-- icone -->
+                            <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
                         </a>
                     </td>
                 </tr>

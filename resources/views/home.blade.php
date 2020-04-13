@@ -572,7 +572,9 @@
             <div class="sidebar-content">
 
                 <div class="sidebar-brand">
-                    <a href="#">pro sidebar</a>
+                    <a href="{{ url('/') }}">
+                        <i class="fas fa-eye" style="font-size: 30px"></i>
+                    </a>
                     <div id="close-sidebar">
                     <i class="fas fa-times"></i>
                     </div>
@@ -653,7 +655,7 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{ route('profissional.index') }}">
                             <i class="fas fa-user"></i>
                             <span>Profissionais</span>
                             </a>

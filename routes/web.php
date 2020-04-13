@@ -11,21 +11,23 @@
 |
 */
 
-//Acesso ao site
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+//-----SEGURANÇA
+Auth::routes();
+//--------------------------------------------------------------------------------------------
 
-//Acesso ao painel administrativo atraves do /admin
+//-----PAINEL ADMINISTRATIVO
+
+//Login
 Route::get('/admin', function () {
     return view('auth.login');
 });
 
-Auth::routes();
-
+// Painel
 Route::get('/home', 'HomeController@index')->name('home');
 
-//-----SOBRE
+//--------------------------------------------------------------------------------------------
+
+//---SOBRE
 Route::resource('/sobre', 'SobreController', ['except' => ['destroy']]);
 
 //--------------------------------------------------------------------------------------------
@@ -33,11 +35,23 @@ Route::resource('/sobre', 'SobreController', ['except' => ['destroy']]);
 //-----ESPECIALIDADES
 Route::resource('/especialidade', 'EspecialidadeController', ['except' => ['destroy']]);
 
-// Exlcuir
+// Exlcuir Especialidade
 Route::get('/especialidade/{especialidade}/delete', 'EspecialidadeController@destroy')->name('especialidade.destroy');
 
 //--------------------------------------------------------------------------------------------
-// Rotas do Site
+
+//-----PROFISSIONAIS
+Route::resource('/profissional', 'ProfissionalController', ['except' => ['destroy']]);
+
+// Excluir Profissional
+Route::get('/profissional/{profissional}/delete', 'ProfissionalController@destroy')->name('profissional.destroy');
+
+//--------------------------------------------------------------------------------------------
+
+//-----ROTAS DO SITE
 Route::get('/' , function() {
     return view('Site.SiteSPA');
 });
+
+//--------------------------------------------------------------------------------------------
+
