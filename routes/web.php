@@ -49,9 +49,7 @@ Route::get('/profissional/{profissional}/delete', 'ProfissionalController@destro
 //--------------------------------------------------------------------------------------------
 
 //-----ROTAS DO SITE
-Route::get('/' , function() {
-    return view('Site.SiteSPA');
-});
+Route::get('/' , 'SiteController@index');
 
 //--------------------------------------------------------------------------------------------
 
