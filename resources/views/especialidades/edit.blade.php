@@ -9,7 +9,7 @@
         @method('PUT')
         <input type="hidden" name="id" value="{{ $especialidade->id }}">
        <p>
-            <strong>Nome da especialidade</strong> <br> <input type="text" name="nome" value="{{ $especialidade->nome }}">
+            <strong>Nome da especialidade</strong> <br> <input type="text" name="nome" value="{{ $especialidade->nome }}" class="form-control">
        </p>
        <p>
             <strong>Descrição da especialidade</strong> <br><textarea name="description" cols="70" rows="10">{{$especialidade->description}}</textarea>

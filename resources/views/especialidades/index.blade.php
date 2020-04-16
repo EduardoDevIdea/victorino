@@ -2,6 +2,18 @@
 
 @section('content')
 
+    @if(session('store'))
+        <script>
+            window.alert("{{ session('store') }}");
+        </script>
+    @endif
+
+    @if(session('update'))
+        <script>
+            window.alert("{{ session('update') }}");
+        </script>
+    @endif
+
     <h1>Especialidades</h1><br>
 
     <a href="{{ route('especialidade.create') }}">

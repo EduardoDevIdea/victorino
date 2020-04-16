@@ -2,6 +2,12 @@
 
 @section('content')
 
+    @if(session('update'))
+      <script>
+         window.alert("{{ session('update') }}");
+      </script>
+    @endif      
+
     <h1>Sobre nós</h1><br>
 
     <form action="{{ route('sobre.update', ['sobre' => $sobre->id]) }}" method="POST"> 
@@ -14,7 +20,7 @@
             <strong>Filosofia</strong><br><textarea name="filosofia" cols="80" rows="5">{{ $sobre->filosofia }}</textarea>
         </p>
         <p>
-            <strong>Funcionamento</strong><br><textarea name="funcionamento" cols="80" rows="5">{{ $sobre->funcionamento }}</textarea>
+            <strong>Funcionamento</strong><br><textarea name="funcionamento" cols="80" rows="5" class="rounded">{{ $sobre->funcionamento }}</textarea>
         </p>
         <p>
             <strong>Imagem</strong><br><input type="file" name="img" value="Escolher Imagem">

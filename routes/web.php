@@ -48,6 +48,11 @@ Route::get('/profissional/{profissional}/delete', 'ProfissionalController@destro
 
 //--------------------------------------------------------------------------------------------
 
+//-----CONTACTS
+Route::resource('/contact', 'ContactController');
+
+//--------------------------------------------------------------------------------------------
+
 //-----ROTAS DO SITE
 Route::get('/' , function() {
     return view('Site.SiteSPA');

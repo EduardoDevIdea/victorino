@@ -676,7 +676,7 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{ route('contact.index') }}">
                             <i class="fas fa-hand-point-right"></i>
                             <span>Contato, Endereço...</span>
                             </a>
