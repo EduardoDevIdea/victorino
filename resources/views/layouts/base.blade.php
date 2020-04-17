@@ -14,6 +14,8 @@
     <script src="https://kit.fontawesome.com/385c7d7d19.js" crossorigin="anonymous"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{asset('js/owl.carousel.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
   
     
 </head>
@@ -70,7 +72,18 @@
     }
     #sobre {
         height: 100%;
-        background-color: #000B15;
+        background: linear-gradient(1turn, #173E62,#002B53, #000B15);
+        /* background-color: #000B15; */
+        padding: 120px;
+    }
+    #especialidade {
+        height: 100%;
+        background: linear-gradient(1turn, #FFFFFF,#A2B1C0, #173E62);
+        padding: 120px;
+    }
+    #espaço {
+        height: 100%;
+        background: #002B53;
         padding: 120px;
     }
     .text_info {
@@ -112,6 +125,24 @@
     .row {
         height: 60%;
     }
+    .especialidades {
+        width: 100%;
+        background-color: white;
+    }
+   
+    .photo {
+        float: left;
+        width: 50%;
+        padding: 30px;
+    }
+   
+    .link_info {
+        color: #002B53;
+        font-size: 12pt;
+        font-weight: bolder;
+
+    }
+  
     @media screen and (max-width: 983px) {
         .texts {
             width: 100%;
@@ -144,7 +175,8 @@
            width: 100%;
            height: 50%;
        }
-   } 
+   }
+  
 </style>
 <body>
     <div class="banner">
@@ -245,7 +277,6 @@
         <section id="sobre">
 
             <div class="container">
-    
                 <div>
                     <div class="row">
                         <div class="texts">
@@ -260,7 +291,6 @@
                                 <p class="description">{{$about[0]->funcionamento}}</p>
                             </div>
                         </div>
-                
                         <div class="photo">
                             <div class="space_photo image_owner">
                                 <img src="{{asset('images/owner2.jpg')}}" alt="" width="100%" height="100%">
@@ -269,14 +299,94 @@
                         </div>
                     </div>
                 </div>
-    
             </div>
-
         </section>
+
         <div class="hero1 paralax"></div>
-        
+
+        <section id="especialidade">
+
+            <div class="container">
+                <div>
+                    <div class="row">
+                        <div class="texts">
+                           <img src="{{asset('images/logo-removebg-preview.png')}}" alt="">
+                        </div>
+                        <div class="photo">
+                            <h4 style="color: black; font-weight: bold; text-align: center;">Especialidades</h4>
+                            <div class="card">
+                                @foreach ($specialty as $especialidade)
+                                <ul class="list-group list-group-flush">
+                                  <li class="list-group-item" style="padding:10px">
+                                    <p>
+                                        <a class="link_info" data-toggle="collapse" href="#description-{{$especialidade->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                            {{$especialidade->nome}}
+                                        </a>
+                                    </p>
+                                      <div class="collapse" id="description-{{$especialidade->id}}">
+                                        <div class="card card-body">
+                                          {{$especialidade->description}}
+                                        </div>
+                                      </div>
+                                  </li>
+                                </ul>
+                                @endforeach
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="espaço">
+
+            <div class="container">
+                <div>
+                    <h2 style="text-align:center; color: #FFFFFF">Espaço</h2>
+                    <div class="row">
+                        <h1 style="color: white">Slide com as imagens da clinica</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div class="hero2 paralax"></div>
+
+        <section id="espaço">
+
+            <div class="container">
+                <div>
+                    <h2 style="text-align:center; color: #FFFFFF">Profissionais</h2>
+                    <div class="row">
+                        <h1 style="color: white">Card Flip com informações dos Profissionais médicos</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
         <div class="hero3 paralax"></div>
+
+        <section id="espaço">
+
+            <div class="container">
+                <div>
+                    <h2 style="text-align:center; color: #FFFFFF">Contatos</h2>
+                    <div class="row">
+                        <h1 style="color: white">formas de contato e localização da clinica</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="espaço">
+
+            <div class="container">
+                <div>
+                    <h2 style="text-align:center; color: #FFFFFF">footer</h2>
+                    <div class="row">
+                        footer
+                    </div>
+                </div>
+            </div>
+        </section>
 
   </div>
 
