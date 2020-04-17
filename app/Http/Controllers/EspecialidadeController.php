@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Especialidade;
+use Illuminate\Support\Facades\Session;
 
 class EspecialidadeController extends Controller
 {
@@ -58,7 +59,7 @@ class EspecialidadeController extends Controller
          * O metodo index do controlador vai buscar todos os registros e retornar para a view index
          * que vai listar todos eles.
         */
-        return redirect()->action('EspecialidadeController@index');
+        return redirect()->route('especialidade.index')->with('store', 'Especialidade cadastrada com sucesso!');
     }
 
     /**
@@ -102,11 +103,11 @@ class EspecialidadeController extends Controller
         $especialidade->save();
 
         /*
-         * Depois de editar registro
-         * retorna para metodo index do controlador
-         * que se encarrega de buscar todos os registros e chamar view que vai lista-los
+         * Depois de atualizar registro, redireciona para rota especialidade.index com session de nome update e mensagem
+         * O metodo index do controlador vai buscar todos os registros e retornar para a view index
+         * que vai listar todos eles.
         */
-        return redirect()->action('EspecialidadeController@index');
+        return redirect()->route('especialidade.index')->with('update', 'Especialidade atualizada com sucesso!');
     }
 
     /**

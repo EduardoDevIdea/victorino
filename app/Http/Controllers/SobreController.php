@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Sobre;
+use Illuminate\Support\Facades\Session;
 
 class SobreController extends Controller
 {
@@ -57,7 +58,12 @@ class SobreController extends Controller
 
         $sobre->save();
 
-        return view('home');
+        /*
+        * Apos salvar novo registro, redireciona para rota que chama metodo index do controller
+        * Com session de nome store e mensagem  
+        * O metodo index busca os registros e retorna view com o primeiro, possibilitando edita-lo
+        */
+        return redirect()->route('sobre.index')->with('store', 'Dados atualizados com sucesso!');
     }
 
     /**
@@ -100,7 +106,12 @@ class SobreController extends Controller
 
         $sobre->save();
 
-        return view('home');
+        /*
+        * Apos atualizar registro, redireciona para rota que chama metodo index do controller
+        * Com session de nome stupdate e mensagem  
+        * O metodo index busca os registros e retorna view com o primeiro, possibilitando edita-lo
+        */
+        return redirect()->route('sobre.index')->with('update', 'Dados atualizados com sucesso!');
     }
 
     /**

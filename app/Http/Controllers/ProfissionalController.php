@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Profissional;
+use Illuminate\Support\Facades\Session;
 
 class ProfissionalController extends Controller
 {
@@ -49,10 +50,11 @@ class ProfissionalController extends Controller
         $profissional->save();
 
         /*
-         * Apos cadastrar profissional, redireciona para metodo index do controlador
-         * que consulta todos os registros e retorna uma view que listando todos
+         * Apos cadastrar profissional, redireciona para url que chama metodo index do controlador
+         * que consulta todos os registros e retorna uma view listando todos
+         * exibe mensagem flash da session de nome store
         */
-        return redirect()->action('ProfissionalController@index');
+        return redirect()->route('profissional.index')->with('store', 'Profissional cadastrado com sucesso!');
     }
 
     /**
@@ -100,10 +102,11 @@ class ProfissionalController extends Controller
         $profissional->save();
 
         /*
-         * Redireciona para metodo index que vai buscar todos os registros
-         * e exibir uma view que vai lista-los
+         * Apos atualizar profissional, redireciona para url que chama metodo index do controlador
+         * que consulta todos os registros e retorna uma view listando todos
+         * exibe mensagem flash da session de nome store
         */
-        return redirect()->action('ProfissionalController@index');
+        return redirect()->route('profissional.index')->with('update', 'Registro atualizado com sucesso!');
     }
 
     /**
