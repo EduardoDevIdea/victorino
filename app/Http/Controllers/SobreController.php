@@ -53,6 +53,7 @@ class SobreController extends Controller
 
         $sobre->filosofia = $request->filosofia;
         $sobre->funcionamento = $request->funcionamento;
+        dd($request->file('img'));
         $sobre->img = $request->img;
         $sobre->legenda = $request->legenda;
 
@@ -101,7 +102,10 @@ class SobreController extends Controller
 
         $sobre->filosofia = $request->filosofia;
         $sobre->funcionamento = $request->funcionamento;
-        $sobre->img = $request->img;
+        $photo = $request->file('img')->getClientOriginalName();
+        if ($request->file('img')->isValid()) {
+            $sobre->img = $request->file('img')->move('images/', $photo);
+        }
         $sobre->legenda = $request->legenda;
 
         $sobre->save();

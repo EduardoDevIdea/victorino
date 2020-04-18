@@ -10,7 +10,7 @@
 
    <h1>Sobre nós</h1><br><br>
 
-   <form action="{{ route('sobre.store') }}" method="POST"> 
+   <form action="{{ route('sobre.store') }}" method="POST" enctype="multipart/form-data"> 
       @csrf  
       <p>
          Filosofia<br><textarea name="filosofia"  cols="80" rows="5"></textarea>
@@ -19,7 +19,7 @@
          Funcionamento><br><textarea name="funcionamento" cols="80" rows="5"></textarea>
       </p>
       <p>
-         Imagem<br><input type="file" name="img" value="Escolher Imagem">
+         Imagem<br><input type="file" id="img" name="img" value="Escolher Imagem">
       </p>
       <p>    
          Legenda da imagem<br><input type="text" name="legenda" value="">

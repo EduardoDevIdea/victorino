@@ -293,7 +293,7 @@
                         </div>
                         <div class="photo">
                             <div class="space_photo image_owner">
-                                <img src="{{asset('images/owner2.jpg')}}" alt="" width="100%" height="100%">
+                                <img src="{{asset($about[0]->img)}}" alt="" width="100%" height="100%">
                                 <p style="text-align: center; color: white">{{$about[0]->legenda}}</p>
                             </div>
                         </div>
