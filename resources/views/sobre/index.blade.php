@@ -6,17 +6,23 @@
         <script>
             window.alert("{{ session('store') }}");
         </script>
-   @endif 
+   @endif
+
+   @if(session('erroImg'))
+        <script>
+            window.alert("{{ session('erroImg') }}");
+        </script>
+   @endif  
 
    <h1>Sobre nós</h1><br><br>
 
-   <form action="{{ route('sobre.store') }}" method="POST"> 
+   <form action="{{ route('sobre.store') }}" method="POST" enctype="multipart/form-data"> 
       @csrf  
       <p>
          Filosofia<br><textarea name="filosofia"  cols="80" rows="5"></textarea>
       </p>
       <p>
-         Funcionamento><br><textarea name="funcionamento" cols="80" rows="5"></textarea>
+         Funcionamento<br><textarea name="funcionamento" cols="80" rows="5"></textarea>
       </p>
       <p>
          Imagem<br><input type="file" name="img" value="Escolher Imagem">

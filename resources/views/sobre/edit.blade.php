@@ -23,6 +23,7 @@
             <strong>Funcionamento</strong><br><textarea name="funcionamento" cols="80" rows="5" class="rounded">{{ $sobre->funcionamento }}</textarea>
         </p>
         <p>
+            <img src="{{ env('APP_URL') }}/storage/{{ $sobre->img }}" alt="">
             <strong>Imagem</strong><br><input type="file" name="img" value="Escolher Imagem">
         </p>
         <p>    

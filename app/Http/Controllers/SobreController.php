@@ -49,21 +49,31 @@ class SobreController extends Controller
      */
     public function store(Request $request)
     {
-        $sobre = new Sobre;
+        if($request->hasFile('img') && $request->img->isValid()){ // verificacao se arquivo esta presente e se nao ouve problema ao faze upload
 
-        $sobre->filosofia = $request->filosofia;
-        $sobre->funcionamento = $request->funcionamento;
-        $sobre->img = $request->img;
-        $sobre->legenda = $request->legenda;
+            $imgPath = $request->img->store('sobre'); //salva imagem no caminho padrao, dentro da pasta nova pasta 'sobre' e cria nome ficticio para imagem
+                                                      // Atribui caminho onde imagem foi salva na variavel $imgPath
 
-        $sobre->save();
+            $sobre = new Sobre;
 
-        /*
-        * Apos salvar novo registro, redireciona para rota que chama metodo index do controller
-        * Com session de nome store e mensagem  
-        * O metodo index busca os registros e retorna view com o primeiro, possibilitando edita-lo
-        */
-        return redirect()->route('sobre.index')->with('store', 'Dados atualizados com sucesso!');
+            $sobre->img = $imgPath; // atriubui caminho onde a imagem esta salva no objeto $sobre->img
+
+            $sobre->filosofia = $request->filosofia;
+            $sobre->funcionamento = $request->funcionamento;
+            $sobre->legenda = $request->legenda;
+
+            $sobre->save();
+
+            /*
+            * Apos salvar fazer verificação de imagem e salvar novo registro, redireciona para rota que
+            * chama metodo index do controller com session de nome store e mensagem
+            * O metodo index busca os registros e retorna view com o primeiro, possibilitando edita-lo
+            */
+            return redirect()->route('sobre.index')->with('update', 'Dados inseridos com sucesso!');
+        }
+        else{
+            return redirect()->back()->with('erroImg', 'Erro!!!. Por favor, verifique se a imagem é válida.');
+        }
     }
 
     /**
