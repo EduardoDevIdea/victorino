@@ -10,7 +10,7 @@
 
     <h1>Sobre nós</h1><br>
 
-    <form action="{{ route('sobre.update', ['sobre' => $sobre->id]) }}" method="POST"> 
+    <form action="{{ route('sobre.update', ['sobre' => $sobre->id]) }}" method="POST" enctype="multipart/form-data"> 
         @csrf
         @method('PUT')
 
@@ -23,7 +23,7 @@
             <strong>Funcionamento</strong><br><textarea name="funcionamento" cols="80" rows="5" class="rounded">{{ $sobre->funcionamento }}</textarea>
         </p>
         <p>
-            <img src="{{ env('APP_URL') }}/storage/{{ $sobre->img }}" alt="">
+            <img src="{{asset($sobre->img) }}" alt="" >
             <strong>Imagem</strong><br><input type="file" name="img" value="Escolher Imagem">
         </p>
         <p>    

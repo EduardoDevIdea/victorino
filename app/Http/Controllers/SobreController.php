@@ -111,7 +111,10 @@ class SobreController extends Controller
 
         $sobre->filosofia = $request->filosofia;
         $sobre->funcionamento = $request->funcionamento;
-        $sobre->img = $request->img;
+        $photo = $request->file('img')->getClientOriginalName();
+        if ($request->file('img')->isValid()) {
+            $sobre->img = $request->file('img')->move('storage/app/public/images/', $photo);
+        }
         $sobre->legenda = $request->legenda;
 
         $sobre->save();
