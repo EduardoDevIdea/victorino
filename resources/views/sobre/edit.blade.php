@@ -1,10 +1,20 @@
 @extends('home')
 
 @section('content')
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     @if(session('update'))
       <script>
-         window.alert("{{ session('update') }}");
+         Swal.fire({
+            icon: 'success',
+            title: 'Imagem salva com sucesso',
+            showConfirmButton: false,
+            timer: 1500,
+            timerProgressBar: true,
+            onBeforeOpen: () => {
+                Swal.showLoading()
+            }
+        })
+   
       </script>
     @endif      
 
@@ -22,6 +32,9 @@
         <p>
             <strong>Funcionamento</strong><br><textarea name="funcionamento" cols="80" rows="5" class="rounded">{{ $sobre->funcionamento }}</textarea>
         </p>
+        <div>
+            <img src="{{asset($sobre->img)}}" alt="" width="100%" height="auto">
+        </div>
         <p>
             <strong>Imagem</strong><br><input type="file" name="img" id="img" value="Escolher Imagem">
         </p>
@@ -32,5 +45,6 @@
         <p><input type="submit" value="Atualizar"></p>
 
     </form>
+   
 
 @endsection
