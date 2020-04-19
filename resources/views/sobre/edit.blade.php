@@ -36,7 +36,12 @@
             <img src="{{asset($sobre->img)}}" alt="" width="100%" height="auto">
         </div>
         <p>
+<<<<<<< HEAD
             <strong>Imagem</strong><br><input type="file" name="img" id="img" value="Escolher Imagem">
+=======
+            <img src="{{asset($sobre->img) }}" alt="" >
+            <strong>Imagem</strong><br><input type="file" name="img" value="Escolher Imagem">
+>>>>>>> 7d5cdde5e4d707f2774479e6aef972d8f6be3476
         </p>
         <p>    
             <strong>Legenda da imagem</strong><br><input type="text" name="legenda" value="{{ $sobre->legenda }}">
