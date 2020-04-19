@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/385c7d7d19.js" crossorigin="anonymous"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="{{asset('js/owl.carousel.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('css/owl.theme.default.css')}}">
     <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
   
     
@@ -86,6 +86,11 @@
         background: #002B53;
         padding: 120px;
     }
+    #Profissionais {
+        height: 100%;
+        background: #000B15;
+        padding: 120px;
+    }
     .text_info {
         color: #B06F1A;
         text-justify: left;
@@ -142,7 +147,78 @@
         font-weight: bolder;
 
     }
-  
+    .carrousel {
+        display: inline-flex;
+        overflow-x: scroll;
+        width: 100%;
+        border-radius: 10px;
+    }
+    .carrousel::-webkit-scrollbar { width:5px; background:#e3e0d6; } 
+    .carrousel::-webkit-scrollbar-track { background: #002B53; }
+    .carrousel::-webkit-scrollbar-thumb { border-radius:10px; background:#B06F1A; width: 10px; } 
+
+    .carrousel-image {
+        background-color: #002B53;
+        padding: 30px;
+        height: auto;
+    }
+    .carroulsel-item-image {
+        background-color: #B06F1A;
+        padding: 5px;
+        cursor: pointer;
+    }
+    .profissionais{
+        display: inline-flex;
+        overflow: hidden;
+        width: 100%;
+        border-radius: 10px;
+    }
+    .main-container {
+        position: relative;
+        width: 250px;
+        height: 320px;
+    }
+    .card-profissional {
+        display: inline-flex;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: all 0.5s ease;
+    }
+    .card-profissional:hover {
+        transform: rotateY(180deg);
+    }
+    .front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background: #B06F1A;
+        color: #000B15;
+        border-radius: 5px;
+    }
+    .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        background: #F5F5F5;
+        color: #000B15;
+        transform: rotateY(180deg);
+        border-radius: 5px;
+    }
+    .content-profissional {
+        padding: 10px;
+        text-transform: uppercase;
+    }
+    .carousel-profissionais {
+        background-color: #000B15;
+        padding: 50px;
+    }
+    
+
+
     @media screen and (max-width: 983px) {
         .texts {
             width: 100%;
@@ -341,9 +417,75 @@
 
             <div class="container">
                 <div>
-                    <h2 style="text-align:center; color: #FFFFFF">Espaço</h2>
+                    <h2 style="text-align:letf; color: #B06F1A; letter-spacing: 2px; font-weight: bold">Espaço</h2>
+                    <hr style="background-color: #B06F1A">
                     <div class="row">
-                        <h1 style="color: white">Slide com as imagens da clinica</h1>
+                        <div class="carrousel">
+                            <div class="carrousel-image">
+                                <div class="carroulsel-item-image">
+                                    <a type="button"  data-toggle="modal" data-target="#exampleModal">
+                                        <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
+                                    </a>
+                                </div>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-body">
+                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carrousel-image">
+                                <div class="carroulsel-item-image">
+                                    <a type="button"  data-toggle="modal" data-target="#exampleModal">
+                                        <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
+                                    </a>
+                                </div>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-body">
+                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carrousel-image">
+                                <div class="carroulsel-item-image">
+                                    <a type="button"  data-toggle="modal" data-target="#exampleModal">
+                                        <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
+                                    </a>
+                                </div>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-body">
+                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carrousel-image">
+                                <div class="carroulsel-item-image">
+                                    <a type="button"  data-toggle="modal" data-target="#exampleModal">
+                                        <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
+                                    </a>
+                                </div>
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-body">
+                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -351,13 +493,108 @@
 
         <div class="hero2 paralax"></div>
 
-        <section id="espaço">
+        <section id="Profissionais">
 
             <div class="container">
                 <div>
-                    <h2 style="text-align:center; color: #FFFFFF">Profissionais</h2>
-                    <div class="row">
-                        <h1 style="color: white">Card Flip com informações dos Profissionais médicos</h1>
+                    <h2 style="text-align:letf; color: #B06F1A; letter-spacing: 2px; font-weight: bold">Profissionais</h2>
+                    <hr style="background-color: #B06F1A">
+                    <div class="row profissionais">
+                        <div class="carousel-profissionais">
+                            <div class="main-container">
+                                <div class="card-profissional">
+                                    <div class="front">
+                                        <img src="{{asset('images/doutor.jpg')}}" alt="" height="100%" width="100%">
+                                    </div>
+                                    <div class="back">
+                                        <div class="content-profissional">
+                                            <h4> <strong>Dra. Testina da Silva</strong></h4>
+                                            <h5>Secretaria</h5>
+                                            <h5>CROSP 10541225</h5>
+                                            <div class="descricao-profissional">
+                                                <p>Esta é uma breve explicação do cargo e função do profissional</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-profissionais">
+                            <div class="main-container">
+                                <div class="card-profissional">
+                                    <div class="front">
+                                        <img src="{{asset('images/doutor.jpg')}}" alt="" height="100%" width="100%">
+                                    </div>
+                                    <div class="back">
+                                        <div class="content-profissional">
+                                            <h4> <strong>Dra. Testina da Silva</strong></h4>
+                                            <h5>Secretaria</h5>
+                                            <h5>CROSP 10541225</h5>
+                                            <div class="descricao-profissional">
+                                                <p>Esta é uma breve explicação do cargo e função do profissional</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-profissionais">
+                            <div class="main-container">
+                                <div class="card-profissional">
+                                    <div class="front">
+                                        <img src="{{asset('images/doutor.jpg')}}" alt="" height="100%" width="100%">
+                                    </div>
+                                    <div class="back">
+                                        <div class="content-profissional">
+                                            <h4> <strong>Dra. Testina da Silva</strong></h4>
+                                            <h5>Secretaria</h5>
+                                            <h5>CROSP 10541225</h5>
+                                            <div class="descricao-profissional">
+                                                <p>Esta é uma breve explicação do cargo e função do profissional</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-profissionais">
+                            <div class="main-container">
+                                <div class="card-profissional">
+                                    <div class="front">
+                                        <img src="{{asset('images/doutor.jpg')}}" alt="" height="100%" width="100%">
+                                    </div>
+                                    <div class="back">
+                                        <div class="content-profissional">
+                                            <h4> <strong>Dra. Testina da Silva</strong></h4>
+                                            <h5>Secretaria</h5>
+                                            <h5>CROSP 10541225</h5>
+                                            <div class="descricao-profissional">
+                                                <p>Esta é uma breve explicação do cargo e função do profissional</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-profissionais">
+                            <div class="main-container">
+                                <div class="card-profissional">
+                                    <div class="front">
+                                        <img src="{{asset('images/doutor.jpg')}}" alt="" height="100%" width="100%">
+                                    </div>
+                                    <div class="back">
+                                        <div class="content-profissional">
+                                            <h4> <strong>Dra. Testina da Silva</strong></h4>
+                                            <h5>Secretaria</h5>
+                                            <h5>CROSP 10541225</h5>
+                                            <div class="descricao-profissional">
+                                                <p>Esta é uma breve explicação do cargo e função do profissional</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -389,6 +626,7 @@
         </section>
 
   </div>
+  <script src="{{asset('js/owl.carousel.min.js')}}"></script>
 
 
 </body>
