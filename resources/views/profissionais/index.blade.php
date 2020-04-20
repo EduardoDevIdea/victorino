@@ -13,8 +13,19 @@
       <script>
          window.alert("{{ session('update') }}");
       </script>
-   @endif      
+    @endif
 
+    @if(session('erroImg'))
+      <script>
+         window.alert("{{ session('erroImg') }}");
+      </script>
+    @endif
+
+    @if(session('delete'))
+      <script>
+         window.alert("{{ session('delete') }}");
+      </script>
+    @endif      
  
     <h1>Profissionais</h1> <br>
 

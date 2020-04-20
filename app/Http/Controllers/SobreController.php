@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Sobre;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class SobreController extends Controller
 {
@@ -51,13 +52,12 @@ class SobreController extends Controller
     {
         if($request->hasFile('img') && $request->img->isValid()){ // verificacao se arquivo esta presente e se nao ouve problema ao faze upload
 
-            $imgPath = $request->img->store('sobre'); //salva imagem no caminho padrao, dentro da pasta nova pasta 'sobre' e cria nome ficticio para imagem
+            $imgPath = $request->img->store('sobre'); //salva imagem no caminho padrao, dentro da nova pasta 'sobre' e cria nome ficticio para imagem
                                                       // Atribui caminho onde imagem foi salva na variavel $imgPath
 
             $sobre = new Sobre;
 
             $sobre->img = $imgPath; // atriubui caminho onde a imagem esta salva no objeto $sobre->img
-
             $sobre->filosofia = $request->filosofia;
             $sobre->funcionamento = $request->funcionamento;
             $sobre->legenda = $request->legenda;
@@ -65,14 +65,26 @@ class SobreController extends Controller
             $sobre->save();
 
             /*
-            * Apos salvar fazer verificação de imagem e salvar novo registro, redireciona para rota que
+            * Apos fazer verificação de imagem e salvar novo registro, redireciona para rota que
             * chama metodo index do controller com session de nome store e mensagem
             * O metodo index busca os registros e retorna view com o primeiro, possibilitando edita-lo
             */
             return redirect()->route('sobre.index')->with('update', 'Dados inseridos com sucesso!');
         }
-        else{
-            return redirect()->back()->with('erroImg', 'Erro!!!. Por favor, verifique se a imagem é válida.');
+        else if(blank($request->img)){ //Se nao tiver tiver arquivo selecionado, salva os dados vindos dos outros campos
+
+            $sobre = new Sobre;
+
+            $sobre->filosofia = $request->filosofia;
+            $sobre->funcionamento = $request->funcionamento;
+            $sobre->legenda = $request->legenda;
+
+            $sobre->save();
+
+            return redirect()->route('sobre.index')->with('update', 'Dados inseridos com sucesso!');
+        }
+        else{ //Senao o arquivo que tentou fazer upload deu erro
+             return redirect()->back()->with('erroImg', 'Erro ao carregar imagem!!!');
         }
     }
 
@@ -107,26 +119,41 @@ class SobreController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $sobre = Sobre::find($id);
+        if($request->hasFile('img') && $request->img->isValid()){
 
-        $sobre->filosofia = $request->filosofia;
-        $sobre->funcionamento = $request->funcionamento;
-        $photo = $request->file('img')->getClientOriginalName();
-        if ($request->file('img')->isValid()) {
-            $sobre->img = $request->file('img')->move('storage/app/public/images/', $photo);
+            $sobre = Sobre::find($id);
+
+            if($sobre->img && Storage::exists($sobre->img)){
+                Storage::delete($sobre->img);
+            }
+
+            $imgPath = $request->img->store('sobre');
+
+            $sobre->img = $imgPath;
+            $sobre->filosofia = $request->filosofia;
+            $sobre->funcionamento = $request->funcionamento;
+            $sobre->legenda = $request->legenda;
+
+            $sobre->save();
+
+            return redirect()->route('sobre.index')->with('update', 'Dados atualizados com sucesso!');
         }
-        $sobre->legenda = $request->legenda;
+        else if($request->img == NULL){
 
-        $sobre->save();
+            $sobre = Sobre::find($id);
 
-        /*
-        * Apos atualizar registro, redireciona para rota que chama metodo index do controller
-        * Com session de nome stupdate e mensagem  
-        * O metodo index busca os registros e retorna view com o primeiro, possibilitando edita-lo
-        */
-        return redirect()->route('sobre.index')->with('update', 'Dados atualizados com sucesso!');
+            $sobre->filosofia = $request->filosofia;
+            $sobre->funcionamento = $request->funcionamento;
+            $sobre->legenda = $request->legenda;
+
+            $sobre->save();
+
+            return redirect()->route('sobre.index')->with('update', 'Dados atualizados com sucesso!');
+        }
+        else{
+            return redirect()->back()->with('erroImg', 'Erro ao carregar imagem!!!');
+        }
     }
-
     /**
      * Remove the specified resource from storage.
      *

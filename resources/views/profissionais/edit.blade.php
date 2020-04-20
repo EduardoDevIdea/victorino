@@ -4,7 +4,7 @@
 
     <h1><i class="fas fa-user-plus" style="font-size: 70px"></i><br> Atualizar Profissional</h1><br>
 
-    <form action="{{ route('profissional.update', ['profissional' => $profissional->id]) }}" method="POST">
+    <form action="{{ route('profissional.update', ['profissional' => $profissional->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <input type="hidden" name="id" value="{{ $profissional->id }}">
@@ -30,10 +30,20 @@
                     </p>
                     <p>
                         <strong>Foto</strong> <br>
+                        @if($profissional->img)
+                            <img src="/storage/{{ $profissional->img }}" style="widht: 150px; height:150px;">
+                        @endif
                         <input type="file" name="img" value="Escolher Imagem">
-                    </p> <br>
+                    </p>
+                    
+                    <br>
 
                     <input type="submit" class="btn btn-success" value="Atualizar">
+
+                    <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');" class="btn btn-danger">
+                        Excluir
+                    </a>
+
                 </div>
                 <div class="col">
                     <p>

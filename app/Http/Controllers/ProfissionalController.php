@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Profissional;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
+
 
 class ProfissionalController extends Controller
 {
@@ -38,23 +40,45 @@ class ProfissionalController extends Controller
      */
     public function store(Request $request)
     {
-        $profissional = new Profissional;
+        if($request->hasFile('img') && $request->img->isValid()){
 
-        $profissional->nome = $request->nome;
-        $profissional->cargo = $request->cargo;
-        $profissional->atividade = $request->atividade;
-        $profissional->registro = $request->registro;
-        $profissional->sobre = $request->sobre;
-        $profissional->img = $request->img;
+            $imgPath = $request->img->store('profissionais');
 
-        $profissional->save();
+            $profissional = new Profissional;
 
-        /*
-         * Apos cadastrar profissional, redireciona para url que chama metodo index do controlador
-         * que consulta todos os registros e retorna uma view listando todos
-         * exibe mensagem flash da session de nome store
-        */
-        return redirect()->route('profissional.index')->with('store', 'Profissional cadastrado com sucesso!');
+            $profissional->img = $imgPath;
+            $profissional->nome = $request->nome;
+            $profissional->cargo = $request->cargo;
+            $profissional->atividade = $request->atividade;
+            $profissional->registro = $request->registro;
+            $profissional->sobre = $request->sobre;
+
+            $profissional->save();
+
+            /*
+            * Apos cadastrar profissional, redireciona para url que chama metodo index do controlador
+            * que consulta todos os registros e retorna uma view listando todos
+            * exibe mensagem flash da session de nome store
+            */
+            return redirect()->route('profissional.index')->with('store', 'Profissional cadastrado com sucesso!');
+        }
+        else if($request->img == NULL){ //Se não tiver imagem salva os outros campos com os valores informados pelo usuario
+
+            $profissional = new Profissional;
+
+            $profissional->nome = $request->nome;
+            $profissional->cargo = $request->cargo;
+            $profissional->atividade = $request->atividade;
+            $profissional->registro = $request->registro;
+            $profissional->sobre = $request->sobre;
+
+            $profissional->save();
+
+            return redirect()->route('profissional.index')->with('store', 'Profissional cadastrado com sucesso!');
+        }
+        else{ // se a imagem escolhida pelo usuario nao for valida, exibe mensagem de erro
+            return redirect()->back()->with('erroImg', 'Erro ao carregar imagem!');
+        }
     }
 
     /**
@@ -90,23 +114,44 @@ class ProfissionalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $profissional = Profissional::find($id);
+        if($request->hasFile('img') && $request->img->isValid()){
 
-        $profissional->nome = $request->nome;
-        $profissional->cargo = $request->cargo;
-        $profissional->atividade = $request->atividade;
-        $profissional->registro = $request->registro;
-        $profissional->sobre = $request->sobre;
-        $profissional->img = $request->img;
+            $profissional = Profissional::find($id);
 
-        $profissional->save();
+            if($profissional->img && Storage::exists($profissional->img)){
+                Storage::delete($profissional->img);
+            }
 
-        /*
-         * Apos atualizar profissional, redireciona para url que chama metodo index do controlador
-         * que consulta todos os registros e retorna uma view listando todos
-         * exibe mensagem flash da session de nome store
-        */
-        return redirect()->route('profissional.index')->with('update', 'Registro atualizado com sucesso!');
+            $imgPath = $request->img->store('profissionais');
+
+            $profissional->img = $imgPath;
+            $profissional->nome = $request->nome;
+            $profissional->cargo = $request->cargo;
+            $profissional->atividade = $request->atividade;
+            $profissional->registro = $request->registro;
+            $profissional->sobre = $request->sobre;
+
+            $profissional->save();
+
+            return redirect()->route('profissional.index')->with('update', 'Registro atualizado com sucesso!');
+        }
+        else if($request->img == NULL){
+
+            $profissional = Profissional::find($id);
+
+            $profissional->nome = $request->nome;
+            $profissional->cargo = $request->cargo;
+            $profissional->atividade = $request->atividade;
+            $profissional->registro = $request->registro;
+            $profissional->sobre = $request->sobre;
+
+            $profissional->save();
+
+            return redirect()->route('profissional.index')->with('update', 'Registro atualizado com sucesso!');
+        }
+        else{
+            return redirect()->back()->with('erroImg', 'Erro ao carregar imagem');
+        }
     }
 
     /**
@@ -119,13 +164,17 @@ class ProfissionalController extends Controller
     {
         $profissional = Profissional::find($id);
 
+        if($profissional->img && Storage::exists($profissional->img)){
+            Storage::delete($profissional->img);
+        }
+
         $profissional->delete();
 
         /*
          * Redireciona para metodo index que vai buscar todos os registros
          * e exibir uma view que vai lista-los
         */
-        return redirect()->action('ProfissionalController@index');
+        return redirect()->route('profissional.index')->with('delete', 'Registro deletado com sucesso!');
 
     }
 }

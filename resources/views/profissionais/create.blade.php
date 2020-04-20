@@ -2,9 +2,15 @@
 
 @section('content')
 
+    @if(session('erroImg'))
+      <script>
+         window.alert("{{ session('erroImg') }}");
+      </script>
+   @endif
+
     <h1><i class="fas fa-user-plus" style="font-size: 70px"></i><br> Cadastrar Profissional</h1><br>
 
-    <form action="{{ route('profissional.store') }}" method="POST">
+    <form action="{{ route('profissional.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="container">
             <div class="row">

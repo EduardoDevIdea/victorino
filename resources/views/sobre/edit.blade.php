@@ -14,8 +14,6 @@
         @csrf
         @method('PUT')
 
-        <input type="hidden" name="id" value="{{ $sobre->id }}" required>
-
         <p>
             <strong>Filosofia</strong><br><textarea name="filosofia" cols="80" rows="5">{{ $sobre->filosofia }}</textarea>
         </p>
@@ -23,8 +21,9 @@
             <strong>Funcionamento</strong><br><textarea name="funcionamento" cols="80" rows="5" class="rounded">{{ $sobre->funcionamento }}</textarea>
         </p>
         <p>
-            <img src="{{asset($sobre->img) }}" alt="" >
-            <strong>Imagem</strong><br><input type="file" name="img" value="Escolher Imagem">
+            <strong>Imagem atual</strong> <br>
+            <img src="storage/{{ $sobre->img }}" alt=""> <br>
+            <br><input type="file" name="img">
         </p>
         <p>    
             <strong>Legenda da imagem</strong><br><input type="text" name="legenda" value="{{ $sobre->legenda }}">
