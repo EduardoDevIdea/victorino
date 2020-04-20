@@ -114,15 +114,15 @@ class ProfissionalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if($request->hasFile('img') && $request->img->isValid()){
+        if($request->hasFile('img') && $request->img->isValid()){ //Se houver imagem na requisicao e se imagem for valida
 
             $profissional = Profissional::find($id);
 
-            if($profissional->img && Storage::exists($profissional->img)){
-                Storage::delete($profissional->img);
+            if($profissional->img && Storage::exists($profissional->img)){ // se houver imagem na tabela e se houver mesma imagem na pasta storage
+                Storage::delete($profissional->img); //exclui imagem para evitar falta de espaco de armazenamento
             }
 
-            $imgPath = $request->img->store('profissionais');
+            $imgPath = $request->img->store('profissionais'); //salva imagem na pasta profissionais e atribui o caminho na variavel
 
             $profissional->img = $imgPath;
             $profissional->nome = $request->nome;
@@ -131,11 +131,11 @@ class ProfissionalController extends Controller
             $profissional->registro = $request->registro;
             $profissional->sobre = $request->sobre;
 
-            $profissional->save();
+            $profissional->save(); //salva todas as atribuicoes feitas
 
             return redirect()->route('profissional.index')->with('update', 'Registro atualizado com sucesso!');
         }
-        else if($request->img == NULL){
+        else if($request->img == NULL){ //se nao houver imagem na requisicao de atualizacao, atualiza os outros campos
 
             $profissional = Profissional::find($id);
 
@@ -149,7 +149,7 @@ class ProfissionalController extends Controller
 
             return redirect()->route('profissional.index')->with('update', 'Registro atualizado com sucesso!');
         }
-        else{
+        else{ //se entrar nessa condicao, foi a imagem nao era valida 
             return redirect()->back()->with('erroImg', 'Erro ao carregar imagem');
         }
     }
@@ -164,11 +164,11 @@ class ProfissionalController extends Controller
     {
         $profissional = Profissional::find($id);
 
-        if($profissional->img && Storage::exists($profissional->img)){
-            Storage::delete($profissional->img);
+        if($profissional->img && Storage::exists($profissional->img)){ //verifica se tem imagem na tabela e se mesma imagem existe na pasta storage
+            Storage::delete($profissional->img); //exclui imagem da pasta storage para evitar falta de espaco de armazenamento futuro
         }
 
-        $profissional->delete();
+        $profissional->delete(); // Deleta registro do banco de dados
 
         /*
          * Redireciona para metodo index que vai buscar todos os registros
