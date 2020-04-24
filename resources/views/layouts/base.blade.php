@@ -52,10 +52,10 @@
       
     <div id="app">
         <div class="menu" id="menu">
-            <nav class="navbar navbar-expand-md  mwnu" style="background-color: #002B53;">
+            <nav class="navbar navbar-expand-md  mwnu" style="background-color: #231F20;">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                       <img src="{{asset('images/victoriano_azul.png')}}" width="230px" height="120px" alt="">
+                       <img src="{{asset('images/Screenshot_2.png')}}" width="230px" height="120px" alt="">
                     </a>
                     <button class="navbar-toggler botao-responsive" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <i class="fas fa-bars fa-2x"></i>
@@ -117,25 +117,22 @@
             <div class="container">
                 <div>
                     <div class="row">
-                        <div class="texts">
-                            <div class="photo_line_about col-sm-6">
-                                <h3 class="filosofia">Filosofia</h3>
-                                <hr class="separator">
-                                <div class="description">
-                                    <p> {{$about[0]->filosofia}} </p>
-                                </div>
-                              
-                                <h3 class="funcionamento">Funcionamento</h3>
-                                <hr class="separator">
-                                <div class="description">
-                                    <p> {{$about[0]->funcionamento}}  </p>
-                                </div>
+                        <div class="text_about col-sm-7 col-xs-12">
+                            <h3 class="filosofia">Filosofia</h3>
+                            <hr class="separator">
+                            <div class="description">
+                                <p> {{$about[0]->filosofia}} </p>
                             </div>
-                            <div class="line-about"></div>
+                            
+                            <h3 class="funcionamento">Funcionamento</h3>
+                            <hr class="separator">
+                            <div class="description">
+                                <p>{{$about[0]->funcionamento}}</p>
+                            </div>
                         </div>
-                        <div class="photo col-sm-6">
-                                <img src="{{$about[0]->img}}" alt="" width="100%" height="400px">
-                                <p style="text-align:center; color:#946423">{{$about[0]->legenda}}</p>
+                        <div class="photo_owner col-sm-5 col-xs-12">
+                            <img src="{{asset('images/owner2.jpg')}}" alt="" width="100%" height="auto">
+                            <p style="text-align:center; color:#946423">{{$about[0]->legenda}}</p>
                         </div>
                     </div>
                 </div>
@@ -150,7 +147,7 @@
                     <div class="row">
                         <div class="texts col-sm-6 col-xs-12">
                             <div class="photo_line text-center">
-                                <img src="{{asset('images/logo-removebg-preview.png')}}" alt="">
+                                <img src="{{asset('images/logo-removebg-preview.png')}}" whidth="100%" height="auto" alt="">
                             </div>
                             <div class="line"></div>
                         </div>
