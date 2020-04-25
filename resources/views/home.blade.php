@@ -641,7 +641,7 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{ route('image.index') }}">
                             <i class="fas fa-sliders-h"></i>
                             <span>Logo, Imagens...</span>
                             </a>

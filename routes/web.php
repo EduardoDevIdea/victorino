@@ -53,6 +53,14 @@ Route::resource('/contact', 'ContactController');
 
 //--------------------------------------------------------------------------------------------
 
+//-----IMAGES
+Route::resource('/image', 'ImageController');
+
+//--- Verifica tipo de Imagem, na view images/index
+Route::post('/tipo', 'ImageController@tipo')->name('image.tipo');
+
+//--------------------------------------------------------------------------------------------
+
 //-----ROTAS DO SITE
 Route::get('/' , 'SiteController@index');
 

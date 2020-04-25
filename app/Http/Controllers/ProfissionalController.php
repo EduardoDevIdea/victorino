@@ -40,6 +40,9 @@ class ProfissionalController extends Controller
      */
     public function store(Request $request)
     {
+        //$tamanho = count($request->files);
+        //dd($tamanho);
+
         if($request->hasFile('img') && $request->img->isValid()){
 
             $imgPath = $request->img->store('profissionais');
