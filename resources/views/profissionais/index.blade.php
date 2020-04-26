@@ -63,7 +63,7 @@
                     </td>
 
                     <td>
-                    <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');">
+                        <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');">
                             <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
                         </a>
                     </td>

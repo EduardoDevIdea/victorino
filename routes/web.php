@@ -61,6 +61,21 @@ Route::post('/tipo', 'ImageController@tipo')->name('image.tipo');
 
 //--------------------------------------------------------------------------------------------
 
+//-----POST
+Route::resource('/post', 'PostController', ['except' => ['destroy']]);
+
+//--Excluir Post
+Route::get('/post/{post}/delete', 'PostController@destroy')->name('post.destroy');
+
+//--------------------------------------------------------------------------------------------
+
+//-----ESPAÇO (Galeria de Fotos)
+Route::get('/foto', function(){
+    return view('fotos.index');
+});
+
+//--------------------------------------------------------------------------------------------
+
 //-----ROTAS DO SITE
 Route::get('/' , 'SiteController@index');
 

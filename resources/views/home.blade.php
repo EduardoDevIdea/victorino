@@ -669,7 +669,7 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{ route('post.index') }}">
                             <i class="fas fa-quote-right"></i>
                             <span>Blog</span>
                             </a>
