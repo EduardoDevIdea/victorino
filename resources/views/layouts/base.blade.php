@@ -12,250 +12,13 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <script src="https://kit.fontawesome.com/385c7d7d19.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/owl.theme.default.css')}}">
-    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
-  
-    
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="{{asset('css/site.css')}}">
 </head>
-<style>
-    .item-menu {
-        font-size: 15pt;
-        color: #B06F1A;
-        text-decoration: none;
-        font-weight: 900;
-    }
-    .item-menu:hover {
-        color:white;
-    }
-    .menu {
-        border-top: 4px solid  #B06F1A;
-    }
-    #app {
-        background-color: #002B53;
-    }
-    .botao-responsive {
-        color: white;
-    }
-    .py-4 {
-        background-color: #000B15;    
-    }
-    .banner {
-    background-color:  #002B53;
-    top: 15px;
-    height: 50%;
-    }
-    .banner img {
-        height: 500px;
-    }
-    .carrosel-inner img {
-        width: 100%;
-        height: 10px;
-    }
-    .hero1 {
-    background-image: url('../../images/foto1.jpeg');
-    }
-    .hero2 {
-        background-image: url('../../images/foto3.jpg');
-    }
-    .hero3 {
-        background-image: url('../../images/foto2.jpg');
-    }
-    .paralax {
-        background-attachment: fixed;
-        height: 60%;
-        width: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        padding: 250px;
-    }
-    #sobre {
-        height: 100%;
-        background: linear-gradient(1turn, #173E62,#002B53, #000B15);
-        /* background-color: #000B15; */
-        padding: 120px;
-    }
-    #especialidade {
-        height: 100%;
-        background: linear-gradient(1turn, #FFFFFF,#A2B1C0, #173E62);
-        padding: 120px;
-    }
-    #espaço {
-        height: 100%;
-        background: #002B53;
-        padding: 120px;
-    }
-    #Profissionais {
-        height: 100%;
-        background: #000B15;
-        padding: 120px;
-    }
-    .text_info {
-        color: #B06F1A;
-        text-justify: left;
-    }
-    .separator {
-        height: 1px;
-        width: 100%;
-        background-color: #B06F1A;
-    }
-    .section_text {
-        padding-bottom: 50px;
-    }
-    .section_text h2{
-        color: white;
-        text-align: center;
-    }
-    .texts {
-        float: right;
-        width: 50%;
-    }
-
-    .space_photo {
-        width: 100%;
-        height: 100%;
-    }
-    .description{
-        color: white;
-        font-weight: bold;
-        font-size: 12pt;
-        letter-spacing: 1px;
-    }
-    .photo {
-        float: left;
-        width: 50%;
-        padding: 30px;
-    }
-    .row {
-        height: 60%;
-    }
-    .especialidades {
-        width: 100%;
-        background-color: white;
-    }
-   
-    .photo {
-        float: left;
-        width: 50%;
-        padding: 30px;
-    }
-   
-    .link_info {
-        color: #002B53;
-        font-size: 12pt;
-        font-weight: bolder;
-
-    }
-    .carrousel {
-        display: inline-flex;
-        overflow-x: scroll;
-        width: 100%;
-        border-radius: 10px;
-    }
-    .carrousel::-webkit-scrollbar { width:5px; background:#e3e0d6; } 
-    .carrousel::-webkit-scrollbar-track { background: #002B53; }
-    .carrousel::-webkit-scrollbar-thumb { border-radius:10px; background:#B06F1A; width: 10px; } 
-
-    .carrousel-image {
-        background-color: #002B53;
-        padding: 30px;
-        height: auto;
-    }
-    .carroulsel-item-image {
-        background-color: #B06F1A;
-        padding: 5px;
-        cursor: pointer;
-    }
-    .profissionais{
-        display: inline-flex;
-        overflow: hidden;
-        width: 100%;
-        border-radius: 10px;
-    }
-    .main-container {
-        position: relative;
-        width: 250px;
-        height: 320px;
-    }
-    .card-profissional {
-        display: inline-flex;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        transform-style: preserve-3d;
-        transition: all 0.5s ease;
-    }
-    .card-profissional:hover {
-        transform: rotateY(180deg);
-    }
-    .front {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        backface-visibility: hidden;
-        background: #B06F1A;
-        color: #000B15;
-        border-radius: 5px;
-    }
-    .back {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        backface-visibility: hidden;
-        background: #F5F5F5;
-        color: #000B15;
-        transform: rotateY(180deg);
-        border-radius: 5px;
-    }
-    .content-profissional {
-        padding: 10px;
-        text-transform: uppercase;
-    }
-    .carousel-profissionais {
-        background-color: #000B15;
-        padding: 50px;
-    }
-    
-
-
-    @media screen and (max-width: 983px) {
-        .texts {
-            width: 100%;
-            padding: 33px;
-        }
-        .photo { 
-            width: 100%;
-            height: 80%;
-        }
-    } 
-    @media screen and (max-width: 572px) {
-        .texts {
-            width: 100%;
-        }
-        .photo { 
-            width: 100%;
-            height: 80%;
-        }
-    } 
-    @media screen and (max-width: 409px) {
-       
-        .photo { 
-            width: 100%;
-            height: 0%;
-        }
-    } 
-    @media screen and (max-width: 424px) {
-       
-       .photo { 
-           width: 100%;
-           height: 50%;
-       }
-   }
-  
-</style>
 <body>
-    <div class="banner">
+    <div id="banner" class="banner">
         <div class="space-banner">
             <div id="banner-home">
                 {{-- Inicio Banner --}}
@@ -288,11 +51,11 @@
     </div>
       
     <div id="app">
-        <div class="menu">
-            <nav class="navbar navbar-expand-md  mwnu" style="background-color: #002B53;">
+        <div class="menu" id="menu">
+            <nav class="navbar navbar-expand-md  mwnu" style="background-color: #231F20;">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                       <img src="{{asset('images/victoriano_azul.png')}}" width="230px" height="120px" alt="">
+                       <img src="{{asset('images/Screenshot_2.png')}}" width="230px" height="120px" alt="">
                     </a>
                     <button class="navbar-toggler botao-responsive" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                         <i class="fas fa-bars fa-2x"></i>
@@ -305,31 +68,31 @@
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link item-menu" href="#Sobre">Sobre Nós</a>
+                                <a class="nav-link item-menu" href="#sobre">Sobre Nós</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link item-menu" href="#Especialidades">Especialidades</a>
+                                <a class="nav-link item-menu" href="#especialidade">Especialidades</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link item-menu" href="#Profissionais">Profissionais</a>
+                                <a class="nav-link item-menu" href="#espaco">O Espaço</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link item-menu" href="#Espaco">O Espaço</a>
+                                <a class="nav-link item-menu" href="#profissionais">Profissionais</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link item-menu" href="#Blog">Blog</a>
+                                <a class="nav-link item-menu" href="#contato">Contato</a>
                             </li>
                             @guest
                                 @if (Route::has('register'))
                                 @endif
                             @else
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" style=" font-size: 15pt" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle  item-menu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
     
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                        <a class="dropdown-item item-menu" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
@@ -338,7 +101,7 @@
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
-                                        <a class="dropdown-item" href="{{url('home')}}">Painel</a>
+                                        <a class="dropdown-item item-menu" href="{{url('home')}}">Painel</a>
                                     </div>
                                 </li>
                             @endguest
@@ -351,33 +114,30 @@
     </div>
     <div class="content-site">
         <section id="sobre">
-
             <div class="container">
                 <div>
                     <div class="row">
-                        <div class="texts">
-                            <div class="space filosofia">
-                                <h4 class="text_info">Filosofia</h4>
-                                <hr class="separator">
-                                <p class="description">{{$about[0]->filosofia}}</p>
+                        <div class="text_about col-sm-7 col-xs-12">
+                            <h3 class="filosofia">Filosofia</h3>
+                            <hr class="separator">
+                            <div class="description">
+                                <p> {{$about[0]->filosofia}} </p>
                             </div>
-                            <div class="space funcionamento">
-                                <h4 class="text_info">Funcionamento</h4>
-                                <hr class="separator">
-                                <p class="description">{{$about[0]->funcionamento}}</p>
+                            
+                            <h3 class="funcionamento">Funcionamento</h3>
+                            <hr class="separator">
+                            <div class="description">
+                                <p>{{$about[0]->funcionamento}}</p>
                             </div>
                         </div>
-                        <div class="photo">
-                            <div class="space_photo image_owner">
-                                <img src="{{asset($about[0]->img)}}" alt="" width="100%" height="100%">
-                                <p style="text-align: center; color: white">{{$about[0]->legenda}}</p>
-                            </div>
+                        <div class="photo_owner col-sm-5 col-xs-12">
+                            <img src="{{asset('images/owner2.jpg')}}" alt="" width="100%" height="auto">
+                            <p style="text-align:center; color:#946423">{{$about[0]->legenda}}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <div class="hero1 paralax"></div>
 
         <section id="especialidade">
@@ -385,11 +145,14 @@
             <div class="container">
                 <div>
                     <div class="row">
-                        <div class="texts">
-                           <img src="{{asset('images/logo-removebg-preview.png')}}" alt="">
+                        <div class="texts col-sm-6 col-xs-12">
+                            <div class="photo_line text-center">
+                                <img src="{{asset('images/logo-removebg-preview.png')}}" whidth="100%" height="auto" alt="">
+                            </div>
+                            <div class="line"></div>
                         </div>
-                        <div class="photo">
-                            <h4 style="color: black; font-weight: bold; text-align: center;">Especialidades</h4>
+                        <div class="photo col-sm-6  col-xs-12">
+                            <h4 class="text-especialidade">Especialidades</h4>
                             <div class="card">
                                 @foreach ($specialty as $especialidade)
                                 <ul class="list-group list-group-flush">
@@ -413,78 +176,81 @@
                 </div>
             </div>
         </section>
-        <section id="espaço">
+        <section id="espaco">
 
             <div class="container">
                 <div>
                     <h2 style="text-align:letf; color: #B06F1A; letter-spacing: 2px; font-weight: bold">Espaço</h2>
                     <hr style="background-color: #B06F1A">
                     <div class="row">
-                        <div class="carrousel">
-                            <div class="carrousel-image">
-                                <div class="carroulsel-item-image">
-                                    <a type="button"  data-toggle="modal" data-target="#exampleModal">
-                                        <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
-                                    </a>
-                                </div>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                        <div class="modal-body">
-                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
+                        <div class="out_carrousel">
+                            <div class="carrousel">
+                                <div class="carrousel-image">
+                                    <div class="carroulsel-item-image">
+                                        <a type="button"  data-toggle="modal" data-target="#exampleModal">
+                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
+                                        </a>
+                                    </div>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-body">
+                                                <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
+                                            </div>
+                                          </div>
                                         </div>
-                                      </div>
+                                    </div>
+                                </div>
+                                <div class="carrousel-image">
+                                    <div class="carroulsel-item-image">
+                                        <a type="button"  data-toggle="modal" data-target="#exampleModal">
+                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
+                                        </a>
+                                    </div>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-body">
+                                                <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carrousel-image">
+                                    <div class="carroulsel-item-image">
+                                        <a type="button"  data-toggle="modal" data-target="#exampleModal">
+                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
+                                        </a>
+                                    </div>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-body">
+                                                <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carrousel-image">
+                                    <div class="carroulsel-item-image">
+                                        <a type="button"  data-toggle="modal" data-target="#exampleModal">
+                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
+                                        </a>
+                                    </div>
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-body">
+                                                <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
+                                            </div>
+                                          </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="carrousel-image">
-                                <div class="carroulsel-item-image">
-                                    <a type="button"  data-toggle="modal" data-target="#exampleModal">
-                                        <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
-                                    </a>
-                                </div>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                        <div class="modal-body">
-                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carrousel-image">
-                                <div class="carroulsel-item-image">
-                                    <a type="button"  data-toggle="modal" data-target="#exampleModal">
-                                        <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
-                                    </a>
-                                </div>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                        <div class="modal-body">
-                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carrousel-image">
-                                <div class="carroulsel-item-image">
-                                    <a type="button"  data-toggle="modal" data-target="#exampleModal">
-                                        <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
-                                    </a>
-                                </div>
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                      <div class="modal-content">
-                                        <div class="modal-body">
-                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
-                                        </div>
-                                      </div>
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -493,108 +259,37 @@
 
         <div class="hero2 paralax"></div>
 
-        <section id="Profissionais">
+        <section id="profissionais">
 
             <div class="container">
                 <div>
-                    <h2 style="text-align:letf; color: #B06F1A; letter-spacing: 2px; font-weight: bold">Profissionais</h2>
+                    <h2 class="text-left" style="color: #B06F1A; letter-spacing: 2px; font-weight: bold">Corpo Clínico</h2>
                     <hr style="background-color: #B06F1A">
                     <div class="row profissionais">
-                        <div class="carousel-profissionais">
-                            <div class="main-container">
-                                <div class="card-profissional">
-                                    <div class="front">
-                                        <img src="{{asset('images/doutor.jpg')}}" alt="" height="100%" width="100%">
-                                    </div>
-                                    <div class="back">
-                                        <div class="content-profissional">
-                                            <h4> <strong>Dra. Testina da Silva</strong></h4>
-                                            <h5>Secretaria</h5>
-                                            <h5>CROSP 10541225</h5>
-                                            <div class="descricao-profissional">
-                                                <p>Esta é uma breve explicação do cargo e função do profissional</p>
+                        @foreach ($doctor as $profissional)
+                            <div class="carousel-profissionais">
+                                <div class="main-container">
+                                    <div class="card-profissional">
+                                        <div class="front">
+                                            @if (!$profissional->img)
+                                                <p class="no-image">Sem <br> Imagem <br> Cadastrada</p>
+                                            @endif
+                                            <img src="storage/{{$profissional->img}}" alt="" height="100%" width="100%">
+                                        </div>
+                                        <div class="back">
+                                            <div class="content-profissional text-center">
+                                                <h4> <strong>{{$profissional->nome}}</strong></h4>
+                                                <h5>{{$profissional->cargo}}</h5>
+                                                <h5>CROSP {{$profissional->registro}}</h5>
+                                                <div class="descricao-profissional">
+                                                    <p>{{$profissional->sobre}}</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="carousel-profissionais">
-                            <div class="main-container">
-                                <div class="card-profissional">
-                                    <div class="front">
-                                        <img src="{{asset('images/doutor.jpg')}}" alt="" height="100%" width="100%">
-                                    </div>
-                                    <div class="back">
-                                        <div class="content-profissional">
-                                            <h4> <strong>Dra. Testina da Silva</strong></h4>
-                                            <h5>Secretaria</h5>
-                                            <h5>CROSP 10541225</h5>
-                                            <div class="descricao-profissional">
-                                                <p>Esta é uma breve explicação do cargo e função do profissional</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-profissionais">
-                            <div class="main-container">
-                                <div class="card-profissional">
-                                    <div class="front">
-                                        <img src="{{asset('images/doutor.jpg')}}" alt="" height="100%" width="100%">
-                                    </div>
-                                    <div class="back">
-                                        <div class="content-profissional">
-                                            <h4> <strong>Dra. Testina da Silva</strong></h4>
-                                            <h5>Secretaria</h5>
-                                            <h5>CROSP 10541225</h5>
-                                            <div class="descricao-profissional">
-                                                <p>Esta é uma breve explicação do cargo e função do profissional</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-profissionais">
-                            <div class="main-container">
-                                <div class="card-profissional">
-                                    <div class="front">
-                                        <img src="{{asset('images/doutor.jpg')}}" alt="" height="100%" width="100%">
-                                    </div>
-                                    <div class="back">
-                                        <div class="content-profissional">
-                                            <h4> <strong>Dra. Testina da Silva</strong></h4>
-                                            <h5>Secretaria</h5>
-                                            <h5>CROSP 10541225</h5>
-                                            <div class="descricao-profissional">
-                                                <p>Esta é uma breve explicação do cargo e função do profissional</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-profissionais">
-                            <div class="main-container">
-                                <div class="card-profissional">
-                                    <div class="front">
-                                        <img src="{{asset('images/doutor.jpg')}}" alt="" height="100%" width="100%">
-                                    </div>
-                                    <div class="back">
-                                        <div class="content-profissional">
-                                            <h4> <strong>Dra. Testina da Silva</strong></h4>
-                                            <h5>Secretaria</h5>
-                                            <h5>CROSP 10541225</h5>
-                                            <div class="descricao-profissional">
-                                                <p>Esta é uma breve explicação do cargo e função do profissional</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -602,32 +297,111 @@
         
         <div class="hero3 paralax"></div>
 
-        <section id="espaço">
+        <section id="contato">
 
             <div class="container">
-                <div>
-                    <h2 style="text-align:center; color: #FFFFFF">Contatos</h2>
-                    <div class="row">
-                        <h1 style="color: white">formas de contato e localização da clinica</h1>
+                <h3>Fale Conosco</h3>
+                <hr style="background: #050923">
+                <div class="row ">
+                    <div class="col-sm-6">
+                        <div class="contact">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5><strong class="font-size: 15pt">Telefone</strong></h5>
+                                    <p> <i class="fab fa-whatsapp"></i>  {{$contact[0]->wpp}}</p>
+                                    <p > <i class="fas fa-phone-alt"></i>  {{$contact[0]->telefone1}}</p>
+                                    <p > <i class="fas fa-phone-alt"></i>  {{$contact[0]->telefone2}}</p>
+                                    <h5><strong class="font-size: 15pt">E-mail</strong></h5>
+                                    <p > <i class="fas fa-at"></i>  {{$contact[0]->email}}</p>
+                                    <h5><strong class="font-size: 15pt">Endereço</strong></h5>
+                                    <p ><i class="fas fa-map-marker-alt"></i>  {{$contact[0]->endereco}}</p>
+                                    <h5><strong class="font-size: 15pt">Mídias Sociais</strong></h5>
+                                    <p > <i class="fab fa-instagram"></i>   <a href="{{$contact[0]->instagram}}">Instagram</a></p>
+                                    <p > <i class="fab fa-twitter"></i>   <a href="{{$contact[0]->twitter}}">Twitter</a>  </p>
+                                    <p> <i class="fab fa-facebook-f"></i>  <a href="{{$contact[0]->facebook}}">Facebook</a> </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m22!1m8!1m3!1d3889.7809383101317!2d-38.28593993517921!3d-12.857420790930849!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d-12.8581632!2d-38.2828544!4m5!1s0x7163e51da0c34fb%3A0x4d0fe4d61f5d6691!2sresidencial%20vivendas%20do%20joanes!3m2!1d-12.8569756!2d-38.284717199999996!5e0!3m2!1spt-BR!2sbr!4v1587440076603!5m2!1spt-BR!2sbr" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>
             </div>
         </section>
-        <section id="espaço">
+        <section id="footer">
 
             <div class="container">
-                <div>
-                    <h2 style="text-align:center; color: #FFFFFF">footer</h2>
+                <div class="footer_information">
                     <div class="row">
-                        footer
+                        <div class="col-sm-6  col-xs-12 text-center">
+                            <img src="{{asset('images/Screenshot_2.png')}}" alt="" width="80%">    
+                        </div>
+                        <div class="col-sm-6 col-xs-12">
+                            <p>Menu</p>
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#sobre">Sobre Nós</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#especialidade">Especialidades</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#espaco">O Espaço</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#profissionais">Profissionais</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#contato">Contato</a>
+                                </li>
+                            </div>    
+                            <a class="nav-link item-menu" href="#banner"><i class="fas fa-arrow-up" style="color: white; cursor:pointer"></i></a>
+                           
+                    </div>
+                </div>
+                <hr style="background:white">
+                <div class="row">
+                    
+                    <div class="col-sm-6 col-xr-12">
+                        <p style="color: white">© Copyright 2020 - <?php echo date('Y') ?> Victoriano Odontologia Especializada </p>
+                    </div>
+                    <div class="col-sm-6 col-xr-12 text-center">
+                        <p style="color: white">Desenvolvido por </p>
                     </div>
                 </div>
             </div>
         </section>
-
   </div>
-  <script src="{{asset('js/owl.carousel.min.js')}}"></script>
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+      $(document).ready(function(){
+        let scroll_link = $('.nav-link');
 
+  //smooth scrolling -----------------------
+  scroll_link.click(function(e){
+      e.preventDefault();
+      let url = $('body').find($(this).attr('href')).offset().top;
+      $('html, body').animate({
+        scrollTop : url
+      },700);
+      $(this).parent().addClass('active');
+      $(this).parent().siblings().removeClass('active');
+      return false;	
+   });
+});
+
+const target = document.getElementsByClassName('menu')
+function animeScroll() {
+    const windowTop = window.pageYOffset;
+    target.offsetTop;
+}
+
+window.addEventListener('scroll', function() {
+    animeScroll();
+})
+
+  </script>
 </body>
 </html>
