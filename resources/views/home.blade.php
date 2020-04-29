@@ -662,7 +662,7 @@
                         </li>
 
                         <li>
-                            <a href="#">
+                            <a href="{{ route('photo.index') }}">
                             <i class="fas fa-camera"></i>
                             <span>O espaço</span>
                             </a>

@@ -70,9 +70,10 @@ Route::get('/post/{post}/delete', 'PostController@destroy')->name('post.destroy'
 //--------------------------------------------------------------------------------------------
 
 //-----ESPAÇO (Galeria de Fotos)
-Route::get('/foto', function(){
-    return view('fotos.index');
-});
+Route::resource('/photo', 'PhotoController', ['except' => ['destroy']]);
+
+//---Exclui foto
+Route::get('/photo/{photo}/delete', 'PhotoController@destroy')->name('photo.destroy');
 
 //--------------------------------------------------------------------------------------------
 
