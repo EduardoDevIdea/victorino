@@ -607,7 +607,7 @@
                 <!-- End of sidebar-header  -->
 
                 <!-- Sidebar Search -->
-                <div class="sidebar-search">
+                <!--div class="sidebar-search">
                     <div>
                         <div class="input-group">
                             <input type="text" class="form-control search-menu" placeholder="Search...">
@@ -618,7 +618,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div -->
                 <!-- End of Sidebar Search -->
 
                 <!-- MENU -->
@@ -701,7 +701,7 @@
                     <i class="fa fa-envelope"></i>
                     <span class="badge badge-pill badge-success notification">7</span>
                 </a>
-                <a href="#">
+                <a href="{{ route('user.index') }}">
                     <i class="fa fa-cog"></i>
                     <span class="badge-sonar"></span>
                 </a>

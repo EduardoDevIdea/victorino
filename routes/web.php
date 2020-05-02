@@ -77,6 +77,14 @@ Route::get('/photo/{photo}/delete', 'PhotoController@destroy')->name('photo.dest
 
 //--------------------------------------------------------------------------------------------
 
+//---USER (Editar, Criar, Permitiçoes)
+Route::resource('/user', 'UserController', ['except' => ['destroy']]);
+
+//--Exclui user
+Route::get('/user/{user}/delete', 'UserController@destroy')->name('user.destroy');
+
+//--------------------------------------------------------------------------------------------
+
 //-----ROTAS DO SITE
 Route::get('/' , 'SiteController@index');
 
