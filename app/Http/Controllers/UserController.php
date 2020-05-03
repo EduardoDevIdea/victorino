@@ -18,7 +18,7 @@ class UserController extends Controller
     {
         $user = Auth::user(); //Busca o user que está logado
 
-        return view('users.index', compact('user'));
+        return view('users.profile', compact('user'));
     }
 
     /**
