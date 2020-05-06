@@ -77,7 +77,12 @@ Route::get('/photo/{photo}/delete', 'PhotoController@destroy')->name('photo.dest
 
 //--------------------------------------------------------------------------------------------
 
-//---USER (Editar, Criar, Permitiçoes)
+//---USER
+
+//--Lista usuários (foi acrescentada antes da rota resource para soluionar problema - nao retornava nada quando colocada embaixo da resource)
+Route::get('/user/list/', 'UserController@list')->name('user.list');
+
+//--(Rotas resource)
 Route::resource('/user', 'UserController', ['except' => ['destroy']]);
 
 //--Exclui user

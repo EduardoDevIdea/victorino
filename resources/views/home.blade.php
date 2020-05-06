@@ -705,9 +705,19 @@
                     <i class="fa fa-cog"></i>
                     <span class="badge-sonar"></span>
                 </a>
-                <a href="{{ url('/logout') }}">
-                    <i class="fa fa-power-off"></i>
+                <!-- LOGOUT -->
+                <a href="{{ route('logout') }}" 
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    
+                        <i class="fa fa-power-off"></i>
                 </a>
+    
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+                <!-- END LOOGOUT-->
+
             </div>
             <!-- END of Sidebar Footer -->
 

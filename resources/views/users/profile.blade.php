@@ -18,7 +18,7 @@
                     <a class="nav-link active" href="{{ route('user.index') }}">Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Usuários</a>
+                    <a class="nav-link" href="{{ route('user.list') }}">Usuários</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
@@ -47,17 +47,39 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="inputEmail" class="col-sm-2 col-form-label">Senha</label>
+                    <label for="inputSenha" class="col-sm-2 col-form-label">Senha</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputEmail" name="password" minlenght="8" placeholder="Nova senha" title="Caso queira manter a senha anterior, não preencha este campo.">
+                        <input type="text" class="form-control" id="inputSenha" name="password" id="password" minlenght="8" placeholder="Nova senha" title="Caso queira manter a senha anterior, não preencha este campo.">
                     </div> 
                 </div>
 
-                <input type="submit" value="Atualizar" class="btn btn-primary">
+                <div class="form-group row">
+                    <label for="inputConfirmaSenha" class="col-sm-2 col-form-label">Confirmar senha</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputConfirmaSenha" name="rep_password" id="rep_password" minlenght="8" placeholder="Confirmar senha" title="Digite a mesma senha do campo anterior antes de confirmar">
+                    </div> 
+                </div>
+
+                <input type="submit" value="Atualizar" class="btn btn-primary" onsubmit="return verificaSenha();">
 
             </form>
 
         </div>
     </div>
+
+    <!-- Verificação de  campos 'Senha' e 'Confirmar Senha' -->
+    <script type="text/javascript">
+        function verificaSenha(){
+            var password = document.getElementById("password");
+            var rep_password = document.getElementById("rep_password");
+            if( password != rep_password){
+                alert("As senhas não conferem! Digite novamente.");
+                document.getElementByid("rep_password").focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+
 
 @endsection
