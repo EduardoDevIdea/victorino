@@ -31,7 +31,7 @@
                     </div>
 
                     <div class="row">
-                        <strong>Texto</strong><br> <textarea name="texto" cols="30" rows="10">{{ $post->texto }}</textarea>
+                        <strong>Texto</strong><br> <textarea name="texto" cols="30" rows="10">{!! $post->texto !!}</textarea>
                     </div>
 
                 </div>

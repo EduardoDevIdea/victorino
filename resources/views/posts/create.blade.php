@@ -12,41 +12,42 @@
 
     <h1>Nova Publicação</h1>
 
-    <div class="container">
+    <div class="container mt-4">
 
         <form action="{{ route('post.store') }}"  method="POST" enctype="multipart/form-data">
             @csrf
 
-            <div class="row border border-dark">
-            
-                <div class="col border border-dark">
-
-                    <div class="row mb-4">
-                        <strong>Título</strong><input type="text" name="titulo"><br>
-                    </div>
-
-                    <div class="row mb-4">
-                        <strong>Subtítulo</strong> <input type="text" name="subtitulo"><br>
-                    </div>
-
-                    <div class="row">
-                        <strong>Texto</strong><br> <textarea name="texto" cols="30" rows="10"></textarea>
-                    </div>
-
-                </div>
-
-                <div class="col">
-                    <strong>Imagem >>></strong> <input type="file" name="img">
-                </div>
-            
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" name="titulo" id="titulo" class="form-control">
             </div>
 
-            <div class="row mt-4">
-                <input type="submit" value="Publicar">
+            <div class="form-group">
+                <label for="subtitulo">Subtítulo</label>
+                <input type="text" name="subtitulo" id="subtitulo" class="form-control">
             </div>
 
+            <div class="form-group">
+                <label for="texto">Texto</label>
+                <!-- Configuração de id e name para textarea de acordo com tutorial de instalação do Editor de texto (CKEditor) --> 
+                <textarea class="form-control" id="texto" name="texto"></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="img">Imagem</label> <br>
+                <input type="file" name="img" id="img">
+            </div>
+
+            <input type="submit" value="Publicar" class="btn btn-primary">
+                             
         </form>
 
     </div>
+
+    <!-- Script para rodar o editor de texto CKEditor -->
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'texto' );
+    </script>
 
 @endsection

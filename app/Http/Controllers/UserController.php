@@ -27,6 +27,13 @@ class UserController extends Controller
         return view('users.profile', compact('user'));
     }
 
+    public function list()
+    {
+        $users = User::all();
+
+        return view('users.list', compact('users'));
+    }    
+
     /**
      * Show the form for creating a new resource.
      *
@@ -34,7 +41,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+
+        return view('users.list', compact('users'));
     }
 
     /**
