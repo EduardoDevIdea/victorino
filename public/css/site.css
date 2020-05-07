@@ -401,6 +401,7 @@ background-image: url('../../images/foto1.jpeg');
         width: 100%;
         transition: linear 1s;
     }
+   
     
  } 
  @media screen and (max-width: 574px) {
