@@ -131,7 +131,7 @@
                             </div>
                         </div>
                         <div class="photo_owner col-sm-5 col-xs-12">
-                            <img src="{{asset('images/owner2.jpg')}}" alt="" width="100%" height="auto">
+                            <img src="storage/{{ $about[0]->img }}" alt="" width="100%" height="auto">
                             <p style="text-align:center; color:#946423">{{$about[0]->legenda}}</p>
                         </div>
                     </div>
@@ -147,7 +147,7 @@
                     <div class="row">
                         <div class="texts col-sm-6 col-xs-12">
                             <div class="photo_line text-center">
-                                <img src="{{asset('images/logo-removebg-preview.png')}}" whidth="100%" height="auto" alt="">
+                                <img src="{{asset('images/Screenshot_4.png')}}" whidth="100%" height="auto" alt="">
                             </div>
                             <div class="line"></div>
                         </div>
@@ -177,7 +177,6 @@
             </div>
         </section>
         <section id="espaco">
-
             <div class="container">
                 <div>
                     <h2 style="text-align:letf; color: #B06F1A; letter-spacing: 2px; font-weight: bold">Espaço</h2>
@@ -185,70 +184,25 @@
                     <div class="row">
                         <div class="out_carrousel">
                             <div class="carrousel">
-                                <div class="carrousel-image">
-                                    <div class="carroulsel-item-image">
-                                        <a type="button"  data-toggle="modal" data-target="#exampleModal">
-                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
-                                        </a>
-                                    </div>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-body">
-                                                <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
+                                @foreach ($space as $space_item)
+                                    <div class="carrousel-image">
+                                        <div class="carroulsel-item-image">
+                                            <a type="button"  data-toggle="modal" data-target="openPhotoModal-{{$space_item->id}}">
+                                                <img src="/storage/{{ $space_item->path }} " alt="" width="300px">
+                                            </a>
+                                        </div>
+                                        <div class="modal fade" id="openPhotoModal-{{$space_item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <img  src="/storage/{{ $space_item->path }}" alt="" width="100%" height="100%">
+                                                </div>
                                             </div>
-                                          </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="carrousel-image">
-                                    <div class="carroulsel-item-image">
-                                        <a type="button"  data-toggle="modal" data-target="#exampleModal">
-                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
-                                        </a>
-                                    </div>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-body">
-                                                <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
-                                            </div>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carrousel-image">
-                                    <div class="carroulsel-item-image">
-                                        <a type="button"  data-toggle="modal" data-target="#exampleModal">
-                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
-                                        </a>
-                                    </div>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-body">
-                                                <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
-                                            </div>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carrousel-image">
-                                    <div class="carroulsel-item-image">
-                                        <a type="button"  data-toggle="modal" data-target="#exampleModal">
-                                            <img src="{{asset('images/foto1.jpeg')}}" alt="" width="300px">
-                                        </a>
-                                    </div>
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                          <div class="modal-content">
-                                            <div class="modal-body">
-                                                <img src="{{asset('images/foto1.jpeg')}}" alt="" width="100%" height="100%">
-                                            </div>
-                                          </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+                             
                             </div>
 
                         </div>

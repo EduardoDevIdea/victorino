@@ -63,7 +63,7 @@ background-image: url('../../images/foto1.jpeg');
 /* Sessão sobre */
 #sobre {
     height: 100%;
-    background: linear-gradient(to right,#080303,#080303,#080303,#080303, #f5f0f6);
+    background: linear-gradient(to right,#080303,#080303,#080303,#080303, #080303);
     /* background: #f5f0f6; */
 }
 .filosofia {
@@ -132,7 +132,7 @@ background-image: url('../../images/foto1.jpeg');
 #especialidade {
     height: 100%;
     /* background: linear-gradient(1turn, #FFFFFF,#A2B1C0, #173E62); */
-    background: #231F20;
+    background: #D7D2D8;
 }
 #espaco {
     height: 100%;
@@ -197,7 +197,7 @@ background-image: url('../../images/foto1.jpeg');
     top: 0;
     width: 1200px;
     height: 100%;
-    background:linear-gradient(to right, #efeff4, #efeff4 );
+    background:linear-gradient(to right, #231F20, #231F20 );
     transform-origin: top;
     transform: skewX(25deg);
 }
@@ -207,13 +207,22 @@ background-image: url('../../images/foto1.jpeg');
     z-index: 1;
     margin-top: 25vh;
 }
+.photo_line img {
+    width: 521px;
+    height: 263px;
+}
 
 
 .text-especialidade{
-    color: #f5f0f6; 
-    font-size: 20pt;
-    font-weight: bold; 
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
     text-align: center;
+    color: #946423;
 }
 .out_carrousel {
     padding: 20px;
@@ -245,6 +254,8 @@ background-image: url('../../images/foto1.jpeg');
     overflow: hidden;
     width: 100%;
     border-radius: 10px;
+    align-items: center;
+    justify-content: center;
 }
 .main-container {
     position: relative;
@@ -422,9 +433,12 @@ background-image: url('../../images/foto1.jpeg');
     .hero2 {
         display: none;
     }
-    #sobre {
-        background: linear-gradient(to top,#f5f0f6,#080303,#080303,#080303,#080303);
-        /* background: #f5f0f6; */
+    .photo_line img {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 400px;
     }
+   
  } 
 
