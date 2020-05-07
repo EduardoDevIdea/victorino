@@ -6,21 +6,22 @@ body {
 /* Menu */
 .item-menu {
     font-size: 12pt;
-    color: #B06F1A;
+    color: white;
     text-decoration: none;
-    font-weight: 900;
+    font-weight: 500;
+}
+.menu_nave {
+    padding: 0 130px 0 150px;
 }
 .item-menu:hover {
     color:white;
     transition: linear ease 8s;
 }
-.menu {
-    border-top: 4px solid  #B06F1A;
-    border-bottom: 1px solid #946423;
-
-}
 #app {
     background-color: #231F20;
+    
+
+
 }
 .botao-responsive {
     color: white;
@@ -67,10 +68,12 @@ background-image: url('../../images/foto1.jpeg');
     /* background: #f5f0f6; */
 }
 .filosofia {
-    color: #B06F1A;
+    color: white;
+    font-weight: bold;
 }
 .funcionamento {
-    color: #B06F1A;
+    color: white;
+    font-weight: bold;
 }
 .separator {
     height: 1px;
@@ -95,9 +98,7 @@ background-image: url('../../images/foto1.jpeg');
 }
 .description {
     color: white;
-    font-weight: bold;
     font-size: 12pt;
-    letter-spacing: 1px;
 }
 
 .line-about {
@@ -342,6 +343,25 @@ background-image: url('../../images/foto1.jpeg');
 .twitter {
     text-decoration: none;
     color: #f5f0f6;
+}
+
+.midias {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.midias a {
+    padding: 5px;
+
+}
+.insta {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(to top left, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90% );
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 55px
 }
 
 /* Media */

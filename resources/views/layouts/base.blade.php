@@ -87,10 +87,10 @@
           
         <div id="app">
             <div class="menu" id="menu">
-                <nav class="navbar navbar-expand-md  mwnu" style="background-color: #231F20;">
+                <nav class="navbar navbar-expand-md  menu_nave" style="background-color: #231F20;">
                     <div class="container">
                         <a class="navbar-brand" href="{{ url('/') }}">
-                           <img src="{{asset('images/Screenshot_2.png')}}" width="230px" height="120px" alt="">
+                           <img src="{{asset('images/Screenshot_2.png')}}" width="400px" height="220px" alt="">
                         </a>
                         <button class="navbar-toggler botao-responsive" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                             <i class="fas fa-bars fa-2x"></i>
@@ -115,7 +115,10 @@
                                     <a class="nav-link item-menu" href="#profissionais">Profissionais</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link item-menu" href="#contato">Contato</a>
+                                    <a class="nav-link item-menu" href="#contato">Fale Conosco</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#">Blog</a>
                                 </li>
                                 @guest
                                     @if (Route::has('register'))
@@ -145,7 +148,6 @@
                     </div>
                 </nav>
             </div>
-    
         </div>
         <div class="content-site">
             <section id="sobre">
@@ -166,8 +168,8 @@
                                 </div>
                             </div>
                             <div class="photo_owner col-sm-5 col-xs-12">
-                                <img src="storage/{{ $about[0]->img }}" alt="" width="100%" height="auto">
-                                <p style="text-align:center; color:#946423">{{$about[0]->legenda}}</p>
+                                <img src="/storage/{{ $about[0]->img }}" alt="" width="100%" height="auto">
+                                <p style="text-align:center; color:white">{{$about[0]->legenda}}</p>
                             </div>
                         </div>
                     </div>
@@ -223,7 +225,7 @@
                                         <div class="carrousel-image">
                                             <div class="carroulsel-item-image">
                                                 <a type="button"  data-toggle="modal" data-target="openPhotoModal-{{$space_item->id}}">
-                                                    <img src="/storage/{{ $space_item->path }} " alt="" width="300px">
+                                                    <img src="storage/{{ $space_item->path }} " alt="" width="300px">
                                                 </a>
                                             </div>
                                             <div class="modal fade" id="openPhotoModal-{{$space_item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -301,13 +303,22 @@
                                         <p > <i class="fas fa-phone-alt"></i>  {{$contact[0]->telefone1}}</p>
                                         <p > <i class="fas fa-phone-alt"></i>  {{$contact[0]->telefone2}}</p>
                                         <h5><strong class="font-size: 15pt">E-mail</strong></h5>
-                                        <p > <i class="fas fa-at"></i>  {{$contact[0]->email}}</p>
+                                        <p > <i class="far fa-envelope"></i>  {{$contact[0]->email}}</p>
                                         <h5><strong class="font-size: 15pt">Endereço</strong></h5>
                                         <p ><i class="fas fa-map-marker-alt"></i>  {{$contact[0]->endereco}}</p>
                                         <h5><strong class="font-size: 15pt">Mídias Sociais</strong></h5>
-                                        <p > <i class="fab fa-instagram"></i>   <a href="{{$contact[0]->instagram}}">Instagram</a></p>
-                                        <p > <i class="fab fa-twitter"></i>   <a href="{{$contact[0]->twitter}}">Twitter</a>  </p>
-                                        <p> <i class="fab fa-facebook-f"></i>  <a href="{{$contact[0]->facebook}}">Facebook</a> </p>
+                                        <div class="midias">
+                                            <a class="insta" style="" href="{{$contact[0]->instagram}}">
+                                                <i class="fab fa-instagram fa-3x" style="color: white; "></i>
+                                            </a>
+                                            <a href="{{$contact[0]->twitter}}">
+                                                <i class="fab fa-twitter fa-3x" style="color: #00acee"></i>
+                                            </a>
+                                           <a href="{{$contact[0]->facebook}}">
+                                                <i class="fab fa-facebook-f fa-3x" style="color: blue"></i>
+                                           </a>    
+                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -321,7 +332,7 @@
             <section id="footer">
     
                 <div class="container">
-                    <div class="footer_information">
+                    <div class="footer_information text-center">
                         <div class="row">
                             <div class="col-sm-6  col-xs-12 text-center">
                                 <img src="{{asset('images/Screenshot_2.png')}}" alt="" width="80%">    
