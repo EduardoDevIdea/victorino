@@ -49,18 +49,18 @@
                 <div class="form-group row">
                     <label for="inputSenha" class="col-sm-2 col-form-label">Senha</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputSenha" name="password" id="password" minlenght="8" placeholder="Nova senha" title="Caso queira manter a senha anterior, não preencha este campo.">
+                        <input type="text" class="form-control" id="inputSenha" name="password"  minlenght="8" placeholder="Nova senha" title="Caso queira manter a senha anterior, não preencha este campo.">
                     </div> 
                 </div>
 
                 <div class="form-group row">
                     <label for="inputConfirmaSenha" class="col-sm-2 col-form-label">Confirmar senha</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputConfirmaSenha" name="rep_password" id="rep_password" minlenght="8" placeholder="Confirmar senha" title="Digite a mesma senha do campo anterior antes de confirmar">
+                        <input type="text"  class="form-control" id="inputConfirmaSenha" name="rep_password" id="rep_password" minlenght="8" placeholder="Confirmar senha" title="Digite a mesma senha do campo anterior antes de confirmar">
                     </div> 
                 </div>
 
-                <input type="submit" value="Atualizar" class="btn btn-primary" onsubmit="return verificaSenha();">
+                <input type="submit" value="Atualizar" class="btn btn-primary" onclick="verificaSenha()">
 
             </form>
 
@@ -69,9 +69,11 @@
 
     <!-- Verificação de  campos 'Senha' e 'Confirmar Senha' -->
     <script type="text/javascript">
+            const password = document.getElementById("password");
+            const rep_password = document.getElementById("rep_password");
+
         function verificaSenha(){
-            var password = document.getElementById("password");
-            var rep_password = document.getElementById("rep_password");
+            console.log(password)
             if( password != rep_password){
                 alert("As senhas não conferem! Digite novamente.");
                 document.getElementByid("rep_password").focus();
