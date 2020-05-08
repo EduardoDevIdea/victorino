@@ -18,7 +18,7 @@
             @csrf
             <input type="hidden" name="background" value="1">
 
-            <div class="row my-4 ">
+            <div class="row mt-4 ">
                 <div class="col-6">
                     <p><strong>Imagem 1</strong> <input type="file" name="bkg1"></p>
                 
@@ -32,9 +32,8 @@
                 </div>
             </div>
         
-
-            <div class="row my-5 w-50">
-                <input type="submit" class="btn btn-success mx-auto" value="Atualizar" style="width: 50%;">
+            <div class="row mt-1 w-50">
+                <input type="submit" class="btn btn-success mx-auto" value="Atualizar" style="width: 30%;">
             </div>
         </form>
         

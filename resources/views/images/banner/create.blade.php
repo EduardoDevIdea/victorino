@@ -1,48 +1,33 @@
-@extends('images.index')
 
-@section('form')
+<!-- Arquivo é adicionado quando clica em "Adicionar imagem" em images.banner.list  -->
 
-    <div class="container">
+<!-- MODAL Adiciona Foto -->
+<div class="modal fade" id="create" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
 
-            <div class="row my-4">
-                <h2>Banner</h2>
+            <div class="modal-header">
+                <h5 class="modal-title">Adicionar Banner</h5>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>x</span>
+                </button>
             </div>
-            
+
             <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="banner" value="1">
 
-                <div class="row my-4">
-                    <div class="col">
-                        <strong>Imagem 1</strong> <input type="file" name="banner1">
-                    </div>
-                    <div class="col">
-                        <strong>Img</strong><img src="" alt="">
-                    </div>
+                <div class="modal-body">
+                    <input type="file" name="img" required>
                 </div>
 
-                <div class="row my-4">
-                    <div class="col">
-                        <strong>Imagem 2</strong> <input type="file" name="banner2">
-                    </div>
-                    <div class="col">
-                        <strong>Img</strong><img src="" alt="">
-                    </div>
-                </div>
-
-                <div class="row my-4">
-                    <div class="col">
-                        <strong>Imagem 3</strong> <input type="file" name="img">
-                    </div>
-                    <div class="col">
-                        <strong>Img</strong><img src="" alt="">
-                    </div>
-                </div>
-
-                <div class="row my-5">
-                    <input type="submit" class="btn btn-success mx-auto" value="Atualizar" style="width: 50%;">
+                <div class="modal-footer">
+                    <input type="submit" class="btn btn-success" value="Salvar">
+                    <button type="button"class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                 </div>
             </form>
-    </div>
 
-@endsection
+        </div>
+    </div>
+</div>
+    <!-- FIM MODAL -->
