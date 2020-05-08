@@ -54,10 +54,15 @@ Route::resource('/contact', 'ContactController');
 //--------------------------------------------------------------------------------------------
 
 //-----IMAGES
-Route::resource('/image', 'ImageController');
 
-//--- Verifica tipo de Imagem, na view images/index
-Route::post('/tipo', 'ImageController@tipo')->name('image.tipo');
+//--Lista tipo da imagem
+Route::get('/image/list/{image}', 'ImageController@list')->name('image.list');
+
+//--Exclui Imagem
+Route::get('/image/{image}/delete', 'ImageController@destroy')->name('image.destroy');
+
+//-- Rotas resource
+Route::resource('/image', 'ImageController', ['except' => ['destroy']]);
 
 //--------------------------------------------------------------------------------------------
 
@@ -80,7 +85,7 @@ Route::get('/photo/{photo}/delete', 'PhotoController@destroy')->name('photo.dest
 //---USER
 
 //--Lista usuários (foi acrescentada antes da rota resource para soluionar problema - nao retornava nada quando colocada embaixo da resource)
-Route::get('/user/list/', 'UserController@list')->name('user.list');
+Route::get('/user/list', 'UserController@list')->name('user.list');
 
 //--(Rotas resource)
 Route::resource('/user', 'UserController', ['except' => ['destroy']]);

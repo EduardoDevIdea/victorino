@@ -1,21 +1,20 @@
 @extends('home')
 
 @section('content')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-    @if(session('update'))
-      <script>
-         Swal.fire({
-            icon: 'success',
-            title: 'Dados atualizados com sucesso',
-            showConfirmButton: false,
-            timer: 2500,
-            timerProgressBar: true,
-            onBeforeOpen: () => {
-                Swal.showLoading()
-            }
-        })
-   
-      </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        @if(session('update'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Dados atualizados com sucesso',
+                showConfirmButton: false,
+                timer: 2500,
+                timerProgressBar: true,
+                onBeforeOpen: () => {
+                    Swal.showLoading()
+                }
+            })
+        </script>
     @endif      
 
     <h1>Sobre nós</h1><br>
