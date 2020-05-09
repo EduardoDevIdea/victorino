@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -41,9 +41,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-
-        return view('users.list', compact('users'));
+        return view('users.create');
     }
 
     /**
@@ -54,7 +52,35 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /**
+         * Se a validação falhar, nao segue com o restante do codigo da function store e redireciona para o form com mensagens de erro
+        */ 
+        $validateData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $user = new User;
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        
+        /**
+         * Valor do campo type
+         * Se o campo type for marcado no form, a instância recebe na tabela o valor "master", senao recebe "adm"
+        */ 
+        if($request->type == 1){
+            $user->type = "master";
+        }
+        else{
+            $user->type = "adm";
+        }
+
+        $user->save();
+
+        return redirect()->action('UserController@list')->with('store', 'Usuário cadastrado com sucesso!');
     }
 
     /**
@@ -76,7 +102,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -86,25 +114,33 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) 
+    public function update(Request $request, $id)
     {
+        /**
+         * Validação
+         * Validando senha como nullable, pois o usuário pode deixar o campo em branco para manter a senha anterior
+         * Se a validação falhar, nao segue com o restante do codigo da function store e redireciona para o form com mensagens de erro
+        */ 
+        $validateData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+        ]);
+
         $user = User::find($id);
 
-        if($request->profile){
+        if($request->password != NULL){ // Verifica se o campo de senha foi preenchido no form
 
-            if($request->password != NULL){ // Verifica se o campo de senha foi preenchido no form
+            $user->password = Hash::make($request->password);
+        }    
 
-                $user->password = Hash::make($request->password);
-            }    
+        $user->name = $request->name;
+        $user->email = $request->email;
 
-            $user->name = $request->name;
-            $user->email = $request->email;
+        $user->save();
 
-            $user->save();
-
-            return redirect()->action('UserController@index')->with('update', 'Dados atualizados com sucesso!');
-        }
-
+        return redirect()->action('UserController@index')->with('update', 'Dados atualizados com sucesso!');
+        
     }
 
     /**
@@ -115,6 +151,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        $user->delete();
+
+        return redirect()->action('UserController@list')->with('destroy', 'Usuário deletado com sucesso!');
     }
 }

@@ -11,7 +11,10 @@
 
     <h1>Ajustes<h1> <br>
 
+    <!-- CARD -->
     <div class="card text-center">
+
+        <!-- CARD HEADER -->
         <div class="card-header" style="font-size: 20px">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
@@ -21,16 +24,18 @@
                     <a class="nav-link active" href="{{ route('user.list') }}">Usuários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" href="{{ route('user.create') }}" tabindex="-1" aria-disabled="true">Cadastro</a>
                 </li>
             </ul>
         </div>
+        <!-- END CARD HEADER -->
 
+        <!-- CARD BODY -->
         <div class="card-body m-4" style="font-size: 15px">
             
-            <!-- Lista de usuarios cadastrados -->
+            <h4 class="mb-4">USUÁRIOS CADASTRADOS</h4>
 
-            <table class="table w-75">
+            <table class="table w-75 mx-auto">
 
                 <thead class="thead-dark">
                     <tr>
@@ -63,7 +68,10 @@
             </table>
 
         </div>
+        <!-- END CARD BODY -->
+
     </div>
+    <!-- END CARD -->
 
 
 @endsection

@@ -14,27 +14,27 @@
     <!-- CARD -->
     <div class="card text-center">
 
-        <!-- CARD HEADER-->
+        <!-- CARD HEADER -->
         <div class="card-header" style="font-size: 20px">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('user.index') }}">Perfil</a>
+                    <a class="nav-link" href="{{ route('user.index') }}">Perfil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user.list') }}">Usuários</a>
+                    <a class="nav-link active" href="{{ route('user.list') }}">Usuários</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.create') }}" tabindex="-1" aria-disabled="true">Cadastro</a>
                 </li>
             </ul>
         </div>
-        <!-- END CARD HEADER-->
+        <!-- END CARD HEADER -->
 
         <!-- CARD BODY -->
         <div class="card-body m-4" style="font-size: 15px">
-
-            <h4 class="mb-4">MEU PERFIL</h4>
             
+            <h4 class="mb-4">EDITAR USUÁRIO</h4>
+
             <form action="{{ route('user.update', ['user' => $user->id]) }}" method="POST">
                 @csrf
                 @method('PUT')
@@ -43,7 +43,7 @@
                     <label for="name" class="col-md-4 col-form-label text-md-right">Nome</label>
 
                     <div class="col-md-6">
-                        <input type="text" name="name"  id="name" value="{{ $user->name }}" class="form-control @error('name') is-invalid @enderror" required autocomplete="name" autofocus>
+                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                     </div>
                 </div>
 
@@ -51,7 +51,7 @@
                     <label for="email" class="col-md-4 col-form-label text-md-right">E-mail</label>
 
                     <div class="col-md-6">
-                        <input type="email" name="email" id="email" value="{{ $user->email }}" class="form-control @error('email') is-invalid @enderror" required autocomplete="email">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -67,10 +67,6 @@
                     <div class="col-md-6">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
 
-                        <small class="form-text text-muted ml-1">
-                            Para manter a senha anterior, deixe este campo em branco.
-                        </small>
-
                         @error('password')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -84,14 +80,26 @@
 
                     <div class="col-md-6">
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
-
-                        <small class="form-text text-muted ml-1">
-                            Repita a senha digitada acima, se optou por mudar a senha.
-                        </small>
                     </div>
                 </div>
+                    
+                <div class="row">
+                    <label for="type" class="col-md-4 text-md-right">Master</label>
 
-                <input type="submit" value="Atualizar" class="btn btn-primary">
+                    <input type="checkbox" id="type" name="type" value="1" style="width: 20px; height: 20px;">
+
+                    <small class="form-text text-muted ml-1">
+                        Permitir que o usuário cadastre e exclua outros usuários.
+                    </small>
+                </div>
+
+                <div class="form-group row mt-4 mb-0">
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-primary">
+                            Atualizar
+                        </button>
+                    </div>
+                </div>
 
             </form>
 
@@ -99,5 +107,7 @@
         <!-- END CARD BODY -->
 
     </div>
+    <!-- END CARD -->
+
 
 @endsection
