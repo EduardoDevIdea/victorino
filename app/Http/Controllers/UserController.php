@@ -29,7 +29,7 @@ class UserController extends Controller
 
     public function list()
     {
-        $users = User::all();
+        $users = User::paginate(10); //User::all()->paginate(10) - NÃO FUNCIONOU DESSE JEITO
 
         return view('users.list', compact('users'));
     }    
@@ -123,16 +123,26 @@ class UserController extends Controller
         */ 
         $validateData = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'],
             'password' => ['nullable', 'string', 'min:8', 'confirmed'],
         ]);
 
         $user = User::find($id);
 
-        if($request->password != NULL){ // Verifica se o campo de senha foi preenchido no form
+        // Verifica se o campo de senha foi preenchido no form (pois pode ser mantido em branco para permanecer a senha anterior)
+        if($request->password != NULL){ 
 
             $user->password = Hash::make($request->password);
-        }    
+        }
+        
+        // Verifica se o checkbox Master foi marcado, se foi type recebe "master", se não recebe "adm"
+        if($request->type == 1){
+            
+            $user->type = "master";
+        }
+        else{
+            $user->type="adm";
+        }
 
         $user->name = $request->name;
         $user->email = $request->email;
@@ -140,7 +150,6 @@ class UserController extends Controller
         $user->save();
 
         return redirect()->action('UserController@index')->with('update', 'Dados atualizados com sucesso!');
-        
     }
 
     /**

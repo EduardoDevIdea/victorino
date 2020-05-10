@@ -7,6 +7,12 @@
     </script>
 @endif
 
+@if(session('store'))
+    <script>
+        window.alert("{{ session('store') }}");
+    </script>
+@endif
+
 @section('content')
 
     <h1>Ajustes<h1> <br>
@@ -66,6 +72,13 @@
                 </tbody>
 
             </table>
+
+            <!-- Paginação -->
+            <div class="container w-75">
+                <div class="row">
+                    {{ $users->links() }}
+                </div>  
+            </div>
 
         </div>
         <!-- END CARD BODY -->

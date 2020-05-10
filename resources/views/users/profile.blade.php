@@ -43,7 +43,7 @@
                     <label for="name" class="col-md-4 col-form-label text-md-right">Nome</label>
 
                     <div class="col-md-6">
-                        <input type="text" name="name"  id="name" value="{{ $user->name }}" class="form-control @error('name') is-invalid @enderror" required autocomplete="name" autofocus>
+                        <input type="text" name="name" id="name" value="{{ $user->name }}" class="form-control @error('name') is-invalid @enderror" required autocomplete="name" autofocus>
                     </div>
                 </div>
 
