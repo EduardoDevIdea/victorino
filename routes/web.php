@@ -72,6 +72,8 @@ Route::resource('/post', 'PostController', ['except' => ['destroy']]);
 //--Excluir Post
 Route::get('/post/{post}/delete', 'PostController@destroy')->name('post.destroy');
 
+Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
+
 //--------------------------------------------------------------------------------------------
 
 //-----ESPAÇO (Galeria de Fotos)
