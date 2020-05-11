@@ -57,16 +57,38 @@
                         <tr>
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
-                            <td>
-                                <a href="{{ route('user.edit', ['user' => $user->id]) }}">
-                                    <i class="fas fa-edit" style="color: black"></i> <!-- icone -->
-                                </a>
-                            </td>
-                            <td>
-                                <a href="{{ route('user.destroy', ['user' => $user->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');">
-                                    <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
-                                </a>
-                            </td>
+
+                             <!-- Se o registro é o do user que está autenticado, não aparece opções para editar e excluir -->
+                            @if($user->id == Auth::id())
+                                <td>
+                                    <a href="{{ route('user.index') }}">
+                                        <i class="fas fa-user fa-lg" title="Meu perfil"></i> <!-- icone direciona para o seu perfil -->
+                                    </a>
+                                </td>
+                                <td>
+                                    <!-- Manter o <td> vazio para formataçao da tabela -->
+                                </td>
+                             <!-- Se user for master, nao pode ser editado, nem excluido -->    
+                            @elseif($user->type == "master") 
+                                <td>
+                                    <a href="#">
+                                        <i class="fas fa-shield-alt fa-lg" style="color:black" title="Master"></i> <!-- icone -->
+                                    </a>
+                                </td>
+                                    <!-- Manter o <td> vazio para formataçao da tabela -->
+                                <td>
+                            @else
+                                <td>
+                                    <a href="{{ route('user.edit', ['user' => $user->id]) }}">
+                                        <i class="fas fa-edit" style="color: black"></i> <!-- icone -->
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ route('user.destroy', ['user' => $user->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');">
+                                        <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
+                                    </a>
+                                </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>

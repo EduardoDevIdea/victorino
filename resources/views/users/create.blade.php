@@ -82,7 +82,7 @@
                     </div>
                     
                     <div class="row">
-                        <label for="type" class="col-md-4 text-md-right">Master</label>
+                        <label for="type" class="col-md-4 text-md-right">Admin</label>
 
                         <input type="checkbox" id="type" name="type" value="1" style="width: 20px; height: 20px;">
 

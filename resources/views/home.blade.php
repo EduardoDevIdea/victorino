@@ -592,34 +592,21 @@
 
                     <!-- User Info -->
                     <div class="user-info">
-                        <span class="user-name">
+
+                        <span class="user-name mb-2">
                             {{ Auth::user()->name }}  
                         </span>
-                         <span class="user-role">Administrator</span>
-                        <span class="user-status">
-                        <i class="fa fa-circle"></i>
-                        <span>Online</span>
-                        </span>
+                        
+                        <a href="{{ route('user.index') }}">
+                            <i class="fas fa-cog" title="Ajuste e cadastro de usuário"></i>
+                            <small>Configurações de Usuário</small>
+                        </a>
+                         
                     </div>
                     <!-- End of User Info-->
 
                 </div>
                 <!-- End of sidebar-header  -->
-
-                <!-- Sidebar Search -->
-                <!--div class="sidebar-search">
-                    <div>
-                        <div class="input-group">
-                            <input type="text" class="form-control search-menu" placeholder="Search...">
-                            <div class="input-group-append">
-                            <span class="input-group-text">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-                </div -->
-                <!-- End of Sidebar Search -->
 
                 <!-- MENU -->
                 <div class="sidebar-menu">
@@ -693,29 +680,11 @@
 
             <!-- Sidebar Footer -->
             <div class="sidebar-footer">
-                <a href="#">
-                    <i class="fa fa-bell"></i>
-                    <span class="badge badge-pill badge-warning notification">3</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-envelope"></i>
-                    <span class="badge badge-pill badge-success notification">7</span>
-                </a>
-                <a href="{{ route('user.index') }}">
-                    <i class="fa fa-cog"></i>
-                    <span class="badge-sonar"></span>
-                </a>
+               
                 <!-- LOGOUT -->
-                <a href="{{ route('logout') }}" 
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                    
-                        <i class="fa fa-power-off"></i>
-                </a>
-    
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+                    <a href="{{ route('logout') }}" onclick="return confirm('Deseja realmente sair?');">
+                        <strong>SAIR</strong>
+                    </a>
                 <!-- END LOOGOUT-->
 
             </div>

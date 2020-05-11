@@ -86,7 +86,7 @@ Route::get('/photo/{photo}/delete', 'PhotoController@destroy')->name('photo.dest
 
 //--------------------------------------------------------------------------------------------
 
-//---USER
+//-----USER
 
 //--Lista usuários (foi acrescentada antes da rota resource para soluionar problema - nao retornava nada quando colocada embaixo da resource)
 Route::get('/user/list', 'UserController@list')->name('user.list');
@@ -96,6 +96,9 @@ Route::resource('/user', 'UserController', ['except' => ['destroy']]);
 
 //--Exclui user
 Route::get('/user/{user}/delete', 'UserController@destroy')->name('user.destroy');
+
+//--LOGOUT
+Route::get('/logout', 'UserController@logout')->name('logout');
 
 //--------------------------------------------------------------------------------------------
 

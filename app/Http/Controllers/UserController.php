@@ -16,6 +16,17 @@ class UserController extends Controller
     }
 
     /**
+     * LOGOUT
+     * Funcao criada como solução para direcionar usuario para tela de login após clicar em sair
+     * A roda logout fornecida pela autenticação do laravel direciona para \home e eu não conseguir mudar
+     * Por isso esta solução abaixo
+     */
+    public function logout(){
+        Auth::logout(); //funcao de logout da facade Illuminate\Support\Facades\Auth; (Documentação de Validação)
+        return view('auth.login');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -72,10 +83,10 @@ class UserController extends Controller
          * Se o campo type for marcado no form, a instância recebe na tabela o valor "master", senao recebe "adm"
         */ 
         if($request->type == 1){
-            $user->type = "master";
+            $user->type = "admin";
         }
         else{
-            $user->type = "adm";
+            $user->type = "editor";
         }
 
         $user->save();
@@ -138,10 +149,10 @@ class UserController extends Controller
         // Verifica se o checkbox Master foi marcado, se foi type recebe "master", se não recebe "adm"
         if($request->type == 1){
             
-            $user->type = "master";
+            $user->type = "admin";
         }
         else{
-            $user->type="adm";
+            $user->type="editor";
         }
 
         $user->name = $request->name;

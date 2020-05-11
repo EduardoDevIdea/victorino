@@ -98,10 +98,10 @@
                 </div>
                     
                 <div class="row">
-                    <label for="type" class="col-md-4 text-md-right">Master</label>
+                    <label for="type" class="col-md-4 text-md-right">Admin</label>
 
                     <!-- Verificaca se user->type é master e deixa o campo marcado, caso seja -->
-                    @if($user->type == "master")
+                    @if($user->type == "admin")
                         <input type="checkbox" id="type" name="type" value="1" checked style="width: 20px; height: 20px;">
                     @else
                         <input type="checkbox" id="type" name="type" value="1" style="width: 20px; height: 20px;">
