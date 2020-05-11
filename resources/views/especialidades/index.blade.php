@@ -56,4 +56,9 @@
 
     </table>
 
+    <!-- Paginate -->
+    <div class="container">
+        {{ $especialidades->links() }}
+    </div>
+
 @endsection

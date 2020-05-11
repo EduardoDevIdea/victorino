@@ -29,7 +29,7 @@ class UserController extends Controller
 
     public function list()
     {
-        $users = User::paginate(10); //User::all()->paginate(10) - NÃO FUNCIONOU DESSE JEITO
+        $users = User::paginate(10); // User::all()->paginate(10) - NÃO FUNCIONOU DESSE JEITO
 
         return view('users.list', compact('users'));
     }    
@@ -55,7 +55,7 @@ class UserController extends Controller
         /**
          * Se a validação falhar, nao segue com o restante do codigo da function store e redireciona para o form com mensagens de erro
         */ 
-        $validateData = $request->validate([
+        $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
