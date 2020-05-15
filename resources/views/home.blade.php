@@ -583,23 +583,16 @@
                 <!-- Sidebar Header -->
                 <div class="sidebar-header">
 
-                    <!-- User Image  - esta div esta comentada porque a imagem estava distorcida-->  
-                    <!-- <div class="user-pic">
-                    <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
-                        alt="User picture">
-                    </div> -->
-                    <!-- END of User Image-->
-
                     <!-- User Info -->
                     <div class="user-info">
 
                         <span class="user-name mb-2">
-                            {{ Auth::user()->name }}  
+                            {{ Auth::user()->name }} 
                         </span>
                         
                         <a href="{{ route('user.index') }}">
-                            <i class="fas fa-cog" title="Ajuste e cadastro de usuário"></i>
-                            <small>Configurações de Usuário</small>
+                            <i class="fas fa-user-cog fa-lg" title="Ajuste e cadastro de usuário"></i>
+                            <small>Configurações de usuário</small>
                         </a>
                          
                     </div>
@@ -684,6 +677,7 @@
                 <!-- LOGOUT -->
                     <a href="{{ route('logout') }}" onclick="return confirm('Deseja realmente sair?');">
                         <strong>SAIR</strong>
+                        &nbsp <i class="fas fa-walking fa-lg"></i>
                     </a>
                 <!-- END LOOGOUT-->
 
@@ -705,6 +699,10 @@
 
     </div>
     <!-- END of page-wrapper -->
+
+    <!-- Icones Font Awesome - Account Eduardo Gomes -->
+    <script src="https://kit.fontawesome.com/829d5c5582.js" crossorigin="anonymous"></script>
+    <!-- End -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

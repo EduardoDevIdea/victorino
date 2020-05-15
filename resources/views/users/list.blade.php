@@ -72,7 +72,7 @@
                             @elseif($user->type == "master") 
                                 <td>
                                     <a href="#">
-                                        <i class="fas fa-shield-alt fa-lg" style="color:black" title="Master"></i> <!-- icone -->
+                                        <i class="fas fa-user-shield fa-lg" style="color:black" title="Master"></i> <!-- icone -->
                                     </a>
                                 </td>
                                     <!-- Manter o <td> vazio para formataçao da tabela -->

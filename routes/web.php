@@ -12,11 +12,13 @@
 */
 
 //-----SEGURANÇA
-Auth::routes(); // Rotas de autenticação (login, register, password/reset)
 
 Auth::routes(['register' => false]); // Removendo rota de registro para novos usuario
                                      // Dessa forma, so acessa a rota register se o user estiver autenticado, caso contrario redireciona para tela de login
                                      // Novos usuarios sao cadastrados através da dashboard por um usuario com permissao
+
+Auth::routes(); // Rotas de autenticação (login, register, password/reset)
+
 //--------------------------------------------------------------------------------------------
 
 //-----(DASHBOARD) PAINEL ADMINISTRATIVO
