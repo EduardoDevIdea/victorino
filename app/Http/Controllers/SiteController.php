@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Models\Especialidade;
+use App\Models\Image;
 use App\Models\Photo;
+use App\Models\Post;
 use App\Models\Profissional;
 use Illuminate\Http\Request;
 use App\Models\Sobre;
@@ -23,10 +25,12 @@ class SiteController extends Controller
         $doctor = Profissional::all();
         $contact = Contact::all();
         $space = Photo::all();
+        $banner = Image::where('local', 'banner')->get();
+        $post_principal = Post::get();
         
         
 
-        // dd(!$about == '');
+        // dd($banner);
 
         // if(!$about == '' || !$specialty == '' || !$doctor == '' || !$contact == ''){
         //     return view('layouts.notInformations');
@@ -34,6 +38,6 @@ class SiteController extends Controller
         
         // dd($about[0]);
         
-        return view('layouts.base' , compact('about', 'specialty', 'doctor', 'contact', 'space'));
+        return view('layouts.base' , compact('about', 'specialty', 'doctor', 'contact', 'space', 'banner', 'post_principal'));
     }
 }

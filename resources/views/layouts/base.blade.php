@@ -60,15 +60,18 @@
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
                         <div class="carousel-inner">
+
                             <div class="carousel-item active">
-                            <img class="d-block w-100" src="{{asset('images/foto1.jpeg')}}" height="30%" alt="Primeiro Slide">
+                                <img class="d-block w-100" src="/storage/{{ $banner[0]->path }}" height="30%" alt="Primeiro Slide">
                             </div>
-                            <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/foto2.jpg')}}" height="30%" alt="Segundo Slide">
-                            </div>
-                            <div class="carousel-item">
-                            <img class="d-block w-100" src="{{asset('images/foto3.jpg')}}" height="30%" alt="Terceiro Slide">
-                            </div>
+                            @foreach ($banner as $item_banner)
+                                @if ($item_banner->path != $banner[0]->path)
+                                    <div class="carousel-item ">
+                                        <img class="d-block w-100" src="/storage/{{ $item_banner->path }}" height="30%" alt="Primeiro Slide">
+                                    </div>
+                                @endif
+                                
+                            @endforeach
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -86,6 +89,47 @@
         </div>
           
         <div id="app">
+            
+            <div class="menu_scroll" id="menu_scroll">
+                <nav class="navbar navbar-expand-md  menu_nave" style="background-color: #231F20;">
+                    <div class="container">
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                           <img src="{{asset('images/Screenshot_2.png')}}" width="200px" height="110px" alt="">
+                        </a>
+                        <button class="navbar-toggler botao-responsive" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                            <i class="fas fa-bars fa-2x"></i>
+                        </button>
+        
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto">
+        
+                            </ul>
+                            <!-- Right Side Of Navbar -->
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#sobre">Sobre Nós</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#especialidade">Especialidades</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#espaco">O Espaço</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#profissionais">Profissionais</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#contato">Fale Conosco</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link item-menu" href="#Blog">Blog</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
             <div class="menu" id="menu">
                 <nav class="navbar navbar-expand-md  menu_nave" style="background-color: #231F20;">
                     <div class="container">
@@ -118,36 +162,14 @@
                                     <a class="nav-link item-menu" href="#contato">Fale Conosco</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link item-menu" href="#">Blog</a>
+                                    <a class="nav-link item-menu" href="#Blog">Blog</a>
                                 </li>
-                                @guest
-                                    @if (Route::has('register'))
-                                    @endif
-                                @else
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link dropdown-toggle  item-menu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                            {{ Auth::user()->name }} <span class="caret"></span>
-                                        </a>
-        
-                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item item-menu" href="{{ route('logout') }}"
-                                               onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
-                                            </a>
-        
-                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                @csrf
-                                            </form>
-                                            <a class="dropdown-item item-menu" href="{{url('home')}}">Painel</a>
-                                        </div>
-                                    </li>
-                                @endguest
                             </ul>
                         </div>
                     </div>
                 </nav>
             </div>
+
         </div>
         <div class="content-site">
             <section id="sobre">
@@ -168,7 +190,7 @@
                                 </div>
                             </div>
                             <div class="photo_owner col-sm-5 col-xs-12">
-                                <img src="/storage/{{ $about[0]->img }}" alt="" width="100%" height="auto">
+                                <img src="/storage/{{ $about[0]->img }}" alt="" >
                                 <p style="text-align:center; color:white">{{$about[0]->legenda}}</p>
                             </div>
                         </div>
@@ -225,7 +247,7 @@
                                         <div class="carrousel-image">
                                             <div class="carroulsel-item-image">
                                                 <a type="button"  data-toggle="modal" data-target="openPhotoModal-{{$space_item->id}}">
-                                                    <img src="storage/{{ $space_item->path }} " alt="" width="300px">
+                                                    <img src="storage/{{ $space_item->path }} " alt="" width="300px" height="300px">
                                                 </a>
                                             </div>
                                             <div class="modal fade" id="openPhotoModal-{{$space_item->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -285,6 +307,8 @@
                     </div>
                 </div>
             </section>
+
+           
             
             <div class="hero3 paralax"></div>
     
@@ -329,8 +353,28 @@
                     </div>
                 </div>
             </section>
+
+            <section id="Blog">
+                <div class="container">
+                    <h2 class="text-left" style="color: #B06F1A; letter-spacing: 2px; font-weight: bold">Artigos do Blog</h2>
+                    <hr style="background-color: #B06F1A">
+                    <div class="blog" style="display: inline-flex; align-items: center; justify-content: center;width: 100% ">
+                        @foreach ($post_principal as $post)
+                            <div class="card" style="width: 18rem; height:20rem">
+                                <img class="card-img-top" src="storage/{{$post->img}}" width="100%" height="150px">
+                                <div class="card-body">
+                                    <h4 class="card-title" style="font-weight: bold">{{$post->titulo}}</h4>
+                                    <p class="card-text">{{$post->subtitulo}}</p>
+                                </div>
+                                <a href="#" class="btn btn-primary">Ler artigo</a>
+                            </div>
+                        @endforeach
+                    </div>
+                    <button class="btn btn-info button_view_article" style="float: right">Ver todos os artigos</button>
+                </div>
+            </section>
+
             <section id="footer">
-    
                 <div class="container">
                     <div class="footer_information text-center">
                         <div class="row">
@@ -354,6 +398,9 @@
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link item-menu" href="#contato">Contato</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link item-menu" href="#contato">Blog</a>
                                     </li>
                                 </div>    
                                 <a class="nav-link item-menu" href="#banner"><i class="fas fa-arrow-up" style="color: white; cursor:pointer"></i></a>
@@ -398,12 +445,17 @@
 
         site.classList.remove('lost')
         load.classList.add('lost')
-
-        
-
     }
 
-
+    $(window).scroll(function () {
+        console.log($(this).scrollTop())
+        if ($(this).scrollTop() >= 670) {
+            $('#menu_scroll').addClass('navbar-fixed')
+        }
+        if ($(this).scrollTop() < 670) {
+            $('#menu_scroll').removeClass('navbar-fixed')
+        }
+    })
 
 
   </script>

@@ -558,6 +558,8 @@
 
 <body>
 
+    {{-- <div class="infomenu" style="width: 100%; height: 80px; background-color:rgba(22, 199, 255, 0.5)"></div> --}}
+
     <!-- Page Wrapper -->
     <div class="page-wrapper chiller-theme toggled">
 
