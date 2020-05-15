@@ -1,56 +1,61 @@
-/* Body */
-body {
-    font-family: 'Montserrat', sans-serif;
-}
-/* Fim Body */
-/* Menu */
+/* Inicio Banner */
+.banner {
+    background-color:  #231F20;
+    top: 15px;
+    height: 35%;
+    }
+
+    .banner img {
+        height: 450px;
+    }
+    
+    .carrosel-inner img {
+        width: 100%;
+        height: 10px;
+    }
+  /*  Fim Banner  */
+    
+/* Sessão menu */
 .item-menu {
     font-size: 12pt;
     color: white;
     text-decoration: none;
     font-weight: 500;
 }
+.item-menu:hover {
+    color: #B06F1A;
+}
+
 .menu_nave {
     padding: 0 130px 0 150px;
 }
-.item-menu:hover {
-    color:white;
-    transition: linear ease 8s;
-}
+
 #app {
     background-color: #231F20;
-    
-
-
 }
+
 .botao-responsive {
     color: white;
 }
+.menu_scroll {
+    display: none;
+}
 /* Fim Menu */
-/* Banner */
-.banner {
-background-color:  #231F20;
-top: 15px;
-height: 50%;
-}
-.banner img {
-    height: 500px;
-}
-.carrosel-inner img {
-    width: 100%;
-    height: 10px;
-}
-/* Fim banner */
-/* Paralax */
+
+
+
 .hero1 {
-background-image: url('../../images/foto1.jpeg');
+    background-image: url('../../images/foto1.jpeg');
 }
+
 .hero2 {
     background-image: url('../../images/foto3.jpg');
 }
+
 .hero3 {
     background-image: url('../../images/foto2.jpg');
 }
+
 .paralax {
     background-attachment: fixed;
     height: 60%;
@@ -59,43 +64,52 @@ background-image: url('../../images/foto1.jpeg');
     background-size: cover;
     padding: 250px;
 }
-/* Fim paralax */
 
-/* Sessão sobre */
+
+/* Sessão Sobre */
 #sobre {
     height: 100%;
-    background: linear-gradient(to right,#080303,#080303,#080303,#080303, #080303);
-    /* background: #f5f0f6; */
+    background: #080303;
+    padding-top: 100px;
 }
+
+.photo_owner img {
+    width: 100%;
+    height: auto;
+}
+
+.text_about {
+    padding: 30px;
+}
+
 .filosofia {
     color: white;
-    font-weight: bold;
 }
+
 .funcionamento {
     color: white;
-    font-weight: bold;
 }
+
 .separator {
     height: 1px;
     width: 100%;
     background-color: #B06F1A;
 }
-.texts {
-    float: right;
-    width: 50%;
-}
-.text_about {
-    padding: 30px;
-    /* background: #0a1128; */
-}
+
+/* Fim Sessão Sobre */
+
+
+
 .photo_owner{
     padding: 30px;
     /* background: #f5f0f6; */
 }
+
 .space_photo {
     width: 100%;
     height: 100%;
 }
+
 .description {
     color: white;
     font-size: 12pt;
@@ -131,25 +145,25 @@ background-image: url('../../images/foto1.jpeg');
 /* Fim Sobre */
 
 #especialidade {
+    padding-top: 100px;
     height: 100%;
-    /* background: linear-gradient(1turn, #FFFFFF,#A2B1C0, #173E62); */
     background: #D7D2D8;
 }
 #espaco {
     height: 100%;
     background: #050923;
-    padding: 30px;
+    padding: 120px;
     /* padding: 80px; */
 }
 #profissionais {
     height: 100%;
     background: black;
-    padding: 30px;
+    padding: 130px;
 }
 #contato {
     height: 100%;
     background: #f5f0f6;
-    padding: 30px;
+    padding: 130px;
 }
 #footer {
     height: auto;
@@ -363,6 +377,45 @@ background-image: url('../../images/foto1.jpeg');
     align-items: center;
     border-radius: 55px
 }
+#Blog {
+    padding-bottom: 120px;
+    padding-top: 120px;
+}
+
+.blog {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.blog .card {
+    margin-right: 50px;
+}
+.button_view_article {
+    margin-top: 30px;
+    color: white;
+}
+
+.navbar-fixed {
+    position: fixed;
+    top: -10px;
+    width: 100%;
+    z-index: 10000;
+    transition: ease-in linear .8s;
+    background-color: white;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* Media */
 @media screen and (max-width: 991px) {
