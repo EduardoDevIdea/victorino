@@ -99,6 +99,8 @@ Route::get('/user/{user}/delete', 'UserController@destroy')->name('user.destroy'
 
 //-----ROTAS DO SITE
 Route::get('/' , 'SiteController@index');
+Route::get('/blog', 'BlogController@index');
+   
 
 //--------------------------------------------------------------------------------------------
 

@@ -366,11 +366,11 @@
                                     <h4 class="card-title" style="font-weight: bold">{{$post->titulo}}</h4>
                                     <p class="card-text">{{$post->subtitulo}}</p>
                                 </div>
-                                <a href="#" class="btn btn-primary">Ler artigo</a>
+                                <a href="{{url('')}}" class="btn btn-primary">Ler artigo</a>
                             </div>
                         @endforeach
                     </div>
-                    <button class="btn btn-info button_view_article" style="float: right">Ver todos os artigos</button>
+                    <a class="btn btn-info button_view_article" href="{{url('/blog')}}" style="float: right">Ver todos os artigos</a>
                 </div>
             </section>
 
@@ -400,7 +400,7 @@
                                         <a class="nav-link item-menu" href="#contato">Contato</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link item-menu" href="#contato">Blog</a>
+                                        <a class="nav-link item-menu" href="#Blog">Blog</a>
                                     </li>
                                 </div>    
                                 <a class="nav-link item-menu" href="#banner"><i class="fas fa-arrow-up" style="color: white; cursor:pointer"></i></a>
