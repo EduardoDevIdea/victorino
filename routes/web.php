@@ -108,6 +108,8 @@ Route::get('/logout', 'UserController@logout')->name('logout');
 
 //-----ROTAS DO SITE
 Route::get('/' , 'SiteController@index');
+Route::get('/blog', 'BlogController@index');
+   
 
 //--------------------------------------------------------------------------------------------
 
