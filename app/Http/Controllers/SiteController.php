@@ -20,24 +20,7 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $about = Sobre::all();
-        $specialty = Especialidade::all();
-        $doctor = Profissional::all();
-        $contact = Contact::all();
-        $space = Photo::all();
         $banner = Image::where('local', 'banner')->get();
-        $post_principal = Post::get();
-        
-        
-
-        // dd($banner);
-
-        // if(!$about == '' || !$specialty == '' || !$doctor == '' || !$contact == ''){
-        //     return view('layouts.notInformations');
-        // };
-        
-        // dd($about[0]);
-        
-        return view('layouts.base' , compact('about', 'specialty', 'doctor', 'contact', 'space', 'banner', 'post_principal'));
+        return view('Site.index', compact('banner'));
     }
 }

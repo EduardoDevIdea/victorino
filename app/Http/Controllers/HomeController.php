@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sobre;
+use App\Models\Contact;
+use App\Models\Especialidade;
+use App\Models\Image;
+use App\Models\Photo;
+use App\Models\Post;
+use App\Models\Profissional;
 use Illuminate\Http\Request;
+use App\Models\Sobre;
 
 class HomeController extends Controller
 {
@@ -24,8 +30,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $sobre_info = Sobre::get();
-        return view('home');
+        $about = Sobre::all();
+        $specialty = Especialidade::all();
+        $doctor = Profissional::all();
+        $contact = Contact::all();
+        $space = Photo::all();
+        $banner = Image::where('local', 'banner')->get();
+        $post_principal = Post::get();
+
+        return view('welcome', compact('about', 'specialty', 'doctor', 'contact', 'space', 'banner', 'post_principal') );
     }
 
     public function site()

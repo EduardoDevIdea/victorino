@@ -4,53 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Victoriano - Odontologia Especializada</title>
+    <title>Victoriano Odontologia Especializada</title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/site.css')}}">
-    <style>
-        .post {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            margin-bottom: 50px;
-        }
-        .post .card {
-            margin: 25px;
-            border: none;
-        }
-        .serch_post {
-            float: right;
-            height: 80px;
-        }
-        .pagination {
-            margin-top: 1000px;
-        }
-        .menu {
-            margin-bottom: 150px;
-        }
-        #footer {
-            margin-top: 150px;
-        }
-        .tilte {
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-    </style>
 </head>
+<style>
+    .post {
+        margin-top:130px;
+        margin-bottom: 130px;
+    }
+    .post_iamge {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .post_title {
+        text-align: center;
+    }
+</style>
 <body>
+    
     <div class="menu" id="menu">
         <nav class="navbar navbar-expand-md  menu_nave" style="background-color: #231F20;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                   <img src="{{asset('images/Screenshot_2.png')}}" width="200px" height="110px" alt="">
+                <img src="{{asset('images/Screenshot_2.png')}}" width="200px" height="110px" alt="">
                 </a>
                 <button class="navbar-toggler botao-responsive" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <i class="fas fa-bars fa-2x"></i>
                 </button>
-
+    
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
-
+    
                     </ul>
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -77,34 +63,25 @@
             </div>
         </nav>
     </div>
-    
-    
     <div class="container">
-        <div class="serch_post">
-            <input type="text" placeholder="Buscar Artigo">
-            <img src="https://img.icons8.com/cotton/64/000000/detective.png"/>
-        </div>
-       <div class="row">
-           <div class="col-6">
-               @foreach ($posts as $blog_post)
-
-                <div class="post">
-                    <div class="card" style="width: 18rem; height:20rem">
-                        <img class="card-img-top" src="storage/{{$blog_post->img}}" width="100%" height="200px">
-                        <div class="card-body">
-                            <h4 class="card-title tilte">{{$blog_post->titulo}}</h4>
-                            <p class="card-text">{{$blog_post->subtitulo}}</p>
-                        </div>
-                        <a href="{{route('blog', ['id' =>  $blog_post->id  ])}}" class="btn btn-primary">Ler artigo</a>
-                    </div>
-                    </div> 
+        <div class="row">
+            <div class="post">
+                <div class="post_image">
+                    <img src="{{$article->id}}/storage/{{$article->img}}" />
                 </div>
+                <div class="post_title">
+                    <h1>{{$article->titulo}}</h1>
+                    <h4>{{$article->subtitulo}}</h4>
 
-               @endforeach
-               {{ $posts->links() }}
-       </div>
+                </div>
+                <div class="post_text">
+                    <p>{!! $article->texto !!}</p>
+
+                </div>
+            </div>
+        </div>
+        <a href="{{url('/blog')}}" class="btn btn-info" style="margin-bottom: 80px; color: white">Voltar as postagens</a>
     </div>
-
 
     <section id="footer">
         <div class="container">
@@ -127,6 +104,5 @@
             </div>
         </div>
     </section>
-
 </body>
 </html>

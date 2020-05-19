@@ -48,7 +48,8 @@ class BlogController extends Controller
      */
     public function show($id)
     {
-        //
+        $article = Post::findOrFail($id);
+        return view('Blog.articles', compact('article'));
     }
 
     /**
