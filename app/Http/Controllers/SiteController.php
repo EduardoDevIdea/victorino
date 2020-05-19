@@ -21,6 +21,19 @@ class SiteController extends Controller
     public function index()
     {
         $banner = Image::where('local', 'banner')->get();
-        return view('Site.index', compact('banner'));
+        $bg_img = Image::where('local', 'bkg1')->get();
+        $about = Sobre::get();
+        $especialidade = Especialidade::get();
+        $espaco = Photo::get();
+        $profi = Profissional::get();
+        $contact = Contact::get();
+        $post = Post::get();
+
+
+        // dd($bg_img);
+
+       
+
+        return view('Site.index', compact('banner', 'bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post'));
     }
 }

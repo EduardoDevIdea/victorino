@@ -72,7 +72,8 @@
       </header>
       <!-- Swiper-->
       <section class="section section-lg section-main-bunner section-main-bunner-filter text-center" >
-        <div class="main-bunner-img" style="background-image: url({{asset('images/foto1.jpeg')}}); background-size: cover;"></div>
+        
+        <div class="main-bunner-img" style="background-image: url('storage/{{$bg_img[0]->path}}'); background-size: cover;"></div>
         <div class="main-bunner-inner">
           <div class="container">
             <div class="box-default">
@@ -89,12 +90,12 @@
           <div class="container">
             <div class="row row-50 justify-content-xl-between align-items-lg-center" style="padding: 30px; margin-top: 50px;">
               <div class="col-lg-6 wow fadeInLeft">
-                <div class="box-image"><img class="box-image-static" src="{{asset('images/owner.jpg')}}" alt="" width="483" height="327"/><img class="box-image-position" src="images/home-3-2-341x391.png" alt="" width="341" height="391" style="margin-top: 100px;"/>
+                <div class="box-image"><img class="box-image-static" src="storage/{{$about[0]->img}}" alt="" width="483" height="327"/><img class="box-image-position" src="images/home-3-2-341x391.png" alt="" width="341" height="391" style="margin-top: 100px;"/>
                 </div>
               </div>
               <div class="col-lg-6 col-xl-5 wow fadeInRight">
                 <h2>Sobre Nós</h2>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. In quas repudiandae molestiae, saepe dicta aliquam. Voluptate adipisci repudiandae doloribus fugit ipsam soluta voluptatum recusandae quam repellat itaque, eos suscipit nesciunt.</p>
+                <p>{{$about[0]->legenda}}</p>
                 <p>
                   <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     Veja mais
@@ -103,11 +104,11 @@
                 <div class="collapse" id="collapseExample">
                   <div class="card card-body" style="border: none">
                     <h4>Filosofia</h4>
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    {{$about[0]->filosofia}}
                   </div>
                   <div class="card card-body" style="border: none">
                     <h4>Funcionamento</h4>
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                    {{$about[0]->funcionamento}}
                   </div>
                 </div>
               </div>
@@ -130,8 +131,11 @@
             <div class="col-md-6 col-lg-4 wow-outer">
               <div class="wow fadeInUp">
                 <div class="product-featured">
+                  @foreach ($especialidade as $item_especialidade)
+                      
+                  @endforeach
                   <div class="product-featured-caption">
-                    <h4><a class="product-featured-title" href="#">Nome da Especialidade</a></h4>
+                    <h4><a class="product-featured-title" href="#">{{$item_especialidade->nome}}</a></h4>
                     <p>
                       <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
                         Leia Sobre
@@ -139,7 +143,7 @@
                     </p>
                     <div class="collapse" id="collapseExample1">
                       <div class="card card-body" style="border: none">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                        {{$item_especialidade->description}}
                       </div>
                     </div>
                   </div>
@@ -164,27 +168,15 @@
           <div class="col-lg-12">
             <div class="isotope" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group" data-lg-thumbnail="false">
               <div class="row no-gutters row-condensed">
-                <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
-                  <div class="wow slideInDown">
-                    <div class="gallery-item-classic"><img src="{{asset('images/victorino.png')}}" alt="" width="640" height="429"/>
-                      <div class="gallery-item-classic-caption"><a href="{{asset('images/victorino.png')}}" data-lightgallery="item">zoom</a></div>
+                @foreach ($espaco as $item_space)
+                  <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
+                    <div class="wow slideInDown">
+                      <div class="gallery-item-classic"><img src="storage/{{$item_space->path}}" alt="" width="640" height="429"/>
+                        <div class="gallery-item-classic-caption"><a href="storage/{{$item_space->path}}" data-lightgallery="item">zoom</a></div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="Category 3">
-                  <div class="wow slideInDown">
-                    <div class="gallery-item-classic"><img src="{{asset('images/victorino.png')}}" alt="" width="640" height="429"/>
-                      <div class="gallery-item-classic-caption"><a href="{{asset('images/victorino.png')}}" data-lightgallery="item">zoom</a></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-4 isotope-item wow-outer" data-filter="Category 3">
-                  <div class="wow slideInDown">
-                    <div class="gallery-item-classic"><img src="{{asset('images/victorino.png')}}" alt="" width="640" height="429"/>
-                      <div class="gallery-item-classic-caption"><a href="{{asset('images/victorino.png')}}" data-lightgallery="item">zoom</a></div>
-                    </div>
-                  </div>
-                </div>
+                @endforeach
               </div>
             </div>
           </div>
@@ -205,19 +197,22 @@
           <div class="col-lg-12">
             <div class="isotope" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group" data-lg-thumbnail="false">
               <div class="row no-gutters row-condensed">
-                <div class="col-12 col-md-4 isotope-item wow-outer" data-filter="Category 3">
+                @foreach ($profi as $item_profi)
+                  <div class="col-12 col-md-4 isotope-item wow-outer" data-filter="Category 3">
                   <div class="wow slideInDown">
-                    <div class="gallery-item-classic"><img src="{{asset('images/victorino.png')}}" alt="" width="640" height="429"/>
+                    <div class="gallery-item-classic"><img src="storage/{{$item_profi->img}}" alt="" width="640" height="429"/>
                       <div class="post-corporate-text" style="margin-left: 80px;">
-                        <p>Nome: </p>
-                        <p>Cargo: </p>
-                        <p>CROSP: </p>
-                        <p>Sobre: </p>
+                        <p>Nome: {{$item_profi->nome}}</p>
+                        <p>Cargo: {{$item_profi->cargo}} </p>
+                        <p>Atividade: {{$item_profi->atividade}}</p>
+                        <p>Registro: {{$item_profi->registro}}</p>
+                        <p>Sobre: {{$item_profi->sobre}}</p>
                       </div>
-                      <div class="gallery-item-classic-caption"><a href="{{asset('images/victorino.png')}}" data-lightgallery="item">zoom</a></div>
+                      <div class="gallery-item-classic-caption"><a href="storage/{{$item_profi->img}}" data-lightgallery="item">zoom</a></div>
                     </div>
                   </div>
                 </div>
+                  @endforeach
               </div>
             </div>
           </div>
@@ -233,26 +228,38 @@
               <h2>Fale Conosco</h2>
               <p>Entre em contato com a gente para agendar suas consultas</p>
               <p>
-                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                <a class="btn btn-primary" data-toggle="collapse" href="#contact" role="button" aria-expanded="false" aria-controls="collapseExample">
                   Formas de contato
                 </a>
               </p>
-              <div class="collapse" id="collapseExample">
+              <div class="collapse" id="contact">
                 <div class="card card-body" style="border: none">
                   <h4>Telefones</h4>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  {{$contact[0]->telefone1}}
+                  <br>
+                  {{$contact[0]->telefone2}}
+                </div>
+                <div class="card card-body" style="border: none">
+                  <h4>WhatsApp</h4>
+                  {{$contact[0]->wpp}}
                 </div>
                 <div class="card card-body" style="border: none">
                   <h4>Email</h4>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  {{$contact[0]->email}}
                 </div>
                 <div class="card card-body" style="border: none">
                   <h4>Endereço</h4>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  {{$contact[0]->endereco}}
                 </div>
                 <div class="card card-body" style="border: none">
                   <h4>Mídias sociais</h4>
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                  <div class="col-12">
+                    <ul class="social-list">
+                      <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-facebook" target="__blank" href="{{$contact[0]->facebook}}"></a></li>
+                      <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-instagram" target="__blank"href="{{$contact[0]->instagram}}"></a></li>
+                      <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-twitter"target="__blank" href="{{$contact[0]->twitter}}"></a></li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
@@ -264,12 +271,14 @@
           <h2 class="text-center wow slideInDown">Artigos do Blog</h2>
           <!-- Owl Carousel-->
           <div class="owl-carousel wow fadeInUp" data-items="1" data-md-items="2" data-lg-items="3" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="false" data-margin="30" data-mouse-drag="false">
-            <div class="post-corporate"><a class="badge" href="#"><?php echo date('d/m/Y')?></a>
-              <h4 class="post-corporate-title"><a href="#">Blog de dentista </a></h4>
-              <div class="post-corporate-text">
-                <p>Aqui você encontrará um blog para o site Victoriano</p>
-              </div><a class="post-corporate-link" href="#">Leia Mais<span class="icon linearicons-arrow-right"></span></a>
-            </div>
+            @foreach ($post as $item_post)
+              <div class="post-corporate"><a class="badge" href="#">{{$item_post->created_at->format('d/m/Y')}}</a>
+                <h4 class="post-corporate-title"><a href="#">{{$item_post->titulo}}</a></h4>
+                <div class="post-corporate-text">
+                  <p>{{$item_post->subtitulo}}</p>
+                </div><a class="post-corporate-link" href="#">Leia Mais<span class="icon linearicons-arrow-right"></span></a>
+              </div>
+            @endforeach
       
           </div>
         </div>
@@ -300,9 +309,9 @@
               </div>
               <div class="col-12">
                 <ul class="social-list">
-                  <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-facebook" href="#"></a></li>
-                  <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-instagram" href="#"></a></li>
-                  <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-twitter" href="#"></a></li>
+                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-facebook" target="__blank" href="{{$contact[0]->facebook}}"></a></li>
+                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-instagram" target="__blank" href="{{$contact[0]->instagram}}"></a></li>
+                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-twitter" target="__blank" href="{{$contact[0]->twitter}}"></a></li>
                 </ul>
               </div>
             </div>
