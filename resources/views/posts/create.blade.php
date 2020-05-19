@@ -49,7 +49,8 @@
     <script>
         CKEDITOR.replace( 'texto', {
             filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-            filebrowserUploadMethod: 'form'
+            filebrowserUploadMethod: 'form',
+            uiColor: '#9AB8F3',
         });
     </script>
 

@@ -24,6 +24,8 @@
 
     <!-- Style from Bootstrap -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/site.css')}}">
+
 
     <!-- Style from bootsnipp -->
     <style>
@@ -559,7 +561,6 @@
 <body>
 
     {{-- <div class="infomenu" style="width: 100%; height: 80px; background-color:rgba(22, 199, 255, 0.5)"></div> --}}
-
     <!-- Page Wrapper -->
     <div class="page-wrapper chiller-theme toggled">
 
@@ -568,11 +569,11 @@
         </a>
 
         <!-- SIDEBAR -->
+        
         <nav id="sidebar" class="sidebar-wrapper">
 
             <!-- Sidebar Content -->
             <div class="sidebar-content">
-
                 <div class="sidebar-brand">
                     <a href="{{ url('/') }}">
                         <i class="fas fa-eye" style="font-size: 30px"></i>
@@ -690,9 +691,10 @@
         <!-- END of SIDEBAR -->
 
         <!-- PAGE CONTENT -->
+        <div style="padding: 50px; background-color:red"></div>
         <main class="page-content">
 
-            <div class="container-fluid">
+            <div class="">
                 @yield('content')
             </div>
 
