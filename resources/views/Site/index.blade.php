@@ -72,7 +72,6 @@
       </header>
       <!-- Swiper-->
       <section class="section section-lg section-main-bunner section-main-bunner-filter text-center" >
-        
         <div class="main-bunner-img" style="background-image: url('storage/{{$bg_img[0]->path}}'); background-size: cover;"></div>
         <div class="main-bunner-inner">
           <div class="container">

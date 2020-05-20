@@ -30,20 +30,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $about = Sobre::all();
-        $specialty = Especialidade::all();
-        $doctor = Profissional::all();
-        $contact = Contact::all();
-        $space = Photo::all();
-        $banner = Image::where('local', 'banner')->get();
-        $post_principal = Post::get();
-
-        return view('welcome', compact('about', 'specialty', 'doctor', 'contact', 'space', 'banner', 'post_principal') );
+        return view('home');
     }
 
-    public function site()
-    {
-        $sobre_info = Sobre::get();
-        return view('layouts.base', compact('sobre_info'));
-    }
+   
 }
