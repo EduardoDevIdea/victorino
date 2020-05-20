@@ -1,871 +1,1012 @@
 <!DOCTYPE html>
-<html lang="en">
+<html dir="ltr" lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <title>Victoriano - Odontologia Especializada</title>
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <!-- Custom CSS -->
+    <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
 </head>
-<style>
-    /*Main CSS*/
 
-
-/*Login Signup Page*/
-a:focus,a:hover,a{
-    outline:none;
-    text-decoration: none;
-}
-li,ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.header-top i {
-    font-size: 18px;
-}
-.bg-image {
-    background: url(../images/background-login.jpg) no-repeat 0 0 / cover;
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: table;
-}
-
-.login-header {
-    display: inline-block;
-    width: 100%;
-    background: #0e1a35;
-}
-
-.login-signup {
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-}
-
-.login-logo img {
-    cursor: pointer;
-    max-width: 171px;
-    padding: 23px 15px 22px;
-    width: 100%;
-}
-
-.login-header .navbar-right {
-    margin-right: 0px;
-}
-
-.login-header .nav-tabs > li.active > a,
-.login-header .nav-tabs > li.active > a:focus,
-.login-header .nav-tabs > li.active > a:hover {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-}
-
-.login-header .nav-tabs > li > a {
-    border: medium none;
-    border-radius: 0;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 48px;
-    padding: 15px 30px;
-    color: #fff;
-}
-
-.login-header .nav-tabs {
-    border-bottom: none;
-}
-
-.login-header .nav-tabs > li {
-    margin-bottom: 0px;
-}
-
-.login-header .nav > li > a:focus,
-.login-header .nav > li > a:hover {
-    background: none;
-    text-decoration: none;
-}
-
-.login-header .nav-tabs > li.active {
-    border-bottom: 6px solid #5584ff;
-}
-
-.login-inner h1 {
-    color: #8492af;
-    font-size: 48px;
-    font-weight: 300;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.login-inner h1 span {
-    color: #5584ff;
-}
-
-.login-form {
-    text-align: center;
-}
-
-.login-form input {
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border-color: -moz-use-text-color -moz-use-text-color #d4d9e3;
-    border-image: none;
-    border-style: none none solid;
-    border-width: medium medium 1px;
-    font-size: 13px;
-    font-weight: 300;
-    width: 100%;
-    color: #8492af;
-    padding: 15px 50px;
-    font-size: 17px;
-    max-width: 550px;
-}
-
-.login-form label {
-    margin-bottom: 30px;
-    width: 100%;
-}
-
-.user input {
-    background: rgba(0, 0, 0, 0) url("../images/user.png") no-repeat scroll 7px 12px;
-}
-
-.pass input {
-    background: rgba(0, 0, 0, 0) url("../images/password.png") no-repeat scroll 7px 12px;
-}
-
-.mail input {
-    background: rgba(0, 0, 0, 0) url("../images/mail.png") no-repeat scroll 4px 12px;
-}
-
-.login-signup .tab-content {
-    background: #ffffff none repeat scroll 0 0;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
-    display: inline-block;
-    margin-top: -8px;
-    width: 100%;
-}
-
-.form-btn {
-    background: #5584ff none repeat scroll 0 0;
-    border: medium none;
-    border-radius: 100px;
-    color: #ffffff;
-    font-weight: 400;
-    max-width: 250px;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
-    margin: 40px 0;
-    box-shadow: 0 2px 8px #d2d2d2;
-    -moz-box-shadow: 0 2px 8px #d2d2d2;
-    -webkit-box-shadow: 0 2px 8px #d2d2d2;
-}
-
-.form-btn::before {
-    content: "";
-    font-family: FontAwesome;
-    position: absolute;
-    right: 17px;
-    top: 9px;
-}
-
-.form-details {
-    padding: 35px 0;
-}
-
-.tab-content .tab-pane {
-    padding: 70px 0;
-}
-
-
-/*Login Signup Page*/
-
-
-/*Home Page*/
-
-.home {
-    background: #f6f7fa;
-}
-
-#navigation {
-    background: #0e1a35;
-}
-
-#navigation {
-    padding: 0;
-}
-
-.display-table {
-    display: table;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-}
-
-.display-table-row {
-    display: table-row;
-    height: 100%;
-}
-
-.display-table-cell {
-    display: table-cell;
-    float: none;
-    height: 100%;
-}
-
-.v-align {
-    vertical-align: top;
-}
-.logo img {
-    max-width: 180px;
-    padding: 16px 0 17px;
-    width: 100%;
-}
-
-.header-top {
-    margin: 0;
-    padding-top: 2px;
-}
-
-.header-top img {
-    border-radius: 50%;
-    max-width: 48px !important;
-    width: 100%;
-}
-
-.add-project {
-    background: #5584ff none repeat scroll 0 0;
-    border-radius: 100px;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 27px 10px 45px;
-    position: relative;
-}
-
-.header-rightside .nav > li > a:focus,
-.header-rightside .nav > li > a:hover {
-    background: none;
-    text-decoration: none;
-}
-
-.add-project::before {
-    background: rgba(0, 0, 0, 0) url("../images/plus.png") no-repeat scroll 0 0;
-    content: "";
-    ;
-    height: 12px;
-    left: 17px;
-    position: absolute;
-    top: 12px;
-    width: 12px;
-}
-
-.add-project:hover {
-    color: #ffffff;
-}
-
-.header-top i {
-    color: #0e1a35;
-}
-
-.icon-info {
-    position: relative;
-}
-.navi i {
-    font-size: 20px;
-}
-.label.label-primary {
-    border-radius: 50%;
-    font-size: 9px;
-    left: 8px;
-    position: absolute;
-    top: -9px;
-}
-
-.icon-info .label {
-    border: 2px solid #ffffff;
-    font-weight: 500;
-    padding: 3px 5px;
-    text-align: center;
-}
-
-.header-top li {
-    display: inline-block;
-    text-align: center;
-}
-
-.header-top .dropdown-toggle {
-    color: #0e1a35;
-}
-
-.header-top .dropdown-menu {
-    border: medium none;
-    left: -85px;
-    padding: 17px;
-}
-.view {
-    background: #5584ff none repeat scroll 0 0;
-    border-radius: 100px;
-    color: #ffffff;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: 10px;
-    padding: 10px 15px;
-}
-
-.navbar-content > span {
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.img-responsive {
-    width: 100%;
-}
-#navigation{
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-.search input {
-    border: none;
-    font-size: 15px;
-    padding: 15px 9px;
-    width: 100%;
-    background: rgba(0, 0, 0, 0) url("../images/search.png") no-repeat scroll 99% 12px;
-    color: #8492af;
-}
-
-header {
-    background: #ffffff none repeat scroll 0 0;
-    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
-    display: inline-block !important;
-    line-height: 23px;
-    padding: 15px;
-    transition: all 0.5s ease 0s;
-    width: 100%;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-.logo {
-    text-align: center;
-}
-
-.navi a {
-    border-bottom: 1px solid #0d172e;
-    border-top: 1px solid #0d172e;
-    color: #ffffff;
-    display: block;
-    font-size: 17px;
-    font-weight: 500;
-    padding: 28px 20px;
-    text-decoration: none;
-}
-
-.navi i {
-    margin-right: 15px;
-    color: #5584ff;
-}
-
-.navi .active a {
-    background: #122143;
-    border-left: 5px solid #5584ff;
-    padding-left: 15px;
-}
-
-.navi a:hover {
-    background: #122143 none repeat scroll 0 0;
-    border-left: 5px solid #5584ff;
-    display: block;
-    padding-left: 15px;
-}
-
-.navbar-default {
-    background-color: #ffffff;
-    border-color: #ffffff;
-}
-
-.navbar-toggle {
-    border: none;
-}
-
-.navbar-default .navbar-toggle:focus,
-.navbar-default .navbar-toggle:hover {
-    background-color: rgba(0, 0, 0, 0);
-}
-
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #0e1a35;
-}
-
-.circle-logo {
-    margin: 0 auto;
-    max-width: 30px !important;
-    text-align: center;
-}
-.hidden-xs{
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-.user-dashboard {
-    padding: 0 20px;
-}
-
-.user-dashboard h1 {
-    color: #0e1a35;
-    font-size: 30px;
-    font-weight: 500;
-    margin: 0;
-    padding: 21px 0;
-}
-.sales {
-    background: #ffffff none repeat scroll 0 0;
-    border: 1px solid #d4d9e3;
-    display: inline-block;
-    padding: 15px;
-    width: 100%;
-}
-.sales button {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border: 1px solid #dadee7;
-    border-radius: 100px;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    padding-right: 32px;
-    color: #0e1a35;
-}
-
-.sales button::before {
-    content: "";
-    font-family: FontAwesome;
-    position: absolute;
-    right: 12px;
-    top: 11px;
-}
-.sales  .btn-group {
-    float: right;
-}
-.sales h2 {
-    color: #8492af;
-    float: left;
-    font-size: 21px;
-    font-weight: 600;
-    margin: 0;
-    padding: 9px 0 0;
-}
-.btn.btn-secondary.btn-lg.dropdown-toggle > span {
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-.sales .dropdown-menu{
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    border-radius: 8px;
-    width: 100%;
-    color: #0e1a35;
-}
-.sales .btn-group.open .dropdown-toggle, .btn.active, .btn:active{
-    box-shadow: none;
-}
-.sales .dropdown-menu > a {
-    color: #0e1a35;
-    display: inline-block;
-    font-weight: 800;
-    padding: 9px 0;
-    text-align: center;
-    width: 100%;
-}
-#my-cool-chart svg {
-    width: 100%;
-}
-.sales .dropdown-menu > a:hover{
-    color: #5584FF;   
-}
-.shield-buttons {
-    display: none;
-}
-.close, .close:focus, .close:hover {
-    color: #fff;;
-    opacity: 1;
-    text-shadow: none;
-}
-.modal-body input {
-    border: 1px solid #d4d9e3;
-    font-size: 14px;
-    font-weight: 300;
-    margin: 5px 0;
-    padding: 14px 10px;
-    width: 100%;
-    color: #8492af;
-}
-.modal-body textarea {
-    border: 1px solid #d4d9e3;
-    font-size: 14px;
-    font-weight: 300;
-    height: 200px;
-    margin-top: 5px;
-    padding: 9px 10px;
-    width: 100%;
-    color: #8492af;
-}
-.modal-header.login-header h4 {
-    color: #ffffff;
-}
-.modal-footer .add-project {
-    background: #5584ff none repeat scroll 0 0;
-    border: medium none;
-    border-radius: 100px;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 30px;
-    position: relative;
-}
-.modal-footer .add-project::before{display: none;}
-.modal-footer {
-    border: 0 none;
-    padding: 10px 15px 26px;
-    text-align: right;
-}
-.cancel {
-    background: #0E1A35     ;
-    border: medium none;
-    border-radius: 100px;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 30px;
-    position: relative;
-    
-}
-.modal{
-    top: 20%; 
-}
-.modal-header .close {
-    margin-top: 2px;
-}
-.search input:focus{
-    border-bottom: 1px solid #BDC4D4;
-    line-height:22px;
-    transition: 0.1s all;
-}
-.modal-header.login-header {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-/*Main CSS*/
-
-
-
-
-
-
-@media only screen and (max-device-width: 767px) {
-    .login-logo img {
-        margin: 0 auto;
-    }
-    .login-details .nav-tabs > li {
-        text-align: center;
-        width: 50%;
-    }
-    .login-signup .login-inner h1 {
-        font-size: 26px;
-        margin-bottom: 0;
-        margin-top: 10px;
-    }
-    .login-inner .login-form input {
-        font-size: 15px;
-        max-width: 100%;
-        padding: 15px 45px;
-    }
-    .login-inner .form-details {
-        padding: 25px;
-    }
-    .login-inner .login-form label {
-        margin-bottom: 20px;
-        width: 100%;
-    }
-    .login-inner .form-btn {
-        margin: 0;
-        max-width: 180px;
-    }
-    .tab-content .tab-pane {
-        padding: 20px 0;
-    }
-    #navigation .navi a {
-        font-size: 14px;
-        padding: 20px;
-        text-align: center;
-    }
-    #navigation .navi i {
-        margin-right: 0px;
-    }
-    #navigation .navi a:hover,
-    #navigation .navi .active a {
-        background: #122143 none repeat scroll 0 0;
-        border-left: none;
-        display: block;
-        padding-left: 20px;
-    }
-    header .header-top img {
-        max-width: 38px !important;
-    }
-    .v-align header {
-        padding: 12px 15px;
-    }
-    header .header-top li {
-        padding-left: 13px;
-        padding-right: 6px;
-    }
-    .navbar-default .navbar-toggle {
-        border-color: rgba(0, 0, 0, 0);
-    }
-    .navbar-header .navbar-toggle {
-        float: left;
-        margin: 0;
-        padding: 0;
-        top: 12px;
-    }
-    button,
-        html [type="button"],
-        [type="reset"],
-        [type="submit"] {
-            outline: medium none;
-    }
-    .user-dashboard .sales h2 {
-        color: #8492af;
-        float: left;
-        font-size: 14px;
-        font-weight: 600;
-        margin: 0;
-        padding: 13px 0 0;
-}
-    .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle > span {
-        font-size: 11px;
-}
-    .user-dashboard .sales button {
-        font-size: 11px;
-        padding-right: 23px;
-}  
-    .user-dashboard .sales h2 {
-    font-size: 12px;
-}
-.gutter{
-    padding: 0;
-}
-}
-
-@media only screen and (max-device-width: 992px) {
-    header .header-top li {
-        padding-left: 20px !important;
-        padding-right: 0;
-}
-    header .logo img {
-        max-width: 125px !important;
-}
-
-}
-
-@media only screen and (min-device-width: 767px) and (max-device-width: 998px){
-      .user-dashboard .header-top {
-        padding-top: 5px;
-}
-    .user-dashboard .header-rightside {
-        display: inline-block;
-        float: left;
-        width: 100%;
-}
-    .user-dashboard .header-rightside .header-top img {
-        max-width: 41px !important;
-} 
-    .user-dashboard .sales button {
-    font-size: 10px;
-}
-    .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle > span {
-    font-size: 12px;
-}
-    .user-dashboard .sales h2 {
-    font-size: 15px;
-}
-}
-@media only screen and (min-device-width:998px) and (max-device-width: 1350px){
-        #navigation .logo img {
-    max-width: 130px;
-    padding: 16px 0 17px;
-    width: 100%;
-}
-}
-</style>
 <body>
-    <body class="home">
-        <div class="container-fluid display-table">
-            <div class="row display-table-row">
-                <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
-                    <div class="logo">
-                        <a hef="home.html"><img src="http://jskrishna.com/work/merkury/images/logo.png" alt="merkery_logo" class="hidden-xs hidden-sm">
-                            <img src="http://jskrishna.com/work/merkury/images/circle-logo.png" alt="merkery_logo" class="visible-xs visible-sm circle-logo">
-                        </a>
-                    </div>
-                    <div class="navi">
-                        <ul>
-                            <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-                            <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Workflow</span></a></li>
-                            <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Statistics</span></a></li>
-                            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calender</span></a></li>
-                            <li><a href="#"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Users</span></a></li>
-                            <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Setting</span></a></li>
-                        </ul>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin5">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon p-l-10">
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                           
+                        </b>
+                        <!--End Logo icon -->
+                         <!-- Logo text -->
+                        <span class="logo-text">
+                             <!-- dark Logo text -->
+                             <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                            
+                        </span>
+                        <!-- Logo icon -->
+                        <!-- <b class="logo-icon"> -->
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+                            
+                        <!-- </b> -->
+                        <!--End Logo icon -->
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Toggle which is visible on mobile only -->
+                    <!-- ============================================================== -->
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-left mr-auto">
+                        <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                        <!-- ============================================================== -->
+                        <!-- create new -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
+                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <form class="app-search position-absolute">
+                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                            </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-right">
+                        <!-- ============================================================== -->
+                        <!-- Comment -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
+                            </a>
+                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End Comment -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Messages -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
+                                <ul class="list-style-none">
+                                    <li>
+                                        <div class="">
+                                             <!-- Message -->
+                                            <a href="javascript:void(0)" class="link border-top">
+                                                <div class="d-flex no-block align-items-center p-10">
+                                                    <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
+                                                    <div class="m-l-10">
+                                                        <h5 class="m-b-0">Event today</h5> 
+                                                        <span class="mail-desc">Just a reminder that event</span> 
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="link border-top">
+                                                <div class="d-flex no-block align-items-center p-10">
+                                                    <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
+                                                    <div class="m-l-10">
+                                                        <h5 class="m-b-0">Settings</h5> 
+                                                        <span class="mail-desc">You can customize this template</span> 
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="link border-top">
+                                                <div class="d-flex no-block align-items-center p-10">
+                                                    <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
+                                                    <div class="m-l-10">
+                                                        <h5 class="m-b-0">Pavan kumar</h5> 
+                                                        <span class="mail-desc">Just see the my admin!</span> 
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="link border-top">
+                                                <div class="d-flex no-block align-items-center p-10">
+                                                    <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
+                                                    <div class="m-l-10">
+                                                        <h5 class="m-b-0">Luanch Admin</h5> 
+                                                        <span class="mail-desc">Just see the my new admin!</span> 
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                <div class="dropdown-divider"></div>
+                                <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin5">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav" class="p-t-30">
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false"><i class="mdi mdi-chart-bubble"></i><span class="hide-menu">Widgets</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Tables</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="grid.html" aria-expanded="false"><i class="mdi mdi-blur-linear"></i><span class="hide-menu">Full Width</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Forms </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Form Basic </span></a></li>
+                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Form Wizard </span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-buttons.html" aria-expanded="false"><i class="mdi mdi-relative-scale"></i><span class="hide-menu">Buttons</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-face"></i><span class="hide-menu">Icons </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="icon-material.html" class="sidebar-link"><i class="mdi mdi-emoticon"></i><span class="hide-menu"> Material Icons </span></a></li>
+                                <li class="sidebar-item"><a href="icon-fontawesome.html" class="sidebar-link"><i class="mdi mdi-emoticon-cool"></i><span class="hide-menu"> Font Awesome Icons </span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="pages-elements.html" aria-expanded="false"><i class="mdi mdi-pencil"></i><span class="hide-menu">Elements</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-move-resize-variant"></i><span class="hide-menu">Addons </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="index2.html" class="sidebar-link"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu"> Dashboard-2 </span></a></li>
+                                <li class="sidebar-item"><a href="pages-gallery.html" class="sidebar-link"><i class="mdi mdi-multiplication-box"></i><span class="hide-menu"> Gallery </span></a></li>
+                                <li class="sidebar-item"><a href="pages-calendar.html" class="sidebar-link"><i class="mdi mdi-calendar-check"></i><span class="hide-menu"> Calendar </span></a></li>
+                                <li class="sidebar-item"><a href="pages-invoice.html" class="sidebar-link"><i class="mdi mdi-bulletin-board"></i><span class="hide-menu"> Invoice </span></a></li>
+                                <li class="sidebar-item"><a href="pages-chat.html" class="sidebar-link"><i class="mdi mdi-message-outline"></i><span class="hide-menu"> Chat Option </span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Authentication </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="authentication-login.html" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Login </span></a></li>
+                                <li class="sidebar-item"><a href="authentication-register.html" class="sidebar-link"><i class="mdi mdi-all-inclusive"></i><span class="hide-menu"> Register </span></a></li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-alert"></i><span class="hide-menu">Errors </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="error-403.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 403 </span></a></li>
+                                <li class="sidebar-item"><a href="error-404.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 404 </span></a></li>
+                                <li class="sidebar-item"><a href="error-405.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 405 </span></a></li>
+                                <li class="sidebar-item"><a href="error-500.html" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Error 500 </span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+             <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">Dashboard</h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                </ol>
+                            </nav>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-10 col-sm-11 display-table-cell v-align">
-                    <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
-                    <div class="row">
-                        <header>
-                            <div class="col-md-7">
-                                <nav class="navbar-default pull-left">
-                                    <div class="navbar-header">
-                                        <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu" aria-expanded="false">
-                                            <span class="sr-only">Toggle navigation</span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                        </button>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Sales Cards  -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-cyan text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-view-dashboard"></i></h1>
+                                <h6 class="text-white">Dashboard</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-4 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-success text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-chart-areaspline"></i></h1>
+                                <h6 class="text-white">Charts</h6>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Column -->
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-warning text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-collage"></i></h1>
+                                <h6 class="text-white">Widgets</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-danger text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-border-outside"></i></h1>
+                                <h6 class="text-white">Tables</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-info text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-arrow-all"></i></h1>
+                                <h6 class="text-white">Full Width</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-4 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-danger text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
+                                <h6 class="text-white">Forms</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-info text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-relative-scale"></i></h1>
+                                <h6 class="text-white">Buttons</h6>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Column -->
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-cyan text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-pencil"></i></h1>
+                                <h6 class="text-white">Elements</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-success text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-calendar-check"></i></h1>
+                                <h6 class="text-white">Calnedar</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-warning text-center">
+                                <h1 class="font-light text-white"><i class="mdi mdi-alert"></i></h1>
+                                <h6 class="text-white">Errors</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                </div>
+                <!-- ============================================================== -->
+                <!-- Sales chart -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-md-flex align-items-center">
+                                    <div>
+                                        <h4 class="card-title">Site Analysis</h4>
+                                        <h5 class="card-subtitle">Overview of Latest Month</h5>
                                     </div>
-                                </nav>
-                                <div class="search hidden-xs hidden-sm">
-                                    <input type="text" placeholder="Search" id="search">
+                                </div>
+                                <div class="row">
+                                    <!-- column -->
+                                    <div class="col-lg-9">
+                                        <div class="flot-chart">
+                                            <div class="flot-chart-content" id="flot-line-chart"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-user m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">2540</h5>
+                                                   <small class="font-light">Total Users</small>
+                                                </div>
+                                            </div>
+                                             <div class="col-6">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-plus m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">120</h5>
+                                                   <small class="font-light">New Users</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-cart-plus m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">656</h5>
+                                                   <small class="font-light">Total Shop</small>
+                                                </div>
+                                            </div>
+                                             <div class="col-6 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-tag m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">9540</h5>
+                                                   <small class="font-light">Total Orders</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-table m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">100</h5>
+                                                   <small class="font-light">Pending Orders</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-globe m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">8540</h5>
+                                                   <small class="font-light">Online Orders</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- column -->
                                 </div>
                             </div>
-                            <div class="col-md-5">
-                                <div class="header-rightside">
-                                    <ul class="list-inline header-top pull-right">
-                                        <li class="hidden-xs"><a href="#" class="add-project" data-toggle="modal" data-target="#add_project">Add Project</a></li>
-                                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-                                        <li>
-                                            <a href="#" class="icon-info">
-                                                <i class="fa fa-bell" aria-hidden="true"></i>
-                                                <span class="label label-primary">3</span>
-                                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- Sales chart -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Recent comment and chats -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- column -->
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Latest Posts</h4>
+                            </div>
+                            <div class="comment-widgets scrollable">
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row m-t-0">
+                                    <div class="p-2"><img src="assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle"></div>
+                                    <div class="comment-text w-100">
+                                        <h6 class="font-medium">James Anderson</h6>
+                                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
+                                        <div class="comment-footer">
+                                            <span class="text-muted float-right">April 14, 2016</span> 
+                                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
+                                            <button type="button" class="btn btn-success btn-sm">Publish</button>
+                                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row">
+                                    <div class="p-2"><img src="assets/images/users/4.jpg" alt="user" width="50" class="rounded-circle"></div>
+                                    <div class="comment-text active w-100">
+                                        <h6 class="font-medium">Michael Jorden</h6>
+                                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
+                                        <div class="comment-footer">
+                                            <span class="text-muted float-right">May 10, 2016</span> 
+                                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
+                                            <button type="button" class="btn btn-success btn-sm">Publish</button>
+                                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row">
+                                    <div class="p-2"><img src="assets/images/users/5.jpg" alt="user" width="50" class="rounded-circle"></div>
+                                    <div class="comment-text w-100">
+                                        <h6 class="font-medium">Johnathan Doeting</h6>
+                                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
+                                        <div class="comment-footer">
+                                            <span class="text-muted float-right">August 1, 2016</span> 
+                                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
+                                            <button type="button" class="btn btn-success btn-sm">Publish</button>
+                                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">To Do List</h4>
+                                <div class="todo-widget scrollable" style="height:450px;">
+                                    <ul class="list-task todo-list list-group m-b-0" data-role="tasklist">
+                                        <li class="list-group-item todo-item" data-role="task">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                                <label class="custom-control-label todo-label" for="customCheck">
+                                                    <span class="todo-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span> <span class="badge badge-pill badge-danger float-right">Today</span>
+                                                </label>
+                                            </div>
+                                            <ul class="list-style-none assignedto">
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/1.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Steave"></li>
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/2.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Jessica"></li>
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
+                                            </ul>
                                         </li>
-                                        <li class="dropdown">
-                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="http://jskrishna.com/work/merkury/images/user-pic.jpg" alt="user">
-                                                <b class="caret"></b></a>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <div class="navbar-content">
-                                                        <span>JS Krishna</span>
-                                                        <p class="text-muted small">
-                                                            me@jskrishna.com
-                                                        </p>
-                                                        <div class="divider">
-                                                        </div>
-                                                        <a href="#" class="view btn-sm active">View Profile</a>
-                                                    </div>
-                                                </li>
+                                        <li class="list-group-item todo-item" data-role="task">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                <label class="custom-control-label todo-label" for="customCheck1">
+                                                    <span class="todo-desc">Lorem Ipsum is simply dummy text of the printing</span><span class="badge badge-pill badge-primary float-right">1 week </span>
+                                                </label>
+                                            </div>
+                                            <div class="item-date"> 26 jun 2017</div>
+                                        </li>
+                                        <li class="list-group-item todo-item" data-role="task">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck2">
+                                                <label class="custom-control-label todo-label" for="customCheck2">
+                                                    <span class="todo-desc">Give Purchase report to</span> <span class="badge badge-pill badge-info float-right">Yesterday</span>
+                                                </label>
+                                            </div>
+                                            <ul class="list-style-none assignedto">
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
+                                            </ul>
+                                        </li>
+                                        <li class="list-group-item todo-item" data-role="task">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck3">
+                                                <label class="custom-control-label todo-label" for="customCheck3">
+                                                    <span class="todo-desc">Lorem Ipsum is simply dummy text of the printing </span> <span class="badge badge-pill badge-warning float-right">2 weeks</span>
+                                                </label>
+                                            </div>
+                                            <div class="item-date"> 26 jun 2017</div>
+                                        </li>
+                                        <li class="list-group-item todo-item" data-role="task">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck4">
+                                                <label class="custom-control-label todo-label" for="customCheck4">
+                                                    <span class="todo-desc">Give Purchase report to</span> <span class="badge badge-pill badge-info float-right">Yesterday</span>
+                                                </label>
+                                            </div>
+                                            <ul class="list-style-none assignedto">
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/3.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Priyanka"></li>
+                                                <li class="assignee"><img class="rounded-circle" width="40" src="assets/images/users/4.jpg" alt="user" data-toggle="tooltip" data-placement="top" title="" data-original-title="Selina"></li>
                                             </ul>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
-                        </header>
+                        </div>
+                        <!-- card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title m-b-0">Progress Box</h4>
+                                <div class="m-t-20">
+                                    <div class="d-flex no-block align-items-center">
+                                        <span>81% Clicks</span>
+                                        <div class="ml-auto">
+                                            <span>125</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 81%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="d-flex no-block align-items-center m-t-25">
+                                        <span>72% Uniquie Clicks</span>
+                                        <div class="ml-auto">
+                                            <span>120</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 72%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="d-flex no-block align-items-center m-t-25">
+                                        <span>53% Impressions</span>
+                                        <div class="ml-auto">
+                                            <span>785</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 53%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="d-flex no-block align-items-center m-t-25">
+                                        <span>3% Online Users</span>
+                                        <div class="ml-auto">
+                                            <span>8</span>
+                                        </div>
+                                    </div>
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" style="width: 3%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- card new -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title m-b-0">News Updates</h4>
+                            </div>
+                            <ul class="list-style-none">
+                                <li class="d-flex no-block card-body">
+                                    <i class="fa fa-check-circle w-30px m-t-5"></i>
+                                    <div>
+                                        <a href="#" class="m-b-0 font-medium p-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a>
+                                        <span class="text-muted">dolor sit amet, consectetur adipiscing</span>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="tetx-right">
+                                            <h5 class="text-muted m-b-0">20</h5>
+                                            <span class="text-muted font-16">Jan</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="d-flex no-block card-body border-top">
+                                    <i class="fa fa-gift w-30px m-t-5"></i>
+                                    <div>
+                                        <a href="#" class="m-b-0 font-medium p-0">Congratulation Maruti, Happy Birthday</a>
+                                        <span class="text-muted">many many happy returns of the day</span>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="tetx-right">
+                                            <h5 class="text-muted m-b-0">11</h5>
+                                            <span class="text-muted font-16">Jan</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="d-flex no-block card-body border-top">
+                                    <i class="fa fa-plus w-30px m-t-5"></i>
+                                    <div>
+                                        <a href="#" class="m-b-0 font-medium p-0">Maruti is a Responsive Admin theme</a>
+                                        <span class="text-muted">But already everything was solved. It will ...</span>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="tetx-right">
+                                            <h5 class="text-muted m-b-0">19</h5>
+                                            <span class="text-muted font-16">Jan</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="d-flex no-block card-body border-top">
+                                    <i class="fa fa-leaf w-30px m-t-5"></i>
+                                    <div>
+                                        <a href="#" class="m-b-0 font-medium p-0">Envato approved Maruti Admin template</a>
+                                        <span class="text-muted">i am very happy to approved by TF</span>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="tetx-right">
+                                            <h5 class="text-muted m-b-0">20</h5>
+                                            <span class="text-muted font-16">Jan</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="d-flex no-block card-body border-top">
+                                    <i class="fa fa-question-circle w-30px m-t-5"></i>
+                                    <div>
+                                        <a href="#" class="m-b-0 font-medium p-0"> I am alwayse here if you have any question</a>
+                                        <span class="text-muted">we glad that you choose our template</span>
+                                    </div>
+                                    <div class="ml-auto">
+                                        <div class="tetx-right">
+                                            <h5 class="text-muted m-b-0">15</h5>
+                                            <span class="text-muted font-16">Jan</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="user-dashboard">
-                        <h1>Hello, JS</h1>
-                        <div class="row">
-                            <div class="col-md-5 col-sm-5 col-xs-12 gutter">
-    
-                                <div class="sales">
-                                    <h2>Your Sale</h2>
-    
-                                    <div class="btn-group">
-                                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span>Period:</span> Last Year
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a href="#">2012</a>
-                                            <a href="#">2014</a>
-                                            <a href="#">2015</a>
-                                            <a href="#">2016</a>
+                    <!-- column -->
+
+                    <div class="col-lg-6">
+                        <!-- Card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Chat Option</h4>
+                                <div class="chat-box scrollable" style="height:475px;">
+                                    <!--chat Row -->
+                                    <ul class="chat-list">
+                                        <!--chat Row -->
+                                        <li class="chat-item">
+                                            <div class="chat-img"><img src="assets/images/users/1.jpg" alt="user"></div>
+                                            <div class="chat-content">
+                                                <h6 class="font-medium">James Anderson</h6>
+                                                <div class="box bg-light-info">Lorem Ipsum is simply dummy text of the printing &amp; type setting industry.</div>
+                                            </div>
+                                            <div class="chat-time">10:56 am</div>
+                                        </li>
+                                        <!--chat Row -->
+                                        <li class="chat-item">
+                                            <div class="chat-img"><img src="assets/images/users/2.jpg" alt="user"></div>
+                                            <div class="chat-content">
+                                                <h6 class="font-medium">Bianca Doe</h6>
+                                                <div class="box bg-light-info">It’s Great opportunity to work.</div>
+                                            </div>
+                                            <div class="chat-time">10:57 am</div>
+                                        </li>
+                                        <!--chat Row -->
+                                        <li class="odd chat-item">
+                                            <div class="chat-content">
+                                                <div class="box bg-light-inverse">I would love to join the team.</div>
+                                                <br>
+                                            </div>
+                                        </li>
+                                        <!--chat Row -->
+                                        <li class="odd chat-item">
+                                            <div class="chat-content">
+                                                <div class="box bg-light-inverse">Whats budget of the new project.</div>
+                                                <br>
+                                            </div>
+                                            <div class="chat-time">10:59 am</div>
+                                        </li>
+                                        <!--chat Row -->
+                                        <li class="chat-item">
+                                            <div class="chat-img"><img src="assets/images/users/3.jpg" alt="user"></div>
+                                            <div class="chat-content">
+                                                <h6 class="font-medium">Angelina Rhodes</h6>
+                                                <div class="box bg-light-info">Well we have good budget for the project</div>
+                                            </div>
+                                            <div class="chat-time">11:00 am</div>
+                                        </li>
+                                        <!--chat Row -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body border-top">
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="input-field m-t-0 m-b-0">
+                                            <textarea id="textarea1" placeholder="Type and enter" class="form-control border-0"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <a class="btn-circle btn-lg btn-cyan float-right text-white" href="javascript:void(0)"><i class="fas fa-paper-plane"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- card -->
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Our partner (Box with Fix height)</h4>
+                            </div>
+                            <div class="comment-widgets scrollable" style="max-height: 130px;">
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row m-t-0">
+                                    <div class="p-2"><img src="assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle"></div>
+                                    <div class="comment-text w-100">
+                                        <h6 class="font-medium">James Anderson</h6>
+                                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
+                                        <div class="comment-footer">
+                                            <span class="text-muted float-right">April 14, 2016</span> 
+                                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
+                                            <button type="button" class="btn btn-success btn-sm">Publish</button>
+                                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row">
+                                    <div class="p-2"><img src="assets/images/users/4.jpg" alt="user" width="50" class="rounded-circle"></div>
+                                    <div class="comment-text active w-100">
+                                        <h6 class="font-medium">Michael Jorden</h6>
+                                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
+                                        <div class="comment-footer">
+                                            <span class="text-muted float-right">May 10, 2016</span> 
+                                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
+                                            <button type="button" class="btn btn-success btn-sm">Publish</button>
+                                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Comment Row -->
+                                <div class="d-flex flex-row comment-row">
+                                    <div class="p-2"><img src="assets/images/users/5.jpg" alt="user" width="50" class="rounded-circle"></div>
+                                    <div class="comment-text w-100">
+                                        <h6 class="font-medium">Johnathan Doeting</h6>
+                                        <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
+                                        <div class="comment-footer">
+                                            <span class="text-muted float-right">August 1, 2016</span> 
+                                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
+                                            <button type="button" class="btn btn-success btn-sm">Publish</button>
+                                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-7 col-sm-7 col-xs-12 gutter">
-    
-                                <div class="sales report">
-                                    <h2>Report</h2>
-                                    <div class="btn-group">
-                                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span>Period:</span> Last Year
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a href="#">2012</a>
-                                            <a href="#">2014</a>
-                                            <a href="#">2015</a>
-                                            <a href="#">2016</a>
-                                        </div>
+                        </div>
+                        <!-- accoridan part -->
+                        <div class="accordion" id="accordionExample">
+                            <div class="card m-b-0">
+                                <div class="card-header" id="headingOne">
+                                  <h5 class="mb-0">
+                                    <a data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        <i class="m-r-5 fa fa-magnet" aria-hidden="true"></i>
+                                        <span>Accordion Example 1</span>
+                                    </a>
+                                  </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                  <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="card m-b-0 border-top">
+                                <div class="card-header" id="headingTwo">
+                                  <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <i class="m-r-5 fa fa-magnet" aria-hidden="true"></i>
+                                        <span>Accordion Example 2</span>
+                                    </a>
+                                  </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                  <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="card m-b-0 border-top">
+                                <div class="card-header" id="headingThree">
+                                  <h5 class="mb-0">
+                                    <a class="collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        <i class="m-r-5 fa fa-magnet" aria-hidden="true"></i>
+                                        <span>Accordion Example 3</span>
+                                    </a>
+                                  </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                  <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- toggle part -->
+                        <div id="accordian-4">
+                            <div class="card m-t-30">
+                                <a class="card-header link" data-toggle="collapse" data-parent="#accordian-4" href="#Toggle-1" aria-expanded="true" aria-controls="Toggle-1">
+                                    <i class="seticon fa fa-arrow-right" aria-hidden="true"></i>
+                                    <span>Toggle, Open by default</span>
+                                </a>
+                                <div id="Toggle-1" class="collapse show multi-collapse">
+                                    <div class="card-body widget-content">
+                                        This box is opened by default, paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.
+                                    </div>
+                                </div>
+                                <a class="card-header link border-top" data-toggle="collapse" data-parent="#accordian-4" href="#Toggle-2" aria-expanded="false" aria-controls="Toggle-2">
+                                    <i class="seticon fa fa-times" aria-hidden="true"></i>
+                                    <span>Toggle, Closed by default</span>
+                                </a>
+                                <div id="Toggle-2" class="multi-collapse collapse" style="">
+                                    <div class="card-body widget-content">
+                                        This box is now open
+                                    </div>
+                                </div>
+                                <a class="card-header collapsed link border-top" data-toggle="collapse" data-parent="#accordian-4" href="#Toggle-3" aria-expanded="false" aria-controls="Toggle-3">
+                                    <i class="seticon fa fa-times" aria-hidden="true"></i>
+                                    <span>Toggle, Closed by default</span>
+                                </a>
+                                <div id="Toggle-3" class="collapse multi-collapse">
+                                    <div class="card-body widget-content">
+                                        This box is now open
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tabs -->
+                        <div class="card">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#home" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Tab1</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#profile" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Tab2</span></a> </li>
+                                <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#messages" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Tab3</span></a> </li>
+                            </ul>
+                            <!-- Tab panes -->
+                            <div class="tab-content tabcontent-border">
+                                <div class="tab-pane active" id="home" role="tabpanel">
+                                    <div class="p-20">
+                                        <p>And is full of waffle to It has multiple paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.multiple paragraphs and is full of waffle to pad out the comment..</p>
+                                        <img src="assets/images/background/img4.jpg" class="img-fluid">
+                                    </div>
+                                </div>
+                                <div class="tab-pane  p-20" id="profile" role="tabpanel">
+                                    <div class="p-20">
+                                        <img src="assets/images/background/img4.jpg" class="img-fluid">
+                                        <p class="m-t-10">And is full of waffle to It has multiple paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.multiple paragraphs and is full of waffle to pad out the comment..</p>
+                                    </div>
+                                </div>
+                                <div class="tab-pane p-20" id="messages" role="tabpanel">
+                                    <div class="p-20">
+                                        <p>And is full of waffle to It has multiple paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.multiple paragraphs and is full of waffle to pad out the comment..</p>
+                                        <img src="assets/images/background/img4.jpg" class="img-fluid">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <!-- ============================================================== -->
+                <!-- Recent comment and chats -->
+                <!-- ============================================================== -->
             </div>
-    
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center">
+                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
         </div>
-    
-    
-    
-        <!-- Modal -->
-        <div id="add_project" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-    
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header login-header">
-                        <button type="button" class="close" data-dismiss="modal">×</button>
-                        <h4 class="modal-title">Add Project</h4>
-                    </div>
-                    <div class="modal-body">
-                                <input type="text" placeholder="Project Title" name="name">
-                                <input type="text" placeholder="Post of Post" name="mail">
-                                <input type="text" placeholder="Author" name="passsword">
-                                <textarea placeholder="Desicrption"></textarea>
-                        </div>
-                    <div class="modal-footer">
-                        <button type="button" class="cancel" data-dismiss="modal">Close</button>
-                        <button type="button" class="add-project" data-dismiss="modal">Save</button>
-                    </div>
-                </div>
-    
-            </div>
-        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <!-- <script src="dist/js/pages/dashboards/dashboard1.js"></script> -->
+    <!-- Charts js Files -->
+    <script src="assets/libs/flot/excanvas.js"></script>
+    <script src="assets/libs/flot/jquery.flot.js"></script>
+    <script src="assets/libs/flot/jquery.flot.pie.js"></script>
+    <script src="assets/libs/flot/jquery.flot.time.js"></script>
+    <script src="assets/libs/flot/jquery.flot.stack.js"></script>
+    <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="dist/js/pages/chart/chart-page-init.js"></script>
 
-        <script>
-            $(document).ready(function(){
-   $('[data-toggle="offcanvas"]').click(function(){
-       $("#navigation").toggleClass("hidden-xs");
-   });
-});
-
-        </script>
 </body>
+
 </html>
