@@ -728,7 +728,6 @@
         <!-- END of SIDEBAR -->
 
         <!-- PAGE CONTENT -->
-        <div style="padding: 50px; background-color:red"></div>
         <main class="page-content">
 
             <div class="">

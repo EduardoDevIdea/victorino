@@ -20,7 +20,6 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $banner = Image::where('local', 'banner')->get();
         $bg_img = Image::where('local', 'bkg1')->get();
         $about = Sobre::get();
         $especialidade = Especialidade::get();
@@ -34,6 +33,6 @@ class SiteController extends Controller
 
        
 
-        return view('Site.index', compact('banner', 'bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post'));
+        return view('Site.index', compact('bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post'));
     }
 }
