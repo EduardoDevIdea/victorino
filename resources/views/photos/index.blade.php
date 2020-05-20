@@ -44,7 +44,7 @@
             {{ $qtd }} fotos salvas, até o momento.
 
         @else
-            <h3>Limite de 8 fotos atingido. Edite ou exclua e adicione nova foto.</h3>
+            <h3>Limite de 8 fotos atingido. Edite ou exclua para adicionar nova foto.</h3>
         @endif    
 
         <!-- Div Fotos-->

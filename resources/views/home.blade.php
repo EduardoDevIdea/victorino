@@ -586,43 +586,23 @@
                 <!-- Sidebar Header -->
                 <div class="sidebar-header">
 
-                    <!-- User Image  - esta div esta comentada porque a imagem estava distorcida-->  
-                    <!-- <div class="user-pic">
-                    <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
-                        alt="User picture">
-                    </div> -->
-                    <!-- END of User Image-->
-
                     <!-- User Info -->
                     <div class="user-info">
-                        <span class="user-name">
-                            {{ Auth::user()->name }}  
+
+                        <span class="user-name mb-2">
+                            {{ Auth::user()->name }} 
                         </span>
-                         <span class="user-role">Administrator</span>
-                        <span class="user-status">
-                        <i class="fa fa-circle"></i>
-                        <span>Online</span>
-                        </span>
+                        
+                        <a href="{{ route('user.index') }}">
+                            <i class="fas fa-user-cog fa-lg" title="Ajuste e cadastro de usuário"></i>
+                            <small>Configurações de usuário</small>
+                        </a>
+                         
                     </div>
                     <!-- End of User Info-->
 
                 </div>
                 <!-- End of sidebar-header  -->
-
-                <!-- Sidebar Search -->
-                <!--div class="sidebar-search">
-                    <div>
-                        <div class="input-group">
-                            <input type="text" class="form-control search-menu" placeholder="Search...">
-                            <div class="input-group-append">
-                            <span class="input-group-text">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </span>
-                            </div>
-                        </div>
-                    </div>
-                </div -->
-                <!-- End of Sidebar Search -->
 
                 <!-- MENU -->
                 <div class="sidebar-menu">
@@ -696,29 +676,12 @@
 
             <!-- Sidebar Footer -->
             <div class="sidebar-footer">
-                <a href="#">
-                    <i class="fa fa-bell"></i>
-                    <span class="badge badge-pill badge-warning notification">3</span>
-                </a>
-                <a href="#">
-                    <i class="fa fa-envelope"></i>
-                    <span class="badge badge-pill badge-success notification">7</span>
-                </a>
-                <a href="{{ route('user.index') }}">
-                    <i class="fa fa-cog"></i>
-                    <span class="badge-sonar"></span>
-                </a>
+               
                 <!-- LOGOUT -->
-                <a href="{{ route('logout') }}" 
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                    
-                        <i class="fa fa-power-off"></i>
-                </a>
-    
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+                    <a href="{{ route('logout') }}" onclick="return confirm('Deseja realmente sair?');">
+                        <strong>SAIR</strong>
+                        &nbsp <i class="fas fa-walking fa-lg"></i>
+                    </a>
                 <!-- END LOOGOUT-->
 
             </div>
@@ -739,6 +702,10 @@
 
     </div>
     <!-- END of page-wrapper -->
+
+    <!-- Icones Font Awesome - Account Eduardo Gomes -->
+    <script src="https://kit.fontawesome.com/829d5c5582.js" crossorigin="anonymous"></script>
+    <!-- End -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"

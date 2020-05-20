@@ -22,7 +22,7 @@ class EspecialidadeController extends Controller
      */
     public function index()
     {
-        $especialidades = Especialidade::all(); //Consulta todos os registros da tabela especialidades
+        $especialidades = Especialidade::paginate(10); // Especialidade::all()->paginate(10); NÃO FUNCIONA DESSE JEITO
 
         /*
          * Se retornar nenhum registro retorna para view de cadastro de especialidade
@@ -54,6 +54,12 @@ class EspecialidadeController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $request->validate([
+            'nome' => ['required', 'string','max:255', 'unique:especialidades'],
+            'description' => ['required','string', 'max:100000' ],
+        ]);
+
         $especialidade = new Especialidade;
 
         $especialidade->nome = $request->nome;
@@ -102,6 +108,11 @@ class EspecialidadeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nome' => ['required', 'string','max:255'],
+            'description' => ['required','string', 'max:100000' ],
+        ]);
+
         $especialidade = Especialidade::find($id);
 
         $especialidade->nome = $request->nome;

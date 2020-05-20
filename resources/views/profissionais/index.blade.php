@@ -76,4 +76,9 @@
 
     </table>
 
+    <!-- Paginate -->
+    <div class="container">
+        {{ $profissionais->links() }}
+    </div>
+
 @endsection

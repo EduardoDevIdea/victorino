@@ -37,7 +37,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest'); //Modificadar de 'guest' para 'auth' para permitir o registro de novo user já com um user autenticado
+                                   // Solução encontrada na internet
     }
 
     /**

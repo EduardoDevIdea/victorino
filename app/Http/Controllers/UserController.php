@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -13,6 +13,17 @@ class UserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+    }
+
+    /**
+     * LOGOUT
+     * Funcao criada como solução para direcionar usuario para tela de login após clicar em sair
+     * A roda logout fornecida pela autenticação do laravel direciona para \home e eu não conseguir mudar
+     * Por isso esta solução abaixo
+     */
+    public function logout(){
+        Auth::logout(); //funcao de logout da facade Illuminate\Support\Facades\Auth; (Documentação de Validação)
+        return view('auth.login');
     }
 
     /**
@@ -29,7 +40,7 @@ class UserController extends Controller
 
     public function list()
     {
-        $users = User::all();
+        $users = User::paginate(10); // User::all()->paginate(10) - NÃO FUNCIONOU DESSE JEITO
 
         return view('users.list', compact('users'));
     }    
@@ -41,9 +52,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $users = User::all();
-
-        return view('users.list', compact('users'));
+        return view('users.create');
     }
 
     /**
@@ -54,7 +63,35 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /**
+         * Se a validação falhar, nao segue com o restante do codigo da function store e redireciona para o form com mensagens de erro
+        */ 
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        $user = new User;
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        
+        /**
+         * Valor do campo type
+         * Se o campo type for marcado no form, a instância recebe na tabela o valor "master", senao recebe "adm"
+        */ 
+        if($request->type == 1){
+            $user->type = "admin";
+        }
+        else{
+            $user->type = "editor";
+        }
+
+        $user->save();
+
+        return redirect()->action('UserController@list')->with('store', 'Usuário cadastrado com sucesso!');
     }
 
     /**
@@ -76,7 +113,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -86,25 +125,42 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) 
+    public function update(Request $request, $id)
     {
+        /**
+         * Validação
+         * Validando senha como nullable, pois o usuário pode deixar o campo em branco para manter a senha anterior
+         * Se a validação falhar, nao segue com o restante do codigo da function store e redireciona para o form com mensagens de erro
+        */ 
+        $validateData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => ['nullable', 'string', 'min:8', 'confirmed'],
+        ]);
+
         $user = User::find($id);
 
-        if($request->profile){
+        // Verifica se o campo de senha foi preenchido no form (pois pode ser mantido em branco para permanecer a senha anterior)
+        if($request->password != NULL){ 
 
-            if($request->password != NULL){ // Verifica se o campo de senha foi preenchido no form
-
-                $user->password = Hash::make($request->password);
-            }    
-
-            $user->name = $request->name;
-            $user->email = $request->email;
-
-            $user->save();
-
-            return redirect()->action('UserController@index')->with('update', 'Dados atualizados com sucesso!');
+            $user->password = Hash::make($request->password);
+        }
+        
+        // Verifica se o checkbox Master foi marcado, se foi type recebe "master", se não recebe "adm"
+        if($request->type == 1){
+            
+            $user->type = "admin";
+        }
+        else{
+            $user->type="editor";
         }
 
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        $user->save();
+
+        return redirect()->action('UserController@index')->with('update', 'Dados atualizados com sucesso!');
     }
 
     /**
@@ -115,6 +171,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+
+        $user->delete();
+
+        return redirect()->action('UserController@list')->with('destroy', 'Usuário deletado com sucesso!');
     }
 }
