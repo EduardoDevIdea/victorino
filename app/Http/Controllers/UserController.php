@@ -40,9 +40,11 @@ class UserController extends Controller
 
     public function list()
     {
+        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
+
         $users = User::paginate(10); // User::all()->paginate(10) - NÃO FUNCIONOU DESSE JEITO
 
-        return view('users.list', compact('users'));
+        return view('users.list', compact('users', 'user'));
     }    
 
     /**
@@ -52,7 +54,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
+
+        return view('users.create', compact('user'));
     }
 
     /**

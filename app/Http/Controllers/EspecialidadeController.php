@@ -46,7 +46,9 @@ class EspecialidadeController extends Controller
      */
     public function create()
     {
-        return view('especialidades.create');
+        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
+
+        return view('especialidades.create', compact('user'));
     }
 
     /**

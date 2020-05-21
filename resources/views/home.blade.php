@@ -282,7 +282,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('contact.index') }}" aria-expanded="false">
                             <i class="fas fa-hand-point-right mr-2"></i>
-                                <span class="hide-menu">Contato, Endeteço...</span>
+                                <span class="hide-menu">Contato, Endereço...</span>
                             </a>
                         </li>
 

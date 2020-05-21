@@ -15,23 +15,20 @@
 
 @section('content')
 
-    <h1>Ajustes<h1> <br>
-
     <!-- CARD -->
     <div class="card text-center">
 
         <!-- CARD HEADER -->
         <div class="card-header" style="font-size: 20px">
             <ul class="nav nav-tabs card-header-tabs">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user.index') }}">Perfil</a>
-                </li>
+            
                 <li class="nav-item">
                     <a class="nav-link active" href="{{ route('user.list') }}">Usuários</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.create') }}" tabindex="-1" aria-disabled="true">Cadastro</a>
                 </li>
+                
             </ul>
         </div>
         <!-- END CARD HEADER -->
