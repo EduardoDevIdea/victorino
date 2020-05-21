@@ -26,7 +26,7 @@
                     <a class="nav-link active" href="{{ route('user.list') }}">Usuários</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('user.create') }}" tabindex="-1" aria-disabled="true">Cadastro</a>
+                    <a class="nav-link" href="{{ route('user.create') }}" tabindex="-1" aria-disabled="true"><i class="fas fa-user-plus"></i></a>
                 </li>
                 
             </ul>

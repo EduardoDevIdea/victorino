@@ -1,16 +1,42 @@
-@extends('base_home')
-@section('content')
-<div class="row">
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
 
-    <div class="col-md-6 col-lg-2 col-xlg-3">
-        <div class="card card-hover">
-            <div class="box bg-cyan text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-account-multiple-plus"></i></h1>
-                <h6 class="text-white">Usuarios</h6>
-            </div>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>Victoriano - Odontologia Especializada</title>
+    <!-- Custom CSS -->
+    <link href="{{asset('assets/libs/flot/css/float-chart.css')}}" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{asset('dist/css/style.min.css')}}" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+    <!-- Font Waesome icon-->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- End Font Awesome icon-->
+</head>
+
+<body>
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
         </div>
     </div>
-<<<<<<< HEAD
     <!-- ============================================================== -->
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
@@ -31,14 +57,14 @@
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                            <img src="{{asset('assets/images/logo-icon.png')}}" alt="homepage" class="light-logo" />
                            
                         </b>
                         <!--End Logo icon -->
                          <!-- Logo text -->
                         <span class="logo-text">
                              <!-- dark Logo text -->
-                             <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                             <img src="{{asset("assets/images/logo-text.png")}}" alt="homepage" class="light-logo" />
                             
                         </span>
                         <!-- Logo icon -->
@@ -200,7 +226,7 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('home')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
 
                         @if($user->type == "master" || $user->type == "admin")
                             <li class="sidebar-item">
@@ -256,7 +282,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('contact.index') }}" aria-expanded="false">
                             <i class="fas fa-hand-point-right mr-2"></i>
-                                <span class="hide-menu">Contato, Endereço...</span>
+                                <span class="hide-menu">Contato, Endeteço...</span>
                             </a>
                         </li>
 
@@ -269,115 +295,76 @@
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
-=======
-    <!-- Column -->
-    <div class="col-md-6 col-lg-4 col-xlg-3">
-        <div class="card card-hover">
-            <div class="box bg-success text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-border-color"></i></h1>
-                <h6 class="text-white">Sobre nós</h6>
->>>>>>> e697e1fbbbb155dbb9214fa2d820f142fc43d817
             </div>
-        </div>
-    </div>
-     <!-- Column -->
-    <div class="col-md-6 col-lg-2 col-xlg-3">
-        <div class="card card-hover">
-            <div class="box bg-warning text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-camera-enhance"></i></h1>
-                <h6 class="text-white">Imagens</h6>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+             <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">Dashboard</h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <!-- Column -->
-    <div class="col-md-6 col-lg-2 col-xlg-3">
-        <div class="card card-hover">
-            <div class="box bg-danger text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-check-circle"></i></h1>
-                <h6 class="text-white">Especialidades</h6>
-            </div>
-        </div>
-    </div>
-    <!-- Column -->
-    <div class="col-md-6 col-lg-2 col-xlg-3">
-        <div class="card card-hover">
-            <div class="box bg-info text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-arrow-all"></i></h1>
-                <h6 class="text-white">O Espaço</h6>
-            </div>
-        </div>
-    </div>
-    <!-- Column -->
-    <!-- Column -->
-    <div class="col-md-6 col-lg-4 col-xlg-3">
-        <div class="card card-hover">
-            <div class="box bg-danger text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-receipt"></i></h1>
-                <h6 class="text-white">Blog</h6>
-            </div>
-        </div>
-    </div>
-    <!-- Column -->
-    <div class="col-md-6 col-lg-2 col-xlg-3">
-        <div class="card card-hover">
-            <div class="box bg-info text-center">
-                <h1 class="font-light text-white"><i class="mdi mdi-relative-scale"></i></h1>
-                <h6 class="text-white">Contato</h6>
-            </div>
-        </div>
-    </div>
-   
-</div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
 
-<div class="card-body">
-    <h4 class="card-title">Ultimas Publicações</h4>
-</div>
-<div class="comment-widgets scrollable">
-    <!-- Comment Row -->
-    <div class="d-flex flex-row comment-row m-t-0">
-        <div class="p-2"><img src="assets/images/users/1.jpg" alt="user" width="50" class="rounded-circle"></div>
-        <div class="comment-text w-100">
-            <h6 class="font-medium">James Anderson</h6>
-            <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-            <div class="comment-footer">
-                <span class="text-muted float-right">April 14, 2016</span> 
-                <button type="button" class="btn btn-cyan btn-sm">Edit</button>
-                <button type="button" class="btn btn-success btn-sm">Publish</button>
-                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                 @yield('content')
+           
             </div>
+          
+            <footer class="footer text-center">
+                Todos os direitos reservados Victoriano Odontologia Especializada  2020 - <?php echo date('Y')?>.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
         </div>
-    </div>
-    <!-- Comment Row -->
-    <div class="d-flex flex-row comment-row">
-        <div class="p-2"><img src="assets/images/users/4.jpg" alt="user" width="50" class="rounded-circle"></div>
-        <div class="comment-text active w-100">
-            <h6 class="font-medium">Michael Jorden</h6>
-            <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-            <div class="comment-footer">
-                <span class="text-muted float-right">May 10, 2016</span> 
-                <button type="button" class="btn btn-cyan btn-sm">Edit</button>
-                <button type="button" class="btn btn-success btn-sm">Publish</button>
-                <button type="button" class="btn btn-danger btn-sm">Delete</button>
-            </div>
-        </div>
-    </div>
-    <!-- Comment Row -->
-    <div class="d-flex flex-row comment-row">
-        <div class="p-2"><img src="assets/images/users/5.jpg" alt="user" width="50" class="rounded-circle"></div>
-        <div class="comment-text w-100">
-            <h6 class="font-medium">Johnathan Doeting</h6>
-            <span class="m-b-15 d-block">Lorem Ipsum is simply dummy text of the printing and type setting industry. </span>
-            <div class="comment-footer">
-                <span class="text-muted float-right">August 1, 2016</span> 
-                <button type="button" class="btn btn-cyan btn-sm">Edit</button>
-                <button type="button" class="btn btn-success btn-sm">Publish</button>
-                <button type="button" class="btn btn-danger btn-sm">Delete</button>
-            </div>
-        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
     </div>
 
-    <a href="">Ver todas as postagens</a>
-</div>
+    <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
+    <script src="{{asset('assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')}}"></script>
+    <script src="{{asset('assets/extra-libs/sparkline/sparkline.js')}}"></script>
+    <script src="{{asset('dist/js/waves.js')}}"></script>
+    <script src="{{asset('dist/js/sidebarmenu.js')}}"></script>
+    <script src="{{asset('dist/js/custom.min.js')}}"></script>
+    <script src="{{asset('assets/libs/flot/excanvas.js')}}"></script>
+    <script src="{{asset('assets/libs/flot/jquery.flot.js')}}"></script>
+    <script src="{{asset('assets/libs/flot/jquery.flot.pie.js')}}"></script>
+    <script src="{{asset('assets/libs/flot/jquery.flot.time.js')}}"></script>
+    <script src="{{asset('assets/libs/flot/jquery.flot.stack.js')}}"></script>
+    <script src="{{asset('assets/libs/flot/jquery.flot.crosshair.js')}}"></script>
+    <script src="{{asset('assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js')}}"></script>
+    <script src="{{asset('dist/js/pages/chart/chart-page-init.js')}}"></script>
+    <script src="{{asset('https://kit.fontawesome.com/829d5c5582.js')}}" crossorigin="anonymous"></script>
 
-</div>
-@endsection
+</body>
+
+</html>

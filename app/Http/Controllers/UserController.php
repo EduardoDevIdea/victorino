@@ -164,7 +164,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->action('UserController@index')->with('update', 'Dados atualizados com sucesso!');
+        return redirect()->action('UserController@list')->with('update', 'Dados atualizados com sucesso!');
     }
 
     /**
