@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Photo;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+
 
 class PhotoController extends Controller
 {
@@ -22,12 +24,14 @@ class PhotoController extends Controller
      */
     public function index()
     {
+        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
+
         $photos = Photo::all();
         $qtd = Photo::count(); //variavel guarda o numero de registros para exibir na view
 
         //dd($photos);
 
-        return view('photos.index', compact('photos','qtd'));
+        return view('photos.index', compact('photos','qtd', 'user'));
     }
 
     /**

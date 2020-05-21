@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Sobre;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class SobreController extends Controller
 {
@@ -22,6 +23,8 @@ class SobreController extends Controller
      */
     public function index()
     {
+        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
+
         $sobre = Sobre::all()->first(); //Consulta todos os registros da tabela e retorna apenas um
 
         //dd($sobre);
@@ -31,10 +34,10 @@ class SobreController extends Controller
          * Senao, retorna para view com registro encontrado e permissao para edita-lo
         */
         if(blank($sobre)){
-            return view('sobre.index');
+            return view('sobre.index', compact('user'));
         }
         else{ 
-            return view('sobre.edit', compact('sobre'));
+            return view('sobre.edit', compact('sobre', 'user'));
         }
     }
 

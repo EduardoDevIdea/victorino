@@ -9,6 +9,8 @@
 
 @section('content')
 
+    <h1>Ajustes<h1> <br>
+
     <!-- CARD -->
     <div class="card text-center">
 
@@ -16,14 +18,26 @@
         <div class="card-header" style="font-size: 20px">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('user.index') }}">Meu perfil</a>
-                </li>    
+                    <a class="nav-link active" href="{{ route('user.index') }}">Perfil</a>
+                </li>
+
+                <!-- Lista e cadastro de user só aparece para quem é master ou admin -->
+                @if($user->type == "master" || $user->type == "admin")
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.list') }}">Usuários</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('user.create') }}" tabindex="-1" aria-disabled="true">Cadastro</a>
+                    </li>
+                @endif    
             </ul>
         </div>
         <!-- END CARD HEADER-->
 
         <!-- CARD BODY -->
         <div class="card-body m-4" style="font-size: 15px">
+
+            <h4 class="mb-4">MEU PERFIL - <small>{{$user->type}}</small> </h4> 
             
             <form action="{{ route('user.update', ['user' => $user->id]) }}" method="POST">
                 @csrf

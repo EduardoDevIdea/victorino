@@ -1,718 +1,410 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
 <!DOCTYPE html>
-<html lang="en">
+<html dir="ltr" lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Painel Administrativo</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <title>Matrix Template - The Ultimate Multipurpose admin template</title>
+    <!-- Custom CSS -->
+    <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="dist/css/style.min.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+    <!-- Font Waesome icon-->
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <!-- Scripts from Bootstrap-->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Style from Bootstrap -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/site.css')}}">
-
-
-    <!-- Style from bootsnipp -->
-    <style>
-
-        @keyframes swing {
-        0% {
-            transform: rotate(0deg);
-        }
-        10% {
-            transform: rotate(10deg);
-        }
-        30% {
-            transform: rotate(0deg);
-        }
-        40% {
-            transform: rotate(-10deg);
-        }
-        50% {
-            transform: rotate(0deg);
-        }
-        60% {
-            transform: rotate(5deg);
-        }
-        70% {
-            transform: rotate(0deg);
-        }
-        80% {
-            transform: rotate(-5deg);
-        }
-        100% {
-            transform: rotate(0deg);
-        }
-        }
-
-        @keyframes sonar {
-        0% {
-            transform: scale(0.9);
-            opacity: 1;
-        }
-        100% {
-            transform: scale(2);
-            opacity: 0;
-        }
-        }
-        body {
-        font-size: 0.9rem;
-        }
-        .page-wrapper .sidebar-wrapper,
-        .sidebar-wrapper .sidebar-brand > a,
-        .sidebar-wrapper .sidebar-dropdown > a:after,
-        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before,
-        .sidebar-wrapper ul li a i,
-        .page-wrapper .page-content,
-        .sidebar-wrapper .sidebar-search input.search-menu,
-        .sidebar-wrapper .sidebar-search .input-group-text,
-        .sidebar-wrapper .sidebar-menu ul li a,
-        #show-sidebar,
-        #close-sidebar {
-        -webkit-transition: all 0.3s ease;
-        -moz-transition: all 0.3s ease;
-        -ms-transition: all 0.3s ease;
-        -o-transition: all 0.3s ease;
-        transition: all 0.3s ease;
-        }
-
-        /*----------------page-wrapper----------------*/
-
-        .page-wrapper {
-        height: 100vh;
-        }
-
-        .page-wrapper .theme {
-        width: 40px;
-        height: 40px;
-        display: inline-block;
-        border-radius: 4px;
-        margin: 2px;
-        }
-
-        .page-wrapper .theme.chiller-theme {
-        background: #1e2229;
-        }
-
-        /*----------------toggeled sidebar----------------*/
-
-        .page-wrapper.toggled .sidebar-wrapper {
-        left: 0px;
-        }
-
-        @media screen and (min-width: 768px) {
-        .page-wrapper.toggled .page-content {
-            padding-left: 300px;
-        }
-        }
-        /*----------------show sidebar button----------------*/
-        #show-sidebar {
-        position: fixed;
-        left: 0;
-        top: 10px;
-        border-radius: 0 4px 4px 0px;
-        width: 35px;
-        transition-delay: 0.3s;
-        }
-        .page-wrapper.toggled #show-sidebar {
-        left: -40px;
-        }
-        /*----------------sidebar-wrapper----------------*/
-
-        .sidebar-wrapper {
-        width: 260px;
-        height: 100%;
-        max-height: 100%;
-        position: fixed;
-        top: 0;
-        left: -300px;
-        z-index: 999;
-        }
-
-        .sidebar-wrapper ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        }
-
-        .sidebar-wrapper a {
-        text-decoration: none;
-        }
-
-        /*----------------sidebar-content----------------*/
-
-        .sidebar-content {
-        max-height: calc(100% - 30px);
-        height: calc(100% - 30px);
-        overflow-y: auto;
-        position: relative;
-        }
-
-        .sidebar-content.desktop {
-        overflow-y: hidden;
-        }
-
-        /*--------------------sidebar-brand----------------------*/
-
-        .sidebar-wrapper .sidebar-brand {
-        padding: 10px 20px;
-        display: flex;
-        align-items: center;
-        }
-
-        .sidebar-wrapper .sidebar-brand > a {
-        text-transform: uppercase;
-        font-weight: bold;
-        flex-grow: 1;
-        }
-
-        .sidebar-wrapper .sidebar-brand #close-sidebar {
-        cursor: pointer;
-        font-size: 20px;
-        }
-        /*--------------------sidebar-header----------------------*/
-
-        .sidebar-wrapper .sidebar-header {
-        padding: 20px;
-        overflow: hidden;
-        }
-
-        .sidebar-wrapper .sidebar-header .user-pic {
-        float: left;
-        width: 60px;
-        padding: 2px;
-        border-radius: 12px;
-        margin-right: 15px;
-        overflow: hidden;
-        }
-
-        .sidebar-wrapper .sidebar-header .user-pic img {
-        object-fit: cover;
-        height: 100%;
-        width: 100%;
-        }
-
-        .sidebar-wrapper .sidebar-header .user-info {
-        float: left;
-        }
-
-        .sidebar-wrapper .sidebar-header .user-info > span {
-        display: block;
-        }
-
-        .sidebar-wrapper .sidebar-header .user-info .user-role {
-        font-size: 12px;
-        }
-
-        .sidebar-wrapper .sidebar-header .user-info .user-status {
-        font-size: 11px;
-        margin-top: 4px;
-        }
-
-        .sidebar-wrapper .sidebar-header .user-info .user-status i {
-        font-size: 8px;
-        margin-right: 4px;
-        color: #5cb85c;
-        }
-
-        /*-----------------------sidebar-search------------------------*/
-
-        .sidebar-wrapper .sidebar-search > div {
-        padding: 10px 20px;
-        }
-
-        /*----------------------sidebar-menu-------------------------*/
-
-        .sidebar-wrapper .sidebar-menu {
-        padding-bottom: 10px;
-        }
-
-        .sidebar-wrapper .sidebar-menu .header-menu span {
-        font-weight: bold;
-        font-size: 14px;
-        padding: 15px 20px 5px 20px;
-        display: inline-block;
-        }
-
-        .sidebar-wrapper .sidebar-menu ul li a {
-        display: inline-block;
-        width: 100%;
-        text-decoration: none;
-        position: relative;
-        padding: 8px 30px 8px 20px;
-        }
-
-        .sidebar-wrapper .sidebar-menu ul li a i {
-        margin-right: 10px;
-        font-size: 12px;
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        text-align: center;
-        border-radius: 4px;
-        }
-
-        .sidebar-wrapper .sidebar-menu ul li a:hover > i::before {
-        display: inline-block;
-        animation: swing ease-in-out 0.5s 1 alternate;
-        }
-
-        .sidebar-wrapper .sidebar-menu .sidebar-dropdown > a:after {
-        font-family: "Font Awesome 5 Free";
-        font-weight: 900;
-        content: "\f105";
-        font-style: normal;
-        display: inline-block;
-        font-style: normal;
-        font-variant: normal;
-        text-rendering: auto;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        background: 0 0;
-        position: absolute;
-        right: 15px;
-        top: 14px;
-        }
-
-        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu ul {
-        padding: 5px 0;
-        }
-
-        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li {
-        padding-left: 25px;
-        font-size: 13px;
-        }
-
-        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a:before {
-        content: "\f111";
-        font-family: "Font Awesome 5 Free";
-        font-weight: 400;
-        font-style: normal;
-        display: inline-block;
-        text-align: center;
-        text-decoration: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        margin-right: 10px;
-        font-size: 8px;
-        }
-
-        .sidebar-wrapper .sidebar-menu ul li a span.label,
-        .sidebar-wrapper .sidebar-menu ul li a span.badge {
-        float: right;
-        margin-top: 8px;
-        margin-left: 5px;
-        }
-
-        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a .badge,
-        .sidebar-wrapper .sidebar-menu .sidebar-dropdown .sidebar-submenu li a .label {
-        float: right;
-        margin-top: 0px;
-        }
-
-        .sidebar-wrapper .sidebar-menu .sidebar-submenu {
-        display: none;
-        }
-
-        .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active > a:after {
-        transform: rotate(90deg);
-        right: 17px;
-        }
-
-        /*--------------------------side-footer------------------------------*/
-
-        .sidebar-footer {
-        position: absolute;
-        width: 100%;
-        bottom: 0;
-        display: flex;
-        }
-
-        .sidebar-footer > a {
-        flex-grow: 1;
-        text-align: center;
-        height: 30px;
-        line-height: 30px;
-        position: relative;
-        }
-
-        .sidebar-footer > a .notification {
-        position: absolute;
-        top: 0;
-        }
-
-        .badge-sonar {
-        display: inline-block;
-        background: #980303;
-        border-radius: 50%;
-        height: 8px;
-        width: 8px;
-        position: absolute;
-        top: 0;
-        }
-
-        .badge-sonar:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        border: 2px solid #980303;
-        opacity: 0;
-        border-radius: 50%;
-        width: 100%;
-        height: 100%;
-        animation: sonar 1.5s infinite;
-        }
-
-        /*--------------------------page-content-----------------------------*/
-
-        .page-wrapper .page-content {
-        display: inline-block;
-        width: 100%;
-        padding-left: 0px;
-        padding-top: 20px;
-        }
-
-        .page-wrapper .page-content > div {
-        padding: 20px 40px;
-        }
-
-        .page-wrapper .page-content {
-        overflow-x: hidden;
-        }
-
-        /*------scroll bar---------------------*/
-
-        ::-webkit-scrollbar {
-        width: 5px;
-        height: 7px;
-        }
-        ::-webkit-scrollbar-button {
-        width: 0px;
-        height: 0px;
-        }
-        ::-webkit-scrollbar-thumb {
-        background: #525965;
-        border: 0px none #ffffff;
-        border-radius: 0px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-        background: #525965;
-        }
-        ::-webkit-scrollbar-thumb:active {
-        background: #525965;
-        }
-        ::-webkit-scrollbar-track {
-        background: transparent;
-        border: 0px none #ffffff;
-        border-radius: 50px;
-        }
-        ::-webkit-scrollbar-track:hover {
-        background: transparent;
-        }
-        ::-webkit-scrollbar-track:active {
-        background: transparent;
-        }
-        ::-webkit-scrollbar-corner {
-        background: transparent;
-        }
-
-
-        /*-----------------------------chiller-theme-------------------------------------------------*/
-
-        .chiller-theme .sidebar-wrapper {
-            background: #31353D;
-        }
-
-        .chiller-theme .sidebar-wrapper .sidebar-header,
-        .chiller-theme .sidebar-wrapper .sidebar-search,
-        .chiller-theme .sidebar-wrapper .sidebar-menu {
-            border-top: 1px solid #3a3f48;
-        }
-
-        .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
-        .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
-            border-color: transparent;
-            box-shadow: none;
-        }
-
-        .chiller-theme .sidebar-wrapper .sidebar-header .user-info .user-role,
-        .chiller-theme .sidebar-wrapper .sidebar-header .user-info .user-status,
-        .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
-        .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text,
-        .chiller-theme .sidebar-wrapper .sidebar-brand>a,
-        .chiller-theme .sidebar-wrapper .sidebar-menu ul li a,
-        .chiller-theme .sidebar-footer>a {
-            color: #818896;
-        }
-
-        .chiller-theme .sidebar-wrapper .sidebar-menu ul li:hover>a,
-        .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active>a,
-        .chiller-theme .sidebar-wrapper .sidebar-header .user-info,
-        .chiller-theme .sidebar-wrapper .sidebar-brand>a:hover,
-        .chiller-theme .sidebar-footer>a:hover i {
-            color: #b8bfce;
-        }
-
-        .page-wrapper.chiller-theme.toggled #close-sidebar {
-            color: #bdbdbd;
-        }
-
-        .page-wrapper.chiller-theme.toggled #close-sidebar:hover {
-            color: #ffffff;
-        }
-
-        .chiller-theme .sidebar-wrapper ul li:hover a i,
-        .chiller-theme .sidebar-wrapper .sidebar-dropdown .sidebar-submenu li a:hover:before,
-        .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu:focus+span,
-        .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown.active a i {
-            color: #16c7ff;
-            text-shadow:0px 0px 10px rgba(22, 199, 255, 0.5);
-        }
-
-        .chiller-theme .sidebar-wrapper .sidebar-menu ul li a i,
-        .chiller-theme .sidebar-wrapper .sidebar-menu .sidebar-dropdown div,
-        .chiller-theme .sidebar-wrapper .sidebar-search input.search-menu,
-        .chiller-theme .sidebar-wrapper .sidebar-search .input-group-text {
-            background: #3a3f48;
-        }
-
-        .chiller-theme .sidebar-wrapper .sidebar-menu .header-menu span {
-            color: #6c7b88;
-        }
-
-        .chiller-theme .sidebar-footer {
-            background: #3a3f48;
-            box-shadow: 0px -1px 5px #282c33;
-            border-top: 1px solid #464a52;
-        }
-
-        .chiller-theme .sidebar-footer>a:first-child {
-            border-left: none;
-        }
-
-        .chiller-theme .sidebar-footer>a:last-child {
-            border-right: none;
-        }
-
-    </style>
-    <!-- End of Style from bootsnipp -->
- 
+    <!-- End Font Awesome icon-->
 </head>
 
-<!-- Script from bootsnip -->
-<script>
-
-    jQuery(function ($) {
-
-    $(".sidebar-dropdown > a").click(function() {
-    $(".sidebar-submenu").slideUp(200);
-    if (
-    $(this)
-    .parent()
-    .hasClass("active")
-    ) {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-    .parent()
-    .removeClass("active");
-    } else {
-    $(".sidebar-dropdown").removeClass("active");
-    $(this)
-    .next(".sidebar-submenu")
-    .slideDown(200);
-    $(this)
-    .parent()
-    .addClass("active");
-    }
-    });
-
-    $("#close-sidebar").click(function() {
-    $(".page-wrapper").removeClass("toggled");
-    });
-    $("#show-sidebar").click(function() {
-    $(".page-wrapper").addClass("toggled");
-    });
-
-
-
-
-    });
-
-</script>
-<!-- End of Scrypt from bootsnipp -->
-
 <body>
-
-    {{-- <div class="infomenu" style="width: 100%; height: 80px; background-color:rgba(22, 199, 255, 0.5)"></div> --}}
-    <!-- Page Wrapper -->
-    <div class="page-wrapper chiller-theme toggled">
-
-        <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
-            <i class="fas fa-bars"></i>
-        </a>
-
-        <!-- SIDEBAR -->
-        
-        <nav id="sidebar" class="sidebar-wrapper">
-
-            <!-- Sidebar Content -->
-            <div class="sidebar-content">
-                <div class="sidebar-brand">
-                    <a href="{{ url('/') }}">
-                        <i class="fas fa-eye" style="font-size: 30px"></i>
-                    </a>
-                    <div id="close-sidebar">
-                    <i class="fas fa-times"></i>
-                    </div>
-                </div>
-
-                <!-- Sidebar Header -->
-                <div class="sidebar-header">
-
-                    <!-- User Info -->
-                    <div class="user-info">
-
-                        <span class="user-name mb-2">
-                            {{ Auth::user()->name }} 
-                        </span>
-                        
-                        <a href="{{ route('user.index') }}">
-                            <i class="fas fa-user-cog fa-lg" title="Ajuste e cadastro de usuário"></i>
-                            <small>Configurações de usuário</small>
-                        </a>
-                         
-                    </div>
-                    <!-- End of User Info-->
-
-                </div>
-                <!-- End of sidebar-header  -->
-
-                <!-- MENU -->
-                <div class="sidebar-menu">
-                    
-                    <!-- Menu group items -->
-                    <ul>
-                    
-                        <!-- Hearder Menu-->  
-                        <li class="header-menu">
-                            <span>MENU</span>
-                        </li>
-                        <!-- End of Header Menu -->
-
-                        <li>
-                            <a href="{{ route('sobre.index') }}">
-                            <i class="fas fa-pencil-alt"></i>
-                            <span>Sobre nós</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('image.index') }}">
-                            <i class="fas fa-sliders-h"></i>
-                            <span>Logo, Imagens...</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('especialidade.index') }}">
-                            <i class="fas fa-check"></i>
-                            <span>Especialidades</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('profissional.index') }}">
-                            <i class="fas fa-user"></i>
-                            <span>Profissionais</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('photo.index') }}">
-                            <i class="fas fa-camera"></i>
-                            <span>O espaço</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('post.index') }}">
-                            <i class="fas fa-quote-right"></i>
-                            <span>Blog</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="{{ route('contact.index') }}">
-                            <i class="fas fa-hand-point-right"></i>
-                            <span>Contato, Endereço...</span>
-                            </a>
-                        </li>
-                    
-                    </ul>
-                    <!-- End of Menu group items -->
-
-                </div>
-                <!-- END MENU -->
-
-            </div>
-            <!-- END of Sidebar Content  -->
-
-            <!-- Sidebar Footer -->
-            <div class="sidebar-footer">
-               
-                <!-- LOGOUT -->
-                    <a href="{{ route('logout') }}" onclick="return confirm('Deseja realmente sair?');">
-                        <strong>SAIR</strong>
-                        &nbsp <i class="fas fa-walking fa-lg"></i>
-                    </a>
-                <!-- END LOOGOUT-->
-
-            </div>
-            <!-- END of Sidebar Footer -->
-
-        </nav>
-        <!-- END of SIDEBAR -->
-
-        <!-- PAGE CONTENT -->
-        <main class="page-content">
-
-            <div class="">
-                @yield('content')
-            </div>
-
-        </main>
-        <!-- END of PAGE CONTENT -->
-
+    <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
     </div>
-    <!-- END of page-wrapper -->
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin5">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="index.html">
+                        <!-- Logo icon -->
+                        <b class="logo-icon p-l-10">
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
+                           
+                        </b>
+                        <!--End Logo icon -->
+                         <!-- Logo text -->
+                        <span class="logo-text">
+                             <!-- dark Logo text -->
+                             <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
+                            
+                        </span>
+                        <!-- Logo icon -->
+                        <!-- <b class="logo-icon"> -->
+                            <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                            <!-- Dark Logo icon -->
+                            <!-- <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" /> -->
+                            
+                        <!-- </b> -->
+                        <!--End Logo icon -->
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- Toggle which is visible on mobile only -->
+                    <!-- ============================================================== -->
+                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-left mr-auto">
+                        <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                        <!-- ============================================================== -->
+                        <!-- create new -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
+                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                            <form class="app-search position-absolute">
+                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
+                            </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav float-right">
+                        <!-- ============================================================== -->
+                        <!-- Comment -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
+                            </a>
+                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End Comment -->
+                        <!-- ============================================================== -->
+                        <!-- ============================================================== -->
+                        <!-- Messages -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
+                                <ul class="list-style-none">
+                                    <li>
+                                        <div class="">
+                                             <!-- Message -->
+                                            <a href="javascript:void(0)" class="link border-top">
+                                                <div class="d-flex no-block align-items-center p-10">
+                                                    <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
+                                                    <div class="m-l-10">
+                                                        <h5 class="m-b-0">Event today</h5> 
+                                                        <span class="mail-desc">Just a reminder that event</span> 
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="link border-top">
+                                                <div class="d-flex no-block align-items-center p-10">
+                                                    <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
+                                                    <div class="m-l-10">
+                                                        <h5 class="m-b-0">Settings</h5> 
+                                                        <span class="mail-desc">You can customize this template</span> 
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="link border-top">
+                                                <div class="d-flex no-block align-items-center p-10">
+                                                    <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
+                                                    <div class="m-l-10">
+                                                        <h5 class="m-b-0">Pavan kumar</h5> 
+                                                        <span class="mail-desc">Just see the my admin!</span> 
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <!-- Message -->
+                                            <a href="javascript:void(0)" class="link border-top">
+                                                <div class="d-flex no-block align-items-center p-10">
+                                                    <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
+                                                    <div class="m-l-10">
+                                                        <h5 class="m-b-0">Luanch Admin</h5> 
+                                                        <span class="mail-desc">Just see the my new admin!</span> 
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- End Messages -->
+                        <!-- ============================================================== -->
+
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle fa-2x"></i></a>
+                            <div class="dropdown-menu dropdown-menu-right user-dd animated">
+                                <a class="dropdown-item" href="{{ route('user.index') }}"><i class="fas fa-user"></i> Meu Perfil</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="return confirm('Deseja realmente sair?');"><i class="fa fa-power-off m-r-5 m-l-5"></i> Sair</a>
+                            </div>
+                        </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin5">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav" class="p-t-30">
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+
+                        @if($user->type == "master" || $user->type == "admin")
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('user.list') }}" aria-expanded="false">
+                                    <i class="fas fa-user-plus mr-2"></i>
+                                    <span class="hide-menu">Usuários</span>
+                                </a>
+                            </li>
+                        @endif
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('sobre.index') }}" aria-expanded="false">
+                                <i class="fas fa-pencil-alt mr-2"></i>
+                                <span class="hide-menu">Sobre nós</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('image.index') }}" aria-expanded="false">
+                                <i class="fas fa-sliders-h mr-2"></i>
+                                <span class="hide-menu">Logo, Imagens...</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('especialidade.index') }}" aria-expanded="false">
+                            <i class="fas fa-check mr-2"></i>
+                                <span class="hide-menu">Especialidades</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('profissional.index') }}" aria-expanded="false">
+                                <i class="fas fa-users mr-2"></i>
+                                <span class="hide-menu">Profissionais</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('photo.index') }}" aria-expanded="false">
+                            <i class="fas fa-camera mr-2"></i>
+                                <span class="hide-menu">O espaço</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('post.index') }}" aria-expanded="false">
+                            <i class="fas fa-quote-right mr-2"></i>
+                                <span class="hide-menu">Blog</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('contact.index') }}" aria-expanded="false">
+                            <i class="fas fa-hand-point-right mr-2"></i>
+                                <span class="hide-menu">Contato, Endeteço...</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Ex. Drop Down </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Item </span></a></li>
+                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Item </span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+             <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-12 d-flex no-block align-items-center">
+                        <h4 class="page-title">Dashboard</h4>
+                        <div class="ml-auto text-right">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+
+                <!-- PAGE CONTENT -->
+                 @yield('content')
+                <!-- END OF PAGE CONTENT --->
+
+                <!-- ============================================================== -->
+                <!-- Sales Cards  -->
+                <!-- ============================================================== -->
+                
+                <!-- ============================================================== -->
+                <!-- Sales chart -->
+                <!-- ============================================================== -->
+                
+                <!-- ============================================================== -->
+                <!-- Sales chart -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Recent comment and chats -->
+                <!-- ============================================================== -->
+                
+                <!-- ============================================================== -->
+                <!-- Recent comment and chats -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center">
+                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+    <script src="dist/js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="dist/js/sidebarmenu.js"></script>
+    <!--Custom JavaScript -->
+    <script src="dist/js/custom.min.js"></script>
+    <!--This page JavaScript -->
+    <!-- <script src="dist/js/pages/dashboards/dashboard1.js"></script> -->
+    <!-- Charts js Files -->
+    <script src="assets/libs/flot/excanvas.js"></script>
+    <script src="assets/libs/flot/jquery.flot.js"></script>
+    <script src="assets/libs/flot/jquery.flot.pie.js"></script>
+    <script src="assets/libs/flot/jquery.flot.time.js"></script>
+    <script src="assets/libs/flot/jquery.flot.stack.js"></script>
+    <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="dist/js/pages/chart/chart-page-init.js"></script>
 
     <!-- Icones Font Awesome - Account Eduardo Gomes -->
     <script src="https://kit.fontawesome.com/829d5c5582.js" crossorigin="anonymous"></script>
     <!-- End -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-    
 </body>
 
 </html>

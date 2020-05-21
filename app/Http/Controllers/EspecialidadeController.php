@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Especialidade;
 use Illuminate\Support\Facades\Session;
@@ -22,6 +23,8 @@ class EspecialidadeController extends Controller
      */
     public function index()
     {
+        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
+
         $especialidades = Especialidade::paginate(10); // Especialidade::all()->paginate(10); NÃO FUNCIONA DESSE JEITO
 
         /*
@@ -29,10 +32,10 @@ class EspecialidadeController extends Controller
          * Senao, retorna para view que lista todos os registros encontrados
         */
         if(blank($especialidades)){
-            return view('especialidades.create');
+            return view('especialidades.create', 'user');
         }
         else{
-            return view('especialidades.index', compact('especialidades'));
+            return view('especialidades.index', compact('especialidades', 'user'));
         }
     }
 
