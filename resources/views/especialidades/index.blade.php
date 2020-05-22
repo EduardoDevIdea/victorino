@@ -32,6 +32,8 @@
 
         <!-- CARD BODY -->
         <div class="card-body m-4" style="font-size: 15px">
+
+            <h3 class="mb-3"><strong>Especialidades cadastradas</strong></h3>
             
             <table class="table w-50 mx-auto">
 
