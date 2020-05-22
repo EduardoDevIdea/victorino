@@ -27,58 +27,81 @@
       </script>
     @endif      
  
-    <h1>Profissionais</h1> <br>
+    <!-- CARD -->
+    <div class="card text-center">
 
-    <a href="{{ route('profissional.create') }}">
-        <button class="btn btn-primary">Cadastrar Profissional</button>
-    </a> <br><br>
+        <!-- CARD HEADER-->
+        <div class="card-header" style="font-size: 20px">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ route('profissional.index') }}">Profissionais</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('profissional.create') }}">Cadastrar</a>
+                </li>      
+            </ul>
+        </div>
+        <!-- END CARD HEADER-->
 
-    <table class="table w-75">
+        <!-- CARD BODY -->
+        <div class="card-body m-4" style="font-size: 15px">
+            
+            <h3 class="mb-3"><strong>Profissionais cadastrados</strong></h3>
 
-        <thead class="thead-dark">
-            <tr>
-                <th>Nome</th>
-                <th>Cargo</th>
-                <th>Atividade</th>
-                <th>Editar</th>
-                <th>Excluir</th>
-            </tr>
-        </thead>
+            <table class="table w-75 mx-auto">
 
-        <tbody>
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Atividade</th>
+                        <th>Editar</th>
+                        <th>Excluir</th>
+                    </tr>
+                </thead>
 
-            @foreach($profissionais as $profissional)
+                <tbody>
 
-                <tr>
-                    <td>{{ $profissional->nome }}</td>
+                    @foreach($profissionais as $profissional)
 
-                    <td>{{ $profissional->cargo }}</td>
-                    
-                    <td>{{ $profissional->atividade }}</td>
+                        <tr>
 
-                    <td>
-                        <a href="{{ route('profissional.edit', ['profissional' => $profissional->id]) }}">
-                            <i class="fas fa-edit" style="color: black"></i> <!-- icone -->
-                        </a>
-                    </td>
+                            <td>{{ $profissional->nome }}</td>
 
-                    <td>
-                        <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');">
-                            <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
-                        </a>
-                    </td>
+                            <td>{{ $profissional->cargo }}</td>
+                            
+                            <td>{{ $profissional->atividade }}</td>
 
-                </tr>
+                            <td>
+                                <a href="{{ route('profissional.edit', ['profissional' => $profissional->id]) }}">
+                                    <i class="fas fa-edit" style="color: black"></i> <!-- icone -->
+                                </a>
+                            </td>
 
-            @endforeach
+                            <td>
+                                <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');">
+                                    <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
+                                </a>
+                            </td>
 
-        </tbody>
+                        </tr>
 
-    </table>
+                    @endforeach
 
-    <!-- Paginate -->
-    <div class="container">
-        {{ $profissionais->links() }}
+                </tbody>
+
+            </table>
+
+            <!-- Paginate -->
+            <div class="container">
+            {{ $profissionais->links() }}
+            </div>
+
+        </div>
+        <!-- END CARD BODY -->
+
     </div>
+    <!-- END CARD -->
 
 @endsection
+

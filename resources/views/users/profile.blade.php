@@ -89,5 +89,6 @@
         <!-- END CARD BODY -->
 
     </div>
+    <!-- END CARD -->
 
 @endsection
