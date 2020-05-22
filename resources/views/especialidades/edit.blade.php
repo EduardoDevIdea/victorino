@@ -22,7 +22,7 @@
         <!-- END CARD HEADER-->
 
         <!-- CARD BODY -->
-        <div class="card-body m-4" style="font-size: 15px">
+        <div class="card-body" style="font-size: 15px">
 
             <form action="{{ route('especialidade.update', ['especialidade' => $especialidade->id]) }}" method="POST">
                 @csrf
@@ -30,7 +30,7 @@
                     
                 <h3 class="card-title"><strong>Editar Especialidade</strong></h3>
                 
-                <div class="form-group row mt-5">
+                <div class="form-group row mt-3">
                     <label for="nome" class="col-sm-3 text-right control-label col-form-label"><strong>Nome da especialidade</strong></label>
                     <div class="col-sm-9">
                         <input type="text" name="nome" value="{{ $especialidade->nome }}" class="form-control" id="fname" required autofocus>
@@ -40,7 +40,7 @@
                 <div class="form-group row">
                     <label for="cono1" class="col-sm-3 text-right control-label col-form-label"><strong>Descrição</strong></label>
                     <div class="col-sm-9">                                  
-                        <textarea name="description" class="form-control" cols="70" rows="10">{{$especialidade->description}}</textarea>
+                        <textarea id="description" name="description" class="form-control" cols="70" rows="10">{{$especialidade->description}}</textarea>
                     </div>
                 </div>
 
@@ -52,9 +52,19 @@
                 
             </form>
 
-    </div>
-    <!-- END CARD BODY -->
+        </div>
+        <!-- END CARD BODY -->
 
-</div>
-<!-- END CARD -->
+    </div>
+    <!-- END CARD -->
+
+    <!-- CKEditor Scripts - Editor de texto-->
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'description', {
+            uiColor: '#9AB8F3',
+        });
+    </script>
+    <!-- End CKEditor Scripts -->
+
 @endsection

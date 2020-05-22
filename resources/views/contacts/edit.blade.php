@@ -68,7 +68,7 @@
                 </div>
                 <div class="row">
                     <div class="col pt-5 text-center">
-                        <input type="submit" value="Atualizar dados" class="btn btn-success w-75">
+                        <input type="submit" value="Atualizar dados" class="btn btn-success w-25">
                     </div>
                 </div>
             </div>

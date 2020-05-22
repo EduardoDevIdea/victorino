@@ -46,7 +46,7 @@
                                 <div class="collapse" id="collapseExample">
                                     <div class="card card-body">
                                         <label for="legenda"><strong>Sobre a clinica</strong></label>
-                                        <textarea  id="legenda" name="legenda" class="required form-control mb-4"  value="">{{ $sobre->legenda }}</textarea>
+                                        <textarea  id="legenda" name="legenda" class="required form-control mb-4">{{ $sobre->legenda }}</textarea>
                                         
                                         <label for="Filosofia"><strong>Filosofia *</strong></label>
                                         <textarea id="Filosofia" name="filosofia" class="required form-control mb-4" cols="80" rows="5">{{ $sobre->filosofia }}</textarea>
@@ -93,3 +93,4 @@
         });
     </script>
 @endsection
+
