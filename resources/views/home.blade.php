@@ -1,7 +1,21 @@
 @extends('base_home')
 @section('content')
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+            <h4 class="page-title">Dashboard</h4>
+            <div class="ml-auto text-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
-
+   
     <div class="col-md-6 col-lg-2 col-xlg-3">
         <div class="card card-hover">
             <a href="{{url('/user/list')}}">
@@ -102,23 +116,27 @@
             <div class="card-body">
                 <h4 class="card-title">Ultimas postagens</h4>
             </div>
-            @foreach ($posts as $item_post)
-                
-            @endforeach
-            <div class="comment-widgets scrollable">
-                <div class="d-flex flex-row comment-row m-t-0">
-                    <div class="p-2"><img src="storage/{{$item_post->img}}" alt="user" width="50" class="rounded-circle"></div>
-                    <div class="comment-text w-100">
-                        <h6 class="font-medium">{{$item_post->titulo}}</h6>
-                        <span class="m-b-15 d-block">{{$item_post->subtitulo}} </span>
-                        <div class="comment-footer">
-                            <span class="text-muted float-right">{{$item_post->created_at->format('M d , Y')}}</span> 
-                            <button type="button" class="btn btn-cyan btn-sm">Edit</button>
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            @if (count($posts) == 0)
+                <p>Nenhuma Postagem encontrada</p>
+            @else
+                @foreach ($posts as $item_post)
+                    <div class="comment-widgets scrollable">
+                        <div class="d-flex flex-row comment-row m-t-0">
+                            <div class="p-2"><img src="storage/{{$item_post->img}}" alt="user" width="50" class="rounded-circle"></div>
+                            <div class="comment-text w-100">
+                                <h6 class="font-medium">{{$item_post->titulo}}</h6>
+                                <span class="m-b-15 d-block">{{$item_post->subtitulo}} </span>
+                                <div class="comment-footer">
+                                    <span class="text-muted float-right">{{$item_post->created_at->format('M d , Y')}}</span> 
+                                    <button type="button" class="btn btn-cyan btn-sm">Edit</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                @endforeach
+            @endif
+           
         </div>
     </div>
     <div class="col-lg-6">

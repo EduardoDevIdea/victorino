@@ -19,7 +19,7 @@ class CreateSobresTable extends Migration
             $table->text('filosofia')->nullable();
             $table->text('funcionamento')->nullable();
             $table->string('img')->nullable();
-            $table->string('legenda')->nullable();
+            $table->text('legenda')->nullable();
         });
     }
 
