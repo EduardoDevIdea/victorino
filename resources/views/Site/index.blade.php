@@ -192,7 +192,7 @@
           </div>
         </div>
         <div class="row isotope-wrap" >
-          <!-- Prodissionais -->
+          <!-- Profissionais -->
           <div class="col-lg-12">
             <div class="isotope" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group" data-lg-thumbnail="false">
               <div class="row no-gutters row-condensed">

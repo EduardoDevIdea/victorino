@@ -38,7 +38,9 @@ class ProfissionalController extends Controller
      */
     public function create()
     {
-        return view('profissionais.create');
+        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
+
+        return view('profissionais.create', compact('user'));
     }
 
     /**
@@ -112,9 +114,11 @@ class ProfissionalController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
+
         $profissional = Profissional::find($id);
 
-        return view('profissionais.edit', compact('profissional'));
+        return view('profissionais.edit', compact('profissional', 'user'));
     }
 
     /**

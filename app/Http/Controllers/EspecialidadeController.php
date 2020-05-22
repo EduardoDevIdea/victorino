@@ -25,7 +25,7 @@ class EspecialidadeController extends Controller
     {
         $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
 
-        $especialidades = Especialidade::paginate(10); // Especialidade::all()->paginate(10); NÃO FUNCIONA DESSE JEITO
+        $especialidades = Especialidade::paginate(5); // Especialidade::all()->paginate(5); NÃO FUNCIONA DESSE JEITO
 
         /*
          * Se retornar nenhum registro retorna para view de cadastro de especialidade
@@ -99,9 +99,11 @@ class EspecialidadeController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
+
         $especialidade = Especialidade::find($id);
 
-        return view('especialidades.edit', compact('especialidade'));
+        return view('especialidades.edit', compact('especialidade', 'user'));
     }
 
     /**
