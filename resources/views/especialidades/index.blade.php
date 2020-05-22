@@ -32,14 +32,15 @@
 
         <!-- CARD BODY -->
         <div class="card-body m-4" style="font-size: 15px">
+
+            <h3 class="mb-3"><strong>Especialidades cadastradas</strong></h3>
             
             <table class="table w-50 mx-auto">
 
                 <thead class="thead-dark">
                     <tr>
                         <th>Nome</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
 
@@ -51,12 +52,11 @@
                             <td>{{ $especialidade->nome }}</td>
 
                             <td>
-                                <a href="{{ route('especialidade.edit', ['especialidade' => $especialidade->id]) }}">
+                                <a href="{{ route('especialidade.edit', ['especialidade' => $especialidade->id]) }}" class="mr-3" title="Editar">
                                     <i class="fas fa-edit" style="color: black"></i> <!-- icone -->
                                 </a>
-                            </td>
-                            <td>    
-                                <a href="{{ route('especialidade.destroy', ['especialidade' => $especialidade->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');">
+                            
+                                <a href="{{ route('especialidade.destroy', ['especialidade' => $especialidade->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');" title="Excluir">
                                     <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
                                 </a>
                             </td>

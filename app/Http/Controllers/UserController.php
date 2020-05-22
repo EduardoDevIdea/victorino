@@ -42,7 +42,7 @@ class UserController extends Controller
     {
         $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
 
-        $users = User::paginate(10); // User::all()->paginate(10) - NÃO FUNCIONOU DESSE JEITO
+        $users = User::paginate(5); // User::all()->paginate(5) - NÃO FUNCIONOU DESSE JEITO
 
         return view('users.list', compact('users', 'user'));
     }    

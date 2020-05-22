@@ -64,13 +64,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="sobre" class="col-sm-3 text-right control-label col-form-label">Sobre</label>
-                            <div class="col-sm-9">
-                                <textarea name="sobre" id="sobre" class="form-control" cols="80" rows="10"></textarea>
-                            </div>
-                        </div>
-
                     </div>
                     <!-- Fim Coluna Esquerda -->
 
@@ -85,14 +78,24 @@
                     </div>
                     <!-- Fim Coluna Direita -->
                 </div>
-                    
-                    
+
+                <div class="row">
+                    <div class="form-group row">
+                        <label for="sobre" class="col-lg text-left control-label col-form-label">Sobre</label>
+                        <div class="col-sm-9">
+                            <textarea name="sobre" id="sobre" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div> 
+                
+                <div class="row">
                     <div class="form-group row">
                         <div class="col-sm-9">
                             <input type="submit" class="btn btn-success" value="Salvar">
                         </div>
                     </div>
-                    
+                </div>
+                      
             </form>
                 
         </div>
@@ -100,6 +103,15 @@
 
     </div>
     <!-- END CARD -->
+
+    <!-- CKEditor Scripts - Editor de texto-->
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'sobre', {
+            uiColor: '#9AB8F3',
+        });
+    </script>
+    <!-- End CKEditor Scripts -->
 
 @endsection
 

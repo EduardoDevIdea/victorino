@@ -55,8 +55,7 @@
                         <th>Nome</th>
                         <th>Cargo</th>
                         <th>Atividade</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
 
@@ -73,13 +72,11 @@
                             <td>{{ $profissional->atividade }}</td>
 
                             <td>
-                                <a href="{{ route('profissional.edit', ['profissional' => $profissional->id]) }}">
+                                <a href="{{ route('profissional.edit', ['profissional' => $profissional->id]) }}" class="mr-3" title="Editar">
                                     <i class="fas fa-edit" style="color: black"></i> <!-- icone -->
                                 </a>
-                            </td>
 
-                            <td>
-                                <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');">
+                                <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');" title="Excluir">
                                     <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
                                 </a>
                             </td>

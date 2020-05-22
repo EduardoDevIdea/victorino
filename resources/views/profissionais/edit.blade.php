@@ -86,14 +86,14 @@
                 </div>
                     
                     
-                    <div class="form-group row">
-                        <div class="col-sm-9">
-                            <input type="submit" class="btn btn-success" value="Atualizar">
-                            <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');" class="btn btn-danger">
-                                Excluir
-                            </a>
-                        </div>
+                <div class="form-group row">
+                    <div class="col-sm-9">
+                        <input type="submit" class="btn btn-success" value="Atualizar">
+                        <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');" class="btn btn-danger">
+                            Excluir
+                        </a>
                     </div>
+                </div>
                     
             </form>
                 
@@ -102,6 +102,15 @@
 
     </div>
     <!-- END CARD -->
+
+    <!-- CKEditor Scripts - Editor de texto-->
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'sobre', {
+            uiColor: '#9AB8F3',
+        });
+    </script>
+    <!-- End CKEditor Scripts -->
 
 @endsection
 

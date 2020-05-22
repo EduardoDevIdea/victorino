@@ -44,8 +44,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>Email</th>
-                        <th>Editar</th>
-                        <th>Excluir</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
 
@@ -62,9 +61,7 @@
                                         <i class="fas fa-user fa-lg" title="Meu perfil"></i> <!-- icone direciona para o seu perfil -->
                                     </a>
                                 </td>
-                                <td>
-                                    <!-- Manter o <td> vazio para formataçao da tabela -->
-                                </td>
+                                
                              <!-- Se user for master, nao pode ser editado, nem excluido -->    
                             @elseif($user->type == "master") 
                                 <td>
@@ -76,12 +73,11 @@
                                 <td>
                             @else
                                 <td>
-                                    <a href="{{ route('user.edit', ['user' => $user->id]) }}">
+                                    <a href="{{ route('user.edit', ['user' => $user->id]) }}" class="mr-3" title="Editar">
                                         <i class="fas fa-edit" style="color: black"></i> <!-- icone -->
                                     </a>
-                                </td>
-                                <td>
-                                    <a href="{{ route('user.destroy', ['user' => $user->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');">
+                               
+                                    <a href="{{ route('user.destroy', ['user' => $user->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');" title="Excluir">
                                         <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
                                     </a>
                                 </td>
