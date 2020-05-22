@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contact;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
+use App\Models\Sobre;
+use App\Models\Especialidade;
+use App\Models\Photo;
+use App\Models\Profissional;
+use App\Models\Image;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -52,7 +58,16 @@ class BlogController extends Controller
     public function show($id)
     {
         $article = Post::findOrFail($id);
-        return view('Blog.articles', compact('article'));
+        $bg_img = Image::where('local', 'bkg1')->get();
+        $about = Sobre::get();
+        $especialidade = Especialidade::get();
+        $espaco = Photo::get();
+        $profi = Profissional::get();
+        $contact = Contact::get();
+        $post = Post::get();
+
+
+        return view('Blog.articles', compact('article','bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post'));
     }
 
     /**

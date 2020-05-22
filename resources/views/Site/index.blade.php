@@ -275,7 +275,7 @@
                 <h4 class="post-corporate-title"><a href="#">{{$item_post->titulo}}</a></h4>
                 <div class="post-corporate-text">
                   <p>{{$item_post->subtitulo}}</p>
-                </div><a class="post-corporate-link" href="#">Leia Mais<span class="icon linearicons-arrow-right"></span></a>
+                </div><a class="post-corporate-link" href="{{route('blog', ['id' =>  $item_post->id  ])}}">Leia Mais<span class="icon linearicons-arrow-right"></span></a>
               </div>
             @endforeach
       
@@ -320,7 +320,7 @@
       </footer>
     </div>
     <div class="snackbars" id="form-output-global"></div>
-    <script src="js/core.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{{asset('js/core.min.js')}}"></script>
+    <script src="{{asset('js/script.js')}}"></script>
   </body>
 </html>
