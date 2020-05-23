@@ -1,17 +1,11 @@
 @extends('base_home')
 
 @section('content')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-@if(session('update'))
-<script>
-    Swal.fire({
-        icon: 'success',
-        title: '{{ session('update') }}',
-        showConfirmButton: false,
-        timer: 5000     
-    })
-</script>
-@endif
+<style>
+    .sumir {
+        display: none;
+    }
+</style>
     <link href="assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet">
         <div class="container">
             <div class="page-breadcrumb">
@@ -24,7 +18,7 @@
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Contato</li>
-                                    <li class="breadcrumb-item active" aria-current="page">Editar</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Criar</li>
                                 </ol>
                             </nav>
                         </div>
@@ -34,38 +28,37 @@
             <div class="">
                 <div class="card">
                     <div class="card-body wizard-content">
-                        <form id="example-form" action="{{ route('contact.update', ['contact' => $contact->id]) }}" method="POST" class="m-t-40">
+                        <form id="example-form" action="{{ route('contact.store') }}" method="POST" class="m-t-40">
                             @csrf
-                            @method('PUT')
                             <div>
                                 <h3>Contatos</h3>
                                 <section>
                                     <label for="telefone1">Telefone </label>
-                                    <input id="telefone1" name="telefone1" type="text" class="required form-control" value="{{$contact->telefone1}}">
+                                    <input id="telefone1" name="telefone1" type="text" class="required form-control">
                                     <label for="wpp">Whatsapp</label>
-                                    <input id="wpp" name="wpp" type="text" class="required form-control" value="{{$contact->wpp}}">
+                                    <input id="wpp" name="wpp" type="text" class="required form-control">
                                     <label for="email">E-mail</label>
-                                    <input id="email" name="email" type="text" class="required form-control" value="{{$contact->email}}">
+                                    <input id="email" name="email" type="text" class="required form-control">
                                 </section>
                                 <h3>Midias Sociais</h3>
                                 <section>
                                     <label for="instagram">Instagram</label>
-                                    <input id="instagram" name="instagram" type="text" class="required form-control" value="{{$contact->instagram}}">
+                                    <input id="instagram" name="instagram" type="text" class="required form-control">
                                     <label for="facebook">Facebook</label>
-                                    <input id="facebook" name="facebook" type="text" class="required form-control" value="{{$contact->facebook}}">
+                                    <input id="facebook" name="facebook" type="text" class="required form-control">
                                     <label for="twitter">Twitter</label>
-                                    <input id="twitter" name="twitter" type="text" class="required form-control"  value="{{$contact->twitter}}">
+                                    <input id="twitter" name="twitter" type="text" class="required form-control">
                                 </section>
                                 <h3>Endereço</h3>
                                 <section>
                                     <label for="endereco">Endereço da clinica</label>
-                                    <input id="endereco" name="endereco" type="text" class="required form-control" value="{{$contact->endereco}}">
+                                    <input id="endereco" name="endereco" type="text" class="required form-control">
                                 </section>
                                 <h3>Finalizando</h3>
                                 <section class="text-center">
-                                    <h3>Agora com todas as informações alteradas...</h3>
+                                    <h3>Agora com todas as informações preenchidas...</h3>
                                     <button class="btn btn-success" type="submit">
-                                        Atualize os seus dados
+                                        Salvez os seus dados
                                     </button>
                                 </section>
                             </div>
@@ -79,7 +72,6 @@
     <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
     <script src="assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
-  
     
     <script>
     var form = $("#example-form");
@@ -111,7 +103,6 @@
         }
     });
     </script>
-    
 </body>
 
 </html>

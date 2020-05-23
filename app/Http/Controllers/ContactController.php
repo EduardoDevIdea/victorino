@@ -30,7 +30,7 @@ class ContactController extends Controller
         * Senao, retorna view edit que permite editar registro encontrado
         */
         if(blank($contact)){
-            return view('contacts.index');
+            return view('contacts.index2');
         }
         else{
             return view('contacts.edit', compact('contact'));

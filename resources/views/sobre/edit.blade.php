@@ -35,15 +35,9 @@
 
                 <div>
                     <section>
-                        <p>
-                            <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                              Informações de texto
-                            </a>
-                        </p>
                       
                         <div class="row">
                             <div class="col-6">
-                                <div class="collapse" id="collapseExample">
                                     <div class="card card-body">
                                         <label for="legenda"><strong>Sobre a clinica</strong></label>
                                         <textarea  id="legenda" name="legenda" class="required form-control mb-4">{{ $sobre->legenda }}</textarea>
@@ -54,7 +48,6 @@
                                         <label for="funcionamento"><strong>Funcionamento *</strong></label>
                                         <textarea id="funcionamento" name="funcionamento" class="required form-control mb-4" cols="80" rows="5">{{ $sobre->funcionamento }}</textarea>
                                     </div>
-                                  </div>
                             </div>
                             <div class="col-6">
                                 <img src="storage/{{ $sobre->img }}" style="width: 400px; height:400px"> <br>

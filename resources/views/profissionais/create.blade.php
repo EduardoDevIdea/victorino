@@ -79,14 +79,14 @@
                     <!-- Fim Coluna Direita -->
                 </div>
 
-                <div class="row">
-                    <div class="form-group row">
-                        <label for="sobre" class="col-lg text-left control-label col-form-label">Sobre</label>
-                        <div class="col-sm-9">
+                <div class="container">
+                    <label for="sobre" class="col-lg text-left">Sobre</label>
+                    <div class="row">
+                        <div class="col-md-12">
                             <textarea name="sobre" id="sobre" class="form-control"></textarea>
                         </div>
-                    </div>
-                </div> 
+                    </div> 
+                </div>
                 
                 <div class="row">
                     <div class="form-group row">

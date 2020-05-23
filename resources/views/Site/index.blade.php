@@ -94,7 +94,7 @@
               </div>
               <div class="col-lg-6 col-xl-5 wow fadeInRight">
                 <h2>Sobre Nós</h2>
-                <p>{{$about[0]->legenda}}</p>
+                <p>{!! $about[0]->legenda !!}</p>
                 <p>
                   <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     Veja mais
@@ -103,11 +103,11 @@
                 <div class="collapse" id="collapseExample">
                   <div class="card card-body" style="border: none">
                     <h4>Filosofia</h4>
-                    {{$about[0]->filosofia}}
+                    {!! $about[0]->filosofia !!}
                   </div>
                   <div class="card card-body" style="border: none">
                     <h4>Funcionamento</h4>
-                    {{$about[0]->funcionamento}}
+                    {!! $about[0]->funcionamento !!}
                   </div>
                 </div>
               </div>
@@ -131,21 +131,20 @@
               <div class="wow fadeInUp">
                 <div class="product-featured">
                   @foreach ($especialidade as $item_especialidade)
-                      
-                  @endforeach
-                  <div class="product-featured-caption">
-                    <h4><a class="product-featured-title" href="#">{{$item_especialidade->nome}}</a></h4>
-                    <p>
-                      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        Leia Sobre
-                      </a>
-                    </p>
-                    <div class="collapse" id="collapseExample1">
-                      <div class="card card-body" style="border: none">
-                        {{$item_especialidade->description}}
+                    <div class="product-featured-caption">
+                      <h4><a class="product-featured-title" href="#">{{$item_especialidade->nome}}</a></h4>
+                      <p>
+                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                          Leia Sobre
+                        </a>
+                      </p>
+                      <div class="collapse" id="collapseExample1">
+                        <div class="card card-body" style="border: none">
+                          {!! $item_especialidade->description !!}
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  @endforeach
                 </div>
               </div>
             </div>
@@ -205,7 +204,7 @@
                         <p>Cargo: {{$item_profi->cargo}} </p>
                         <p>Atividade: {{$item_profi->atividade}}</p>
                         <p>Registro: {{$item_profi->registro}}</p>
-                        <p>Sobre: {{$item_profi->sobre}}</p>
+                        <p>Sobre: {!! $item_profi->sobre !!}</p>
                       </div>
                       <div class="gallery-item-classic-caption"><a href="storage/{{$item_profi->img}}" data-lightgallery="item">zoom</a></div>
                     </div>
