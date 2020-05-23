@@ -228,7 +228,7 @@
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('home')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
 
-                        @if($user->type == "master" || $user->type == "admin")
+                        @if( Auth::user()->type == "master" ||  Auth::user()->type == "admin")
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('user.list') }}" aria-expanded="false">
                                     <i class="fas fa-user-plus mr-2"></i>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Image;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
+
 
 class ImageController extends Controller
 {
@@ -23,9 +23,7 @@ class ImageController extends Controller
      */
     public function index()
     {
-        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
-
-        return view('images.index', compact('user'));
+        return view('images.index');
     }
 
     // -- LIST -- Direciona para a view de acordo com o tipo de imagem (list se houver e Create se não houver)

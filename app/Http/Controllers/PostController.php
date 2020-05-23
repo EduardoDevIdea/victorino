@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
 
 
 class PostController extends Controller
@@ -24,11 +23,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
-
         $posts = Post::all();
 
-        return view('posts.index', compact('posts','user'));
+        return view('posts.index', compact('posts'));
     }
 
     /**
