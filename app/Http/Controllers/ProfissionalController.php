@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Profissional;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\Auth;
 
 
 class ProfissionalController extends Controller
@@ -24,11 +23,9 @@ class ProfissionalController extends Controller
      */
     public function index()
     {
-        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
-
         $profissionais = Profissional::paginate(10); //Profissional::all()->paginate(10); NÃO FUNCIONA DESSE JEITO
 
-       return view('profissionais.index', compact('profissionais', 'user'));
+       return view('profissionais.index', compact('profissionais'));
     }
 
     /**
@@ -38,9 +35,7 @@ class ProfissionalController extends Controller
      */
     public function create()
     {
-        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
-
-        return view('profissionais.create', compact('user'));
+        return view('profissionais.create');
     }
 
     /**
@@ -114,11 +109,9 @@ class ProfissionalController extends Controller
      */
     public function edit($id)
     {
-        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
-
         $profissional = Profissional::find($id);
 
-        return view('profissionais.edit', compact('profissional', 'user'));
+        return view('profissionais.edit', compact('profissional'));
     }
 
     /**

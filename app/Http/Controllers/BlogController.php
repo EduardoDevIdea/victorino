@@ -21,8 +21,6 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
-
         $posts = Post::paginate(6);
 
         return view('Blog.blog', compact('posts', 'user'));

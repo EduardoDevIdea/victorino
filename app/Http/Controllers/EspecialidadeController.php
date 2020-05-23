@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Especialidade;
 use Illuminate\Support\Facades\Session;
@@ -23,7 +22,6 @@ class EspecialidadeController extends Controller
      */
     public function index()
     {
-        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
 
         $especialidades = Especialidade::paginate(5); // Especialidade::all()->paginate(5); NÃO FUNCIONA DESSE JEITO
 
@@ -32,10 +30,10 @@ class EspecialidadeController extends Controller
          * Senao, retorna para view que lista todos os registros encontrados
         */
         if(blank($especialidades)){
-            return view('especialidades.create', 'user');
+            return view('especialidades.create');
         }
         else{
-            return view('especialidades.index', compact('especialidades', 'user'));
+            return view('especialidades.index', compact('especialidades'));
         }
     }
 
@@ -46,9 +44,7 @@ class EspecialidadeController extends Controller
      */
     public function create()
     {
-        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
-
-        return view('especialidades.create', compact('user'));
+        return view('especialidades.create');
     }
 
     /**
@@ -99,11 +95,9 @@ class EspecialidadeController extends Controller
      */
     public function edit($id)
     {
-        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
-
         $especialidade = Especialidade::find($id);
 
-        return view('especialidades.edit', compact('especialidade', 'user'));
+        return view('especialidades.edit', compact('especialidade'));
     }
 
     /**

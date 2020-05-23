@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Session;
+
 
 class ContactController extends Controller
 {
@@ -22,7 +22,6 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $user = Auth::user(); //Busca o user que está logado (precisa para fazer verificação se vai exibir ou não item Usuarios no menu)
 
         $contact = Contact::all()->first(); // Busca todos os registros e retorna o primeiro encontrado
 
@@ -31,10 +30,10 @@ class ContactController extends Controller
         * Senao, retorna view edit que permite editar registro encontrado
         */
         if(blank($contact)){
-            return view('contacts.index', 'user');
+            return view('contacts.index');
         }
         else{
-            return view('contacts.edit', compact('contact', 'user'));
+            return view('contacts.edit', compact('contact'));
         }
     }
 
