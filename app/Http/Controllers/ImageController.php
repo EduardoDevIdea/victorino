@@ -23,7 +23,10 @@ class ImageController extends Controller
      */
     public function index()
     {
-        return view('images.index');
+        $background = Image::where('local', 'bkg1')->get();
+
+
+        return view('images.index', compact('background'));
     }
 
     // -- LIST -- Direciona para a view de acordo com o tipo de imagem (list se houver e Create se não houver)

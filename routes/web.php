@@ -63,7 +63,7 @@ Route::resource('/contact', 'ContactController');
 //-----IMAGES
 
 //--Lista tipo da imagem
-Route::get('/image/list/{image}', 'ImageController@list')->name('image.list');
+Route::get('/image/list/{id}', 'ImageController@list')->name('image.list');
 
 //--Exclui Imagem
 Route::get('/image/{image}/delete', 'ImageController@destroy')->name('image.destroy');

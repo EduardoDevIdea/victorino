@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{asset('images/favicon-.png')}}" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Poppins:300,300i,400,500,600,700,800,900,900i%7CPT+Serif:400,700">
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('css/fonts.css')}}">
@@ -18,9 +18,11 @@
     .-nav-link:hover {
       color: #B06F1A;
     }
+    .sumir {
+      display: none;
+    }
   </style>
   <body>
-    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <div class="preloader">
       <div class="preloader-body">
         <div class="cssload-container">
@@ -42,7 +44,7 @@
                   <!-- RD Navbar Toggle-->
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
-                  <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="{{asset('images/Screenshot_4-removebg-preview.png')}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                  <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="storage/{{$logo_inicio[0]->path}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
                 </div>
                 <div class="rd-navbar-main-element">
                   <div class="rd-navbar-nav-wrap">
@@ -96,8 +98,11 @@
                 <h2>Sobre Nós</h2>
                 <p>{!! $about[0]->legenda !!}</p>
                 <p>
-                  <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                  <a class="btn btn-primary" id="mais" onclick="aparecer()" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     Veja mais
+                  </a>
+                  <a class="btn btn-primary sumir" id="menos" onclick="sumir()" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                    Veja menos
                   </a>
                 </p>
                 <div class="collapse" id="collapseExample">
@@ -116,10 +121,10 @@
         </section>
       </div>
       <!-- Especialidades -->
-      <section class="section section-lg bg-default" id="especialidades">
+      <section class="section section-lg bg-default">
         <div class="container">
           <div class="row justify-content-center text-center">
-            <div class="col-md-9 col-lg-7 wow-outer" style="margin-top: 80px;">
+            <div class="col-md-9 col-lg-7 wow-outer">
               <div class="wow slideInDown">
                 <h2>Especialidaes</h2>
                 <p class="text-opacity-80">Confira aqui nossos pricipais serviços prestados</p>
@@ -127,29 +132,29 @@
             </div>
           </div>
           <div class="row row-20 row-lg-30">
+            @foreach ($especialidade as $item_especialidade)
             <div class="col-md-6 col-lg-4 wow-outer">
               <div class="wow fadeInUp">
                 <div class="product-featured">
-                  @foreach ($especialidade as $item_especialidade)
-                    <div class="product-featured-caption">
-                      <h4><a class="product-featured-title" href="#">{{$item_especialidade->nome}}</a></h4>
-                      <p>
-                        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
-                          Leia Sobre
-                        </a>
-                      </p>
-                      <div class="collapse" id="collapseExample1">
-                        <div class="card card-body" style="border: none">
-                          {!! $item_especialidade->description !!}
-                        </div>
+                  <div class="product-featured-caption">
+                    <h4><a class="product-featured-title" href="#">{{$item_especialidade->nome}}</a></h4>
+                    <p>
+                      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1{{$item_especialidade->id}}" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Leia Sobre
+                      </a>
+                    </p>
+                    <div class="collapse" id="collapseExample1{{$item_especialidade->id}}">
+                      <div class="card card-body" style="border: none; color: black">
+                        {!! $item_especialidade->description !!}
                       </div>
                     </div>
-                  @endforeach
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+                @endforeach
+                </div>
+              </div>
       </section>
       <hr>
       <section class="section" id="espaco">
@@ -169,7 +174,7 @@
                 @foreach ($espaco as $item_space)
                   <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
                     <div class="wow slideInDown">
-                      <div class="gallery-item-classic"><img src="storage/{{$item_space->path}}" alt="" width="640" height="429"/>
+                      <div class="gallery-item-classic"><img src="storage/{{$item_space->path}}" alt="" width="640" height="auto"/>
                         <div class="gallery-item-classic-caption"><a href="storage/{{$item_space->path}}" data-lightgallery="item">zoom</a></div>
                       </div>
                     </div>
@@ -198,15 +203,15 @@
                 @foreach ($profi as $item_profi)
                   <div class="col-12 col-md-4 isotope-item wow-outer" data-filter="Category 3">
                   <div class="wow slideInDown">
-                    <div class="gallery-item-classic"><img src="storage/{{$item_profi->img}}" alt="" width="640" height="429"/>
-                      <div class="post-corporate-text" style="margin-left: 80px;">
-                        <p>Nome: {{$item_profi->nome}}</p>
-                        <p>Cargo: {{$item_profi->cargo}} </p>
-                        <p>Atividade: {{$item_profi->atividade}}</p>
-                        <p>Registro: {{$item_profi->registro}}</p>
-                        <p>Sobre: {!! $item_profi->sobre !!}</p>
-                      </div>
+                    <div class="gallery-item-classic"><img src="storage/{{$item_profi->img}}" alt="" width="640" height="auto"/>
                       <div class="gallery-item-classic-caption"><a href="storage/{{$item_profi->img}}" data-lightgallery="item">zoom</a></div>
+                    </div>
+                    <div class="post-corporate-text" style="margin-left: 80px;">
+                      <p>Nome: {{$item_profi->nome}}</p>
+                      <p>Cargo: {{$item_profi->cargo}} </p>
+                      <p>Atividade: {{$item_profi->atividade}}</p>
+                      <p>Registro: {{$item_profi->registro}}</p>
+                      <p>Sobre: {!! $item_profi->sobre !!}</p>
                     </div>
                   </div>
                 </div>
@@ -321,5 +326,21 @@
     <div class="snackbars" id="form-output-global"></div>
     <script src="{{asset('js/core.min.js')}}"></script>
     <script src="{{asset('js/script.js')}}"></script>
+
+    <script>
+      const mais = document.getElementById('mais')
+      const menos = document.getElementById('menos')
+
+      function aparecer() {
+        mais.classList.add('sumir')
+        menos.classList.remove('sumir')
+      }
+
+      function sumir() {
+        mais.classList.remove('sumir')
+        menos.classList.add('sumir')
+      }
+
+    </script>
   </body>
 </html>

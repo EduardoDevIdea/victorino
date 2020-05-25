@@ -15,7 +15,7 @@
     </div>
 </div>
 <div class="row">
-   
+    @if( Auth::user()->type == "master" ||  Auth::user()->type == "admin")
     <div class="col-md-6 col-lg-2 col-xlg-3">
         <div class="card card-hover">
             <a href="{{url('/user/list')}}">
@@ -26,6 +26,7 @@
             </a>
         </div>
     </div>
+    @endif
     <!-- Column -->
     <div class="col-md-6 col-lg-4 col-xlg-3">
         <div class="card card-hover">
@@ -128,8 +129,8 @@
                                 <span class="m-b-15 d-block">{{$item_post->subtitulo}} </span>
                                 <div class="comment-footer">
                                     <span class="text-muted float-right">{{$item_post->created_at->format('M d , Y')}}</span> 
-                                    <button type="button" class="btn btn-cyan btn-sm">Edit</button>
-                                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                    <a type="button" class="btn btn-cyan btn-sm" href="{{ route('post.edit', ['post' => $item_post->id ]) }}">Editar</a>
+                                    <a type="button" class="btn btn-danger btn-sm" href="{{ route('post.destroy', ['post' => $item_post->id]) }}" onclick = "return confirm('Tem certeza que deseja excluir a publicação?');">Deletar</a>
                                 </div>
                             </div>
                         </div>
@@ -151,7 +152,7 @@
                         <div class="p-2"><img src="storage/{{$item_profi->img}}" alt="user" width="50" class="rounded-circle"></div>
                         <div class="comment-text w-100">
                             <h6 class="font-medium">{{$item_profi->nome}}</h6>
-                            <span class="m-b-15 d-block">{{$item_profi->sobre}} </span>
+                            <span class="m-b-15 d-block">{!! $item_profi->sobre !!} </span>
                             <div class="comment-footer">
                                 <button type="button" class="btn btn-cyan btn-sm">Edit</button>
                                 <button type="button" class="btn btn-danger btn-sm">Delete</button>

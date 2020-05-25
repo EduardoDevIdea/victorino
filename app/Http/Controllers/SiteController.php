@@ -21,6 +21,7 @@ class SiteController extends Controller
     public function index()
     {
         $bg_img = Image::where('local', 'bkg1')->get();
+        $logo_inicio = Image::where('local','logo')->get();
         $about = Sobre::get();
         $especialidade = Especialidade::get();
         $espaco = Photo::get();
@@ -29,10 +30,10 @@ class SiteController extends Controller
         $post = Post::get();
 
 
-        // dd($bg_img);
+        // dd($logo_inicio);
 
        
 
-        return view('Site.index', compact('bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post'));
+        return view('Site.index', compact('bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post', 'logo_inicio'));
     }
 }
