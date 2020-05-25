@@ -72,13 +72,15 @@
                             <td>{{ $profissional->atividade }}</td>
 
                             <td>
-                                <a href="{{ route('profissional.edit', ['profissional' => $profissional->id]) }}" class="mr-3" title="Editar">
-                                    <i class="fas fa-edit" style="color: black"></i> <!-- icone -->
-                                </a>
+                                <button class="btn btn-link" data-toggle="tooltip" data-placement="bottom"  title="Editar">
+                                    <a href="{{ route('profissional.edit', ['profissional' => $profissional->id]) }}"><i class="fas fa-edit" style="color: black"></i></a>
+                                </button>
 
-                                <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');" title="Excluir">
-                                    <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
-                                </a>
+                                <button class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Excluir">
+                                    <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');" >
+                                        <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
+                                    </a>
+                                </button>
                             </td>
 
                         </tr>

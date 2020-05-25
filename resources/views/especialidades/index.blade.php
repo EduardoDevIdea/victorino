@@ -52,13 +52,13 @@
                             <td>{{ $especialidade->nome }}</td>
 
                             <td>
-                                <a href="{{ route('especialidade.edit', ['especialidade' => $especialidade->id]) }}" class="mr-3" title="Editar">
-                                    <i class="fas fa-edit" style="color: black"></i> <!-- icone -->
-                                </a>
-                            
-                                <a href="{{ route('especialidade.destroy', ['especialidade' => $especialidade->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');" title="Excluir">
-                                    <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
-                                </a>
+                                <button  class="btn btn-link" title="Editar"  data-toggle="tooltip" data-placement="bottom">
+                                    <a href="{{ route('especialidade.edit', ['especialidade' => $especialidade->id]) }}"> <i class="fas fa-edit" style="color: black"></i></a> <!-- icone -->
+                                </button>
+                                
+                                <button class="btn btn-link" type="button"data-toggle="tooltip" data-placement="bottom"  onclick="return confirm('Tem certeza que deseja excluir o registro?');" title="Excluir">
+                                    <a href="{{ route('especialidade.destroy', ['especialidade' => $especialidade->id]) }}"><i class="fas fa-trash-alt" style="color: red"></i></a> <!-- icone -->
+                                </button>
                             </td>
                         </tr>
 
@@ -78,5 +78,5 @@
 
     </div>
     <!-- END CARD -->
-
+    
 @endsection
