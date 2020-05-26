@@ -17,7 +17,7 @@
                     @csrf
 
                     <div class="modal-body">
-                            <input type="file" name="img">
+                            <input type="file" name="img" required>
                     </div>
 
                     <div class="modal-footer">

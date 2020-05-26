@@ -37,87 +37,20 @@
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav float-left mr-auto">
                         <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
-                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
-                            <form class="app-search position-absolute">
-                                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
-                            </form>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">
+                                <strong style="font-size: 20px; color: blue;">Visualizar Site</strong> <i class="fas fa-desktop fa-lg ml-1"></i>
+                             </a>
                         </li>
                     </ul>
                     <ul class="navbar-nav float-right">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell font-24"></i>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-user-circle fa-2x"></i>
+                                <small><strong>Meu Perfil</strong></small>
                             </a>
-                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="font-24 mdi mdi-comment-processing"></i>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown" aria-labelledby="2">
-                                <ul class="list-style-none">
-                                    <li>
-                                        <div class="">
-                                            <a href="javascript:void(0)" class="link border-top">
-                                                <div class="d-flex no-block align-items-center p-10">
-                                                    <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
-                                                    <div class="m-l-10">
-                                                        <h5 class="m-b-0">Event today</h5> 
-                                                        <span class="mail-desc">Just a reminder that event</span> 
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="javascript:void(0)" class="link border-top">
-                                                <div class="d-flex no-block align-items-center p-10">
-                                                    <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
-                                                    <div class="m-l-10">
-                                                        <h5 class="m-b-0">Settings</h5> 
-                                                        <span class="mail-desc">You can customize this template</span> 
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="javascript:void(0)" class="link border-top">
-                                                <div class="d-flex no-block align-items-center p-10">
-                                                    <span class="btn btn-primary btn-circle"><i class="ti-user"></i></span>
-                                                    <div class="m-l-10">
-                                                        <h5 class="m-b-0">Pavan kumar</h5> 
-                                                        <span class="mail-desc">Just see the my admin!</span> 
-                                                    </div>
-                                                </div>
-                                            </a>
-                                            <a href="javascript:void(0)" class="link border-top">
-                                                <div class="d-flex no-block align-items-center p-10">
-                                                    <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
-                                                    <div class="m-l-10">
-                                                        <h5 class="m-b-0">Luanch Admin</h5> 
-                                                        <span class="mail-desc">Just see the my new admin!</span> 
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user-circle fa-2x"></i></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="{{ route('user.index') }}"><i class="fas fa-user"></i> Meu Perfil</a>
+                                <a class="dropdown-item" href="{{ route('user.index') }}"><i class="fas fa-user-cog fa-lg mr-1"></i></i>Configurações</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="return confirm('Deseja realmente sair?');"><i class="fa fa-power-off m-r-5 m-l-5"></i> Sair</a>
                             </div>
@@ -186,15 +119,8 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('contact.index') }}" aria-expanded="false">
                             <i class="fas fa-hand-point-right mr-2"></i>
-                                <span class="hide-menu">Contato, Endeteço...</span>
+                                <span class="hide-menu">Contato, Endereço...</span>
                             </a>
-                        </li>
-
-                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">Ex. Drop Down </span></a>
-                            <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="form-basic.html" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Item </span></a></li>
-                                <li class="sidebar-item"><a href="form-wizard.html" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Item </span></a></li>
-                            </ul>
                         </li>
                     </ul>
                 </nav>
