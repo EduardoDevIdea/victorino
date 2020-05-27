@@ -96,9 +96,9 @@
                                 @include('photos.edit') <!-- Modal para alterar foto -->
 
                                 <!-- BOTAO DISPARA MODAL --> <!-- Modal é o arquivo 'photos.create' -->
-                                <button class="btn btn-link" data-toggle="tooltip" data-placement="bottom"  title="Alterar">
-                                    <a href="{{ route('photo.edit', ['photo' => $photo->id ]) }}"  data-target="#update"><i class="fas fa-edit" style="color: black"></i></a>
-                                </button>
+                                <a href="{{ route('photo.edit', ['photo' => $photo->id ]) }}"  data-toggle="modal" data-target="#update" class="btn btn-secondary btn-sm mr-3" title="Alterar foto">
+                                    Alterar
+                                </a>
                                 <!-- FIM BOTAO -->
     
                                 <button class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Excluir">
