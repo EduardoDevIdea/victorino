@@ -22,64 +22,88 @@
 
 @section('content')
 
-    @include('photos.create') <!-- Modal para Adicinar foto -->
+    <!-- CARD -->
+    <div class="card text-center">
 
-    <div class="container">
-
-        <div class="row mb-5">
-            <h1>Galeria de fotos</h1>
+        <!-- CARD HEADER-->
+        <div class="card-header" style="font-size: 20px">
+            <ul class="nav nav-tabs card-header-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#"><strong>Galeria de fotos</strong></a>
+                </li>
+            </ul>
         </div>
+        <!-- END CARD HEADER-->
 
-        @if($qtd < 8) <!-- Se o limite de 8 fotos não foi atingido, exibe botão para adicionar foto -->
+        <!-- CARD BODY -->
+        <div class="card-body m-2" style="font-size: 15px">
 
-            <div class="row">
-                <!-- BOTAO DISPARA MODAL --> <!-- Modal é o arquivo 'photos.create' -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
-                    Nova Foto
-                </button>
-                <!-- FIM BOTAO -->
-            </div>
+            @include('photos.create') <!-- Modal para adicinar foto -->
 
-            Máximo: 8 <br>
-            {{ $qtd }} fotos salvas, até o momento.
+            <!-- VERIFICAÇÃO - se limite de 8 fotos foi atingido, não aparece botão para adicionar foto -->
+                @if($qtd < 8) 
 
-        @else
-            <h3>Limite de 8 fotos atingido. Edite ou exclua para adicionar nova foto.</h3>
-        @endif    
-
-        <!-- Div Fotos-->
-        <div class="container mt-4">
-        
-            <div class="row my-5">
-
-                @foreach($photos as $photo)
-
-                    <div class="col-3 ">
-
-                        <div class="row">
-                            <img src="/storage/{{ $photo->path }}" style="width: 230px; height: 150px;">
+                    <div class="row">
+                        <div class="col text-left">
+                            <!-- BOTAO DISPARA MODAL --> <!-- Modal é o arquivo 'photos.create' -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
+                                Nova Foto
+                            </button>
+                            <!-- FIM BOTAO -->
+                            <span class="ml-2">Máximo: 8.</span>
                         </div>
-
-                        <div class="row mb-5 d-flex justify-content-center align-items-center">
-                            <a href="{{ route('photo.edit', ['photo' => $photo->id ]) }}" class="btn btn-secondary btn-sm mr-3">
-                                Editar
-                            </a>    
-                            <a href="{{ route('photo.destroy', ['photo' => $photo->id]) }}" onclick="return confirm('Tem certeza que deseja excluir a foto?');">
-                                <i class="fas fa-trash-alt fa-lg" style="color: red;"></i>
-                            </a>
-                        </div>
-
                     </div>
 
-                @endforeach
-               
-            </div>
+                @else
+                <h3>Limite de 8 fotos atingido. Altere a foto ou exclua para adicionar nova.</h3>
+                @endif    
+            <!--END VERIFICAÇÃO -->
+
+            <!-- Div Fotos-->
+            <div class="container mt-4">
         
+                <div class="row my-5">
+
+                    @foreach($photos as $photo)
+
+                        <div class="col-3 ">
+
+                            <div class="row">
+                                <img src="/storage/{{ $photo->path }}" style="width: 230px; height: 150px;">
+                            </div>
+
+                            <div class="row mb-5 d-flex justify-content-center align-items-center">
+
+                                @include('photos.edit') <!-- Modal para alterar foto -->
+
+                                <!-- BOTAO DISPARA MODAL --> <!-- Modal é o arquivo 'photos.create' -->
+                                <a href="{{ route('photo.edit', ['photo' => $photo->id ]) }}"  data-toggle="modal" data-target="#update" class="btn btn-secondary btn-sm mr-3" title="Alterar foto">
+                                    Alterar
+                                </a>
+                                <!-- FIM BOTAO -->
+    
+                                <a href="{{ route('photo.destroy', ['photo' => $photo->id]) }}" onclick="return confirm('Tem certeza que deseja excluir a foto?');" title="Excluir foto">
+                                    <i class="fas fa-trash-alt fa-lg" style="color: red;"></i>
+                                </a>
+                            </div>
+
+                        </div>
+
+                    @endforeach
+                
+                </div>
+    
+            </div>
+            <!-- Fim Div Fotos -->
+
         </div>
-        <!-- Fim Div Fotos -->
+        <!-- END CARD BODY -->
 
     </div>
+    <!-- END CARD -->
 
-    
+
 
 @endsection
+
+
