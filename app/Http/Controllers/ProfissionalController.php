@@ -186,4 +186,5 @@ class ProfissionalController extends Controller
         return redirect()->route('profissional.index')->with('delete', 'Registro deletado com sucesso!');
 
     }
+    
 }

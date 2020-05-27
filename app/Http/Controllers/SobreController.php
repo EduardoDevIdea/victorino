@@ -65,8 +65,8 @@ class SobreController extends Controller
             $sobre = new Sobre;
 
             $sobre->img = $imgPath; // atriubui caminho onde a imagem esta salva no objeto $sobre->img
-            $sobre->filosofia = $request->filosofia;
-            $sobre->funcionamento = $request->funcionamento;
+            $sobre->sobre_clinica = $request->sobre_clinica;
+            $sobre->informacao_geral = $request->informacao_geral;
             $sobre->legenda = $request->legenda;
 
             $sobre->save();
@@ -82,8 +82,8 @@ class SobreController extends Controller
 
             $sobre = new Sobre;
 
-            $sobre->filosofia = $request->filosofia;
-            $sobre->funcionamento = $request->funcionamento;
+            $sobre->sobre_clinica = $request->sobre_clinica;
+            $sobre->informacao_geral = $request->informacao_geral;
             $sobre->legenda = $request->legenda;
 
             $sobre->save();
@@ -137,8 +137,8 @@ class SobreController extends Controller
             $imgPath = $request->img->store('sobre');
 
             $sobre->img = $imgPath;
-            $sobre->filosofia = $request->filosofia;
-            $sobre->funcionamento = $request->funcionamento;
+            $sobre->sobre_clinica = $request->sobre_clinica;
+            $sobre->informacao_geral = $request->informacao_geral;
             $sobre->legenda = $request->legenda;
 
             $sobre->save();
@@ -149,8 +149,8 @@ class SobreController extends Controller
 
             $sobre = Sobre::find($id);
 
-            $sobre->filosofia = $request->filosofia;
-            $sobre->funcionamento = $request->funcionamento;
+            $sobre->sobre_clinica = $request->sobre_clinica;
+            $sobre->informacao_geral = $request->informacao_geral;
             $sobre->legenda = $request->legenda;
 
             $sobre->save();

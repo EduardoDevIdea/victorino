@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon-.png')}}">
     <title>Victoriano Odontologia Especializada</title>
     <link href="{{asset('dist/css/style.min.css')}}" rel="stylesheet">
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -15,11 +15,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
+    <div class="auth-box bg-dark  border-secondary" style="margin: 0; padding: 0">
+        <div class="text-center p-t-20 p-b-20">
+            <span class="db"><img src="{{asset('images/logo_remove_white.png')}}" alt="logo" /></span>
+        </div>
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header">{{ __('Resetar senha') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -46,7 +48,7 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-md-4 offset-md-2">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Send Password Reset Link') }}
                                 </button>
@@ -55,7 +57,6 @@
                     </form>
                 </div>
             </div>
-        </div>
     </div>
 </div>
 

@@ -16,10 +16,10 @@ class CreateSobresTable extends Migration
         Schema::create('sobres', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->text('filosofia')->nullable();
-            $table->text('funcionamento')->nullable();
+            $table->text('sobre_clinica')->nullable();
+            $table->text('informacao_geral')->nullable();
             $table->string('img')->nullable();
-            $table->text('legenda')->nullable();
+            $table->string('legenda')->nullable();
         });
     }
 

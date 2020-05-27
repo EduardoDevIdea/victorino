@@ -39,18 +39,19 @@
                         <div class="row">
                             <div class="col-6">
                                     <div class="card card-body">
-                                        <label for="legenda"><strong>Sobre a clinica</strong></label>
-                                        <textarea  id="legenda" name="legenda" class="required form-control mb-4">{{ $sobre->legenda }}</textarea>
                                         
-                                        <label for="Filosofia"><strong>Filosofia *</strong></label>
-                                        <textarea id="Filosofia" name="filosofia" class="required form-control mb-4" cols="80" rows="5">{{ $sobre->filosofia }}</textarea>
+                                        <label for="sobre_clinica"><strong>Sobre a clinica *</strong></label>
+                                        <textarea id="sobre_clinica" name="sobre_clinica" class="required form-control mb-4" cols="80" rows="5">{{ $sobre->sobre_clinica }}</textarea>
                                         
-                                        <label for="funcionamento"><strong>Funcionamento *</strong></label>
-                                        <textarea id="funcionamento" name="funcionamento" class="required form-control mb-4" cols="80" rows="5">{{ $sobre->funcionamento }}</textarea>
+                                        <label for="informacao_geral"><strong>Informações Gerais *</strong></label>
+                                        <textarea id="informacao_geral" name="informacao_geral" class="required form-control mb-4" cols="80" rows="5">{{ $sobre->informacao_geral }}</textarea>
+                                        
                                     </div>
                             </div>
                             <div class="col-6">
                                 <img src="storage/{{ $sobre->img }}" style="width: 400px; height:400px"> <br>
+                                <label for="legenda"><strong>Legenda</strong></label>
+                                <input  id="legenda" name="legenda" class="required form-control mb-4" value="{{ $sobre->legenda }}">
                                 <p>
                                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
                                       Alterar Imagem
@@ -75,13 +76,10 @@
     </div>
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
-        CKEDITOR.replace( 'funcionamento', {
+        CKEDITOR.replace( 'informacao_geral', {
             uiColor: '#9AB8F3',
         });
-        CKEDITOR.replace( 'filosofia', {
-            uiColor: '#9AB8F3',
-        });
-        CKEDITOR.replace( 'legenda', {
+        CKEDITOR.replace( 'sobre_clinica', {
             uiColor: '#9AB8F3',
         });
     </script>

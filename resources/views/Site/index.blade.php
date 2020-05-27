@@ -58,7 +58,7 @@
                       </li>
                       <li class="rd-nav-item"><a class="rd-nav-link" href="#espaco">Espaço</a>
                       </li>
-                      <li class="rd-nav-item"><a class="rd-nav-link" href="#profissionais">Corpo Clinico</a>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#profissionais">Profissionais</a>
                       </li>
                       <li class="rd-nav-item"><a class="rd-nav-link" href="#contato">Contato</a>
                       </li>
@@ -92,11 +92,12 @@
             <div class="row row-50 justify-content-xl-between align-items-lg-center" style="padding: 30px; margin-top: 50px;">
               <div class="col-lg-6 wow fadeInLeft">
                 <div class="box-image"><img class="box-image-static" src="storage/{{$about[0]->img}}" alt="" width="483" height="327"/><img class="box-image-position" src="images/home-3-2-341x391.png" alt="" width="341" height="391" style="margin-top: 100px;"/>
+                  <h6 style="text-align: center">{{$about[0]->legenda}}</h6>
                 </div>
               </div>
               <div class="col-lg-6 col-xl-5 wow fadeInRight">
                 <h2>Sobre Nós</h2>
-                <p>{!! $about[0]->legenda !!}</p>
+                <p>{!! $about[0]->sobre_clinica !!}</p>
                 <p>
                   <a class="btn btn-primary" id="mais" onclick="aparecer()" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     Veja mais
@@ -107,12 +108,7 @@
                 </p>
                 <div class="collapse" id="collapseExample">
                   <div class="card card-body" style="border: none">
-                    <h4>Filosofia</h4>
-                    {!! $about[0]->filosofia !!}
-                  </div>
-                  <div class="card card-body" style="border: none">
-                    <h4>Funcionamento</h4>
-                    {!! $about[0]->funcionamento !!}
+                    {!! $about[0]->informacao_geral !!}
                   </div>
                 </div>
               </div>
@@ -174,7 +170,7 @@
                 @foreach ($espaco as $item_space)
                   <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
                     <div class="wow slideInDown">
-                      <div class="gallery-item-classic"><img src="storage/{{$item_space->path}}" alt="" width="640" height="auto"/>
+                      <div class="gallery-item-classic"><img src="storage/{{$item_space->path}}" alt="" style="width: 100%; height: 300px;" />
                         <div class="gallery-item-classic-caption"><a href="storage/{{$item_space->path}}" data-lightgallery="item">zoom</a></div>
                       </div>
                     </div>
@@ -187,31 +183,32 @@
       </section>
       <hr>
       <section class="section" id="profissionais">
-        <div class="row justify-content-center text-center" style="margin-top: 80px;">
+        <div class="row justify-content-center text-center" style="margin-top: 50px;">
           <div class="col-md-9 col-lg-7 wow-outer">
             <div class="wow slideInDown">
-              <h2>Corpo Clínico</h2>
+              <h2>Profissionais</h2>
               <p class="text-opacity-80">Sempre preparados para realizar o melhor atendimento possível!</p>
             </div>
           </div>
         </div>
-        <div class="row isotope-wrap" >
+        <div class="row isotope-wrap"  >
           <!-- Profissionais -->
           <div class="col-lg-12">
             <div class="isotope" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group" data-lg-thumbnail="false">
               <div class="row no-gutters row-condensed">
                 @foreach ($profi as $item_profi)
-                  <div class="col-12 col-md-4 isotope-item wow-outer" data-filter="Category 3">
-                  <div class="wow slideInDown">
-                    <div class="gallery-item-classic"><img src="storage/{{$item_profi->img}}" alt="" width="640" height="auto"/>
+                  <div class="col-12 col-md-4 isotope-item wow-outer" data-filter="Category 3" style="padding: 80px;" >
+                  <div class="wow slideInDown" style="max-width: 100%;" >
+                    <div class="gallery-item-classic"><img src="storage/{{$item_profi->img}}" style="width: 100%; height: 300px;"/>
                       <div class="gallery-item-classic-caption"><a href="storage/{{$item_profi->img}}" data-lightgallery="item">zoom</a></div>
                     </div>
-                    <div class="post-corporate-text" style="margin-left: 80px;">
-                      <p>Nome: {{$item_profi->nome}}</p>
-                      <p>Cargo: {{$item_profi->cargo}} </p>
-                      <p>Atividade: {{$item_profi->atividade}}</p>
-                      <p>Registro: {{$item_profi->registro}}</p>
-                      <p>Sobre: {!! $item_profi->sobre !!}</p>
+                    <div class="post-corporate-text">
+                      <h4>{{$item_profi->nome}}</h4>
+                      <p>{{$item_profi->cargo}} </p>
+                      <p>{{$item_profi->atividade}}</p>
+                      <p>Registro {{$item_profi->registro}}</p>
+                      <br>
+                      <p>{!! $item_profi->sobre !!}</p>
                     </div>
                   </div>
                 </div>
@@ -302,7 +299,7 @@
                   </li>
                   <li class="rd-nav-item"><a class="rd-nav-link" href="#espaco">Espaço</a>
                   </li>
-                  <li class="rd-nav-item"><a class="rd-nav-link" href="#profissionais">Corpo Clinico</a>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="#profissionais">Profissionais</a>
                   </li>
                   <li class="rd-nav-item"><a class="rd-nav-link" href="#contato">Contato</a>
                   </li>

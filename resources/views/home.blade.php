@@ -118,7 +118,9 @@
                 <h4 class="card-title">Ultimas postagens</h4>
             </div>
             @if (count($posts) == 0)
-                <p>Nenhuma Postagem encontrada</p>
+                <div class="container">
+                    <p>Nenhuma Postagem encontrada</p>
+                </div>
             @else
                 @foreach ($posts as $item_post)
                     <div class="comment-widgets scrollable">
@@ -147,19 +149,25 @@
             </div>
             <div class="comment-widgets scrollable">
                 <!-- Comment Row -->
-                @foreach ($profi as $item_profi)
-                    <div class="d-flex flex-row comment-row m-t-0">
-                        <div class="p-2"><img src="storage/{{$item_profi->img}}" alt="user" width="50" class="rounded-circle"></div>
-                        <div class="comment-text w-100">
-                            <h6 class="font-medium">{{$item_profi->nome}}</h6>
-                            <span class="m-b-15 d-block">{!! $item_profi->sobre !!} </span>
-                            <div class="comment-footer">
-                                <button type="button" class="btn btn-cyan btn-sm">Edit</button>
-                                <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                @if (count($profi) == 0)
+                    <div class="container">
+                        <p>Nenhum Profissional cadastrado</p>
+                    </div>
+                @else
+                    @foreach ($profi as $item_profi)
+                        <div class="d-flex flex-row comment-row m-t-0">
+                            <div class="p-2"><img src="storage/{{$item_profi->img}}" alt="user" width="50" class="rounded-circle"></div>
+                            <div class="comment-text w-100">
+                                <h6 class="font-medium">{{$item_profi->nome}}</h6>
+                                <span class="m-b-15 d-block">{!! $item_profi->sobre !!} </span>
+                                <div class="comment-footer">
+                                    <button type="button" class="btn btn-cyan btn-sm">Edit</button>
+                                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @endif
                
             </div>
         </div>

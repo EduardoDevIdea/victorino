@@ -14,6 +14,11 @@
     
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
+<style>
+    .sumir {
+        display: none;
+    }
+</style>
 
 <body>
     <div class="preloader">
@@ -27,23 +32,48 @@
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin5">
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                    <a class="navbar-brand" href="index.html">
+                    <b class="logo-icon p-l-10">
+                        <img id="icon" src="{{asset('images/logo_remove_white.png')}}" alt="homepage" class="light-logo sumir" width="50px;"/>
+                    </b>
+                    <span class="logo-text">
+                        <img id="extense_logo" src="{{asset('images/Screenshot_2-removebg-preview.png')}}" alt="homepage" class="light-logo text-center" width="150px" />
+                    </span>
+                    {{-- <a class="navbar-brand" href="index.html">
                         <b class="logo-icon p-l-10">
-                            <img src="{{asset('images/Screenshot_4-removebg-preview.png')}}" alt="homepage" class="light-logo text-center" width="100px" />
+                            
                         </b>
-                    </a>
+                    </a> --}}
                     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
                 </div>
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav float-left mr-auto">
-                        <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">
-                                <strong style="font-size: 20px; color: blue;">Visualizar Site</strong> <i class="fas fa-desktop fa-lg ml-1"></i>
-                             </a>
+                        <li class="nav-item d-none d-md-block"><a id="menu_hamburger" class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" onclick="esconder_menu()" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                        <li class="nav-item d-none d-md-block"><a id="menu_arrow" class="nav-link sidebartoggler waves-effect waves-light sumir" href="javascript:void(0)" onclick="aparecer_menu()" data-sidebartype="mini-sidebar"><i class="mdi mdi-arrow-right-bold font-24"></i></a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             <span class="d-none d-md-block">Criar Novo <i class="fa fa-angle-down"></i></span>
+                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @if( Auth::user()->type == "master" ||  Auth::user()->type == "admin")
+                                    <a class="dropdown-item" href="{{url('/user/create')}}">Usuario</a>
+                                @endif
+                                <a class="dropdown-item" href="{{url('/especialidade/create')}}">Especialidades</a>
+                                <a class="dropdown-item" href="{{url('/profissional/create')}}">Profissionais</a>
+                                <a class="dropdown-item" href="{{url('/post/create')}}">Artigo</a>
+                               
+                            </div>
                         </li>
+                       
                     </ul>
                     <ul class="navbar-nav float-right">
+                        <li class="nav-item">
+                            <button class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Voltar ao site">
+                                <a class="nav-link" href="{{ url('/') }}">
+                                    <i class="fas fa-desktop fa-lg ml-1"></i>
+                                 </a>
+                            </button>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user-circle fa-2x"></i>
@@ -153,6 +183,26 @@
     <script src="{{asset('assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js')}}"></script>
     <script src="{{asset('dist/js/pages/chart/chart-page-init.js')}}"></script>
     <script src="{{asset('https://kit.fontawesome.com/829d5c5582.js')}}" crossorigin="anonymous"></script>
+
+    <script>
+        const icon = document.getElementById('icon')
+        const extense = document.getElementById('extense_logo')
+        const arrow = document.getElementById('menu_arrow')
+        const hamburger = document.getElementById('menu_hamburger')
+
+        function esconder_menu() {
+            icon.classList.remove('sumir')
+            extense.classList.add('sumir')
+            arrow.classList.remove('sumir')
+            hamburger.classList.add('sumir')
+        }
+        function aparecer_menu() {
+            icon.classList.add('sumir')
+            extense.classList.remove('sumir')
+            arrow.classList.add('sumir')
+            hamburger.classList.remove('sumir')
+        }
+    </script>
 
 </body>
 

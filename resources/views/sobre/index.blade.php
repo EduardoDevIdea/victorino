@@ -50,10 +50,10 @@
                                 <textarea  id="legenda" name="legenda" class="required form-control mb-4"></textarea>
                                 <br>
                                 <label for="Filosofia"><strong>Filosofia *</strong></label>
-                                <textarea id="Filosofia" name="filosofia" class="required form-control mb-4" cols="80" rows="5"></textarea>
+                                <textarea id="Filosofia" name="informacao_geral" class="required form-control mb-4" cols="80" rows="5"></textarea>
                                 <br>
                                 <label for="funcionamento"><strong>Funcionamento *</strong></label>
-                                <textarea id="funcionamento" name="funcionamento" class="required form-control mb-4" cols="80" rows="5"></textarea>
+                                <textarea id="funcionamento" name="sobre_clinica" class="required form-control mb-4" cols="80" rows="5"></textarea>
                                 <br>
                             </div>
                             <div class="col-6">
