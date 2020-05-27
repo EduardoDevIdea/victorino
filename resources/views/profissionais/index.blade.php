@@ -1,32 +1,63 @@
 @extends('base_home')
 
 @section('content')
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     @if(session('store'))
         <script>
-            window.alert("{{ session('store') }}");
+            Swal.fire({
+            icon: 'success',
+            title: "{{ session('store') }}",
+            showConfirmButton: false,
+            })
         </script>
     @endif
 
     @if(session('update'))
       <script>
-         window.alert("{{ session('update') }}");
+          Swal.fire({
+            icon: 'success',
+            title: "{{ session('update') }}",
+            showConfirmButton: false,
+            })
       </script>
     @endif
 
     @if(session('erroImg'))
       <script>
-         window.alert("{{ session('erroImg') }}");
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: "{{ session('erroImg') }}",
+            })
       </script>
     @endif
 
     @if(session('delete'))
       <script>
+          Swal.fire(
+            'Deletado!',
+            "{{ session('delete') }}",
+            'success'
+            )
          window.alert("{{ session('delete') }}");
       </script>
     @endif      
- 
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h2 class="page-title">Imagens</h2>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Profissionais</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- CARD -->
     <div class="card text-center">
 
@@ -77,7 +108,7 @@
                                 </button>
 
                                 <button class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Excluir">
-                                    <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');" >
+                                    <a  onclick="apagar({{$profissional->id}})" >
                                         <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
                                     </a>
                                 </button>
@@ -101,7 +132,28 @@
 
     </div>
     <!-- END CARD -->
-
+    <script>
+        function apagar(id) {
+            Swal.fire({
+                title: "Deletar Profissional ?!",
+                text: "Você não poderá reverter essa ação!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Deletar"
+            }).then(async (result) => {
+                if (result.value) {
+                    var url = "{{ url('/profissional') }}"
+                    var  response = await fetch(url + `/${id}/delete`)
+                    window.location.reload()
+                    
+                }
+            })
+           
+        }
+    </script>
 @endsection
 
 

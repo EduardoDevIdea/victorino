@@ -2,9 +2,14 @@
 
 
 @if(session('store'))
-    <script>
-        window.alert("{{ session('store') }}");
-    </script>
+
+<script>
+    Swal.fire({
+    icon: 'success',
+    title: "{{ session('store') }}",
+    showConfirmButton: false,
+    })
+</script>
 @endif
 
 @if(session('erroImg'))
@@ -21,7 +26,21 @@
 
 
 @section('content')
-
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+            <h2 class="page-title">Espaço</h2>
+            <div class="ml-auto text-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item" aria-current="page">Espaço</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
     <!-- CARD -->
     <div class="card text-center">
 
@@ -77,14 +96,16 @@
                                 @include('photos.edit') <!-- Modal para alterar foto -->
 
                                 <!-- BOTAO DISPARA MODAL --> <!-- Modal é o arquivo 'photos.create' -->
-                                <a href="{{ route('photo.edit', ['photo' => $photo->id ]) }}"  data-toggle="modal" data-target="#update" class="btn btn-secondary btn-sm mr-3" title="Alterar foto">
-                                    Alterar
-                                </a>
+                                <button class="btn btn-link" data-toggle="tooltip" data-placement="bottom"  title="Alterar">
+                                    <a href="{{ route('photo.edit', ['photo' => $photo->id ]) }}"  data-target="#update"><i class="fas fa-edit" style="color: black"></i></a>
+                                </button>
                                 <!-- FIM BOTAO -->
     
-                                <a href="{{ route('photo.destroy', ['photo' => $photo->id]) }}" onclick="return confirm('Tem certeza que deseja excluir a foto?');" title="Excluir foto">
-                                    <i class="fas fa-trash-alt fa-lg" style="color: red;"></i>
-                                </a>
+                                <button class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Excluir">
+                                    <a  onclick="apagar({{$photo->id}})" >
+                                        <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
+                                    </a>
+                                </button>
                             </div>
 
                         </div>
@@ -101,8 +122,29 @@
 
     </div>
     <!-- END CARD -->
-
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script>
+    function apagar(id) {
+            Swal.fire({
+                title: "Deletar Imagem ?!",
+                text: "Você não poderá reverter essa ação!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Deletar"
+            }).then(async (result) => {
+                if (result.value) {
+                var url = "{{ url('/photo') }}"
+                    var  response = await fetch(url + `/${id}/delete`)
+                    window.location.reload()
+                    
+                }
+            })
+           
+        }
+</script>
 
 @endsection
 
