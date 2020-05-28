@@ -1,46 +1,58 @@
 @extends('base_home')
 
 
-@if(session('store'))
-
-<script>
-    Swal.fire({
-    icon: 'success',
-    title: "{{ session('store') }}",
-    showConfirmButton: false,
-    })
-</script>
-@endif
-
-@if(session('erroImg'))
-    <script>
-        window.alert("{{ session('erroImg') }}");
-    </script>
-@endif
-
-@if(session('limite'))
-    <script>
-        window.alert("{{ session('limite') }}");
-    </script>
-@endif
-
-
 @section('content')
-<div class="page-breadcrumb">
-    <div class="row">
-        <div class="col-12 d-flex no-block align-items-center">
-            <h2 class="page-title">Espaço</h2>
-            <div class="ml-auto text-right">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Espaço</li>
-                    </ol>
-                </nav>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    @if(session('store'))
+        <script>
+            Swal.fire({
+            icon: 'success',
+            title: "{{ session('store') }}",
+            showConfirmButton: false,
+            })
+        </script>
+    @endif
+
+    @if(session('update'))
+        <script>
+            Swal.fire({
+            icon: 'success',
+            title: "{{ session('update') }}",
+            showConfirmButton: false,
+            })
+        </script>
+    @endif
+
+    @if(session('erroImg'))
+        <script>
+            Swal.fire({
+            icon: 'danger',
+            title: "{{ session('erroImg') }}",
+            showConfirmButton: false,
+            })
+        </script>
+    @endif
+
+
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h2 class="page-title">Espaço</h2>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item" aria-current="page">Espaço</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    
     <!-- CARD -->
     <div class="card text-center">
 
@@ -122,29 +134,31 @@
 
     </div>
     <!-- END CARD -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script>
-    function apagar(id) {
-            Swal.fire({
-                title: "Deletar Imagem ?!",
-                text: "Você não poderá reverter essa ação!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
-                cancelButtonText: "Cancelar",
-                confirmButtonText: "Deletar"
-            }).then(async (result) => {
-                if (result.value) {
-                var url = "{{ url('/photo') }}"
-                    var  response = await fetch(url + `/${id}/delete`)
-                    window.location.reload()
-                    
-                }
-            })
-           
-        }
-</script>
+
+    <!-- sweetalert script -->
+    <script>
+        function apagar(id) {
+                Swal.fire({
+                    title: "Deletar Imagem ?!",
+                    text: "Você não poderá reverter essa ação!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    cancelButtonText: "Cancelar",
+                    confirmButtonText: "Deletar"
+                }).then(async (result) => {
+                    if (result.value) {
+                    var url = "{{ url('/photo') }}"
+                        var  response = await fetch(url + `/${id}/delete`)
+                        window.location.reload()
+                        
+                    }
+                })
+            
+            }
+    </script>
+    <!-- End sweetalert script-->
 
 @endsection
 

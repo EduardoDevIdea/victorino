@@ -25,16 +25,8 @@ class EspecialidadeController extends Controller
 
         $especialidades = Especialidade::paginate(5); // Especialidade::all()->paginate(5); NÃO FUNCIONA DESSE JEITO
 
-        /*
-         * Se retornar nenhum registro retorna para view de cadastro de especialidade
-         * Senao, retorna para view que lista todos os registros encontrados
-        */
-        if(blank($especialidades)){
-            return view('especialidades.create');
-        }
-        else{
-            return view('especialidades.index', compact('especialidades'));
-        }
+        return view('especialidades.index', compact('especialidades'));
+
     }
 
     /**

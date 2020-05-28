@@ -1,7 +1,8 @@
 @extends('base_home')
 
 @section('content')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     @if(session('store'))
         <script>
@@ -46,7 +47,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h2 class="page-title">Imagens</h2>
+                <h2 class="page-title">Profissionais</h2>
                 <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -65,10 +66,10 @@
         <div class="card-header" style="font-size: 20px">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('profissional.index') }}">Profissionais</a>
+                    <a class="nav-link active" href="{{ route('profissional.index') }}" title="Listar profissionais">Listar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('profissional.create') }}">Cadastrar</a>
+                    <a class="nav-link" href="{{ route('profissional.create') }}" title="Cadastrar profissional">Cadastrar</a>
                 </li>      
             </ul>
         </div>
@@ -132,6 +133,7 @@
 
     </div>
     <!-- END CARD -->
+
     <script>
         function apagar(id) {
             Swal.fire({
@@ -154,6 +156,7 @@
            
         }
     </script>
+
 @endsection
 
 

@@ -1,13 +1,35 @@
 @extends('base_home')
 
 
-@if(session('update'))
-    <script>
-        window.alert("{{ session('update') }}");
-    </script>
-@endif
-
 @section('content')
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    @if(session('update'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Dados atualizados com sucesso',
+                showConfirmButton: false,
+            })
+        </script>
+    @endif
+
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h2 class="page-title">Meu perfil</h2>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Meu perfil</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- CARD -->
     <div class="card text-center">
@@ -16,7 +38,7 @@
         <div class="card-header" style="font-size: 20px">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('user.index') }}">Meu perfil</a>
+                    <a class="nav-link active" href="{{ route('user.index') }}" title="Editar perfil"><i class="far fa-edit"></i></a>
                 </li>    
             </ul>
         </div>
@@ -24,6 +46,8 @@
 
         <!-- CARD BODY -->
         <div class="card-body m-4" style="font-size: 15px">
+
+            <h4 class="mb-4"><strong>EDITAR</strong></h4>
             
             <form action="{{ route('user.update', ['user' => $user->id]) }}" method="POST">
                 @csrf

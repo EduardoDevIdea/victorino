@@ -24,13 +24,13 @@
         <div class="card-header" style="font-size: 20px">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('especialidade.index') }}">Especialidades</a>
+                    <a class="nav-link" href="{{ route('especialidade.index') }}" title="Listar especialiades">Listar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="{{ route('especialidade.create') }}">Cadastrar</a>
+                    <a class="nav-link " href="{{ route('especialidade.create') }}"title="Cadastrar especialidade">Cadastrar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#"><i class="far fa-edit"></i></a>
+                    <a class="nav-link active" href="#" title="Editar especialidade"><i class="far fa-edit"></i></a>
                 </li>     
             </ul>
         </div>

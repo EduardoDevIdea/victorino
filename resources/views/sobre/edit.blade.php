@@ -1,16 +1,18 @@
 @extends('base_home')
 
 @section('content')
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    
         @if(session('update'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Dados atualizados com sucesso',
-                showConfirmButton: false,
-            })
-        </script>
-    @endif      
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Dados atualizados com sucesso',
+                    showConfirmButton: false,
+                })
+            </script>
+        @endif      
 
     <div class="page-breadcrumb">
         <div class="row">

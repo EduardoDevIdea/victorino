@@ -27,7 +27,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Retorna view com dados do usuário que está logado, permitindo editar os dados
      *
      * @return \Illuminate\Http\Response
      */
@@ -146,13 +146,19 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
         
-        // Verifica se o checkbox Master foi marcado, se foi type recebe "master", se não recebe "adm"
-        if($request->type == 1){
-            
-            $user->type = "admin";
-        }
-        else{
-            $user->type="editor";
+        /* Verifica se o form tem campo type
+        *  Se tem, foi edição de usuário, através de um adm ou master, então entra na condição de poder alterar o type
+        *  Senão, o user está editando seu própi perfil, então o campo type não pode ser alterado, não entra neste if()
+        */
+        if($request->type){
+            // Verifica se o checkbox Master foi marcado, se foi type recebe "admin", se não recebe "editor"
+            if($request->type == 1){
+                
+                $user->type = "admin";
+            }
+            else{
+                $user->type="editor";
+            }
         }
 
         $user->name = $request->name;
@@ -160,7 +166,7 @@ class UserController extends Controller
 
         $user->save();
 
-        return redirect()->route('home')->with('update', 'Dados atualizados com sucesso!');
+        return redirect()->back()->with('update', 'Dados atualizados com sucesso!');
     }
 
     /**
