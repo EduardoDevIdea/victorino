@@ -10,57 +10,61 @@
 
 @section('content')
 
-    <h2>Editar publicação</h2>
+<h1>Editar Publicação</h1>
 
-    <div class="container">
+    <div class="container mt-4">
 
-        <form action="{{ route('post.update', ['post' => $post->id ]) }}"  method="POST" enctype="multipart/form-data">
+        <form  action="{{ route('post.update', ['post' => $post->id ]) }}"  method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
-            <div class="row border border-dark">
-            
-                <div class="col border border-dark">
 
-                    <div class="row mb-4">
-                        <strong>Título</strong><input type="text" name="titulo" value="{{ $post->titulo }}"><br>
-                    </div>
-
-                    <div class="row mb-4">
-                        <strong>Subtítulo</strong> <input type="text" name="subtitulo" value="{{ $post->subtitulo }}"><br>
-                    </div>
-
-                    <div class="row">
-                        <strong>Texto</strong><br> <textarea name="texto" cols="30" rows="10">{!! $post->texto !!}</textarea>
-                    </div>
-
-                </div>
-
-                <div class="col">
-
-                    <div class="row">
-                        <img src="/storage/{{ $post->img }}" style="width: 300px; height: 150px;" >
-                    </div>
-
-                    <div class="col">
-                        <strong>Alterar Imagem >>></strong> <input type="file" name="img">
-                    </div>    
-
-                </div>
-            
+            <div class="form-group">
+                <label for="titulo">Título</label>
+                <input type="text" name="titulo" id="titulo" class="form-control" value="{{ $post->titulo }}">
             </div>
 
-            <div class="row mt-4">
-                <input type="submit" value="Atualizar"> <br>
-                <button>
-                    <a href="{{ route('post.destroy', ['post' => $post->id]) }}" onclick = "return confirm('Tem certeza que deseja excluir a publicação?');">
-                        Excluir
+            <div class="form-group">
+                <label for="subtitulo">Subtítulo</label>
+                <input type="text" name="subtitulo" id="subtitulo" class="form-control" value="{{ $post->subtitulo }}">
+            </div>
+
+            <div class="mb-4">
+                <img src="/storage/{{ $post->img }}" alt="" width="350px"><br><br>
+                <p>
+                    <a class="btn btn-info" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                     Alterar Foto
                     </a>
-                </button>
+                  </p>
+                  <div class="collapse" id="collapseExample">
+                    <div class="card card-body">
+                        <input type="file" name="img" id="img">
+                    </div>
+                  </div>
+                
             </div>
 
+            <div class="form-group">
+                <label for="texto">Texto</label>
+                <!-- Configuração de id e name para textarea de acordo com tutorial de instalação do Editor de texto (CKEditor) --> 
+                <textarea class="form-control" id="texto" name="texto">{!! $post->texto !!} </textarea>
+            </div>
+
+            <input type="submit" value="Atualizar" class="btn btn-primary">
+                             
         </form>
 
     </div>
+
+    </div>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'texto', {
+            filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+            filebrowserUploadMethod: 'form',
+            uiColor: '#9AB8F3',
+        });
+    </script>
+
 
 @endsection

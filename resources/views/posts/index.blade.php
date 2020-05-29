@@ -29,59 +29,92 @@
 
 
 @section('content')
+<style>
+    .page-breadcrumb {
+        padding-bottom: 100px;
+    }
+    .add_post {
+        float: right;
+        margin-bottom: 50px; 
+    }
+</style>
 
-<div class="page-breadcrumb">
-    <div class="row">
-        <div class="col-12 d-flex no-block align-items-center">
-            <h2 class="page-title">Imagens</h2>
-            <div class="ml-auto text-right">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Blog</li>
-                    </ol>
-                </nav>
+<div class="container">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-12 d-flex no-block align-items-center">
+                <h2 class="page-title">Minhas Publicações</h2>
+                <div class="ml-auto text-right">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                        </ol>
+                    </nav>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-    <button><a href="{{ route('post.create') }}">Nova Publicação</a></button>
-
-    @if($posts)
     
-        @foreach($posts as $post)
-
-            <div class="container">
-
-                <hr>
-
-                <div class="row">
-
-                    <div class="col">
-                        <img src="/storage/{{ $post->img }}" style="width: 200px; height: 125px;">
-                    </div>
-
-                    <div class="col">
-                        <h3>{{ $post->titulo }}</h3>
-                    </div>
-
-                    <div class="col">
-                        <button><a href="{{ route('post.edit', ['post' => $post->id ]) }}">Editar</a></button> <br>
-                        <button>
-                            <a href="{{ route('post.destroy', ['post' => $post->id]) }}" onclick = "return confirm('Tem certeza que deseja excluir a publicação?');">
-                                Excluir
-                            </a>
-                        </button>
-                    </div>
-
-                </div>
-
+    <div class="no_post text-center" style="justify-content: center; align-itens:center">
+        @if (count($posts) == 0)
+            <h3>Você não tem publicações </h3>
+            <a href="{{ route('post.create') }}">Clique aqui para criar sua primeira publicação!</a>
+            @else
+            <div class="content row">
+                <a class=" add_post btn btn-info" href="{{ route('post.create') }}">Nova Publicação</a>
             </div>
+            @endif
+    </div>
+    @if($posts)
+    <section class="details-card">
+        <div class="container">
+            <div class="row">
+                @foreach($posts as $post)
+                <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/storage/{{ $post->img }}" height="200px;">
 
-        @endforeach    
-
+                            <div class="card-body">
+                                <h5 class="card-title"><h3>{{ $post->titulo }}</h3></h5>
+                                <p class="card-text">{{$post->subtitulo}}</p>
+                                <a class="btn btn-secondary" href="{{ route('post.edit', ['post' => $post->id ]) }}">Editar</a>
+                                <a class="btn btn-danger"  onclick = "apagar({{$post->id}})" style="color:white">
+                                    Excluir
+                                </a>
+                            </div>
+                    </div>
+                </div>
+                @endforeach    
+            </div>
+        </div>
+    </section>
     @endif
+   
+</div>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+<script>
+       function apagar(id) {
+            Swal.fire({
+                title: "Deletar Profissional ?!",
+                text: "Você não poderá reverter essa ação!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                cancelButtonText: "Cancelar",
+                confirmButtonText: "Deletar"
+            }).then(async (result) => {
+                if (result.value) {
+                    var url = "{{ url('/post') }}"
+                    var  response = await fetch(url + `/${id}/delete`)
+                    window.location.reload()
+                    
+                }
+            })
+           
+        }
+</script>
+
 @endsection

@@ -60,7 +60,7 @@
                                 @endif
                                 <a class="dropdown-item" href="{{url('/especialidade/create')}}">Especialidades</a>
                                 <a class="dropdown-item" href="{{url('/profissional/create')}}">Profissionais</a>
-                                <a class="dropdown-item" href="{{url('/post/create')}}">Artigo</a>
+                                <a class="dropdown-item" href="{{url('/post/create')}}">Postagem</a>
                                
                             </div>
                         </li>
