@@ -36,16 +36,6 @@ class HomeController extends Controller
         $posts = Post::get();
         $profi = Profissional::get();
         
-        // for ($count = 3; count($posts) > $count; $count++) {
-        //     dd(count($posts));
-        // }
-
-        foreach ($posts as $post) {
-            for ($count = 3; $post < $count; $count++) {
-                return 'oi';
-            }
-        }
-
         return view('home', compact('user', 'posts', 'profi'));
     }
 
