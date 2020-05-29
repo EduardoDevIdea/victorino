@@ -62,7 +62,7 @@
     </div>
     <div class="col-md-6 col-lg-2 col-xlg-3">
         <div class="card card-hover">
-            <a href="{{url('/profissionais')}}">
+            <a href="{{url('/profissional')}}">
                 <div class="box bg-info text-center">
                     <h1 class="font-light text-white"><i class="mdi mdi-account-box"></i></h1>
                     <h6 class="text-white">Profissionais</h6>
@@ -139,7 +139,11 @@
                     </div>
                 @endforeach
             @endif
-           
+            <div class="row">
+                <div class="col-4 offset-7">
+                    <a href="{{url('/post')}}" class="btn btn-info">clique aqui para mais postagens</a>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-lg-6">
@@ -169,6 +173,11 @@
                     @endforeach
                 @endif
                
+            </div>
+            <div class="row">
+                <div class="col-4 offset-6">
+                    <a href="{{url('/profissional')}}" class="btn btn-info">clique aqui para ver todos os profissionais</a>
+                </div>
             </div>
         </div>
     </div>

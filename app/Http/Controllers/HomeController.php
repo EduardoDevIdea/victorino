@@ -33,8 +33,8 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $posts = Post::get();
-        $profi = Profissional::get();
+        $posts = Post::paginate(3);
+        $profi = Profissional::paginate(3);
         
         return view('home', compact('user', 'posts', 'profi'));
     }
