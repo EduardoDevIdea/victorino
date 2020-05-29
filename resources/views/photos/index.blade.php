@@ -108,7 +108,7 @@
                                 @include('photos.edit') <!-- Modal para alterar foto -->
 
                                 <!-- BOTAO DISPARA MODAL --> <!-- Modal é o arquivo 'photos.create' -->
-                                <a href="{{ route('photo.edit', ['photo' => $photo->id ]) }}"  data-toggle="modal" data-target="#update" class="btn btn-secondary btn-sm mr-3" title="Alterar foto">
+                                <a href="{{ route('photo.edit', ['photo' => $photo->id ]) }}"  data-toggle="modal" data-target="#update{{$photo->id}}" class="btn btn-secondary btn-sm mr-3" title="Alterar foto">
                                     Alterar
                                 </a>
                                 <!-- FIM BOTAO -->

@@ -2,7 +2,7 @@
 <!-- Arquivo é adicionado quando botão "Alterar" é acionado na view "photos.index" -->
 
 <!-- MODAL Atualiza Foto -->
-<div class="modal fade" id="update" tabindex="-1" role="dialog">
+<div class="modal fade" id="update{{$photo->id}}" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
 
