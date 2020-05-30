@@ -72,12 +72,15 @@
             <div class="row">
                 @foreach($posts as $post)
                 <div class="col-md-4">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card" style="width: 18rem; height: 25rem">
                             <img src="/storage/{{ $post->img }}" height="200px;">
 
-                            <div class="card-body">
+                            <div class="card-body" style="overflow: hidden; overflow-y: scroll">
                                 <h5 class="card-title"><h3>{{ $post->titulo }}</h3></h5>
                                 <p class="card-text">{{$post->subtitulo}}</p>
+                            </div>
+                            <hr>
+                            <div class="card-footer">
                                 <a class="btn btn-secondary" href="{{ route('post.edit', ['post' => $post->id ]) }}">Editar</a>
                                 <a class="btn btn-danger"  onclick = "apagar({{$post->id}})" style="color:white">
                                     Excluir
