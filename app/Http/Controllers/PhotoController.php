@@ -86,6 +86,8 @@ class PhotoController extends Controller
      */
     public function edit($id)
     {
+        dd($id);
+
         $photo = Photo::find($id);
 
         return view('photos.edit', compact('photo'));
@@ -100,6 +102,9 @@ class PhotoController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        //dd($id);
+
         if($request->hasFile('img') && $request->img->isValid()){
             
             $photo = Photo::find($id);

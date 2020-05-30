@@ -24,7 +24,7 @@
         <div class="card-header" style="font-size: 20px">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('profissional.index') }}" title="Listar profissionais">Profissionais</a>
+                    <a class="nav-link" href="{{ route('profissional.index') }}" title="Listar profissionais">Listar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('profissional.create') }}" title="Cadastrar profissional">Cadastrar</a>

@@ -10,7 +10,22 @@
 
 @section('content')
 
-<h1>Editar Publicação</h1>
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 d-flex no-block" style="padding: 0">
+            <h2 class="page-title">Editar Publicação</h2>
+            <div class="ml-auto text-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><a href="{{url('/post')}}">Publicações</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Editar Publicação</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
 
     <div class="container mt-4">
 

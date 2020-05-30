@@ -7,7 +7,7 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title">Alterar foto</h5>
+                    <h5 class="modal-title">Alterar foto {{ $photo->id }}</h5>
                     <button type="button" class="close" data-dismiss="modal">
                         <span>x</span>
                     </button>
