@@ -98,7 +98,7 @@
                         @if( Auth::user()->type == "master" ||  Auth::user()->type == "admin")
                             <li class="sidebar-item">
                                 <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('user.list') }}" aria-expanded="false">
-                                    <i class="fas fa-user-plus mr-2"></i>
+                                    <i class="mdi mdi-account-multiple-plus"></i>
                                     <span class="hide-menu">Usuários</span>
                                 </a>
                             </li>
@@ -106,49 +106,49 @@
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('sobre.index') }}" aria-expanded="false">
-                                <i class="fas fa-pencil-alt mr-2"></i>
+                                <i class="mdi mdi-border-color"></i>
                                 <span class="hide-menu">Sobre nós</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('image.index') }}" aria-expanded="false">
-                                <i class="fas fa-sliders-h mr-2"></i>
+                                <i class="mdi mdi-camera-enhance"></i>
                                 <span class="hide-menu">Logo, Imagens...</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('especialidade.index') }}" aria-expanded="false">
-                            <i class="fas fa-check mr-2"></i>
+                            <i class="mdi mdi-check-circle size"></i>
                                 <span class="hide-menu">Especialidades</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('profissional.index') }}" aria-expanded="false">
-                                <i class="fas fa-users mr-2"></i>
+                                <i class="mdi mdi-account-box"></i>
                                 <span class="hide-menu">Profissionais</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('photo.index') }}" aria-expanded="false">
-                            <i class="fas fa-camera mr-2"></i>
+                            <i class="mdi mdi-arrow-all"></i>
                                 <span class="hide-menu">O espaço</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('post.index') }}" aria-expanded="false">
-                            <i class="fas fa-quote-right mr-2"></i>
+                            <i class="mdi mdi-receipt"></i>
                                 <span class="hide-menu">Blog</span>
                             </a>
                         </li>
 
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('contact.index') }}" aria-expanded="false">
-                            <i class="fas fa-hand-point-right mr-2"></i>
+                            <i class="mdi mdi-relative-scale"></i>
                                 <span class="hide-menu">Contato, Endereço...</span>
                             </a>
                         </li>
