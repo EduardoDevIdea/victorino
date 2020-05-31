@@ -1,30 +1,35 @@
-@extends('images.index')
 
-@section('form')
+<!-- Arquivo é adicionado quando botão "Alterar" é acionado na view "images.logo.list" -->
 
-    <div class="card pt-4" style="width: 500px;">
+<!-- MODAL Atualiza Foto -->
+<div class="modal fade" id="update" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
 
-            <img src="/storage/{{ $image->path }}" class="mx-auto" style="width: 450px; height: 150px;">
+                <div class="modal-header">
+                    <h5 class="modal-title">Alterar Logomarca</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>x</span>
+                    </button>
+                </div>
 
-            <div class="card-header">
-                <strong>Alterar Logomarca</strong> 
-            </div>
-
-            <div class="card-body">
                 <form action="{{ route('image.update', ['image' => $image->id ]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <input type="hidden"  name="logo" value="1">
-                    
-                    <p class="card-text">
-                        <input type="file" name="img">
-                    </p>
 
-                    <input type="submit" value="Salvar" class="btn btn-primary">
-                    
-                    <a href="#">Voltar</a>
+                    <div class="modal-body">
+                            <input type="file" name="img" required>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-success" value="Atualizar">
+                        <button type="button"class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+
                 </form>
-            </div>
-    </div>
 
-@endsection
+            </div>
+        </div>
+    </div>
+    <!-- FIM MODAL -->

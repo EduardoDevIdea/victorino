@@ -3,16 +3,22 @@
 
 @section('form')
 
-    @if(blank($image))
-        <h4>Ainda não existe logomarca cadastrada.</h4>
-        <h4>Adicione uma logomarca clicando no botão abaixo.</h4>
-    @endif
+    <div class="container text-center">
 
-    <!-- Botão dispara Modal -->
-    <button type="button" class="btn btn-secondary mt-3 mb-4" data-toggle="modal" data-target="#create" style="width: 30%;">
-        Adicionar Logo
-    </button>
-    <!-- Fim Botão dispara Modal -->
+        @if(blank($image))
+            <h5>Nenhuma logomarca cadastrada.</h5>
+            <h5>Adicione uma logomarca clicando no botão abaixo.</h5>
+        @endif
+
+        <!-- Botão dispara Modal -->
+        <button type="button" class="btn btn-secondary mt-3 mb-4" data-toggle="modal" data-target="#create" style="width: 30%;">
+            Adicionar Logo
+        </button>
+        <br>
+        <small><strong>Dê preferência a uma imagem que combine com o site</strong></small>
+        <!-- Fim Botão dispara Modal -->
+
+    </div>
 
     <!-- MODAL Adiciona Foto -->
     <div class="modal fade" id="create" tabindex="-1" role="dialog">
@@ -44,4 +50,5 @@
         </div>
     </div>
     <!-- FIM MODAL -->
+
 @endsection

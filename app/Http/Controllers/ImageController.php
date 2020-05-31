@@ -53,17 +53,16 @@ class ImageController extends Controller
 
         if($tipo == "background"){
 
-            $images = Image::where('local', 'bkg1')
-                        ->orWhere('local', 'bkg2')
-                        ->orWhere('local', 'bkg3')
-                        ->get();
-
-            if(blank($images)){
+            $image = Image::where('local', 'bkg1')->first();
+                        // (Código antigo com ideia de 3 backgrounds) ->orWhere('local', 'bkg2')->orWhere('local', 'bkg3')->get();
+            if(blank($image)){
                 return view('images.background.create');
             }
             else{
-                return view('images.background.list', compact('images'));
+                return view('images.background.list', compact('image'));
             }
+
+            dd($image->path);
         }
 
         if($tipo == "speciality"){

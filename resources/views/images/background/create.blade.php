@@ -1,42 +1,52 @@
 @extends('images.index')
 
-@if(session('erros'))
-    <script>
-        window.alert("{{ session('erros') }}");
-    </script>
-@endif
 
 @section('form')
 
-    <div class="container">
 
-        <div class="row my-4">
-            <h2><strong>Background</strong></h2>
-        </div>
-        
-        <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <input type="hidden" name="background" value="1">
+    <div class="container text-center">
 
-            <div class="row mt-4 ">
-                <div class="col-6">
-                    <p><strong>Imagem 1</strong> <input type="file" name="bkg1"></p>
-                
-                    <p><strong>Imagem 2</strong> <input type="file" name="bkg2"></p>
-                    
-                    <p><strong>Imagem 3</strong> <input type="file" name="bkg3"></p>
-                </div>
-                <div class="col-6 border border-dark rounded">
-                    *As imagens selecionadas serão exibidas como plano de fundo do site em suas respectivas posições
-                    e aparecerão à medida que navegar verticalmente pelo site.
-                </div>
-            </div>
-        
-            <div class="row mt-1 w-50">
-                <input type="submit" class="btn btn-success mx-auto" value="Atualizar" style="width: 30%;">
-            </div>
-        </form>
-        
+        <h5>Adicione uma imagem de background para o site</h5>
+
+        <!-- Botão dispara Modal -->
+        <button type="button" class="btn btn-secondary mt-3 mb-4" data-toggle="modal" data-target="#create" style="width: 30%;">
+            Adicionar Background
+        </button>
+        <br>
+        <small><strong>Dê preferência a uma imagem que combine com o site</strong></small>
+        <!-- Fim Botão dispara Modal -->
+
     </div>
+
+    <!-- MODAL Adiciona Foto -->
+    <div class="modal fade" id="create" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Adicionar Background</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>x</span>
+                    </button>
+                </div>
+
+                <form action="{{ route('image.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="background" value="1">
+
+                    <div class="modal-body">
+                        <input type="file" name="bkg1" required>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-success" value="Salvar">
+                        <button type="button"class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- FIM MODAL -->
 
 @endsection

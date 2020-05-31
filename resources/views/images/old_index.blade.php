@@ -1,32 +1,37 @@
 @extends('base_home')
 
+@if(session('store'))
+    <script>
+        window.alert("{{ session('store') }}");
+    </script>
+@endif
+
+@if(session('erroStore'))
+    <script>
+        window.alert("{{ session('erroStore') }}");
+    </script>
+@endif
+
+@if(session('update'))
+    <script>
+        window.alert("{{ session('update') }}");
+    </script>
+@endif
+
+@if(session('erroUpdate'))
+    <script>
+        window.alert("{{ session('erroUpdate') }}");
+    </script>
+@endif
+
+@if(session('destroy'))
+    <script>
+        window.alert("{{ session('destroy') }}");
+    </script>
+@endif
+
 
 @section('content')
-
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-
-    @if(session('store'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Imagem cadastrada com sucesso!',
-                showConfirmButton: false,
-            })
-        </script>
-    @endif
-
-    @if(session('update'))
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Imagem atualizada com sucesso!',
-                showConfirmButton: false,
-            })
-        </script>
-    @endif
-
-
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
@@ -45,7 +50,7 @@
 
     <div class="container">
 
-        <h3 class="text-center mt-4">Atualize as imagens do site quando quiser.</h3>
+        <h2 class="text-center">Atualize as imagens do site quando quiser.</h2>
 
         <div class="row w-auto mt-4 mb-5">
 
@@ -54,7 +59,15 @@
             </div>
 
             <div class="col d-flex justify-content-center">
+                <a class="btn btn-primary w-75" href="{{ route('image.list', ['image' => 'banner']) }}">Banner</a> 
+            </div>
+
+            <div class="col d-flex justify-content-center">
                 <a class="btn btn-primary w-75" href="{{ route('image.list', ['image' => 'background']) }}">Background</a> 
+            </div>
+
+            <div class="col d-flex justify-content-center">
+                <a class="btn btn-primary w-75" href="{{ route('image.list', ['image' => 'speciality']) }}">Especialidade</a> 
             </div>
 
         </div>

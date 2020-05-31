@@ -1,34 +1,35 @@
-@extends('images.index')
 
-@section('form')
+<!-- Arquivo é adicionado quando botão "Alterar" é acionado na view "images.background.list" -->
 
-    <div class="row my-4">
-        <h2><strong>Background</strong></h2>
-    </div>
+<!-- MODAL Atualiza Foto -->
+<div class="modal fade" id="update" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
 
-    <div class="card pt-3" style="width: 490px;">
+                <div class="modal-header">
+                    <h5 class="modal-title">Alterar Background</h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>x</span>
+                    </button>
+                </div>
 
-        <img src="/storage/{{ $image->path }}" class="mx-auto" style="width: 450px; height: 200px;">
-    
-        <div class="card-header">
-            <strong>Alterar Background</strong>
+                <form action="{{ route('image.update', ['image' => $image->id ]) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <input type="hidden"  name="background" value="1">
+
+                    <div class="modal-body">
+                            <input type="file" name="img" required>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-success" value="Atualizar">
+                        <button type="button"class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    </div>
+
+                </form>
+
+            </div>
         </div>
-
-        <div class="card-body">
-            <form action="{{ route('image.update', ['image' => $image->id ]) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                <input type="hidden"  name="background" value="1">
-                
-                <p class="card-text">
-                    <input type="file" name="img" required>
-                </p>
-
-                <input type="submit" value="Salvar" class="btn btn-primary">
-                
-                <a href="#">Voltar</a>
-            </form>
-        </div>
     </div>
-
-@endsection
+    <!-- FIM MODAL -->

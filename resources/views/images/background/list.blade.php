@@ -3,26 +3,23 @@
 
 @section('form')
 
-    <div class="container">
+    <div class="container text-center">
 
-        <div class="row my-4">
-            <h2><strong>Background</strong></h2>
-        </div>
+        <h2><strong>Background</strong></h2>
+    
+        <img src="/storage/{{ $image->path }}" style="width: 400px; height: 170;"> <br>
         
-        @foreach($images as $image)
-            
-            <div class="row w-100 mb-4">
-                <div class="col">
-                    <img src="/storage/{{ $image->path }}" style="width: 400px; height: 170;"> <br>
-                </div>
-                <div class="col d-flex align-items-center">
-                    <a href="{{ route('image.edit', ['image' => $image->id ]) }}" class="btn btn-warning">
-                        Alterar
-                    </a>
-                </div>
-            </div>
-                        
-        @endforeach
+        @include('images.background.edit') <!-- Modal para alterar imagem -->
+
+        <!-- Botão dispara Modal -->
+            <a href="{{ route('image.edit', ['image' => $image->id]) }}" class="btn btn-success mt-2" data-toggle="modal" data-target="#update" style="width: 30%;">
+                Alterar Imagem
+            </a>
+        <!-- Fim Botão dispara Modal -->
+
+        <br>
+
+        <small><strong>Dê preferência a uma imagem que combine com o site</strong></small>
 
     </div>
 
