@@ -59,21 +59,21 @@
                         <div class="form-group row">
                             <label for="cargo" class="col-sm-3 text-right control-label col-form-label">Cargo</label>
                             <div class="col-sm-9">
-                                <input type="text" name="cargo" id="cargo"  class="form-control" value="{{ $profissional->cargo }}" required>
+                                <input type="text" name="cargo" id="cargo"  class="form-control" value="{{ $profissional->cargo }}">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="atividade" class="col-sm-3 text-right control-label col-form-label">Atividade</label>
                             <div class="col-sm-9">
-                                <input type="text" name="atividade" id="atividade"  class="form-control" value="{{ $profissional->atividade }}" required>
+                                <input type="text" name="atividade" id="atividade"  class="form-control" value="{{ $profissional->atividade }}">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="registro" class="col-sm-3 text-right control-label col-form-label">Registro</label>
                             <div class="col-sm-9">
-                                <input type="text" name="registro" id="registro"  class="form-control" value="{{ $profissional->registro }}" required>
+                                <input type="text" name="registro" id="registro"  class="form-control" value="{{ $profissional->registro }}">
                             </div>
                         </div>
 
@@ -100,13 +100,9 @@
                     <!-- Fim Coluna Direita -->
                 </div>
                     
-                    
                 <div class="form-group row">
                     <div class="col-sm-9">
-                        <input type="submit" class="btn btn-success" value="Atualizar">
-                        <a href="{{ route('profissional.destroy', ['profissional' => $profissional->id]) }}" onclick="return confirm('Tem certeza que deseja excluir o registro?');" class="btn btn-danger">
-                            Excluir
-                        </a>
+                        <input type="submit" class="btn btn-success btn-lg" value="Atualizar" style= "margin-right: 70%;">
                     </div>
                 </div>
                     

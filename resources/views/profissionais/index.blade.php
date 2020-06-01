@@ -80,7 +80,7 @@
             
             <h3 class="mb-3"><strong>Profissionais cadastrados</strong></h3>
 
-            <table class="table w-75 mx-auto">
+            <table class="table w-100 mx-auto">
 
                 <thead class="thead-dark">
                     <tr>

@@ -35,7 +35,7 @@
 
             <div class="form-group">
                 <label for="titulo">Título</label>
-                <input type="text" name="titulo" id="titulo" class="form-control">
+                <input type="text" name="titulo" id="titulo" class="form-control" required>
             </div>
 
             <div class="form-group">
@@ -45,13 +45,13 @@
 
             <div class="mb-4">
                 <label for="img">Imagem<small style="color: red;"> *Imagem principal</small></label> <br>
-                <input type="file" name="img" id="img">
+                <input type="file" name="img" id="img" required>
             </div>
 
             <div class="form-group">
                 <label for="texto">Texto</label>
                 <!-- Configuração de id e name para textarea de acordo com tutorial de instalação do Editor de texto (CKEditor) --> 
-                <textarea class="form-control" id="texto" name="texto"></textarea>
+                <textarea class="form-control" id="texto" name="texto" required></textarea>
             </div>
 
             <input type="submit" value="Publicar" class="btn btn-primary">

@@ -62,21 +62,21 @@
                         <div class="form-group row">
                             <label for="cargo" class="col-sm-3 text-right control-label col-form-label">Cargo</label>
                             <div class="col-sm-9">
-                                <input type="text" name="cargo" id="cargo"  class="form-control" required>
+                                <input type="text" name="cargo" id="cargo"  class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="atividade" class="col-sm-3 text-right control-label col-form-label">Atividade</label>
                             <div class="col-sm-9">
-                                <input type="text" name="atividade" id="atividade"  class="form-control" required>
+                                <input type="text" name="atividade" id="atividade"  class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="registro" class="col-sm-3 text-right control-label col-form-label">Registro</label>
                             <div class="col-sm-9">
-                                <input type="text" name="registro" id="registro"  class="form-control" required>
+                                <input type="text" name="registro" id="registro"  class="form-control">
                             </div>
                         </div>
 
