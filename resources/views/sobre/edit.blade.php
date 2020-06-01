@@ -53,7 +53,7 @@
                             <div class="col-6">
                                 <img src="storage/{{ $sobre->img }}" class="mt-5" style="width: 400px; height:400px"> <br>
                                 <label for="legenda" class="mt-3" style="font-size: 20px;">Legenda</label>
-                                <input  id="legenda" name="legenda" class="required form-control mb-4" value="{{ $sobre->legenda }}">
+                                <input  id="legenda" name="legenda" class="required form-control mb-4" style="border: 1px solid;" value="{{ $sobre->legenda }}">
                                 <p>
                                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
                                       Alterar Imagem

@@ -52,7 +52,7 @@
                                 </div>
                                 
                                 <label for="legenda"style="font-size: 20px;">Legenda da imagem</label>
-                                <input  id="legenda" name="legenda" class="required form-control mb-4">
+                                <input  id="legenda" name="legenda" class="required form-control mb-4" style="border: 1px solid;">
                                 
                             </div>
                         </div>
