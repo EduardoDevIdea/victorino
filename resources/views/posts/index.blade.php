@@ -57,8 +57,7 @@
     
     <div class="no_post text-center" style="justify-content: center; align-itens:center">
         @if (count($posts) == 0)
-            <h3>Nenhuma publicação disponivel</h3>
-            <a href="{{ route('post.create') }}">Clique aqui para criar uma primeira publicação!</a>
+            <h4>Nenhuma publicação disponível</h4>
         @endif
     </div>
     @if($posts)
@@ -95,7 +94,7 @@
 <script>
        function apagar(id) {
             Swal.fire({
-                title: "Deletar Profissional ?!",
+                title: "Deletar publicação?!",
                 text: "Você não poderá reverter essa ação!",
                 icon: 'warning',
                 showCancelButton: true,
