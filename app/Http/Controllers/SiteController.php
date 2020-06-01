@@ -30,10 +30,15 @@ class SiteController extends Controller
         $post = Post::get();
 
 
-        // dd($logo_inicio);
+        if(count($bg_img) == 0 || count($about) == 0 || count($contact) == 0 || count($logo_inicio) == 0) {
+            return view('Auth.Login', [
+                'errorMessageDuration' => 'Faltam algumas informações no site',
+                'finalizado' => 'Acesse o painel administrativo, para preencher as seções restantes' 
+           ]);
+        } else {
+            return view('Site.index', compact('bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post', 'logo_inicio'));
+        } 
 
-       
-
-        return view('Site.index', compact('bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post', 'logo_inicio'));
-    }
+    
+}
 }
