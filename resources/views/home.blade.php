@@ -135,8 +135,8 @@
                                     <span class="m-b-15 d-block">{{$item_post->subtitulo}} </span>
                                     <div class="comment-footer">
                                         <span class="text-muted float-right">{{$item_post->created_at->format('M d , Y')}}</span> 
-                                        <a type="button" class="btn btn-cyan btn-sm" href="{{ route('post.edit', ['post' => $item_post->id ]) }}">Editar</a>
-                                        <a type="button" class="btn btn-danger btn-sm" onclick="del_publi({{$item_post->id}})">Deletar</a>
+                                        <a type="button" class="btn btn-cyan btn-sm" href="{{ route('post.edit', ['post' => $item_post->id ]) }}" style="color:white">Editar</a>
+                                        <a type="button" class="btn btn-danger btn-sm" onclick="del_publi({{$item_post->id}})" style="color: white">Deletar</a>
                                     </div>
                                 </div>
                             </div>

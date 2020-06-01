@@ -61,12 +61,20 @@
     </div>
 
     <!-- Script para rodar o editor de texto CKEditor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
         CKEDITOR.replace( 'texto', {
             filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form',
             uiColor: '#9AB8F3',
+        });
+        $("form").submit( function(e) {
+            var messageLength = CKEDITOR.instances['texto'].getData().replace(/<[^>]*>/gi, '').length;
+            if( !messageLength ) {
+                alert( 'Please enter a message' );
+                e.preventDefault();
+            }
         });
     </script>
 

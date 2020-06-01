@@ -106,11 +106,7 @@
                                 </div>
                                 <div class="col-8">
                                     @if (Route::has('password.request'))
-<<<<<<< HEAD
                                         <a class="btn btn-info" href="{{ route('password.request') }}" style="background:transparent; color:  black; border:none; top: 80px">
-=======
-                                        <a class="btn btn-info" href="{{ route('password.request') }}">
->>>>>>> 9af682109726b92ceb3623a3e3c6bc638bf249dc
                                             {{ __('Esqueceu a senha?') }}
                                         </a>
                                     @endif

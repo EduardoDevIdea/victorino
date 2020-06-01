@@ -40,7 +40,7 @@
                   <div class="rd-navbar-nav-wrap">
                     <!-- RD Navbar Nav-->
                     <ul class="footer-minimal-nav">
-                        <li class="rd-nav-item active"><a class="rd-nav-link" href="{{url('/#home')}}">Home</a>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#home')}}">Home</a>
                         </li>
                         <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#sobre')}}">Sobre Nós</a>
                         </li>
@@ -67,18 +67,14 @@
         <div class="main-bunner-inner">
           <div class="container">
             <div class="box-default">
-              <h1 class="box-default-title">{{$article->titulo}}</h1>
+              <h2 class="box-default-title">{{$article->titulo}}</h2>
               <div class="box-default-decor"></div>
-              <ul class="breadcrumbs-custom-path">
-                <li><a href="{{url('/')}}">Home</a></li>
-                <li class="active">{{$article->titulo}}</li>
-              </ul>
             </div>
           </div>
         </div>
       </section>
       <!-- Base typography -->
-      <section class="section section-lg bg-default">
+      <section class="section section-lg bg-default" style="background-color: #e5e5e5">
         <div class="container">
           <div class="row row-50 flex-lg-row-reverse justify-content-xl-between">
             <div class="col-xl-4">
@@ -91,12 +87,9 @@
             </div>
             <div class="col-xl-7">
               <ul class="list-xxl heading-list">
-                <li>
-                    <h2>{{$article->titulo}}</h2>
-                    <p>{{$article->subtitulo}}</p>
-                </li>
                 <hr>
                 <li>
+                  <h4>{{$article->subtitulo}}</h4>
                   <p>{!! $article->texto !!}</p>
                 </li>
               </ul>
