@@ -31,10 +31,10 @@
                             <div class="col-6">
                                     <div class="card card-body">
                                         
-                                        <label for="sobre_clinica"><strong>Sobre a clinica *</strong></label>
+                                        <label for="sobre_clinica" style="font-size: 20px;">Sobre a clínica</label>
                                         <textarea id="sobre_clinica" name="sobre_clinica" class="required form-control mb-4" cols="80" rows="5"></textarea>
                                         
-                                        <label for="informacao_geral" class="mt-3"><strong>Informações Gerais *</strong></label>
+                                        <label for="informacao_geral" class="mt-3" style="font-size: 20px;">Informações Gerais</label>
                                         <textarea id="informacao_geral" name="informacao_geral" class="required form-control mb-4" cols="80" rows="5"></textarea>
                                         
                                     </div>
@@ -51,13 +51,13 @@
                                     <input id="imagem" type="file" name="img" class="required">
                                 </div>
                                 
-                                <label for="legenda"><strong>Legenda da imagem</strong></label>
+                                <label for="legenda"style="font-size: 20px;">Legenda da imagem</label>
                                 <input  id="legenda" name="legenda" class="required form-control mb-4">
                                 
                             </div>
                         </div>
                         
-                        <p><input type="submit" value="Salvar" class="btn btn-primary"></p>
+                        <p class="ml-3"><input type="submit" value="Salvar" class="btn btn-primary btn-lg"></p>
 
                     </section>
                 </div>
