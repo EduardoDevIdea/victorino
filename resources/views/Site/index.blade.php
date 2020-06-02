@@ -80,7 +80,7 @@
                   <!-- RD Navbar Toggle-->
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
-                  <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="storage/{{$logo_inicio[0]->path}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                  <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="{{asset('storage/'.$logo_inicio[0]->path)}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
                 </div>
                 <div class="rd-navbar-main-element">
                   <div class="rd-navbar-nav-wrap">
