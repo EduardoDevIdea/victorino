@@ -9,6 +9,11 @@
 
 
 @section('content')
+<style>
+    .required_class {
+        display: none;
+    }
+</style>
 
 <div class="page-breadcrumb">
     <div class="row">
@@ -51,6 +56,7 @@
             <div class="form-group">
                 <label for="texto">Texto</label>
                 <!-- Configuração de id e name para textarea de acordo com tutorial de instalação do Editor de texto (CKEditor) --> 
+                <span class="required_class" id="required" style= "color: red" >Preencha este campo.</span>
                 <textarea class="form-control" id="texto" name="texto" required></textarea>
             </div>
 
@@ -62,20 +68,27 @@
 
     <!-- Script para rodar o editor de texto CKEditor -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script>
+         const span = document.getElementById('required')
         CKEDITOR.replace( 'texto', {
             filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
             filebrowserUploadMethod: 'form',
             uiColor: '#9AB8F3',
         });
         $("form").submit( function(e) {
-            var messageLength = CKEDITOR.instances['texto'].getData().replace(/<[^>]*>/gi, '').length;
-            if( !messageLength ) {
-                alert( 'Please enter a message' );
+            var required_var = CKEDITOR.instances['texto'].getData().replace(/<[^>]*>/gi, '').length;
+            if( !required_var ) {
+                span.classList.remove('required_class')
+                window.setInterval(function(){ required_text(); }, 3000);
                 e.preventDefault();
             }
         });
+
+        function required_text() {
+            span.classList.add('required_class')
+        }
     </script>
 
 @endsection

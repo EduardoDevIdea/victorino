@@ -34,25 +34,25 @@
                                 <h3>Contatos</h3>
                                 <section>
                                     <label for="telefone1">Telefone </label>
-                                    <input id="telefone1" name="telefone1" type="text" class="required form-control">
+                                    <input id="telefone1" name="telefone1" type="text" class="required form-control" autocomplete="off" maxlength="14" onkeydown="mascara_tel(this, mtel)" placeholder="Digite o telefone para contato">
                                     <label for="wpp">Whatsapp</label>
-                                    <input id="wpp" name="wpp" type="text" class="required form-control">
+                                    <input id="wpp" name="wpp" type="text" class="required form-control" autocomplete="off" maxlength="15" onkeydown="mascara_wpp(this, mtel)" placeholder="Digite o whatsapp da clinica">
                                     <label for="email">E-mail</label>
-                                    <input id="email" name="email" type="text" class="required form-control">
+                                    <input id="email" name="email" type="text" class="required form-control" placeholder="Digite o seu e-mail">
                                 </section>
                                 <h3>Midias Sociais</h3>
                                 <section>
                                     <label for="instagram">Instagram</label>
-                                    <input id="instagram" name="instagram" type="text" class="required form-control">
+                                    <input id="instagram" name="instagram" type="text" class="required form-control" placeholder="Digite o endereço do instagram da clinica">
                                     <label for="facebook">Facebook</label>
-                                    <input id="facebook" name="facebook" type="text" class="required form-control">
+                                    <input id="facebook" name="facebook" type="text" class="required form-control" placeholder="Digite o endereço do facebook da clinica">
                                     <label for="twitter">Twitter</label>
-                                    <input id="twitter" name="twitter" type="text" class="required form-control">
+                                    <input id="twitter" name="twitter" type="text" class="required form-control" placeholder="Digite o endereço do twitter da Clinica">
                                 </section>
                                 <h3>Endereço</h3>
                                 <section>
                                     <label for="endereco">Endereço da clinica</label>
-                                    <input id="endereco" name="endereco" type="text" class="required form-control">
+                                    <input id="endereco" name="endereco" type="text" class="required form-control" placeholder="Digite o seu endereço completo">
                                 </section>
                                 <h3>Finalizando</h3>
                                 <section class="text-center">
@@ -73,6 +73,39 @@
     <script src="assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
     <script src="assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
     
+    <script>
+        /* Máscaras ER */
+        function mascara_tel(o,f){
+            v_obj=o
+            v_fun=f
+            setTimeout("execmascara()",1)
+        }
+        function execmascara(){
+            v_obj.value=v_fun(v_obj.value)
+        }
+        function mtel(v){
+            v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+            v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+            v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+            return v;
+        }
+
+        function mascara_wpp(o,f){
+            v_obj=o
+            v_fun=f
+            setTimeout("execmascara()",1)
+        }
+        function execmascara(){
+            v_obj.value=v_fun(v_obj.value)
+        }
+        function mtel(v){
+            v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+            v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+            v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+            return v;
+        }
+
+    </script>
     <script>
     var form = $("#example-form");
     form.validate({
