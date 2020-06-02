@@ -170,7 +170,7 @@
                                     <span class="m-b-15 d-block">{!! $item_profi->sobre !!} </span>
                                     <div class="comment-footer">
                                         <a type="button" class="btn btn-cyan btn-sm" href="{{ route('profissional.edit', ['profissional' => $item_profi->id ]) }}">Editar</a>
-                                        <a type="button" class="btn btn-danger btn-sm" onclick="del_profi({{$item_profi->id}})">Deletar</a>
+                                        <a type="button" class="btn btn-danger btn-sm" onclick="del_profi({{$item_profi->id}})" style="color: white">Deletar</a>
                                     </div>
                                 </div>
                             </div>
