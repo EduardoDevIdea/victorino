@@ -30,7 +30,7 @@
                     <a class="nav-link " href="{{ route('especialidade.create') }}"title="Cadastrar especialidade">Cadastrar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#" title="Editar especialidade"><i class="far fa-edit"></i></a>
+                    <a class="nav-link active" href="#" title="Editar especialidade">Editar</a>
                 </li>     
             </ul>
         </div>
