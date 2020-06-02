@@ -128,8 +128,8 @@
             <div class="container">
               <div class="row row-50 justify-content-xl-between align-items-lg-center" style="padding: 30px; margin-top: 50px;">
                 <div class="col-lg-6 wow fadeInLeft">
-                  <div class="box-image"><img class="box-image-static" src="storage/{{$about[0]->img}}" alt="" width="100%" height="auto"/><img class="box-image-position" src="images/home-3-2-341x391.png" alt="" width="341" height="391" style="margin-top: 100px;"/>
-                    <h6 style="text-align: center">{{$about[0]->legenda}}</h6>
+                  <div class="box-image"><img class="box-image-static" src="storage/{{$about[0]->img}}" alt="" width="580px" height="520px"/>
+                    <h6 style="text-align: center; padding: 10px;">{{$about[0]->legenda}}</h6>
                   </div>
                 </div>
                 <div class="col-lg-6 col-xl-5 wow fadeInRight">
@@ -169,7 +169,7 @@
             </div>
             <div class="row row-20 row-lg-30">
               @if (count($especialidade) == 0)
-                  <h4 style="text-align: center; width: 100%">Nenhuma especialidae encontrada</h4>
+                  <h4 style="text-align: center; width: 100%;">Nenhuma especialidae encontrada</h4>
               @else
               @foreach ($especialidade as $item_especialidade)
               <div class="col-md-6 col-lg-4 wow-outer">
@@ -247,7 +247,7 @@
               </div>
             </div>
           </div>
-          <div class="row isotope-wrap"  >
+          <div class="row isotope-wrap">
             <!-- Profissionais -->
             <div class="col-lg-12">
               <div class="isotope" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group" data-lg-thumbnail="false">
@@ -256,18 +256,21 @@
                       <h4 style="text-align: center; width: 100%">Nenhum Profissional encontrado</h4>
                   @else
                   @foreach ($profi as $item_profi)
-                    <div class="col-12 col-md-4 isotope-item wow-outer" data-filter="Category 3" style="padding: 25px;" >
-                    <div class="wow slideInDown" style="max-width: 100%;" >
-                      <div class="gallery-item-classic"><img src="storage/{{$item_profi->img}}" style="width: 100%; height: 300px;"/>
+                    <div class="col-12 col-md-4 isotope-item wow-outer" data-filter="Category 3" style="padding: 25px; text-align:center" >
+                    <div class="wow slideInDown" style="max-width: 100%;">
+                      <div class="gallery-item-classic"><img src="storage/{{$item_profi->img}}" style="width: 280px; height: 300px;"/>
                         <div class="gallery-item-classic-caption"><a href="storage/{{$item_profi->img}}" data-lightgallery="item">zoom</a></div>
                       </div>
                       <div class="post-corporate-text" style>
-                        <h4>{{$item_profi->nome}}</h4>
-                        <p style="margin: 0">{{$item_profi->cargo}} </p>
-                        <p style="margin: 0">{{$item_profi->atividade}}</p>
-                        <p style="margin: 0">Registro {{$item_profi->registro}}</p>
-                        <br>
-                        <p>{!! $item_profi->sobre !!}</p>
+                        <div style="padding: 0 120px 0 120px; text-align: left">
+                          <h4>{{$item_profi->nome}}</h4>
+                          <p style="margin-top: 10px">{{$item_profi->cargo}} </p>
+                          <p style="margin: 0">{{$item_profi->atividade}}</p>
+                          <p style="margin: 0">Registro {{$item_profi->registro}}</p>
+                        </div>
+                        <div style="padding: 5px 120px 0 120px; text-align:justify">
+                          <p>{!! $item_profi->sobre !!}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -290,8 +293,9 @@
             <div class="carousel-wrap">
             <div class="owl-carousel wow fadeInUp" data-items="1" data-md-items="2" data-lg-items="3" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="false" data-margin="30" data-mouse-drag="false">
               @foreach ($post as $item_post)
-                <div class="post-corporate" style="text-align: center">
-                  <a class="badge" href="#">{{$item_post->created_at->format('d/m/Y')}}</a>
+                <div class="post-corporate" style="padding: 0 50px 0 50px">
+                  <a class="badge" href="#" style="margin-bottom: 6px">{{$item_post->created_at->format('d/m/Y')}}</a>
+                  <img src="{{asset('storage/'.$item_post->img)}}" alt="" style="width: 250px; height:180px">
                   <h4 class="post-corporate-title"><a href="{{route('blog', ['id' =>  $item_post->id  ])}}">{{$item_post->titulo}}</a></h4>
                   <div class="post-corporate-text">
                     <p>{{$item_post->subtitulo}}</p>
@@ -426,7 +430,7 @@
               items: 1
             },
             600: {
-              items: 3
+              items: 2
             },
             1000: {
               items: 3

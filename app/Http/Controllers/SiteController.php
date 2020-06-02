@@ -27,7 +27,7 @@ class SiteController extends Controller
         $espaco = Photo::get();
         $profi = Profissional::get();
         $contact = Contact::get();
-        $post = Post::get();
+        $post = Post::orderBy('created_at', 'desc')->get();
 
 
         if(count($bg_img) == 0 || count($about) == 0 || count($contact) == 0 || count($logo_inicio) == 0) {
