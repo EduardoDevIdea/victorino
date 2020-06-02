@@ -41,9 +41,9 @@
                                 <h3>Contatos</h3>
                                 <section>
                                     <label for="telefone1">Telefone </label>
-                                    <input id="telefone1" name="telefone1" type="text" class="required form-control" value="{{$contact->telefone1}}">
+                                    <input id="telefone1" name="telefone1" type="text" class="required form-control" value="{{$contact->telefone1}}" maxlength="14" onkeyup="mascara_tel(this, mtel)">
                                     <label for="wpp">Whatsapp</label>
-                                    <input id="wpp" name="wpp" type="text" class="required form-control" value="{{$contact->wpp}}">
+                                    <input id="wpp" name="wpp" type="text" class="required form-control" value="{{$contact->wpp}}" maxlength="15" onkeyup="mascara_wpp(this, mtel)">
                                     <label for="email">E-mail</label>
                                     <input id="email" name="email" type="text" class="required form-control" value="{{$contact->email}}">
                                 </section>
@@ -79,8 +79,40 @@
     <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
     <script src="assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
-  
     
+    <script>
+        /* Máscaras ER */
+        function mascara_tel(o,f){
+            v_obj=o
+            v_fun=f
+            setTimeout("execmascara()",1)
+        }
+        function execmascara(){
+            v_obj.value=v_fun(v_obj.value)
+        }
+        function mtel(v){
+            v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+            v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+            v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+            return v;
+        }
+
+        function mascara_wpp(o,f){
+            v_obj=o
+            v_fun=f
+            setTimeout("execmascara()",1)
+        }
+        function execmascara(){
+            v_obj.value=v_fun(v_obj.value)
+        }
+        function mtel(v){
+            v=v.replace(/\D/g,"");             //Remove tudo o que não é dígito
+            v=v.replace(/^(\d{2})(\d)/g,"($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+            v=v.replace(/(\d)(\d{4})$/,"$1-$2");    //Coloca hífen entre o quarto e o quinto dígitos
+            return v;
+        }
+
+    </script>
     <script>
     var form = $("#example-form");
     form.validate({
@@ -111,6 +143,7 @@
         }
     });
     </script>
+
     
 </body>
 

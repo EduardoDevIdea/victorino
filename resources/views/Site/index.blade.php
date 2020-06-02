@@ -128,7 +128,7 @@
             <div class="container">
               <div class="row row-50 justify-content-xl-between align-items-lg-center" style="padding: 30px; margin-top: 50px;">
                 <div class="col-lg-6 wow fadeInLeft">
-                  <div class="box-image"><img class="box-image-static" src="storage/{{$about[0]->img}}" alt="" width="406" height="200"/><img class="box-image-position" src="images/home-3-2-341x391.png" alt="" width="341" height="391" style="margin-top: 100px;"/>
+                  <div class="box-image"><img class="box-image-static" src="storage/{{$about[0]->img}}" alt="" width="100%" height="auto"/><img class="box-image-position" src="images/home-3-2-341x391.png" alt="" width="341" height="391" style="margin-top: 100px;"/>
                     <h6 style="text-align: center">{{$about[0]->legenda}}</h6>
                   </div>
                 </div>

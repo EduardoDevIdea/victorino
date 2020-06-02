@@ -50,9 +50,9 @@
                         </li>
                         <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#profissionais')}}">Corpo Clinico</a>
                         </li>
-                        <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#contato')}}">Contato</a>
-                        </li>
                         <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#blog')}}">Blog</a>
+                        </li>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#contato')}}">Contato</a>
                         </li>
                       </ul>
                   </div>
@@ -115,9 +115,9 @@
                   </li>
                   <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#profissionais')}}">Corpo Clinico</a>
                   </li>
-                  <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#contato')}}">Contato</a>
-                  </li>
                   <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#blog')}}">Blog</a>
+                  </li>
+                  <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#contato')}}">Contato</a>
                   </li>
                 </ul>
               </div>
