@@ -88,7 +88,7 @@
                     <ul class="rd-navbar-nav">
                       <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Home</a>
                       </li>
-                      <li class="rd-nav-item"><a class="rd-nav-link" href="#sobre">Sobre Nós</a>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#sobre">Quem Somos</a>
                       </li>
                       <li class="rd-nav-item"><a class="rd-nav-link" href="#especialidades">Especialidades</a>
                       </li>
@@ -133,7 +133,7 @@
                   </div>
                 </div>
                 <div class="col-lg-6 col-xl-5 wow fadeInRight">
-                  <h2>Sobre Nós</h2>
+                  <h2>Quem Somos</h2>
                   <p>{!! $about[0]->sobre_clinica !!}</p>
                   <p>
                     <a class="btn btn-primary" id="mais" onclick="aparecer()" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">

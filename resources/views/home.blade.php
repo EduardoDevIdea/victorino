@@ -8,16 +8,10 @@
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center" style="padding: 0 0 50px 0">
                 <h2 class="page-title">Dashboard</h2>
-                <div class="ml-auto text-right">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                        </ol>
-                    </nav>
-                </div>
             </div>
         </div>
     </div>
+
     <div class="row">
         @if( Auth::user()->type == "master" ||  Auth::user()->type == "admin")
         <div class="col-md-6 col-lg-2 col-xlg-3">
@@ -37,7 +31,7 @@
                 <a href="{{url('/sobre')}}">
                     <div class="box bg-success text-center">
                         <h1 class="font-light text-white"><i class="mdi mdi-border-color"></i></h1>
-                        <h6 class="text-white">Sobre nós</h6>
+                        <h6 class="text-white">Quem Somos</h6>
                     </div>
                 </a>
             </div>

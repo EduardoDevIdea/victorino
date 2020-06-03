@@ -42,13 +42,13 @@
                     <ul class="footer-minimal-nav">
                         <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#home')}}">Home</a>
                         </li>
-                        <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#sobre')}}">Sobre Nós</a>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#sobre')}}">Quem Somos</a>
                         </li>
                         <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#especialidades')}}">Especialidades</a>
                         </li>
-                        <li class="rd-nav-item"><a class="rd-nav-link" href="{{url("/#espaco")}}">Espaço</a>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#espaco')}}">Espaço</a>
                         </li>
-                        <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#profissionais')}}">Corpo Clinico</a>
+                        <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#profissionais')}}">Profissionais</a>
                         </li>
                         <li class="rd-nav-item"><a class="rd-nav-link" href="{{url('/#blog')}}">Blog</a>
                         </li>

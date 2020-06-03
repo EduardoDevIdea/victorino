@@ -36,7 +36,9 @@
                         <img id="icon" src="{{asset('images/logo_remove_white.png')}}" alt="homepage" class="light-logo sumir" width="50px;"/>
                     </b>
                     <span class="logo-text">
-                        <img id="extense_logo" src="{{asset('images/Screenshot_2-removebg-preview.png')}}" alt="homepage" class="light-logo text-center" width="150px" />
+                        <a href="{{ url('/') }}">
+                            <img id="extense_logo" src="{{asset('images/Screenshot_2-removebg-preview.png')}}" alt="homepage" class="light-logo text-center" width="150px" />
+                        </a>
                     </span>
                     {{-- <a class="navbar-brand" href="index.html">
                         <b class="logo-icon p-l-10">
@@ -107,7 +109,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('sobre.index') }}" aria-expanded="false">
                                 <i class="mdi mdi-border-color"></i>
-                                <span class="hide-menu">Sobre nós</span>
+                                <span class="hide-menu">Quem Somos</span>
                             </a>
                         </li>
 
