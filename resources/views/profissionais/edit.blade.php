@@ -90,10 +90,11 @@
                     <!-- Coluna Direita -->
                     <div class="col ml-5">
                         <div class="form-group row">
-                            <div class="col-sm-9">
+                            <div class="col-sm-9 text-left">
                                 <img src="/storage/{{ $profissional->img }}"  class="mb-2" style="widht: 150x; height: 350px;">
                                 <br>
                                 <input type="file" name="img" value="Escolher Imagem"><br>
+                                <small class="text-left">Dimensões ideais: 543 largura x 814 altura</small>
                             </div>
                         </div>
                     </div>

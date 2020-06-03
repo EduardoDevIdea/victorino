@@ -19,7 +19,7 @@
 
         <br>
 
-        <small><strong>Dê preferência a uma imagem que combine com o site</strong></small>
+        <small><strong>Dimensões ideais: 723 largura x 427 altura</strong></small>
 
     </div>
 

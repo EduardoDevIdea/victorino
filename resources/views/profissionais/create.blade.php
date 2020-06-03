@@ -86,9 +86,10 @@
                     <!-- Coluna Direita -->
                     <div class="col ml-5">
                         <div class="form-group row">
-                            <div class="col-sm-9">
+                            <div class="col-sm-9 text-left">
                                 <p class="text-left"><strong>Foto do profissional</strong></p>
                                 <input type="file" name="img" value="Escolher Imagem" required><br>
+                                <small class="text-left">Dimensões ideais: 543 largura x 814 altura</small>
                             </div>
                         </div>
                     </div>

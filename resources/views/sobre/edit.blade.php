@@ -57,7 +57,8 @@
                                 <p>
                                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
                                       Alterar Imagem
-                                    </a>
+                                    </a> <br>
+                                    <small>Dimensões ideais: 225 largura x 225 altura</small>
                                 </p>
                                 <div class="collapse" id="collapseExample1">
                                     <input id="imagem" type="file" name="img" class="required">

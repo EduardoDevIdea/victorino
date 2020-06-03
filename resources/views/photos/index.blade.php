@@ -72,7 +72,7 @@
             @include('photos.create') <!-- Modal para adicinar foto -->
 
             <!-- VERIFICAÇÃO - se limite de 8 fotos foi atingido, não aparece botão para adicionar foto -->
-                @if($qtd < 8) 
+                @if($qtd < 9) 
 
                     <div class="row">
                         <div class="col text-left">
@@ -81,7 +81,9 @@
                                 Nova Foto
                             </button>
                             <!-- FIM BOTAO -->
-                            <span class="ml-2">Máximo: 8.</span>
+                            <span class="ml-2">Máximo: 9.</span>
+                            <br>
+                            <small class="text-left">Dimensões ideais: 1221 largura x 814 altura</small>
                         </div>
                     </div>
 

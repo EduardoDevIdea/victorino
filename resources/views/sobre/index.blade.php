@@ -44,7 +44,9 @@
                                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
                                         Imagem
                                     </a>
-                                    <small class="ml-1">Escolha uma imagem para acompanhar o texto</small>
+                                    <small class="ml-1">Escolha uma imagem para acompanhar o texto</small><br>
+                                    <small>Dimensões ideais: 225 largura x 225 altura</small>
+
                                 </p>
 
                                 <div class="collapse mb-4" id="collapseExample1">
