@@ -98,7 +98,7 @@
                       </li>
                       <li class="rd-nav-item"><a class="rd-nav-link" href="#blog">Blog</a>
                       </li>
-                      <li class="rd-nav-item"><a class="rd-nav-link" href="#contato">Contato</a>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#contato">Contatos</a>
                       </li>
                     </ul>
                   </div>
