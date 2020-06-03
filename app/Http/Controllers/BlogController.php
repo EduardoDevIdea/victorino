@@ -64,6 +64,7 @@ class BlogController extends Controller
         $contact = Contact::get();
         $post = Post::get();
 
+        // dd($caminho);
 
         return view('Blog.articles', compact('article','bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post'));
     }
