@@ -223,7 +223,7 @@
                   @foreach ($espaco as $item_space)
                     <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
                       <div class="wow slideInDown">
-                        <div class="gallery-item-classic"><img src="storage/{{$item_space->path}}" alt="" style="width: 100%; height: 300px; padding: 25px;"  />
+                        <div class="gallery-item-classic"><img src="{{asset('storage/'.$item_space->path)}}" alt="" style="width: 100%; height: 300px; padding: 25px;"  />
                           <div class="gallery-item-classic-caption"><a href="storage/{{$item_space->path}}" data-lightgallery="item">zoom</a></div>
                         </div>
                       </div>
