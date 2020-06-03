@@ -42,12 +42,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block" style="padding: 0">
-                <h2 class="page-title">Publicações</h2>
+                <h1 class="page-title">Blog</h1>
                 <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Publicações</li>
+                            <li class="breadcrumb-item active" aria-current="page">Blog</li>
                         </ol>
                     </nav>
                 </div>
