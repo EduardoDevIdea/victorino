@@ -63,7 +63,7 @@
         </div>
       </header>
       <section class="section section-lg section-main-bunner section-main-bunner-filter text-center" >
-        <div class="main-bunner-img" style="background-image: url('storage/{{$bg_img[0]->path}}'); background-size: cover;"></div>
+        <div class="main-bunner-img" style="background-image: url('storage/'.{{$bg_img[0]->path}}'); background-size: cover;"></div>
         <div class="main-bunner-inner">
           <div class="container">
             <div class="box-default">
@@ -88,6 +88,7 @@
             <div class="col-xl-7">
               <ul class="list-xxl heading-list">
                 <hr>
+                <img src="{{asset('storage/'.$article->img)}}" alt="" style="widht:750px; height:370px">
                 <li>
                   <h4>{{$article->subtitulo}}</h4>
                   <p>{!! $article->texto !!}</p>
