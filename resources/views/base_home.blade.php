@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('images/favicon-.png')}}">
-    <title>Victoriano - Odontologia Especializada</title>
+    <title>Victoriano - @yield('title') </title>
     <link href="{{asset('assets/libs/flot/css/float-chart.css')}}" rel="stylesheet">
     <link href="{{asset('dist/css/style.min.css')}}" rel="stylesheet">
     
@@ -17,6 +17,13 @@
 <style>
     .sumir {
         display: none;
+    }
+    .logo_vic {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        width: 210px;
+        text-align: center;
     }
 </style>
 
@@ -37,7 +44,7 @@
                     </b>
                     <span class="logo-text">
                         <a href="{{ url('/') }}">
-                            <img id="extense_logo" src="{{asset('images/Screenshot_2-removebg-preview.png')}}" alt="homepage" class="light-logo text-center" width="150px" />
+                            <img id="extense_logo" src="{{asset('images/logo_nova.png')}}" alt="homepage" class="light-logo text-center logo_vic" />
                         </a>
                     </span>
                     {{-- <a class="navbar-brand" href="index.html">
@@ -50,7 +57,7 @@
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav float-left mr-auto">
                         <li class="nav-item d-none d-md-block"><a id="menu_hamburger" class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" onclick="esconder_menu()" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
-                        <li class="nav-item d-none d-md-block"><a id="menu_arrow" class="nav-link sidebartoggler waves-effect waves-light sumir" href="javascript:void(0)" onclick="aparecer_menu()" data-sidebartype="mini-sidebar"><i class="mdi mdi-arrow-right-bold font-24"></i></a></li>
+                        <li class="nav-item d-none d-md-block"><a id="menu_arrow" class="nav-link sidebartoggler waves-effect waves-light sumir" href="javascript:void(0)" onclick="aparecer_menu()" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                              <span class="d-none d-md-block">Criar Novo <i class="fa fa-angle-down"></i></span>
@@ -69,13 +76,6 @@
                        
                     </ul>
                     <ul class="navbar-nav float-right">
-                        <li class="nav-item">
-                            <button class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Voltar ao site">
-                                <a class="nav-link" href="{{ url('/') }}">
-                                    <i class="fas fa-desktop fa-lg ml-1"></i>
-                                 </a>
-                            </button>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user-circle fa-2x"></i>
@@ -116,7 +116,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('image.index') }}" aria-expanded="false">
                                 <i class="mdi mdi-camera-enhance"></i>
-                                <span class="hide-menu">Logo, Imagens...</span>
+                                <span class="hide-menu">Imagens</span>
                             </a>
                         </li>
 
@@ -151,7 +151,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('contact.index') }}" aria-expanded="false">
                             <i class="mdi mdi-relative-scale"></i>
-                                <span class="hide-menu">Contato, Endereço...</span>
+                                <span class="hide-menu">Contatos</span>
                             </a>
                         </li>
                     </ul>

@@ -1,5 +1,5 @@
 @extends('base_home')
-
+@section('title', 'Imagens')
 
 @section('content')
 

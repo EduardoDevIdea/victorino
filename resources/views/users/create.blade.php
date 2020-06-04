@@ -1,6 +1,6 @@
 @extends('base_home')
 
-
+@section('title', 'Cadastrar Usuario')
 @if(session('update'))
     <script>
         window.alert("{{ session('update') }}");
@@ -8,7 +8,11 @@
 @endif
 
 @section('content')
-
+<style>
+     ul li a {
+     color: black;
+ }
+</style>
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
@@ -36,7 +40,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="{{ route('user.create') }}" tabindex="-1" aria-disabled="true" title="Cadastrar usuário">
-                        <i class="fas fa-user-plus"></i>
+                       Cadastrar
                     </a>
                 </li>
 

@@ -1,5 +1,5 @@
 @extends('base_home')
-
+@section('title', 'Criar Publicação')
 
 @if(session('erroImg'))
     <script>

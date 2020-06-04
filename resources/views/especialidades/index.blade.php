@@ -1,6 +1,11 @@
 @extends('base_home')
-
+@section('title', 'Especialidades')
 @section('content')
+<style>
+    ul li a {
+        color: black;
+    }
+</style>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 

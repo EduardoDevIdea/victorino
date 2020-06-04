@@ -1,6 +1,6 @@
 @extends('base_home')
 
-
+@section('title', 'O espaço')
 @section('content')
 
 

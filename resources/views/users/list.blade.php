@@ -1,8 +1,13 @@
 @extends('base_home')
 
+@section('title', 'Usuarios')
 
 @section('content')
-
+<style>
+     ul li a {
+     color: black;
+ }
+</style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     @if(session('store'))
@@ -53,7 +58,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('user.create') }}" tabindex="-1" aria-disabled="true" title="Cadastrar usuário">
-                        <i class="fas fa-user-plus"></i>
+                        Cadastrar
                     </a>
                 </li>
                 

@@ -1,5 +1,5 @@
 @extends('base_home')
-
+@section('title', 'Formas de contato')
 @section('content')
 <style>
     .sumir {
