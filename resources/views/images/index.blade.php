@@ -12,6 +12,7 @@
                 icon: 'success',
                 title: 'Imagem cadastrada com sucesso!',
                 showConfirmButton: false,
+                timer: 1500
             })
         </script>
     @endif
@@ -22,6 +23,7 @@
                 icon: 'success',
                 title: 'Imagem atualizada com sucesso!',
                 showConfirmButton: false,
+                timer: 1500
             })
         </script>
     @endif

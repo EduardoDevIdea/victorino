@@ -12,6 +12,7 @@
             icon: 'success',
             title: "{{ session('store') }}",
             showConfirmButton: false,
+            timer: 1500
             })
         </script>
     @endif
@@ -22,6 +23,7 @@
             icon: 'success',
             title: "{{ session('update') }}",
             showConfirmButton: false,
+            timer: 1500
             })
         </script>
     @endif
@@ -32,6 +34,7 @@
             icon: 'danger',
             title: "{{ session('erroImg') }}",
             showConfirmButton: false,
+            timer: 1500
             })
         </script>
     @endif

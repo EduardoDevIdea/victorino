@@ -1,5 +1,5 @@
 @extends('base_home')
-@section('title', 'Blog)
+@section('title', 'Blog')
 
 @if(session('store'))
     <script>
@@ -7,6 +7,7 @@
         icon: 'success',
         title: "Postagem publicada com sucesso",
         showConfirmButton: false,
+        timer: 1500
         })
     </script>
 @endif
@@ -17,6 +18,7 @@
     icon: 'success',
     title: "Postagem editada com sucesso",
     showConfirmButton: false,
+    timer: 1500
     })
 </script>
 @endif

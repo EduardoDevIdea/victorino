@@ -23,8 +23,7 @@ class ProfissionalController extends Controller
      */
     public function index()
     {
-        $profissionais = Profissional::paginate(5); //Profissional::all()->paginate(10); NÃO FUNCIONA DESSE JEITO
-
+        $profissionais = Profissional::get(); //Profissional::all()->paginate(10); NÃO FUNCIONA DESSE JEITO
        return view('profissionais.index', compact('profissionais'));
     }
 

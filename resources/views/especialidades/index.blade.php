@@ -7,6 +7,7 @@
     }
 </style>
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.bootstrap4.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
     @if(session('store'))
@@ -15,6 +16,7 @@
                 icon: 'success',
                 title: 'Especialidade cadastrada com sucesso!',
                 showConfirmButton: false,
+                timer: 1500
             })
         </script>
     @endif
@@ -25,6 +27,7 @@
                 icon: 'success',
                 title: 'Dados atualizados com sucesso',
                 showConfirmButton: false,
+                timer: 1500
             })
         </script>
     @endif
@@ -64,41 +67,49 @@
         <div class="card-body m-4" style="font-size: 15px">
 
             <h3 class="mb-3"><strong>Especialidades cadastradas</strong></h3>
-            
-            <table class="table w-50 mx-auto">
+            <div class="table-responsive">
+                
 
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Nome</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table  id="especialidade" class="table  table-striped table-bordered">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($especialidades as $especialidade)
+                                        <tr>
+                                            <td>{{ $especialidade->nome }}</td>
+                                            <td>
+                                                <button  class="btn btn-info" title="Editar registro"  data-toggle="tooltip" data-placement="bottom">
+                                                    <a href="{{ route('especialidade.edit', ['especialidade' => $especialidade->id]) }}" style="color: white"> Editar</a> <!-- icone -->
+                                                </button>
+                                                
+                                                <button class="btn btn-danger" type="button"data-toggle="tooltip" data-placement="bottom" title="Apagar registro">
+                                                    <a  onclick="apagar({{$especialidade->id}})" >
+                                                        Apagar <!-- icone -->
+                                                    </a>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                                <tfoot class="table-dark">
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Ações</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
 
-                <tbody>
-
-                    @foreach($especialidades as $especialidade)
-
-                        <tr>
-                            <td>{{ $especialidade->nome }}</td>
-
-                            <td>
-                                <button  class="btn btn-link" title="Editar"  data-toggle="tooltip" data-placement="bottom">
-                                    <a href="{{ route('especialidade.edit', ['especialidade' => $especialidade->id]) }}"> <i class="fas fa-edit" style="color: black"></i></a> <!-- icone -->
-                                </button>
-                                
-                                <button class="btn btn-link" type="button"data-toggle="tooltip" data-placement="bottom" title="Excluir">
-                                    <a  onclick="apagar({{$especialidade->id}})" >
-                                        <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
-                                    </a>
-                                </button>
-                            </td>
-                        </tr>
-
-                    @endforeach
-
-                </tbody>
-
-            </table>
+                    </div>
+                </div>
+        </div>
 
             <!-- Paginate -->
             <div class="container">
@@ -110,7 +121,36 @@
 
     </div>
     <!-- END CARD -->
+    <script src="{{asset('assets/libs/jquery/dist/jquery.min.j')}}s"></script>
+    <script src="{{asset('assets/libs/popper.js/dist/umd/popper.min.js')}}"></script>
+    <script src="a{{asset('ssets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js')}}"></script>
+    <script src="{{asset('assets/extra-libs/sparkline/sparkline.js')}}"></script>
+    <script src="{{asset('assets/extra-libs/DataTables/datatables.min.js')}}"></script>
+    <script>
+        $('#especialidade').DataTable( {
+            language: {
+                "sSearch": "Buscar: ",
+                "lengthMenu": "Mostrar _MENU_ resultados por página",
+                "zeroRecords": "Nothing found - sorry",
+                "info": "Página _PAGE_ de _PAGES_",
+                "sZeroRecords": "Não foram encontrados resultados",
+                "infoEmpty": "Nenhum resultado disponivel",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "oPaginate" : {
+                    "sFirst": "Primeiro",
+                    "sPrevious": "Anterior",
+                    "sNext": "Próximo",
+                    "sLast": "Último"
+                },
+                "sPaginateType": "full_number"
+            },
+         
+               
+                
 
+        } );
+    </script>
     <script>
         function apagar(id) {
             Swal.fire({
@@ -127,10 +167,8 @@
                     var url = "{{ url('/especialidade') }}"
                     var  response = await fetch(url + `/${id}/delete`)
                     window.location.reload()
-                    
                 }
             })
-           
         }
     </script>
 

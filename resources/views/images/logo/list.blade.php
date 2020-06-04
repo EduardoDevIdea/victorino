@@ -1,5 +1,5 @@
 @extends('images.index')
-@section('title', 'Logo'')
+@section('title', 'Logo')
 
 @section('form')
 

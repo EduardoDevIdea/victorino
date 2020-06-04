@@ -10,6 +10,7 @@
                     icon: 'success',
                     title: 'Dados atualizados com sucesso',
                     showConfirmButton: false,
+                    timer: 1500
                 })
             </script>
         @endif      
