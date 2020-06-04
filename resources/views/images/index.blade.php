@@ -50,11 +50,11 @@
         <div class="row w-auto mt-4 mb-5">
 
             <div class="col d-flex justify-content-center">
-                <a class="btn btn-primary w-75" href="{{ route('image.list', ['image' => 'logo']) }}">Logomarca</a> 
+                <a class="btn btn btn-info w-75" href="{{ route('image.list', ['image' => 'logo']) }}">Logomarca</a> 
             </div>
 
             <div class="col d-flex justify-content-center">
-                <a class="btn btn-primary w-75" href="{{ route('image.list', ['image' => 'background']) }}">Background</a> 
+                <a class="btn btn btn-info w-75" href="{{ route('image.list', ['image' => 'background']) }}">Background</a> 
             </div>
 
         </div>

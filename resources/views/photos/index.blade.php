@@ -77,7 +77,7 @@
                     <div class="row">
                         <div class="col text-left">
                             <!-- BOTAO DISPARA MODAL --> <!-- Modal é o arquivo 'photos.create' -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create">
                                 Nova Foto
                             </button>
                             <!-- FIM BOTAO -->
@@ -88,7 +88,7 @@
                     </div>
 
                 @else
-                <h3>Limite de 8 fotos atingido. Altere a foto ou exclua para adicionar nova.</h3>
+                <h3>Limite de 9 fotos atingido. Altere a foto ou exclua para adicionar nova.</h3>
                 @endif    
             <!--END VERIFICAÇÃO -->
 
@@ -99,10 +99,10 @@
 
                     @foreach($photos as $photo)
 
-                        <div class="col-3 ">
+                        <div class="col-4">
 
                             <div class="row">
-                                <img src="/storage/{{ $photo->path }}" style="width: 230px; height: 150px;">
+                                <img src="/storage/{{ $photo->path }}" style="width: 300px; height: 150px;">
                             </div>
 
                             <div class="row mb-5 d-flex justify-content-center align-items-center">

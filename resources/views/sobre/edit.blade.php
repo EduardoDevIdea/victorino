@@ -55,7 +55,7 @@
                                 <label for="legenda" class="mt-3" style="font-size: 20px;">Legenda</label>
                                 <input  id="legenda" name="legenda" class="required form-control mb-4" style="border: 1px solid;" value="{{ $sobre->legenda }}">
                                 <p>
-                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <a class="btn btn-info" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
                                       Alterar Imagem
                                     </a> <br>
                                     <small>Dimensões ideais: 225 largura x 225 altura</small>
@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         
-                        <p class="ml-3"><input type="submit" value="Atualizar" class="btn btn-primary btn-lg"></p>
+                        <p class="ml-3"><input type="submit" value="Atualizar" class="btn btn-info btn-lg"></p>
 
                     </section>
                 </div>

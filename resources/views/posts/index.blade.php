@@ -1,5 +1,5 @@
 @extends('base_home')
-@section('title', 'Blog)
+@section('title', 'Blog')
 
 @if(session('store'))
     <script>

@@ -21,7 +21,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Profissionais</li>
+                        <li class="breadcrumb-item" aria-current="page"><a href="{{ route('profissional.index') }}">Profissionais</a></li>
                         <li class="breadcrumb-item" aria-current="page">Cadastrar</li>
                     </ol>
                 </nav>
@@ -111,13 +111,13 @@
                     </div> 
                 </div>
                 
-                <div class="row">
-                    <div class="form-group row">
+                
+                    <div class="form-group row mt-3">
                         <div class="col-sm-9">
-                            <input type="submit" class="btn btn-success" value="Salvar">
+                            <input type="submit" class="btn btn-success btn-lg" value="Salvar">
                         </div>
                     </div>
-                </div>
+                
                       
             </form>
                 

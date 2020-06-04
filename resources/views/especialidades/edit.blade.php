@@ -67,7 +67,7 @@
 
                 <div class="border-top">
                     <div class="card-body">
-                        <input type="submit" value="Salvar" class="btn btn-primary">
+                        <input type="submit" value="Salvar" class="btn btn-info btn-lg">
                     </div>
                 </div>
                 
