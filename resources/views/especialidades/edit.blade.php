@@ -1,6 +1,12 @@
 @extends('base_home')
-
+@section('title', 'Editar Especialidade')
 @section('content')
+<style>
+    ul li a {
+        color: black
+    }
+</style>
+
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-12 d-flex no-block align-items-center">
@@ -61,7 +67,7 @@
 
                 <div class="border-top">
                     <div class="card-body">
-                        <input type="submit" value="Salvar" class="btn btn-primary">
+                        <input type="submit" value="Salvar" class="btn btn-info btn-lg">
                     </div>
                 </div>
                 

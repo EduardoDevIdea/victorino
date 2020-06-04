@@ -1,6 +1,11 @@
 @extends('base_home')
-
+@section('title', 'Profissionais')
 @section('content')
+<style>
+    ul li a {
+        color: black;
+    }
+</style>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
@@ -10,6 +15,7 @@
             icon: 'success',
             title: "{{ session('store') }}",
             showConfirmButton: false,
+            timer: 1500
             })
         </script>
     @endif
@@ -20,6 +26,7 @@
             icon: 'success',
             title: "{{ session('update') }}",
             showConfirmButton: false,
+            timer: 1500
             })
       </script>
     @endif
@@ -30,20 +37,16 @@
             icon: 'error',
             title: 'Oops...',
             text: "{{ session('erroImg') }}",
+            timer: 1500
             })
       </script>
     @endif
 
-    @if(session('delete'))
+    {{-- @if(session('delete'))
       <script>
-          Swal.fire(
-            'Deletado!',
-            "{{ session('delete') }}",
-            'success'
-            )
-         window.alert("{{ session('delete') }}");
+        
       </script>
-    @endif      
+    @endif       --}}
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
@@ -80,10 +83,11 @@
             
             <h3 class="mb-3"><strong>Profissionais cadastrados</strong></h3>
 
-            <table class="table w-100 mx-auto">
+            <table id="profissionais" class="table w-100 mx-auto">
 
                 <thead class="thead-dark">
                     <tr>
+                        <th></th>
                         <th>Nome</th>
                         <th>Cargo</th>
                         <th>Atividade</th>
@@ -96,21 +100,25 @@
                     @foreach($profissionais as $profissional)
 
                         <tr>
-
-                            <td>{{ $profissional->nome }}</td>
+                            <td>
+                                <img src="{{asset('storage/'.$profissional->img)}}" alt="" width="50px">
+                            </td>
+                            <td style="display: inline-flex; justify-content:center;align-items:center">
+                                <p style="justify-content:center">{{ $profissional->nome }}</p>
+                            </td>
 
                             <td>{{ $profissional->cargo }}</td>
                             
                             <td>{{ $profissional->atividade }}</td>
 
                             <td>
-                                <button class="btn btn-link" data-toggle="tooltip" data-placement="bottom"  title="Editar">
-                                    <a href="{{ route('profissional.edit', ['profissional' => $profissional->id]) }}"><i class="fas fa-edit" style="color: black"></i></a>
+                                <button class="btn btn-info" data-toggle="tooltip" data-placement="bottom"  title="Editar Profissional">
+                                    <a href="{{ route('profissional.edit', ['profissional' => $profissional->id]) }}" style="color: white">Editar</a>
                                 </button>
 
-                                <button class="btn btn-link" data-toggle="tooltip" data-placement="bottom" title="Excluir">
+                                <button class="btn btn-danger" data-toggle="tooltip" data-placement="bottom" title="Excluir Profissional">
                                     <a  onclick="apagar({{$profissional->id}})" >
-                                        <i class="fas fa-trash-alt" style="color: red"></i> <!-- icone -->
+                                        Excluir
                                     </a>
                                 </button>
                             </td>
@@ -120,20 +128,53 @@
                     @endforeach
 
                 </tbody>
+                <tfoot class="table-dark">
+                    <tr>
+                        <th></th>
+                        <th>Nome</th>
+                        <th>Cargo</th>
+                        <th>Atividade</th>
+                        <th>Ações</th>
+                    </tr>
+                </tfoot>
+            </table>
 
             </table>
 
             <!-- Paginate -->
-            <div class="container">
-            {{ $profissionais->links() }}
-            </div>
 
         </div>
         <!-- END CARD BODY -->
 
     </div>
     <!-- END CARD -->
+    <script src="{{asset('assets/libs/jquery/dist/jquery.min.js')}}"><script>
+    <script src="{{asset('assets/extra-libs/sparkline/sparkline.js')}}"></script>
+    <script src="{{asset('assets/extra-libs/DataTables/datatables.min.js')}}"></script>
+    <script>
+        $('#profissionais').DataTable( {
+            language: {
+                "sSearch": "Buscar: ",
+                "lengthMenu": "Mostrar _MENU_ resultados por página",
+                "zeroRecords": "Nothing found - sorry",
+                "info": "Página _PAGE_ de _PAGES_",
+                "sZeroRecords": "Não foram encontrados resultados",
+                "infoEmpty": "Nenhum resultado disponivel",
+                "infoFiltered": "(filtered from _MAX_ total records)",
+                "oPaginate" : {
+                    "sFirst": "Primeiro",
+                    "sPrevious": "Anterior",
+                    "sNext": "Próximo",
+                    "sLast": "Último"
+                },
+                "sPaginateType": "full_number"
+            },
+         
+               
+                
 
+        } );
+    </script>
     <script>
         function apagar(id) {
             Swal.fire({

@@ -1,6 +1,12 @@
 @extends('base_home')
-
+@section('title', 'Editar Profissional')
 @section('content')
+<style>
+     ul li a {
+     color: black;
+ }
+</style>
+
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-12 d-flex no-block align-items-center">
@@ -9,7 +15,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Profissionais</li>
+                        <li class="breadcrumb-item" aria-current="page"><a href="{{ route('profissional.index') }}">Profissionais</a></li>
                         <li class="breadcrumb-item" aria-current="page">Editar</li>
                     </ol>
                 </nav>
@@ -90,10 +96,11 @@
                     <!-- Coluna Direita -->
                     <div class="col ml-5">
                         <div class="form-group row">
-                            <div class="col-sm-9">
+                            <div class="col-sm-9 text-left">
                                 <img src="/storage/{{ $profissional->img }}"  class="mb-2" style="widht: 150x; height: 350px;">
                                 <br>
                                 <input type="file" name="img" value="Escolher Imagem"><br>
+                                <small class="text-left">Dimensões ideais: 543 largura x 814 altura</small>
                             </div>
                         </div>
                     </div>

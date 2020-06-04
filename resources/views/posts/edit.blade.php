@@ -1,5 +1,5 @@
 @extends('base_home')
-
+@section('title', 'Editar Publicação')
 
 @if(session('erroImg'))
     <script>
@@ -50,6 +50,8 @@
                     <a class="btn btn-info" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                      Alterar Foto
                     </a>
+                    <br>
+                    <small class="text-left"><strong>Dimensões ideais: 1920 largura x 1080 altura</strong></small>
                   </p>
                   <div class="collapse" id="collapseExample">
                     <div class="card card-body">

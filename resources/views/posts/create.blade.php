@@ -1,5 +1,5 @@
 @extends('base_home')
-
+@section('title', 'Criar Publicação')
 
 @if(session('erroImg'))
     <script>
@@ -51,6 +51,8 @@
             <div class="mb-4">
                 <label for="img">Imagem<small style="color: red;"> *Imagem principal</small></label> <br>
                 <input type="file" name="img" id="img" required>
+                <br>
+                <small class="text-left"><strong>Dimensões ideais: 1920 largura x 1080 altura</strong></small>
             </div>
 
             <div class="form-group">

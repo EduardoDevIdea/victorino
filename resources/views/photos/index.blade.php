@@ -1,6 +1,6 @@
 @extends('base_home')
 
-
+@section('title', 'O espaço')
 @section('content')
 
 
@@ -12,6 +12,7 @@
             icon: 'success',
             title: "{{ session('store') }}",
             showConfirmButton: false,
+            timer: 1500
             })
         </script>
     @endif
@@ -22,6 +23,7 @@
             icon: 'success',
             title: "{{ session('update') }}",
             showConfirmButton: false,
+            timer: 1500
             })
         </script>
     @endif
@@ -32,6 +34,7 @@
             icon: 'danger',
             title: "{{ session('erroImg') }}",
             showConfirmButton: false,
+            timer: 1500
             })
         </script>
     @endif
@@ -72,21 +75,23 @@
             @include('photos.create') <!-- Modal para adicinar foto -->
 
             <!-- VERIFICAÇÃO - se limite de 8 fotos foi atingido, não aparece botão para adicionar foto -->
-                @if($qtd < 8) 
+                @if($qtd < 9) 
 
                     <div class="row">
                         <div class="col text-left">
                             <!-- BOTAO DISPARA MODAL --> <!-- Modal é o arquivo 'photos.create' -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
+                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#create">
                                 Nova Foto
                             </button>
                             <!-- FIM BOTAO -->
-                            <span class="ml-2">Máximo: 8.</span>
+                            <span class="ml-2">Máximo: 9.</span>
+                            <br>
+                            <small class="text-left">Dimensões ideais: 1221 largura x 814 altura</small>
                         </div>
                     </div>
 
                 @else
-                <h3>Limite de 8 fotos atingido. Altere a foto ou exclua para adicionar nova.</h3>
+                <h3>Limite de 9 fotos atingido. Altere a foto ou exclua para adicionar nova.</h3>
                 @endif    
             <!--END VERIFICAÇÃO -->
 
@@ -97,10 +102,10 @@
 
                     @foreach($photos as $photo)
 
-                        <div class="col-3 ">
+                        <div class="col-4">
 
                             <div class="row">
-                                <img src="/storage/{{ $photo->path }}" style="width: 230px; height: 150px;">
+                                <img src="/storage/{{ $photo->path }}" style="width: 300px; height: 150px;">
                             </div>
 
                             <div class="row mb-5 d-flex justify-content-center align-items-center">

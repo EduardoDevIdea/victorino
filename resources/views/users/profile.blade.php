@@ -1,6 +1,6 @@
 @extends('base_home')
 
-
+@section('title', 'Meu perfil')
 @section('content')
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -11,6 +11,7 @@
                 icon: 'success',
                 title: 'Dados atualizados com sucesso',
                 showConfirmButton: false,
+                timer: 1500
             })
         </script>
     @endif
@@ -38,7 +39,7 @@
         <div class="card-header" style="font-size: 20px">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('user.index') }}" title="Editar perfil"><i class="far fa-edit"></i></a>
+                    <a class="nav-link active" href="{{ route('user.index') }}" title="Editar perfil">Editar Perfil</a>
                 </li>    
             </ul>
         </div>

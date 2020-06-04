@@ -1,5 +1,5 @@
 @extends('base_home')
-
+@section('title', 'Quem Somos')
 @section('content')
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
@@ -10,6 +10,7 @@
                     icon: 'success',
                     title: 'Dados atualizados com sucesso',
                     showConfirmButton: false,
+                    timer: 1500
                 })
             </script>
         @endif      
@@ -17,12 +18,12 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h2 class="page-title">Sobre Nós</h2>
+                <h2 class="page-title">Quem Somos</h2>
                 <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item" aria-current="page">Sobre</li>
+                            <li class="breadcrumb-item" aria-current="page">Quem Somos</li>
                             <li class="breadcrumb-item active" aria-current="page">Editar</li>
                         </ol>
                     </nav>
@@ -55,9 +56,10 @@
                                 <label for="legenda" class="mt-3" style="font-size: 20px;">Legenda</label>
                                 <input  id="legenda" name="legenda" class="required form-control mb-4" style="border: 1px solid;" value="{{ $sobre->legenda }}">
                                 <p>
-                                    <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <a class="btn btn-info" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
                                       Alterar Imagem
-                                    </a>
+                                    </a> <br>
+                                    <small>Dimensões ideais: 225 largura x 225 altura</small>
                                 </p>
                                 <div class="collapse" id="collapseExample1">
                                     <input id="imagem" type="file" name="img" class="required">
@@ -66,7 +68,7 @@
                             </div>
                         </div>
                         
-                        <p class="ml-3"><input type="submit" value="Atualizar" class="btn btn-primary btn-lg"></p>
+                        <p class="ml-3"><input type="submit" value="Atualizar" class="btn btn-info btn-lg"></p>
 
                     </section>
                 </div>

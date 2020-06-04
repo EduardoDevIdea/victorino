@@ -1,5 +1,5 @@
 @extends('base_home')
-
+@section('title', 'Quem Somos')
 @section('content')
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> 
@@ -7,7 +7,7 @@
     <div class="page-breadcrumb">
         <div class="row">
             <div class="col-12 d-flex no-block align-items-center">
-                <h2 class="page-title">Sobre Nós</h2>
+                <h2 class="page-title">Quem Somos</h2>
                 <div class="ml-auto text-right">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -44,7 +44,9 @@
                                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
                                         Imagem
                                     </a>
-                                    <small class="ml-1">Escolha uma imagem para acompanhar o texto</small>
+                                    <small class="ml-1">Escolha uma imagem para acompanhar o texto</small><br>
+                                    <small>Dimensões ideais: 225 largura x 225 altura</small>
+
                                 </p>
 
                                 <div class="collapse mb-4" id="collapseExample1">
@@ -57,7 +59,7 @@
                             </div>
                         </div>
                         
-                        <p class="ml-3"><input type="submit" value="Salvar" class="btn btn-primary btn-lg"></p>
+                        <p class="ml-3"><input type="submit" value="Salvar" class="btn btn-success btn-lg"></p>
 
                     </section>
                 </div>

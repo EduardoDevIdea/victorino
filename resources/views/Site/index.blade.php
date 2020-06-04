@@ -56,6 +56,8 @@
     right: -50px;
     cursor: pointer;
   }
+
+
    
   </style>
   <body>
@@ -88,7 +90,7 @@
                     <ul class="rd-navbar-nav">
                       <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Home</a>
                       </li>
-                      <li class="rd-nav-item"><a class="rd-nav-link" href="#sobre">Sobre Nós</a>
+                      <li class="rd-nav-item"><a class="rd-nav-link" href="#sobre">Quem Somos</a>
                       </li>
                       <li class="rd-nav-item"><a class="rd-nav-link" href="#especialidades">Especialidades</a>
                       </li>
@@ -100,6 +102,30 @@
                       </li>
                       <li class="rd-nav-item"><a class="rd-nav-link" href="#contato">Contatos</a>
                       </li>
+                        @guest
+                          
+                        @else
+                            <li class="rd-nav-item dropdown">
+                                <a id="navbarDropdown" class="rd-nav-link dropdown-toggle" href="#"  style="color: white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="{{ url('/home') }}">
+                                      Voltar ao Painel
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                     </ul>
                   </div>
                 </div>
@@ -133,7 +159,7 @@
                   </div>
                 </div>
                 <div class="col-lg-6 col-xl-5 wow fadeInRight">
-                  <h2>Sobre Nós</h2>
+                  <h2>Quem Somos</h2>
                   <p>{!! $about[0]->sobre_clinica !!}</p>
                   <p>
                     <a class="btn btn-primary" id="mais" onclick="aparecer()" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -386,9 +412,11 @@
               </div>
               <div class="col-12">
                 <ul class="social-list">
-                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-facebook" target="__blank" href="{{$contact[0]->facebook}}"></a></li>
-                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-instagram" target="__blank" href="{{$contact[0]->instagram}}"></a></li>
-                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-twitter" target="__blank" href="{{$contact[0]->twitter}}"></a></li>
+                  @foreach ($contact as $item)
+                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-facebook" target="__blank" href="{{$item->facebook}}"></a></li>
+                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-instagram" target="__blank" href="{{$item->instagram}}"></a></li>
+                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-twitter" target="__blank" href="{{$item->twitter}}"></a></li>
+                  @endforeach
                 </ul>
               </div>
             </div>

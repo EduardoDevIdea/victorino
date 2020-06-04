@@ -19,6 +19,8 @@
 
                     <div class="modal-body">
                             <input type="file" name="img" required>
+                            <br>
+                            <small class="text-left">Dimensões ideais: 1221 largura x 814 altura</small>
                     </div>
 
                     <div class="modal-footer">
