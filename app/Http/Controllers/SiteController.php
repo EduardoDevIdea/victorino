@@ -31,36 +31,36 @@ class SiteController extends Controller
 
 
         if(count($bg_img) == 0 && count($about) == 0 && count($logo_inicio) == 0) {
-            return view('Auth.Login', [
+            return view('auth.login', [
                 'errorMessageDuration' => 'As imagens de background,  logo do menu e a seção quem somos precisam ser preenchidas',
                 'finalizado' => 'Acesse o painel administrativo, para preencher as seções restantes'
            ]);
         } else if(count($bg_img) == 0 && count($about) == 0) {
-            return view('Auth.Login', [
+            return view('auth.login', [
                 'errorMessageDuration' => 'As imagens de background e a seção Quem Somos precisam ser preenchidas',
                 'finalizado' => 'Acesse o painel administrativo, para preencher as seções restantes' 
            ]);
         }
         else if(count($bg_img) == 0 && count($logo_inicio)  == 0) {
-            return view('Auth.Login', [
+            return view('auth.login', [
                 'errorMessageDuration' => 'As imagens de background e a logo do menu precisam ser inseridas',
                 'finalizado' => 'Acesse o painel administrativo, para preencher as seções restantes' 
            ]);
         }
         else if(count($bg_img) == 0) {
-            return view('Auth.Login', [
+            return view('auth.login', [
                 'errorMessageDuration' => 'Falta inserir uma imagem para o background',
                 'finalizado' => 'Acesse o painel administrativo, para preencher as seções restantes' 
            ]);
         }
         else if(count($about) == 0) {
-            return view('Auth.Login', [
+            return view('auth.login', [
                 'errorMessageDuration' => 'Falta preencher a a seção Quem Somos',
                 'finalizado' => 'Acesse o painel administrativo, para preencher as seções restantes' 
            ]);
         }
         else if(count($logo_inicio) == 0) {
-            return view('Auth.Login', [
+            return view('Auth.login', [
                 'errorMessageDuration' => 'Falta acrescentar uma imagem para a logo do menu',
                 'finalizado' => 'Acesse o painel administrativo, para preencher as seções restantes' 
            ]);
