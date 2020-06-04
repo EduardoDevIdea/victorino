@@ -288,13 +288,13 @@
                         <div class="gallery-item-classic-caption"><a href="storage/{{$item_profi->img}}" data-lightgallery="item">zoom</a></div>
                       </div>
                       <div class="post-corporate-text" style>
-                        <div style="padding: 0 120px 0 120px; text-align: left">
+                        <div style="padding: 0 60px 0 60px; text-align: left">
                           <h4>{{$item_profi->nome}}</h4>
                           <p style="margin-top: 10px">{{$item_profi->cargo}} </p>
                           <p style="margin: 0">{{$item_profi->atividade}}</p>
                           <p style="margin: 0">Registro {{$item_profi->registro}}</p>
                         </div>
-                        <div style="padding: 5px 120px 0 120px; text-align:justify">
+                        <div style="padding: 5px 60px 0 60px; text-align:justify">
                           <p>{!! $item_profi->sobre !!}</p>
                         </div>
                       </div>
