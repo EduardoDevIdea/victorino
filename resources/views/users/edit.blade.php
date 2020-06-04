@@ -28,7 +28,8 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Usuários</li>
+                            <li class="breadcrumb-item active"><a href="{{ route('user.list') }}">Usuários</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Editar</li>
                         </ol>
                     </nav>
                 </div>
@@ -136,7 +137,7 @@
 
                 <div class="form-group row mt-4 mb-0">
                     <div class="col-md-6 offset-md-4">
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-info">
                             Atualizar
                         </button>
                     </div>

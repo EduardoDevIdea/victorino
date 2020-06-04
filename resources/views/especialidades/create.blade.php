@@ -79,11 +79,10 @@
 
                 </div>
 
-                <div class="border-top">
-                    <div class="card-body">
-                        <input type="submit" value="Salvar" class="btn btn-primary">
-                    </div>
+                <div class="card-body">
+                    <input type="submit" value="Salvar" class="btn btn-success btn-lg">
                 </div>
+               
             </form>
         
         </div>

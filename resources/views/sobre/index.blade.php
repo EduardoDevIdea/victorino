@@ -59,7 +59,7 @@
                             </div>
                         </div>
                         
-                        <p class="ml-3"><input type="submit" value="Salvar" class="btn btn-primary btn-lg"></p>
+                        <p class="ml-3"><input type="submit" value="Salvar" class="btn btn-success btn-lg"></p>
 
                     </section>
                 </div>
