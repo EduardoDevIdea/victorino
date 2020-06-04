@@ -1,6 +1,60 @@
 @extends('base_home')
 @section('title', 'Dashboard')
 @section('content')
+<style>
+    .card_post{
+        display: inline-flex;
+        justify-content: flex-start;
+        width: 49%;
+        padding-right: 10px;
+    } 
+    .card_post .card {
+        width: 100%;
+    }
+    .card_prof {
+        display: inline-flex;
+        justify-content: flex-end;
+        width: 50%;
+        padding-left: 10px;
+    }
+    .card_prof .card {
+        width: 100%;
+    }
+    .comment-footer {
+        display: inline-flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .comment-footer a {
+        margin: 5px;
+    }
+    .button_publi {
+        display: inline-flex;
+        justify-content: flex-end;
+
+    }
+    .button_prof {
+        display: inline-flex;
+        justify-content: flex-end;
+    }
+    @media screen and (max-width: 768px) {
+        .card_post{
+        width: 100%;
+        } 
+        .card_prof {
+        width: 100%;
+        }
+    }
+    @media screen and (max-width: 576px) {
+        .card_post{
+        width: 100%;
+        } 
+        .card_prof {
+        width: 100%;
+        }
+
+    }
+</style>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
@@ -20,7 +74,7 @@
                 <a href="{{url('/user/list')}}">
                     <div class="box bg-cyan text-center">
                         <h1 class="font-light text-white"><i class="mdi mdi-account-multiple-plus"></i></h1>
-                        <h6 class="text-white">Usuarios</h6>
+                        <h6 class="text-white">Úsuarios</h6>
                     </div>
                 </a>
             </div>
@@ -107,18 +161,14 @@
     </div>
 
 
-
-    <div class="row">
-
-        <div class="col-lg-6">
-        
-            <div class="card" style="height: 100%">
+        <div class="card_post">
+            <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Ultimas postagens</h4>
+                    <h4 class="card-title">Ultimas publicações</h4>
                 </div>
                 @if (count($posts) == 0)
                     <div class="container">
-                        <p>Nenhuma Postagem encontrada</p>
+                        <p>Nenhuma publicação encontrada</p>
                     </div>
                 @else
                     @foreach ($posts as $item_post)
@@ -128,8 +178,8 @@
                                 <div class="comment-text w-100">
                                     <h6 class="font-medium"><strong>{{$item_post->titulo}}</strong></h6>
                                     <span class="m-b-15 d-block">{{$item_post->subtitulo}} </span>
+                                    <span class="text-muted float-right">{{$item_post->created_at->format('M d , Y')}}</span> 
                                     <div class="comment-footer">
-                                        <span class="text-muted float-right">{{$item_post->created_at->format('M d , Y')}}</span> 
                                         <a type="button" class="btn btn-cyan btn-sm" href="{{ route('post.edit', ['post' => $item_post->id ]) }}" style="color:white">Editar</a>
                                         <a type="button" class="btn btn-danger btn-sm" onclick="del_publi({{$item_post->id}})" style="color: white">Deletar</a>
                                     </div>
@@ -138,14 +188,15 @@
                         </div>
                     @endforeach
                 @endif
-                <div class="row">
-                    <div class="col-4 offset-7">
-                        <a href="{{url('/post')}}" class="btn btn-info">clique aqui para mais postagens</a>
+                <div class="row button_publi" style="display: inline-flex;">
+                    <div class="button">
+                        <a href="{{url('/post')}}" class="btn btn-info">Mais publicações</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-lg-6">
+
+        <div class="card_prof">
             <div class="card" style="height: 100%">
                 <div class="card-body">
                     <h4 class="card-title">Profissionais</h4>
@@ -163,7 +214,7 @@
                                 <div class="comment-text w-100">
                                     <h6 class="font-medium"><strong>{{$item_profi->nome}}</strong></h6>
                                     <span class="m-b-15 d-block">{!! $item_profi->sobre !!} </span>
-                                    <div class="comment-footer">
+                                    <div class="comment-footer" style="display: inline-flex">
                                         <a type="button" class="btn btn-cyan btn-sm" href="{{ route('profissional.edit', ['profissional' => $item_profi->id ]) }}">Editar</a>
                                         <a type="button" class="btn btn-danger btn-sm" onclick="del_profi({{$item_profi->id}})" style="color: white">Deletar</a>
                                     </div>
@@ -173,16 +224,16 @@
                     @endif
                 
                 </div>
-                <div class="row">
-                    <div class="col-4 offset-6">
-                        <a href="{{url('/profissional')}}" class="btn btn-info">clique aqui para ver todos os profissionais</a>
+                <div class="row button_prof">
+                    <div class="button">
+                        <a href="{{url('/profissional')}}" class="btn btn-info">Todos os profissionais</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    </div>
+
 
     <script>
         function del_profi(id) {

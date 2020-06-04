@@ -25,6 +25,18 @@
         width: 210px;
         text-align: center;
     }
+    @media (min-width: 576px) {
+        .navbar-header {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo_vic {
+            width: 150px;
+            text-align: center;
+
+        }
+    }
 </style>
 
 <body>
