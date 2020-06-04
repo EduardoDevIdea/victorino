@@ -100,6 +100,30 @@
                       </li>
                       <li class="rd-nav-item"><a class="rd-nav-link" href="#contato">Contatos</a>
                       </li>
+                        @guest
+                          
+                        @else
+                            <li class="rd-nav-item dropdown">
+                                <a id="navbarDropdown" class="rd-nav-link dropdown-toggle" href="#"  style="color: white" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="{{ url('/home') }}">
+                                      Voltar ao Painel
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
                     </ul>
                   </div>
                 </div>
@@ -386,9 +410,11 @@
               </div>
               <div class="col-12">
                 <ul class="social-list">
-                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-facebook" target="__blank" href="{{$contact[0]->facebook}}"></a></li>
-                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-instagram" target="__blank" href="{{$contact[0]->instagram}}"></a></li>
-                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-twitter" target="__blank" href="{{$contact[0]->twitter}}"></a></li>
+                  @foreach ($contact as $item)
+                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-facebook" target="__blank" href="{{$item->facebook}}"></a></li>
+                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-instagram" target="__blank" href="{{$item->instagram}}"></a></li>
+                    <li><a class="icon icon-sm icon-circle icon-circle-md icon-bg-white fa-twitter" target="__blank" href="{{$item->twitter}}"></a></li>
+                  @endforeach
                 </ul>
               </div>
             </div>

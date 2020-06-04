@@ -13,21 +13,6 @@
      color: black;
  }
 </style>
-<<<<<<< HEAD
-    <div class="page-breadcrumb">
-        <div class="row">
-            <div class="col-12 d-flex no-block align-items-center">
-                <h2 class="page-title">Profissionais</h2>
-                <div class="ml-auto text-right">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{url('/home')}}">Dashboard</a></li>
-                            <li class="breadcrumb-item" aria-current="page">Profissionais</li>
-                            <li class="breadcrumb-item" aria-current="page">Cadastrar</li>
-                        </ol>
-                    </nav>
-                </div>
-=======
 <div class="page-breadcrumb">
     <div class="row">
         <div class="col-12 d-flex no-block align-items-center">
@@ -40,7 +25,6 @@
                         <li class="breadcrumb-item" aria-current="page">Cadastrar</li>
                     </ol>
                 </nav>
->>>>>>> ca5653be6b08203fff5c64ee9c7cc6cf030dd89f
             </div>
         </div>
     </div>
@@ -126,17 +110,9 @@
                     </div> 
                 </div>
                 
-<<<<<<< HEAD
                 <div class="form-group container d-flex flex-row p-2" >
                     <div class="col-md-12" style="padding: 0">
                         <input type="submit" class="btn btn-success" value="Salvar">
-=======
-                
-                    <div class="form-group row mt-3">
-                        <div class="col-sm-9">
-                            <input type="submit" class="btn btn-success btn-lg" value="Salvar">
-                        </div>
->>>>>>> ca5653be6b08203fff5c64ee9c7cc6cf030dd89f
                     </div>
                 
                       
