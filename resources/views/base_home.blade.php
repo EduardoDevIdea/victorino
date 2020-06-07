@@ -77,10 +77,10 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 @if( Auth::user()->type == "master" ||  Auth::user()->type == "admin")
-                                    <a class="dropdown-item" href="{{url('/user/create')}}">Usuario</a>
+                                    <a class="dropdown-item" href="{{url('/user/create')}}">Usuário</a>
                                 @endif
-                                <a class="dropdown-item" href="{{url('/especialidade/create')}}">Especialidades</a>
-                                <a class="dropdown-item" href="{{url('/profissional/create')}}">Profissionais</a>
+                                <a class="dropdown-item" href="{{url('/especialidade/create')}}">Especialidade</a>
+                                <a class="dropdown-item" href="{{url('/profissional/create')}}">Profissional</a>
                                 <a class="dropdown-item" href="{{url('/post/create')}}">Publicação</a>
                                
                             </div>
@@ -88,15 +88,28 @@
                        
                     </ul>
                     <ul class="navbar-nav float-right">
+                        <li class="nav-item" style="color: #D8D8D8;">
+                            <div style="margin-top: 15%">
+                                Olá, {{ Auth::user()->name }}
+                            </div>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user-circle fa-2x"></i>
                                 <small><strong>Meu Perfil</strong></small>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="{{ route('user.index') }}"><i class="fas fa-user-cog fa-lg mr-1"></i></i>Configurações</a>
+                                <a class="dropdown-item">
+                                    <strong> {{ Auth::user()->name }} </strong>
+                                </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="return confirm('Deseja realmente sair?');"><i class="fa fa-power-off m-r-5 m-l-5"></i> Sair</a>
+                                <a class="dropdown-item" href="{{ route('user.index') }}">
+                                    <i class="fas fa-user-cog fa-lg mr-1"></i></i>Configurações
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="return confirm('Deseja realmente sair?');">
+                                    <i class="fa fa-power-off m-r-5 m-l-5"></i> Sair
+                                </a>
                             </div>
                         </li>
                     </ul>

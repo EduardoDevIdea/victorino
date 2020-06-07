@@ -1,60 +1,60 @@
 @extends('base_home')
 @section('title', 'Dashboard')
 @section('content')
-<style>
-    .card_post{
-        display: inline-flex;
-        justify-content: flex-start;
-        width: 49%;
-        padding-right: 10px;
-    } 
-    .card_post .card {
-        width: 100%;
-    }
-    .card_prof {
-        display: inline-flex;
-        justify-content: flex-end;
-        width: 50%;
-        padding-left: 10px;
-    }
-    .card_prof .card {
-        width: 100%;
-    }
-    .comment-footer {
-        display: inline-flex;
-        justify-content: flex-start;
-        align-items: center;
-    }
-    .comment-footer a {
-        margin: 5px;
-    }
-    .button_publi {
-        display: inline-flex;
-        justify-content: flex-end;
-
-    }
-    .button_prof {
-        display: inline-flex;
-        justify-content: flex-end;
-    }
-    @media screen and (max-width: 768px) {
+    <style>
         .card_post{
-        width: 100%;
+            display: inline-flex;
+            justify-content: flex-start;
+            width: 49%;
+            padding-right: 10px;
         } 
-        .card_prof {
-        width: 100%;
+        .card_post .card {
+            width: 100%;
         }
-    }
-    @media screen and (max-width: 576px) {
-        .card_post{
-        width: 100%;
-        } 
         .card_prof {
-        width: 100%;
+            display: inline-flex;
+            justify-content: flex-end;
+            width: 50%;
+            padding-left: 10px;
         }
+        .card_prof .card {
+            width: 100%;
+        }
+        .comment-footer {
+            display: inline-flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .comment-footer a {
+            margin: 5px;
+        }
+        .button_publi {
+            display: inline-flex;
+            justify-content: flex-end;
 
-    }
-</style>
+        }
+        .button_prof {
+            display: inline-flex;
+            justify-content: flex-end;
+        }
+        @media screen and (max-width: 768px) {
+            .card_post{
+            width: 100%;
+            } 
+            .card_prof {
+            width: 100%;
+            }
+        }
+        @media screen and (max-width: 576px) {
+            .card_post{
+            width: 100%;
+            } 
+            .card_prof {
+            width: 100%;
+            }
+
+        }
+    </style>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
