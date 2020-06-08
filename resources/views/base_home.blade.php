@@ -68,8 +68,19 @@
                 </div>
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav float-left mr-auto">
+                        
+                       
                         <li class="nav-item d-none d-md-block"><a id="menu_hamburger" class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" onclick="esconder_menu()" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
                         <li class="nav-item d-none d-md-block"><a id="menu_arrow" class="nav-link sidebartoggler waves-effect waves-light sumir" href="javascript:void(0)" onclick="aparecer_menu()" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                        <li class="nav-item" style="color: #D8D8D8; display:inline-flex;justify-content:center;align-items:center; margin-left:20px">
+                            <div>
+                                Olá, {{ Auth::user()->name }}
+                            </div>
+                        </li>
+                       
+                       
+                    </ul>
+                    <ul class="navbar-nav float-right">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                              <span class="d-none d-md-block">Criar Novo <i class="fa fa-angle-down"></i></span>
@@ -85,21 +96,13 @@
                                
                             </div>
                         </li>
-                       
-                    </ul>
-                    <ul class="navbar-nav float-right">
-                        <li class="nav-item" style="color: #D8D8D8;">
-                            <div style="margin-top: 15%">
-                                Olá, {{ Auth::user()->name }}
-                            </div>
-                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user-circle fa-2x"></i>
                                 <small><strong>Meu Perfil</strong></small>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item">
+                                <a class="dropdown-item" style="text-align: center">
                                     <strong> {{ Auth::user()->name }} </strong>
                                 </a>
                                 <div class="dropdown-divider"></div>
