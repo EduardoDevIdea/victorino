@@ -16,15 +16,15 @@ class CreateProfissionalsTable extends Migration
         Schema::create('profissionals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('nome');
-            $table->string('cargo');
+            $table->string('nome')->nullable();
+            $table->string('cargo')->nullable();
             $table->string('atividade')->nullable();
             $table->string('registro')->nullable();
             $table->text('sobre')->nullable();
             $table->string('img')->nullable();
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *
