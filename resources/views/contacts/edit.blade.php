@@ -41,25 +41,25 @@
                                 <h3>Contatos</h3>
                                 <section>
                                     <label for="telefone1">Telefone </label>
-                                    <input id="telefone1" name="telefone1" type="text" class="required form-control" value="{{$contact->telefone1}}" maxlength="14" onkeyup="mascara_tel(this, mtel)">
+                                    <input id="telefone1" name="telefone1" type="text" class="form-control" value="{{$contact->telefone1}}" maxlength="14" onkeyup="mascara_tel(this, mtel)">
                                     <label for="wpp">Whatsapp</label>
-                                    <input id="wpp" name="wpp" type="text" class="required form-control" value="{{$contact->wpp}}" maxlength="15" onkeyup="mascara_wpp(this, mtel)">
+                                    <input id="wpp" name="wpp" type="text" class="form-control" value="{{$contact->wpp}}" maxlength="15" onkeyup="mascara_wpp(this, mtel)">
                                     <label for="email">E-mail</label>
-                                    <input id="email" name="email" type="text" class="required form-control" value="{{$contact->email}}">
+                                    <input id="email" name="email" type="text" class="form-control" value="{{$contact->email}}">
                                 </section>
                                 <h3>Midias Sociais</h3>
                                 <section>
                                     <label for="instagram">Instagram</label>
-                                    <input id="instagram" name="instagram" type="text" class="required form-control" value="{{$contact->instagram}}">
+                                    <input id="instagram" name="instagram" type="text" class="form-control" value="{{$contact->instagram}}">
                                     <label for="facebook">Facebook</label>
-                                    <input id="facebook" name="facebook" type="text" class="required form-control" value="{{$contact->facebook}}">
+                                    <input id="facebook" name="facebook" type="text" class="form-control" value="{{$contact->facebook}}">
                                     <label for="twitter">Twitter</label>
-                                    <input id="twitter" name="twitter" type="text" class="required form-control"  value="{{$contact->twitter}}">
+                                    <input id="twitter" name="twitter" type="text" class="form-control"  value="{{$contact->twitter}}">
                                 </section>
                                 <h3>Endereço</h3>
                                 <section>
                                     <label for="endereco">Endereço da clinica</label>
-                                    <input id="endereco" name="endereco" type="text" class="required form-control" value="{{$contact->endereco}}">
+                                    <input id="endereco" name="endereco" type="text" class="form-control" value="{{$contact->endereco}}">
                                 </section>
                                 <h3>Finalizando</h3>
                                 <section class="text-center">

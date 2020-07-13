@@ -36,23 +36,23 @@
                                     <label for="telefone1">Telefone </label>
                                     <input id="telefone1" name="telefone1" type="text" class="required form-control" autocomplete="off" maxlength="14" onkeydown="mascara_tel(this, mtel)" placeholder="Digite o telefone para contato">
                                     <label for="wpp">Whatsapp</label>
-                                    <input id="wpp" name="wpp" type="text" class="required form-control" autocomplete="off" maxlength="15" onkeydown="mascara_wpp(this, mtel)" placeholder="Digite o whatsapp da clinica">
+                                    <input id="wpp" name="wpp" type="text" class="form-control" autocomplete="off" maxlength="15" onkeydown="mascara_wpp(this, mtel)" placeholder="Digite o whatsapp da clinica">
                                     <label for="email">E-mail</label>
-                                    <input id="email" name="email" type="text" class="required form-control" placeholder="Digite o seu e-mail">
+                                    <input id="email" name="email" type="text" class="form-control" placeholder="Digite o seu e-mail">
                                 </section>
                                 <h3>Midias Sociais</h3>
                                 <section>
                                     <label for="instagram">Instagram</label>
-                                    <input id="instagram" name="instagram" type="text" class="required form-control" placeholder="Digite o endereço do instagram da clinica">
+                                    <input id="instagram" name="instagram" type="text" class="form-control" placeholder="Digite o endereço do instagram da clinica">
                                     <label for="facebook">Facebook</label>
-                                    <input id="facebook" name="facebook" type="text" class="required form-control" placeholder="Digite o endereço do facebook da clinica">
+                                    <input id="facebook" name="facebook" type="text" class="form-control" placeholder="Digite o endereço do facebook da clinica">
                                     <label for="twitter">Twitter</label>
-                                    <input id="twitter" name="twitter" type="text" class="required form-control" placeholder="Digite o endereço do twitter da Clinica">
+                                    <input id="twitter" name="twitter" type="text" class="form-control" placeholder="Digite o endereço do twitter da Clinica">
                                 </section>
                                 <h3>Endereço</h3>
                                 <section>
                                     <label for="endereco">Endereço da clinica</label>
-                                    <input id="endereco" name="endereco" type="text" class="required form-control" placeholder="Digite o seu endereço completo">
+                                    <input id="endereco" name="endereco" type="text" class="form-control" placeholder="Digite o seu endereço completo">
                                 </section>
                                 <h3>Finalizando</h3>
                                 <section class="text-center">

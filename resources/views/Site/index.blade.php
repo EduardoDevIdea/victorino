@@ -82,7 +82,7 @@
                   <!-- RD Navbar Toggle-->
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
-                  @if($logo_inicio == 0)
+                  @if($logo_inicio == null)
                     <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="images/default_images/logo/LogoAzul.PNG" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
                   @else 
                     <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="{{asset('storage/'.$logo_inicio->path)}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
@@ -140,7 +140,7 @@
       </header>
       <!-- Swiper-->
       <section class="section section-lg section-main-bunner section-main-bunner-filter text-center" >
-        @if($bg_img == 0)
+        @if($bg_img == null)
           <div class="main-bunner-img" style="background-image: url('images/default_images/background/bkg1.jpg'); background-size: cover;"></div>
         @else  
           <div class="main-bunner-img" style="background-image: url('storage/{{$bg_img->path}}'); background-size: cover;"></div>
@@ -162,7 +162,7 @@
             <div class="container">
               <div class="row row-50 justify-content-xl-between align-items-lg-center" style="padding: 30px; margin-top: 50px;">
                 <div class="col-lg-6 wow fadeInLeft">
-                  @if($about['img'] == 0)
+                  @if($about['img'] == null)
                       <div class="box-image">
                         <img class="box-image-static" src="images/default_images/sobre/sobre_1.jpg" alt="" width="580px" height="520px"/>
                   @else
@@ -216,7 +216,7 @@
               </div>
             </div>
             <div class="row row-20 row-lg-30">
-              @if(count($especialidade) == 0)
+              @if(count($especialidade) == null)
                   <h4 style="text-align: center; width: 100%;">As especialidades estarão disponíveis aqui, em breve.</h4>
               @else
               @foreach ($especialidade as $item_especialidade)
@@ -326,7 +326,7 @@
 
                     <!--FIM IMAGENS ILUSTRATIVAS-->
                   @else
-                  @foreach ($espaco[0] as $item_space)
+                  @foreach ($espaco as $item_space)
                     <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
                       <div class="wow slideInDown">
                         <div class="gallery-item-classic"><img src="{{asset('storage/'.$item_space->path)}}" alt="" style="width: 100%; height: 300px; padding: 25px;"  />

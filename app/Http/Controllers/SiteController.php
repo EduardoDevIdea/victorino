@@ -30,7 +30,7 @@ class SiteController extends Controller
         $post = Post::orderBy('created_at', 'desc')->get(); 
 
         //dd($bg_img, $logo_inicio, $about, $especialidade, $espaco, $profi, $contact, $post );
-
+        
         return view('Site.index', compact('bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post', 'logo_inicio'));
     
         
