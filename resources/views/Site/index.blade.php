@@ -83,7 +83,7 @@
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
                   @if($logo_inicio == null)
-                    <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="{{asset('images/default_images/logo/LogoAzul.PNG')}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                    <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="{{asset('images/default_images/logo/LogoAzul.png')}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
                   @else 
                     <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="{{asset('storage/'.$logo_inicio->path)}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
                   @endif
