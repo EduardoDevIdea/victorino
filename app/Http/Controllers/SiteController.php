@@ -20,16 +20,21 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $bg_img = Image::where('local', 'bkg1')->get();
-        $logo_inicio = Image::where('local','logo')->get();
-        $about = Sobre::get();
+        $bg_img = Image::where('local', 'bkg1')->first();
+        $logo_inicio = Image::where('local','logo')->first();
+        $about = Sobre::first();
         $especialidade = Especialidade::get();
         $espaco = Photo::get();
         $profi = Profissional::get();
         $contact = Contact::get();
-        $post = Post::orderBy('created_at', 'desc')->get();
+        $post = Post::orderBy('created_at', 'desc')->get(); 
 
-
+        //dd($bg_img, $logo_inicio, $about, $especialidade, $espaco, $profi, $contact, $post );
+        
+        return view('Site.index', compact('bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post', 'logo_inicio'));
+    
+        
+        /*
         if(count($bg_img) == 0 && count($about) == 0 && count($logo_inicio) == 0) {
             return view('auth.login', [
                 'errorMessageDuration' => 'As imagens de background,  logo do menu e a seção quem somos precisam ser preenchidas',
@@ -67,8 +72,7 @@ class SiteController extends Controller
         }
         else {
             return view('Site.index', compact('bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post', 'logo_inicio'));
-        } 
-
-    
-}
+        }
+        */
+    }
 }

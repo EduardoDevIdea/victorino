@@ -82,7 +82,11 @@
                   <!-- RD Navbar Toggle-->
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
-                  <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="{{asset('storage/'.$logo_inicio[0]->path)}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                  @if($logo_inicio == null)
+                    <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="images/default_images/logo/LogoAzul.PNG" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                  @else 
+                    <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="{{asset('storage/'.$logo_inicio->path)}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                  @endif
                 </div>
                 <div class="rd-navbar-main-element">
                   <div class="rd-navbar-nav-wrap">
@@ -136,7 +140,11 @@
       </header>
       <!-- Swiper-->
       <section class="section section-lg section-main-bunner section-main-bunner-filter text-center" >
-        <div class="main-bunner-img" style="background-image: url('storage/{{$bg_img[0]->path}}'); background-size: cover;"></div>
+        @if($bg_img == null)
+          <div class="main-bunner-img" style="background-image: url('images/default_images/background/bkg1.jpg'); background-size: cover;"></div>
+        @else  
+          <div class="main-bunner-img" style="background-image: url('storage/{{$bg_img->path}}'); background-size: cover;"></div>
+        @endif
         <div class="main-bunner-inner">
           <div class="container">
             <div class="box-default">
@@ -154,13 +162,23 @@
             <div class="container">
               <div class="row row-50 justify-content-xl-between align-items-lg-center" style="padding: 30px; margin-top: 50px;">
                 <div class="col-lg-6 wow fadeInLeft">
-                  <div class="box-image"><img class="box-image-static" src="storage/{{$about[0]->img}}" alt="" width="580px" height="520px"/>
-                    <h6 style="text-align: center; padding: 10px;">{{$about[0]->legenda}}</h6>
-                  </div>
+                  @if($about['img'] == null)
+                      <div class="box-image">
+                        <img class="box-image-static" src="images/default_images/sobre/sobre_1.jpg" alt="" width="580px" height="520px"/>
+                  @else
+                      <div class="box-image">
+                        <img class="box-image-static" src="storage/{{$about->img}}" alt="" width="580px" height="520px"/>
+                        <h6 style="text-align: center; padding: 10px;">{{$about->legenda}}</h6>  
+                  @endif  
+                    </div>
                 </div>
                 <div class="col-lg-6 col-xl-5 wow fadeInRight">
                   <h2>Quem Somos</h2>
-                  <p>{!! $about[0]->sobre_clinica !!}</p>
+                  @if($about['sobre_clinica'])
+                    <p>{!! $about->sobre_clinica !!}</p>
+                  @else
+                    <p>Em breve, informações sobre o instituto aqui.</p>
+                  @endif
                   <p>
                     <a class="btn btn-primary" id="mais" onclick="aparecer()" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                       Veja mais
@@ -171,7 +189,11 @@
                   </p>
                   <div class="collapse" id="collapseExample">
                     <div class="card card-body" >
-                      {!! $about[0]->informacao_geral !!}
+                      @if($about['informacao_geral'])
+                        {!! $about->informacao_geral !!}
+                      @else
+                          Em breve, mais informações aqui.
+                      @endif
                     </div>
                   </div>
                 </div>
@@ -194,8 +216,8 @@
               </div>
             </div>
             <div class="row row-20 row-lg-30">
-              @if (count($especialidade) == 0)
-                  <h4 style="text-align: center; width: 100%;">Nenhuma especialidae encontrada</h4>
+              @if(count($especialidade) == null)
+                  <h4 style="text-align: center; width: 100%;">As especialidades estarão disponíveis aqui, em breve.</h4>
               @else
               @foreach ($especialidade as $item_especialidade)
               <div class="col-md-6 col-lg-4 wow-outer">
@@ -243,8 +265,66 @@
             <div class="col-lg-12">
               <div class="isotope" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group" data-lg-thumbnail="false">
                 <div class="row no-gutters row-condensed">
-                  @if (count($espaco) == 0)
-                      <h4 style="text-align: center; width: 100%" >Nenhuma foto encontrada</h4>
+                  @if(count($espaco) == 0)
+                      <!--h4 style="text-align: center; width: 100%" >Nenhuma foto encontrada</h4-->
+                      <!--IMAGENS ILUSTRATIVAS-->
+                      <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
+                        <div class="wow slideInDown">
+                          <div class="gallery-item-classic"><img src="images/default_images/espaco/entrada.png" alt="" style="width: 100%; height: 300px; padding: 25px;"  />
+                            <div class="gallery-item-classic-caption"><a href="images/default_images/espaco/entrada.png" data-lightgallery="item">zoom</a></div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
+                        <div class="wow slideInDown">
+                          <div class="gallery-item-classic"><img src="images/default_images/espaco/recepcao_1.png" alt="" style="width: 100%; height: 300px; padding: 25px;"  />
+                            <div class="gallery-item-classic-caption"><a href="images/default_images/espaco/recepcao_1.png" data-lightgallery="item">zoom</a></div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
+                        <div class="wow slideInDown">
+                          <div class="gallery-item-classic"><img src="images/default_images/espaco/recepcao_2.png" alt="" style="width: 100%; height: 300px; padding: 25px;"  />
+                            <div class="gallery-item-classic-caption"><a href="images/default_images/espaco/recepcao_2.png" data-lightgallery="item">zoom</a></div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
+                        <div class="wow slideInDown">
+                          <div class="gallery-item-classic"><img src="images/default_images/espaco/recepcao_3.png" alt="" style="width: 100%; height: 300px; padding: 25px;"  />
+                            <div class="gallery-item-classic-caption"><a href="images/default_images/espaco/recepcao_3.png" data-lightgallery="item">zoom</a></div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
+                        <div class="wow slideInDown">
+                          <div class="gallery-item-classic"><img src="images/default_images/espaco/sala_1.png" alt="" style="width: 100%; height: 300px; padding: 25px;"  />
+                            <div class="gallery-item-classic-caption"><a href="images/default_images/espaco/sala_1.png" data-lightgallery="item">zoom</a></div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
+                        <div class="wow slideInDown">
+                          <div class="gallery-item-classic"><img src="images/default_images/espaco/sala_2.png" alt="" style="width: 100%; height: 300px; padding: 25px;"  />
+                            <div class="gallery-item-classic-caption"><a href="images/default_images/espaco/sala_2.png" data-lightgallery="item">zoom</a></div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
+                        <div class="wow slideInDown">
+                          <div class="gallery-item-classic"><img src="images/default_images/espaco/sala_3.png" alt="" style="width: 100%; height: 300px; padding: 25px;"  />
+                            <div class="gallery-item-classic-caption"><a href="images/default_images/espaco/sala_3.png" data-lightgallery="item">zoom</a></div>
+                          </div>
+                        </div>
+                    </div>
+
+                    <!--FIM IMAGENS ILUSTRATIVAS-->
                   @else
                   @foreach ($espaco as $item_space)
                     <div class="col-12 col-sm-6 col-md-4 isotope-item wow-outer" data-filter="*">
@@ -279,7 +359,7 @@
               <div class="isotope" data-isotope-layout="fitRows" data-isotope-group="gallery" data-lightgallery="group" data-lg-thumbnail="false">
                 <div class="row no-gutters row-condensed">
                   @if (count($profi) == 0)
-                      <h4 style="text-align: center; width: 100%">Nenhum Profissional encontrado</h4>
+                      <h4 style="text-align: center; width: 100%">Os profissionais estarão disponíveis aqui, em breve.</h4>
                   @else
                   @foreach ($profi as $item_profi)
                     <div class="col-12 col-md-4 isotope-item wow-outer" data-filter="Category 3" style="padding: 25px; text-align:center" >
@@ -314,7 +394,7 @@
             <h2 class="text-center wow slideInDown">Blog</h2>
             <!-- Owl Carousel-->
             @if (count($post) == 0)
-              <h4 style="text-align: center;width:100%; margin-top: 50px">Nenhuma publicação encontrada</h4>
+              <h4 style="text-align: center;width:100%; margin-top: 50px">Publicações estarão disponíveis aqui, em breve.</h4>
             @else
             <div class="carousel-wrap">
             <div class="owl-carousel wow fadeInUp" data-items="1" data-md-items="2" data-lg-items="3" data-dots="true" data-nav="false" data-stage-padding="15" data-loop="false" data-margin="30" data-mouse-drag="false">
@@ -341,13 +421,13 @@
           <div class="container">
             <div class="row row-50 justify-content-xl-between align-items-lg-center">
               <div class="col-lg-6 wow fadeInLeft">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m22!1m8!1m3!1d3889.7809383101317!2d-38.28593993517921!3d-12.857420790930849!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d-12.8581632!2d-38.2828544!4m5!1s0x7163e51da0c34fb%3A0x4d0fe4d61f5d6691!2sresidencial%20vivendas%20do%20joanes!3m2!1d-12.8569756!2d-38.284717199999996!5e0!3m2!1spt-BR!2sbr!4v1587440076603!5m2!1spt-BR!2sbr" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.450365758306!2d-38.489347085603036!3d-13.006967364043804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x716035570db92a5%3A0xcd92d0b98ff131e3!2sCondom%C3%ADnio%20do%20Edif%C3%ADcio%20RV%20Center!5e0!3m2!1spt-BR!2sbr!4v1591561128640!5m2!1spt-BR!2sbr" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
               </div>
               <div class="col-lg-6 col-xl-5 wow fadeInRight">
                 <h2>Fale Conosco</h2>
                 <p>Entre em contato com a gente para agendar suas consultas</p>
                 @if (count($contact) == 0)
-                    <h4>Nenhuma forma de contato cadastrada</h4>
+                    <h4>Nossos contatos e endereço estarão disponíveis aqui, em breve.</h4>
                 @else
                 @foreach ($contact as $item_contact)
                  <div class="card card-body" style="border: none;">

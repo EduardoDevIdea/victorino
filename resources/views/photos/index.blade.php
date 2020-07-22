@@ -74,7 +74,7 @@
 
             @include('photos.create') <!-- Modal para adicinar foto -->
 
-            <!-- VERIFICAÇÃO - se limite de 8 fotos foi atingido, não aparece botão para adicionar foto -->
+            <!-- VERIFICAÇÃO - se limite de 9 fotos foi atingido, não aparece botão para adicionar foto -->
                 @if($qtd < 9) 
 
                     <div class="row">
@@ -105,7 +105,7 @@
                         <div class="col-4">
 
                             <div class="row">
-                                <img src="/storage/{{ $photo->path }}" style="width: 300px; height: 150px;">
+                                <img src="storage/{{ $photo->path }}" style="width: 300px; height: 150px;">
                             </div>
 
                             <div class="row mb-5 d-flex justify-content-center align-items-center">
