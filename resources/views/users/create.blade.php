@@ -12,6 +12,11 @@
      ul li a {
      color: black;
  }
+ @media only screen and (max-width: 425px) {
+    .page-breadcrumb {
+            display: none;
+        }
+    }
 </style>
     <div class="page-breadcrumb">
         <div class="row">

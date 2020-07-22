@@ -40,9 +40,11 @@
         @media screen and (max-width: 768px) {
             .card_post{
             width: 100%;
+            padding: 0px
             } 
             .card_prof {
             width: 100%;
+            padding: 0px
             }
         }
         @media screen and (max-width: 576px) {
@@ -54,6 +56,15 @@
             }
 
         }
+        @media screen and (max-width: 600px) {
+            .card_post{
+            padding: 0px
+            } 
+            .card_prof {
+            padding: 0px;
+            }
+        }
+       
     </style>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

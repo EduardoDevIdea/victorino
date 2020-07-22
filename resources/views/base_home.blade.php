@@ -25,16 +25,12 @@
         width: 210px;
         text-align: center;
     }
-    @media (min-width: 576px) {
-        .navbar-header {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-        }
+    @media only screen and (max-width: 425px) {
         .logo_vic {
-            width: 150px;
-            text-align: center;
-
+            display: none;
+        }
+        .sumir {
+            display: block;
         }
     }
 </style>

@@ -1,6 +1,13 @@
 @extends('base_home')
 @section('title', 'Quem Somos')
 @section('content')
+<style>
+    @media only screen and (max-width: 425px) {
+    .page-breadcrumb {
+            display: none;
+        }
+    }
+</style>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script> 
 
@@ -19,6 +26,7 @@
                 </div>
             </div>
         </div>
+    </div>
     <div class="card">
         <div class="card-body wizard-content">
             <form id="example-form" action="{{ route('sobre.store')}}" method="POST" enctype="multipart/form-data" class="m-t-40">
@@ -26,9 +34,8 @@
 
                 <div>
                     <section>
-                      
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6 col-lg-6 col-sm-12">
                                     <div class="card card-body">
                                         
                                         <label for="sobre_clinica" style="font-size: 20px;">Sobre a clínica</label>
@@ -39,12 +46,12 @@
                                         
                                     </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6 col-lg-6 col-sm-12">
                                 <p class="mt-5">
                                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
                                         Imagem
                                     </a>
-                                    <small class="ml-1">Escolha uma imagem para acompanhar o texto</small><br>
+                                    <small class="ml-1">Escolha uma imagem <br> para acompanhar o texto</small><br>
                                     <small>Dimensões ideais: 225 largura x 225 altura</small>
 
                                 </p>

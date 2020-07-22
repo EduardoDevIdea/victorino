@@ -4,9 +4,37 @@
 
 @section('content')
 <style>
-     ul li a {
-     color: black;
- }
+    ul li a {
+    color: black;
+    }
+    @media only screen and (max-width: 320px) {
+        .page-breadcrumb {
+            display: none;
+        }
+        .table td,
+        .table th {
+            padding: 3px !important;
+        }
+        .m-4 {
+            margin: 0 !important;
+        }
+        .card_body {
+            padding: 10px 0 10px 0 !important;
+        }
+    }
+    @media only screen and (max-width: 375px) {
+        
+        .table td,
+        .table th {
+            padding: 3px !important;
+        }
+        .m-4 {
+            margin: 0 !important;
+        }
+        .card_body {
+            padding: 10px 0 10px 0 !important;
+        }
+    }
 </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
@@ -50,7 +78,6 @@
 
     <!-- CARD -->
     <div class="card text-center">
-
         <!-- CARD HEADER -->
         <div class="card-header" style="font-size: 20px">
             <ul class="nav nav-tabs card-header-tabs">

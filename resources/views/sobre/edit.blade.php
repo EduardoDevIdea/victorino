@@ -1,7 +1,14 @@
 @extends('base_home')
 @section('title', 'Quem Somos')
 @section('content')
+<style>
+    @media only screen and (max-width: 425px) {
+    .page-breadcrumb {
+            display: none;
+        }
+    }
 
+</style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     
         @if(session('update'))
