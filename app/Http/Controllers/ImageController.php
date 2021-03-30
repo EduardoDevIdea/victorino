@@ -113,7 +113,8 @@ class ImageController extends Controller
                 $image->save();
 
                 return redirect()->action('ImageController@list', ['tipo' => "logo"])
-                       ->with('store', 'Imagem armazenada com sucesso!');           }
+                       ->with('store', 'Imagem armazenada com sucesso!');           
+            }
             else{
                 return redirect()->back()->with('erroStore','Erro ao carregar imagem selecionada!');
             }
