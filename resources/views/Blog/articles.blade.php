@@ -67,7 +67,7 @@
         </div>
       </header>
       <section class="section section-lg section-main-bunner section-main-bunner-filter text-center" >
-        <div class="main-bunner-img" style="background-image: url('storage/'.{{$bg_img[0]->path}}'); background-size: cover;"></div>
+        <div class="main-bunner-img" style="background-image: url('storage/'.{{$article->img}}'); background-size: cover;"></div>
         <div class="main-bunner-inner">
           <div class="container">
             <div class="box-default">
@@ -84,7 +84,7 @@
             <div class="col-xl-4">
               <div class="block-bordered-left">
                 <div class="row row-40">
-                  <img src="storage/{{$about[0]->img}}" alt="">
+                  <img src="storage/{{$article->img}}" alt="">
                   
                 </div>
               </div>

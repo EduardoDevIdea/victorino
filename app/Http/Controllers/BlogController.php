@@ -63,8 +63,8 @@ class BlogController extends Controller
         $profi = Profissional::get();
         $contact = Contact::get();
         $post = Post::get();
-
-        // dd($caminho);
+        
+        // dd($article, $id, $bg_img, $about);
 
         return view('Blog.articles', compact('article','bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post'));
     }

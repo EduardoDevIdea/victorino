@@ -204,7 +204,7 @@
         </div>
       </div>
       <!-- Especialidades -->
-      <div id="especialidades" style="padding: 80px 0 0 0; ">
+      <div id="especialidades" style="padding: 50px 0 0 0; ">
         <section class="section section-lg bg-default">
           <div class="container">
             <div class="row justify-content-center text-center">
@@ -233,7 +233,7 @@
                         </p>
                       </div>
                       <div class="collapse" id="collapseExample1{{$item_especialidade->id}}">
-                        <div class="card card-body" style="border: none; color: black">
+                        <div class="card card-body" style="border: none; color: black; text-align: start">
                           {!! $item_especialidade->description !!}
                         </div>
                       </div>
@@ -250,7 +250,7 @@
 
       </div>
       <hr>
-      <div id="espaco" style="padding: 80px 0 0 0">
+      <div id="espaco" style="padding: 50px 0 0 0">
         <section class="section" >
           <div class="row justify-content-center text-center" style="margin-top: 80px;">
             <div class="col-md-9 col-lg-7 wow-outer">
@@ -343,12 +343,12 @@
         </section>
       </div>
       <hr>
-      <div id="profissionais" style="padding:150px 0 0 0">
+      <div id="profissionais" style="padding: 130px 0 0 0">
         <section class="section" >
           <div class="row justify-content-center text-center">
             <div class="col-md-9 col-lg-7 wow-outer">
               <div class="wow slideInDown">
-                <h3>Profissionais</h3>
+                <h3 style="font-size: 45px">Profissionais</h3>
                 <p class="text-opacity-20" style="color:black">Sempre preparados para realizar o melhor atendimento possível!</p>
               </div>
             </div>
@@ -471,7 +471,13 @@
         <div class="container wow-outer">
           <div class="wow fadeIn">
             <div class="row row-60">
-              <div class="col-12"><a href="index.html"><img src="images/logo-default1-140x57.png" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+              <div class="col-12" style="margin-bottom: 20px"><a href="index.html">
+              @if($logo_inicio == null)
+                    <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="images/default_images/logo/LogoAzul.PNG" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                  @else 
+                    <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="{{asset('storage/'.$logo_inicio->path)}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                  @endif
+                  <!-- <img src="images/logo-default1-140x57.png" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div> -->
               <div class="col-12">
                 <ul class="footer-minimal-nav">
                   <li class="rd-nav-item active"><a class="rd-nav-link" href="#home">Home</a>
@@ -500,7 +506,7 @@
                 </ul>
               </div>
             </div>
-            <p class="rights"><span>&copy;&nbsp; </span><span>&nbsp;</span><span>Victoriano</span><span>.&nbsp;</span><span>Todos os direitos reservados 2020 - <?php echo date('Y')?></span><span>&nbsp;</span><a href="#"></a>. Desenvolvido  &nbsp;por&nbsp;<a href="#">.</a></p>
+            <p class="rights"><span>&copy;&nbsp; </span><span>&nbsp;</span><span>Victoriano</span><span>.&nbsp;</span><span>Todos os direitos reservados 2020 - <?php echo date('Y')?></span><span>&nbsp;</span><a href="#"></a>. Desenvolvido  &nbsp;por&nbsp;<a href="https://www.linkedin.com/in/eduardo-gomes-de-santana-b014901a5/" target="_blank">Eduardo Gomes</a> e <a href="https://www.linkedin.com/in/matheus-dias-044a971a5/" target="_blank">Matheus Dias</a></p>
           </div>
         </div>
       </footer>
