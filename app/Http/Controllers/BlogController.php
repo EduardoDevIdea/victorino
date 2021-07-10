@@ -57,6 +57,7 @@ class BlogController extends Controller
     {
         $article = Post::findOrFail($id);
         $bg_img = Image::where('local', 'bkg1')->get();
+        $logo_inicio = Image::where('local','logo')->first();
         $about = Sobre::get();
         $especialidade = Especialidade::get();
         $espaco = Photo::get();
@@ -66,7 +67,7 @@ class BlogController extends Controller
         
         // dd($article, $id, $bg_img, $about);
 
-        return view('Blog.articles', compact('article','bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post'));
+        return view('Blog.articles', compact('article','bg_img', 'about', 'especialidade', 'espaco','profi', 'contact', 'post','logo_inicio'));
     }
 
     /**

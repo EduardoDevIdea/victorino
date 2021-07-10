@@ -34,9 +34,14 @@
                   <!-- RD Navbar Toggle-->
                   <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
                   <!-- RD Navbar Brand-->
-                  <div class="rd-navbar-brand"><a href="index.html">
+                  <div class="rd-navbar-brand"><a href="{{ url('/#home') }}">
                     <a href="{{ url('/#home') }}">
-                      <img class="brand-logo-light" src="{{asset('images/Screenshot_4-removebg-preview.png')}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a>
+                    @if($logo_inicio == null)
+                      <div class="rd-navbar-brand"><a href="{{ url('/#home') }}"><img class="brand-logo-light" src="images/default_images/logo/LogoAzul.PNG" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                    @else 
+                      <div class="rd-navbar-brand"><a href="{{ url('/#home') }}"><img class="brand-logo-light" src="{{asset('storage/'.$logo_inicio->path)}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                    @endif
+                      <!-- <img class="brand-logo-light" src="{{asset('images/$logo_inicio')}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a> -->
                     </a>
                   </div>
                 </div>
@@ -107,7 +112,14 @@
         <div class="container wow-outer">
           <div class="wow fadeIn">
             <div class="row row-60">
-              <div class="col-12"><a href="index.html"><img src="images/logo-default1-140x57.png" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+              <div class="col-12"><a href="index.html">
+              @if($logo_inicio == null)
+                    <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="images/default_images/logo/LogoAzul.PNG" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                  @else 
+                    <div class="rd-navbar-brand"><a href="#home"><img class="brand-logo-light" src="{{asset('storage/'.$logo_inicio->path)}}" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/></a></div>
+                  @endif
+                <!-- <img src="images/logo-default1-140x57.png" alt="" width="140" height="57" srcset="images/logo-default-280x113.png 2x"/> -->
+              </a></div>
               <div class="col-12">
                 <ul class="footer-minimal-nav">
                   <li class="rd-nav-item active"><a class="rd-nav-link" href="{{url('/#home')}}">Home</a>
@@ -134,7 +146,7 @@
                 </ul>
               </div>
             </div>
-            <p class="rights"><span>&copy;&nbsp; </span><span>&nbsp;</span><span>Victoriano</span><span>.&nbsp;</span><span>Todos os direitos res
+            <p class="rights"><span>&copy;&nbsp; </span><span>&nbsp;</span><span>Victoriano</span><span>.&nbsp;</span><span>Todos os direitos reservados 2020 - <?php echo date('Y')?></span><span>&nbsp;</span><a href="#"></a>. Desenvolvido  &nbsp;por&nbsp;<a href="https://www.linkedin.com/in/eduardo-gomes-de-santana-b014901a5/" target="_blank">Eduardo Gomes</a> e <a href="https://www.linkedin.com/in/matheus-dias-044a971a5/" target="_blank">Matheus Dias</a></p>
           </div>
         </div>
       </footer>
